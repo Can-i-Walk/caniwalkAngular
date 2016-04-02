@@ -1,5 +1,10 @@
 # `Can <i> walk?`
 
+## Potential Fonts:
+
+[Oswald] https://www.google.com/fonts#QuickUsePlace:quickUse
+[Dosis] https://www.google.com/fonts#QuickUsePlace:quickUse
+
 ## Color Scheme:
 
 [First Find](https://coolors.co/app/353535-3c6e71-ffffff-d9d9d9-284b63) dark green, blue, a dark gray, light gray, off white
