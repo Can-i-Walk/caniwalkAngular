@@ -1,3 +1,6 @@
+# caniwalkAngular
+This repo will house the CanIWalk Angular app
+
 # `Can <i> walk?`
 
 ## Potential Fonts:
@@ -49,3 +52,23 @@ a:hover {
    text-decoration: underline;
 }
 ```
+## Font Awesome Icons:
+
+For accessibility: [Wheelchair](http://fortawesome.github.io/Font-Awesome/icon/wheelchair/)  
+For Enjoyability: [Smiley Face](http://fortawesome.github.io/Font-Awesome/icon/smile-o/)  
+For
+
+
+## Wireframe workflow:
+
+Login Page needs proceed as guest functionality, and sign up modal pops from this page.
+* We don't really need athletic level - that's kinda not really needed.
+* We're going to have accessibility info worked into the rating system. It'll be unobtrusive to those who don't need accessibility options.
+* Lets separate needs accessibility ratings and don't need accessibility ratings.
+
+Items on Login Page:
+
+1. Header
+2. Google Sign in bt
+
+From login page navigate to plan a walk page.
