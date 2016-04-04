@@ -2,8 +2,8 @@
 
 ## Potential Fonts:
 
-[Oswald] https://www.google.com/fonts#QuickUsePlace:quickUse  
-[Dosis] https://www.google.com/fonts#QuickUsePlace:quickUse  
+[Oswald](https://www.google.com/fonts/specimen/Oswald)  
+[Dosis](https://www.google.com/fonts/specimen/Dosis)  
 
 ## Color Scheme:
 
