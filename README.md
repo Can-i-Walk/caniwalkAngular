@@ -3,6 +3,14 @@ This repo will house the CanIWalk Angular app
 
 # `Can <i> walk?`
 
+# when naming variables, use 'trip' instead of 'route' or 'path' #
+
+# Your local gitignore on each branch should include: #
+
+###.gitignore###
+###assets/css/.sass-cache/###
+###assets/css/styles.css.map###
+
 ## Potential Fonts:
 
 [Oswald](https://www.google.com/fonts/specimen/Oswald)  
