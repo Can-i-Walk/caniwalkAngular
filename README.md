@@ -9,7 +9,7 @@ This repo will house the CanIWalk Angular app
 
 ###.gitignore###
 ###assets/css/.sass-cache/###
-###assets/css/styles.css.mapg###
+###assets/css/styles.css.map###
 
 ## Potential Fonts:
 
