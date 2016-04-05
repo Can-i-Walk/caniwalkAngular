@@ -15,3 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+.gitignore
+/assets/css/styles.css.map

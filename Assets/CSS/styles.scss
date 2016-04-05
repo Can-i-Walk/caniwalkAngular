@@ -1,0 +1,21 @@
+// Sass variables go at the top here
+
+// these are just examples of global variables we could include
+// $Orange: #f56400;
+// $Blue: #34a8c4;
+// $Background: #efefeb;
+// $Grey-type: #aaaaaa;
+// $Grey-border: #dcdcd9;
+// $Grey-background: #f5f5f1;
+// $Blue-border: #2f98b1;
+// $Grey-type: #aaaaaa;
+// $Dark-grey-type: #666666;
+// $Bitter: 'Bitter', 'Times', serif;
+// $Lato: 'Lato', 'Arial', sans-serif;
+
+@import 'dashboard';
+@import 'duringWalk';
+@import 'editAccount';
+@import 'inputDest';
+@import 'login';
+@import 'walkInfo';
