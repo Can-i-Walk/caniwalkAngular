@@ -7,9 +7,11 @@ This repo will house the CanIWalk Angular app
 
 # Your local gitignore on each branch should include: #
 
-###.gitignore###
-###assets/css/.sass-cache/###
-###assets/css/styles.css.map###
+###.gitignore###   
+###assets/css/.sass-cache/###   
+###assets/css/styles.css.map###   
+###public/###  
+###firebase.json###   
 
 ## Potential Fonts:
 
