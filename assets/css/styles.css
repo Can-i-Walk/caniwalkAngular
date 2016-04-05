@@ -1,8 +1,47 @@
+/*header/big font*/
+/*body/readable font*/
 .inputDest-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 2em;
-  font-size: 2em; }
+  font-size: 2em;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold; }
+  .inputDest-header a {
+    text-decoration: none; }
+    .inputDest-header a h4 {
+      color: #CD5334; }
+      .inputDest-header a h4 span {
+        color: #17BEBB; }
+
+.inputDest-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: 10%;
+  color: #2E282A;
+  font-family: "Oswald", sans-serif; }
+  .inputDest-form input {
+    font-size: 4em;
+    margin-top: 5%;
+    border: 1px solid #2E282A; }
+  .inputDest-form label {
+    font-size: 3em;
+    margin-top: 5%; }
+  .inputDest-form a {
+    justify-content: center;
+    margin-top: 5%;
+    font-size: 3em;
+    text-decoration: none;
+    color: #2E282A; }
+  .inputDest-form button {
+    font-size: 4em;
+    border: 0.5em solid #17BEBB;
+    border-radius: 0.5em;
+    background-color: #17BEBB;
+    margin-top: 8em;
+    padding: 2em 0; }
 
 /*# sourceMappingURL=styles.css.map */
