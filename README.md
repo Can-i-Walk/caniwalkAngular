@@ -3,6 +3,8 @@ This repo will house the CanIWalk Angular app
 
 # `Can <i> walk?`
 
+# when naming variables, use 'trip' instead of 'route' or 'path' #
+
 ## Potential Fonts:
 
 [Oswald](https://www.google.com/fonts/specimen/Oswald)  
