@@ -28,10 +28,6 @@
   font-size: 35px;
   margin: 10px; }
 
-#login-signIn-name {
-  font-size: 35px;
-  margin: 10px; }
-
 .login-signIn-button {
   font-size: 35px;
   margin-bottom: 30px;
@@ -66,17 +62,53 @@
   padding: 15px;
   font-size: 70px; }
 
-.login--signIn-register-modalHolder {
+.login-register-modalHolder {
   border: solid 1px red;
   position: absolute;
   top: 15px;
   left: 15px;
   right: 15px;
   bottom: 15px;
-  background: rgba(0, 0, 0, 0.7); }
+  background: rgba(0, 0, 0, 0.7);
+  display: none; }
 
-.login--signIn-register-modalfields {
-  width: 40%; }
+.login-register-modalfields {
+  width: 40%;
+  margin-top: 20%;
+  margin-left: 30%; }
+
+.login-register-modal-title {
+  margin-top: 100px;
+  text-align: center;
+  color: white;
+  font-family: "Dosis", sans-serif;
+  font-size: 70px; }
+
+.login-register-field-modalLabel {
+  color: white; }
+
+#login-register-email {
+  font-size: 35px;
+  margin: 10px; }
+
+#login-register-password {
+  font-size: 35px;
+  margin: 10px; }
+
+#login-register-name {
+  font-size: 35px;
+  margin: 10px; }
+
+.login-register-button {
+  font-size: 35px;
+  margin-bottom: 30px;
+  display: inline-block; }
+
+.login-register-signIn {
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  margin-top: 30%; }
 
 body {
   background: #f5f5f1;

@@ -11,3 +11,14 @@ canIWalk.controller('walkController', ['$http', '$scope', function($http, $scope
 
 
 }]);
+
+canIWalk.controller('loginModalController', ['$scope', function($scope) {
+
+  $scope.showLoginModal = function(){
+    console.log("modal function was called");
+  };
+
+
+
+
+}])

@@ -45,14 +45,6 @@
   margin: 10px;
 }
 
-#login-signIn-name {
-  // display: block;
-  font:{
-    size: 35px;
-  }
-  margin: 10px;
-}
-
 .login-signIn-button {
   font:{
     size: 35px;
@@ -104,7 +96,7 @@
   }
 }
 
-.login--signIn-register-modalHolder {
+.login-register-modalHolder {
   border: solid 1px red;
   position: absolute;
   top: 15px;
@@ -112,9 +104,66 @@
   right: 15px;
   bottom: 15px;
   background: rgba(0, 0, 0, 0.7);
-  // display: none;
+  display: none;
 }
 
-.login--signIn-register-modalfields {
-  width: 40%
+.login-register-modalfields {
+  width: 40%;
+  margin:{
+  top: 20%;
+  left: 30%;
+  }
+}
+
+.login-register-modal-title {
+  margin-top: 100px;
+  text-align: center;
+  color: white;
+  font:{
+    family: $Dosis;
+    size: 70px;
+  }
+}
+
+.login-register-field-modalLabel {
+  color: white;
+}
+
+#login-register-email {
+  // display: block;
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+}
+
+#login-register-password {
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+}
+
+#login-register-name {
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+}
+
+.login-register-button {
+  font:{
+    size: 35px;
+  }
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.login-register-signIn {
+  text-align: center;
+  color: white;
+  font:{
+    size: 60px;
+  }
+  margin-top: 30%;
 }
