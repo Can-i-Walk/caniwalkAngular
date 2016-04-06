@@ -8,20 +8,29 @@
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
   </head>
   <body ng-app="canIWalk">
+     <main ng-cloak>
 
     <div>
       <ng-view>
+
       </ng-view>
     </div>
+</main>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-resource.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
     <script type="text/javascript" src="assets/js/controllers.js"></script>
+    <script src="../assets/js/maps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEbD0mt3gxevwMmJOdu0HSTnA2wGh9pLU&callback=initMap"
+   async defer></script>
+
   </body>
 </html>
