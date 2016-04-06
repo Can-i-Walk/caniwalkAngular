@@ -31,6 +31,8 @@ canIWalk.config(function($routeProvider) {
     });
 });
 
+// below are our Google OAuth functions
+
 gapi.load('auth2', function() {
   console.log("the google function was run")
   gapi.auth2.init();
@@ -56,3 +58,16 @@ function renderButton() {
     'onfailure': onFailure
   });
 }
+
+// function onSignIn(googleUser) {
+//   var id_token = googleUser.getAuthResponse().id_token;
+//   console.log("onSignin was run");
+// }
+//
+// var xhr = new XMLHttpRequest();
+// xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
+// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+// xhr.onload = function() {
+//   console.log('Signed in as: ' + xhr.responseText);
+// };
+// xhr.send('idtoken=' + id_token);
