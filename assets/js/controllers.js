@@ -20,8 +20,8 @@ canIWalk.controller('gMapController', function(NgMap) {
   NgMap.getMap().then(function(map) {
     console.log(map.getCenter());
     initMap();
-    console.log('markers', map.markers);
-    console.log('shapes', map.shapes);
+   //  console.log('markers', map.markers);
+   //  console.log('shapes', map.shapes);
   });
 
 });

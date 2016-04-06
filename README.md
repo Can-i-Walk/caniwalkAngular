@@ -80,3 +80,31 @@ Items on Login Page:
 2. Google Sign in bt
 
 From login page navigate to plan a walk page.
+
+
+Google's Documentation on [DirectionsRequest](https://developers.google.com/maps/documentation/javascript/directions#DirectionsRequests)
+```
+{
+  origin: LatLng | String | google.maps.Place,
+  destination: LatLng | String | google.maps.Place,
+  travelMode: walking,
+  transitOptions: TransitOptions,   (optional)
+  drivingOptions: DrivingOptions,   (optional)
+  unitSystem: UnitSystem,           (optional)
+  waypoints[]: DirectionsWaypoint,  (optional)
+  optimizeWaypoints: Boolean,
+  provideRouteAlternatives: Boolean,
+  avoidHighways: Boolean,
+  avoidTolls: Boolean,
+  region: String
+}
+```
+This is the DirectionsRequest object that we'll have to send google. We'll need to set:
+* origin = current location
+* destination = where they're going
+* travelMode is going to = `google.maps.TravelMode.WALKING`, because that's what we do here.
+* **only the origin, destination, and travelMode are required**
+* we'll want to get the unitSystem set, so we can return a good number to the user (`UnitSystem.METRIC`[shown in kilometers] or `UnitSystem.IMPERIAL` [shown in miles])
+* waypoints could be an interesting thing
+* provideRouteAlternatives optional - if true, will give a few routes
+*
