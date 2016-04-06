@@ -31,4 +31,5 @@ canIWalk.controller('gMapController', function(NgMap) {
     // console.log('markers', map.markers);
     // console.log('shapes', map.shapes);
   });
+
 });
