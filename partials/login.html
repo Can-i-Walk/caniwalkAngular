@@ -1,4 +1,6 @@
-<div class="login-container" ng-controller="loginModalController">
+<!-- I should credit this codepen with helping get our modal working: http://codepen.io/SusanneLundblad/pen/dabcw -->
+
+<div class="login-container">
   <h1 class="login-logo">CAN<span>&#60i&#62</span>WALK</h1>
   <div class="login-signIn">
     <label class="login-signIn-field-label" for="login-signIn-email">Email</label>
@@ -10,11 +12,11 @@
       <a href="#"><span class="login-signIn-forgotPW">Forgot Password?</span></a>
     </div>
     <div class="login-signIn-google">
-      <i class="fa fa-google fa-2x"></i>
+      <a href=""><i class="fa fa-google fa-2x"></i></a>
       <span>Sign in with Google!</span>
     </div>
-    <h3 ng-click="showLoginModal()"class="login-signIn-register">New? Register!</h3>
-    <div class="login-register-modalHolder">
+    <h3 ng-click="modal=true" class="login-signIn-register">New? Register!</h3>
+    <div class="login-register-modalHolder" ng-show="modal">
       <div class="login-register-modal">
         <h2 class="login-register-modal-title">PROVIDE YOUR INFO</h2>
         <div class="login-register-modalfields">
@@ -25,7 +27,7 @@
           <label class="login-register-field-modalLabel" for="login-register-password">Password</label>
           <input id="login-register-password" type="password" placeholder="Password">
           <a href="#"><button class="login-register-button" type="submit">Sign Up</button></a>
-          <h3 class="login-register-signIn">Already signed up? Log In!</h3>
+          <h3 ng-click="modal=false" class="login-register-signIn">Already signed up? Log In!</h3>
         </div>
       </div>
     </div>

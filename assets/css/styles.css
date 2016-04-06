@@ -167,8 +167,7 @@
   left: 15px;
   right: 15px;
   bottom: 15px;
-  background: rgba(0, 0, 0, 0.7);
-  display: none; }
+  background: rgba(0, 0, 0, 0.7); }
 
 .login-register-modalfields {
   width: 40%;
