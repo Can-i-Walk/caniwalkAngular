@@ -10,5 +10,8 @@ canIWalk.controller('walkController', ['$http', '$scope', function($http, $scope
     $scope.stuff = data;
   });
 
+  $scope.clickMe = function (){
+
+};
 
 }]);

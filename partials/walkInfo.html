@@ -1,0 +1,37 @@
+<div class="walkInfo-page">
+   <header class="walkInfo-header">
+      <a href="#/home"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
+   </header>
+   <section class="walkInfo-content">
+      <h2>Here's your walk to {{destination}}</h2>
+      <div class="walkInfo-map">
+      </div>
+      <label class="walkInfo-distance">0.4 miles</label>
+      <label class="walkInfo-time">10 minutes</label>
+      <section class="walkInfo-reviews">
+         <h4>Other User Reviews</h4>
+         <ul class="walkInfo-review-list">
+            <li>{{date|dateformat}}date/dest/avg rating?
+               <!-- <ul>
+                  <li>Safety: </li>
+                  <li>Ease: </li>
+                  <li>Enjoyability: </li>
+                  <li>Comments: </li>
+               </ul> -->
+            </li>
+            <li>{{date | dateformat}}date/dest/avg rating?
+               <!-- <ul>
+                  <li>Safety: </li>
+                  <li>Ease: </li>
+                  <li>Enjoyability: </li>
+                  <li>Comments: </li>
+               </ul> -->
+            </li>
+         </ul>
+      </section>
+   </section>
+   <div class="walkInfo-buttons">
+      <button class="walkInfo-accept">Take this walk</button>
+      <button class="walkInfo-decline">No thanks</button>
+   </div>
+</div>

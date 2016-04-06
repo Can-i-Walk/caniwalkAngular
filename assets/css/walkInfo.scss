@@ -1,0 +1,74 @@
+.walkInfo-header {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: 2em;
+   font-size: 2em;
+   font-family: $Dosis;
+   font-weight: bold;
+   a {
+      text-decoration: none;
+      h4 {
+         color: $BurntOrange;
+         span {
+            color: $Teal;
+         }
+      }
+   }
+}//close walkInfo-header
+
+
+.walkInfo-content {
+   width: 80%;
+   margin-left: 10%;
+   font-family: $Oswald;
+   font-size: 4em;
+   color: $Text;
+   h2 {
+
+   }
+   .walkInfo-map {
+      height: 10em;
+      width: 100%;
+      border: 1px solid red;
+   }
+   .walkInfo-distance {
+      float: left;
+   }
+   .walkInfo-time {
+      float: right;
+   }
+   .walkInfo-reviews {
+      margin-top: 1.5em;
+      h4 {
+         text-decoration: underline;
+         margin-bottom: 0.5em;
+         text-align: center;
+      }
+   }
+}
+
+
+//styling for the accept walk and decline walk buttons
+.walkInfo-buttons {
+   position: absolute;
+   bottom: 0.5em;
+   font-size: 4em;
+   width: 100%;
+   margin-left: 4%;
+   button {
+      padding: 1em;
+      font-size: 0.5em;
+      width: 45%;
+   }
+   .walkInfo-accept {
+      background-color: $Teal;
+      border: 1em solid $Teal;
+      border-radius: 0.5em;
+   }
+   .walkInfo-decline {
+      background-color: $Flesh;
+      border: 1em solid $Flesh;
+      border-radius: 0.5em;
+   }
+}//end styling for the accept/decline buttons
