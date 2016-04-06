@@ -132,6 +132,9 @@
       margin-bottom: 0.5em;
       text-align: center; }
 
+.walkInfo-map-google {
+  height: 100%; }
+
 .walkInfo-buttons {
   position: absolute;
   bottom: 0.5em;
