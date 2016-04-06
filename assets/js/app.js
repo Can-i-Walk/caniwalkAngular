@@ -1,4 +1,4 @@
-var canIWalk = angular.module("canIWalk", ['ngRoute']);
+var canIWalk = angular.module("canIWalk", ['ngRoute', 'ngMap']);
 
 canIWalk.config(function($routeProvider) {
   $routeProvider
