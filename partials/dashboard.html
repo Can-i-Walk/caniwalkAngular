@@ -1,0 +1,46 @@
+<div class="dashboard-page" ng-controller="walkController">
+   <header class="dashboard-header">
+      <a href="#/home"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
+   </header>
+   <section class="dashboard-profile">
+      <h3>Your Walk History</h3>
+      <ul class="dashboard-walk-history">
+         <li>
+            <!-- {{walk date | date }} {{ walk destination }}-->
+         </li>
+         <li ng-click="clicked1=!clicked1">4/2/16 Cocoa Cinnamon
+            <ul class="dashboard-ratings" ng-show="clicked1">
+               <li>Safety: </li>
+               <li>Ease: </li>
+               <li>Enjoyability: </li>
+               <li>Comments: </li>
+            </ul>
+         </li>
+         <li ng-click="clicked2=!clicked2">3/22/16 The Iron Yard
+            <ul class="dashboard-ratings" ng-show="clicked2">
+               <li>Safety: </li>
+               <li>Ease: </li>
+               <li>Enjoyability: </li>
+               <li>Comments: </li>
+            </ul>
+         </li>
+         <li ng-click="clicked3=!clicked3">3/12/16 The Corner Store
+            <ul class="dashboard-ratings" ng-show="clicked3">
+               <li>Safety: </li>
+               <li>Ease: </li>
+               <li>Enjoyability: </li>
+               <li>Comments: </li>
+            </ul>
+         </li>
+         <li ng-click="clicked4=!clicked4">2/12/16 ABC store
+            <ul class="dashboard-ratings" ng-show="clicked4">
+               <li>Safety: </li>
+               <li>Ease: </li>
+               <li>Enjoyability: </li>
+               <li>Comments: </li>
+            </ul>
+         </li>
+      </ul>
+      <a class="dashboard-edit-profile" href="#/edit_account"><button type="button">Edit Your Profile</button></a>
+   </section>
+</div>

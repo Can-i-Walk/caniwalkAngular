@@ -114,4 +114,154 @@ body {
   background: #f5f5f1;
   font-family: "Oswald", sans-serif; }
 
+/*header/big font*/
+/*body/readable font*/
+.dashboard-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2em;
+  font-size: 2em;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold; }
+  .dashboard-header a {
+    text-decoration: none; }
+    .dashboard-header a h4 {
+      color: #CD5334; }
+      .dashboard-header a h4 span {
+        color: #17BEBB; }
+
+.dashboard-profile {
+  width: 80%;
+  margin-left: 10%;
+  font-family: "Oswald", sans-serif; }
+  .dashboard-profile h3 {
+    font-size: 4em;
+    text-decoration: underline;
+    font-weight: bold; }
+  .dashboard-profile .dashboard-walk-history {
+    font-size: 4em;
+    margin-top: 5%; }
+    .dashboard-profile .dashboard-walk-history li {
+      margin-top: 5%; }
+
+.dashboard-ratings li {
+  font-size: 0.4em; }
+
+.dashboard-edit-profile {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  text-decoration: none;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 10%;
+  left: 15%;
+  width: 70%; }
+  .dashboard-edit-profile button {
+    padding: 1em;
+    font-size: 4em;
+    background-color: #17BEBB;
+    border: 0.5em solid #17BEBB;
+    border-radius: 0.5em; }
+
+.inputDest-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2em;
+  font-size: 2em;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold; }
+  .inputDest-header a {
+    text-decoration: none; }
+    .inputDest-header a h4 {
+      color: #CD5334; }
+      .inputDest-header a h4 span {
+        color: #17BEBB; }
+
+.inputDest-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: 10%;
+  color: #2E282A;
+  font-family: "Oswald", sans-serif; }
+  .inputDest-form input {
+    font-size: 4em;
+    margin-top: 5%;
+    border: 1px solid #2E282A; }
+  .inputDest-form label {
+    font-size: 3em;
+    margin-top: 5%; }
+  .inputDest-form a {
+    justify-content: center;
+    margin-top: 5%;
+    font-size: 3em;
+    text-decoration: none;
+    color: #2E282A; }
+  .inputDest-form button {
+    font-size: 4em;
+    border: 0.5em solid #17BEBB;
+    border-radius: 0.5em;
+    background-color: #17BEBB;
+    margin-top: 8em;
+    padding: 2em 0; }
+
+.walkInfo-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2em;
+  font-size: 2em;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold; }
+  .walkInfo-header a {
+    text-decoration: none; }
+    .walkInfo-header a h4 {
+      color: #CD5334; }
+      .walkInfo-header a h4 span {
+        color: #17BEBB; }
+
+.walkInfo-content {
+  width: 80%;
+  margin-left: 10%;
+  font-family: "Oswald", sans-serif;
+  font-size: 4em;
+  color: #2E282A; }
+  .walkInfo-content .walkInfo-map {
+    height: 10em;
+    width: 100%;
+    border: 1px solid red; }
+  .walkInfo-content .walkInfo-distance {
+    float: left; }
+  .walkInfo-content .walkInfo-time {
+    float: right; }
+  .walkInfo-content .walkInfo-reviews {
+    margin-top: 1.5em; }
+    .walkInfo-content .walkInfo-reviews h4 {
+      text-decoration: underline;
+      margin-bottom: 0.5em;
+      text-align: center; }
+
+.walkInfo-buttons {
+  position: absolute;
+  bottom: 0.5em;
+  font-size: 4em;
+  width: 100%;
+  margin-left: 4%; }
+  .walkInfo-buttons button {
+    padding: 1em;
+    font-size: 0.5em;
+    width: 45%; }
+  .walkInfo-buttons .walkInfo-accept {
+    background-color: #17BEBB;
+    border: 1em solid #17BEBB;
+    border-radius: 0.5em; }
+  .walkInfo-buttons .walkInfo-decline {
+    background-color: #EFCFCE;
+    border: 1em solid #EFCFCE;
+    border-radius: 0.5em; }
+
 /*# sourceMappingURL=styles.css.map */

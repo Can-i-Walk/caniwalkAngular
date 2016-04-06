@@ -1,0 +1,70 @@
+.dashboard-header {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: 2em;
+   font-size: 2em;
+   font-family: $Dosis;
+   font-weight: bold;
+   a {
+      text-decoration: none;
+      h4 {
+         color: $BurntOrange;
+         span {
+            color: $Teal;
+         }
+      }
+   }
+}//close dashboard-header
+
+
+//this is the styling for the past walks in the dashboard
+.dashboard-profile {
+   width: 80%;
+   margin-left: 10%;
+   font-family: $Oswald;
+
+   h3 {
+      font-size: 4em;
+      text-decoration: underline;
+      font-weight: bold;
+
+   }
+   .dashboard-walk-history {
+      font-size: 4em;
+      margin-top: 5%;
+      li {
+         margin-top: 5%;
+
+      }
+   }
+}
+
+
+//this is the styling for the ratings drop-down when you click on a walk in the dashboard
+.dashboard-ratings {
+   li {
+      font-size: 0.4em;
+   }
+}
+
+//styling for 'Edit Profile' Button
+.dashboard-edit-profile {
+   display: flex;
+   justify-content: center;
+   margin-top: 10%;
+   text-decoration: none;
+   align-items: flex-end;
+   position: fixed;
+   bottom: 10%;
+   left: 15%;
+   width: 70%;
+
+   button {
+      padding: 1em;
+      font-size: 4em;
+      background-color: $Teal;
+      border: 0.5em solid $Teal;
+      border-radius: 0.5em;
+   }
+}

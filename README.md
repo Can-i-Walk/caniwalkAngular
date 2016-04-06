@@ -10,8 +10,6 @@ This repo will house the CanIWalk Angular app
 ###.gitignore###   
 ###assets/css/.sass-cache/###   
 ###assets/css/styles.css.map###   
-###public/###  
-###firebase.json###   
 
 ## Potential Fonts:
 
