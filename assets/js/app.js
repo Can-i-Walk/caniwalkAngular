@@ -30,3 +30,29 @@ canIWalk.config(function($routeProvider) {
       redirectTo: '/home'
     });
 });
+
+gapi.load('auth2', function() {
+  console.log("the google function was run")
+  gapi.auth2.init();
+});
+
+function onSuccess(googleUser) {
+  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+}
+
+function onFailure(error) {
+  console.log(error);
+}
+
+function renderButton() {
+  // console.log("renderButton function was run");
+  gapi.signin2.render('g-signin2', {
+    'scope': 'profile email',
+    'width': 240,
+    'height': 50,
+    'longtitle': true,
+    'theme': 'dark',
+    'onsuccess': onSuccess,
+    'onfailure': onFailure
+  });
+}
