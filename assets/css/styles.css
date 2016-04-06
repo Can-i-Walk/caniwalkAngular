@@ -1,3 +1,101 @@
+/*header/big font*/
+/*body/readable font*/
+.dashboard-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2em;
+  font-size: 2em;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold; }
+  .dashboard-header a {
+    text-decoration: none; }
+    .dashboard-header a h4 {
+      color: #CD5334; }
+      .dashboard-header a h4 span {
+        color: #17BEBB; }
+
+.dashboard-profile {
+  width: 80%;
+  margin-left: 10%;
+  font-family: "Oswald", sans-serif; }
+  .dashboard-profile h3 {
+    font-size: 4em;
+    text-decoration: underline;
+    font-weight: bold; }
+  .dashboard-profile .dashboard-walk-history {
+    font-size: 4em;
+    margin-top: 5%; }
+    .dashboard-profile .dashboard-walk-history li {
+      margin-top: 5%; }
+
+.dashboard-ratings li {
+  font-size: 0.4em; }
+
+.dashboard-edit-profile {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  text-decoration: none;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 10%;
+  left: 15%;
+  width: 70%; }
+  .dashboard-edit-profile button {
+    padding: 1em;
+    font-size: 4em;
+    background-color: #17BEBB;
+    border: 0.5em solid #17BEBB;
+    border-radius: 0.5em; }
+
+.inputDest-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2em;
+  font-size: 2em;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold; }
+  .inputDest-header a {
+    text-decoration: none; }
+    .inputDest-header a h4 {
+      color: #CD5334; }
+      .inputDest-header a h4 span {
+        color: #17BEBB; }
+
+.inputDest-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: 10%;
+  color: #2E282A;
+  font-family: "Oswald", sans-serif; }
+  .inputDest-form input {
+    font-size: 4em;
+    margin-top: 5%;
+    border: 1px solid #2E282A; }
+  .inputDest-form label {
+    font-size: 3em;
+    margin-top: 5%; }
+  .inputDest-form a {
+    display: flex;
+    margin-top: 5%;
+    font-size: 3em;
+    text-decoration: none;
+    color: #2E282A; }
+    .inputDest-form a button {
+      font-size: 1em;
+      border: 0.5em solid #17BEBB;
+      border-radius: 0.5em;
+      background-color: #17BEBB;
+      padding: 1em 0;
+      width: 50%;
+      margin-left: 15%;
+      position: absolute;
+      bottom: 2em; }
+
 .login-container {
   font-family: "Oswald", sans-serif;
   font-color: #2E282A;
@@ -110,108 +208,6 @@
   font-size: 60px;
   margin-top: 30%; }
 
-body {
-  background: #f5f5f1;
-  font-family: "Oswald", sans-serif; }
-
-/*header/big font*/
-/*body/readable font*/
-.dashboard-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 2em;
-  font-size: 2em;
-  font-family: "Dosis", sans-serif;
-  font-weight: bold; }
-  .dashboard-header a {
-    text-decoration: none; }
-    .dashboard-header a h4 {
-      color: #CD5334; }
-      .dashboard-header a h4 span {
-        color: #17BEBB; }
-
-.dashboard-profile {
-  width: 80%;
-  margin-left: 10%;
-  font-family: "Oswald", sans-serif; }
-  .dashboard-profile h3 {
-    font-size: 4em;
-    text-decoration: underline;
-    font-weight: bold; }
-  .dashboard-profile .dashboard-walk-history {
-    font-size: 4em;
-    margin-top: 5%; }
-    .dashboard-profile .dashboard-walk-history li {
-      margin-top: 5%; }
-
-.dashboard-ratings li {
-  font-size: 0.4em; }
-
-.dashboard-edit-profile {
-  display: flex;
-  justify-content: center;
-  margin-top: 10%;
-  text-decoration: none;
-  align-items: flex-end;
-  position: fixed;
-  bottom: 10%;
-  left: 15%;
-  width: 70%; }
-  .dashboard-edit-profile button {
-    padding: 1em;
-    font-size: 4em;
-    background-color: #17BEBB;
-    border: 0.5em solid #17BEBB;
-    border-radius: 0.5em; }
-
-.inputDest-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 2em;
-  font-size: 2em;
-  font-family: "Dosis", sans-serif;
-  font-weight: bold; }
-  .inputDest-header a {
-    text-decoration: none; }
-    .inputDest-header a h4 {
-      color: #CD5334; }
-      .inputDest-header a h4 span {
-        color: #17BEBB; }
-
-.inputDest-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 80%;
-  margin-left: 10%;
-  color: #2E282A;
-  font-family: "Oswald", sans-serif; }
-  .inputDest-form input {
-    font-size: 4em;
-    margin-top: 5%;
-    border: 1px solid #2E282A; }
-  .inputDest-form label {
-    font-size: 3em;
-    margin-top: 5%; }
-  .inputDest-form a {
-    display: flex;
-    margin-top: 5%;
-    font-size: 3em;
-    text-decoration: none;
-    color: #2E282A; }
-    .inputDest-form a button {
-      font-size: 1em;
-      border: 0.5em solid #17BEBB;
-      border-radius: 0.5em;
-      background-color: #17BEBB;
-      padding: 1em 0;
-      width: 50%;
-      margin-left: 15%;
-      position: absolute;
-      bottom: 2em; }
-
 .walkInfo-header {
   display: flex;
   flex-direction: row;
@@ -248,6 +244,9 @@ body {
       margin-bottom: 0.5em;
       text-align: center; }
 
+.walkInfo-map-google {
+  height: 100%; }
+
 .walkInfo-buttons {
   position: absolute;
   bottom: 0.5em;
@@ -266,5 +265,9 @@ body {
     background-color: #EFCFCE;
     border: 1em solid #EFCFCE;
     border-radius: 0.5em; }
+
+body {
+  background: #f5f5f1;
+  font-family: "Oswald", sans-serif; }
 
 /*# sourceMappingURL=styles.css.map */
