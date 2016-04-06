@@ -1,0 +1,169 @@
+.login-container {
+  font:{
+    family: $Oswald;
+    color: #2E282A;
+    size: 35px;
+  }
+}
+
+.login-logo {
+  padding: 10px;
+  text-align: center;
+  color: $BurntOrange;
+  font:{
+    size: 45px;
+    weight: 700;
+    family: $Dosis;
+  }
+  span {
+    color: $Teal;
+  }
+}
+
+.login-signIn {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.login-signIn-field-label {
+  display: block;
+}
+
+#login-signIn-email {
+  // display: block;
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+}
+
+#login-signIn-password {
+  // display: block;
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+}
+
+.login-signIn-button {
+  font:{
+    size: 35px;
+  }
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.login-signIn-forgotPW {
+  float: right;
+}
+
+.login-signIn-google {
+  margin: 10px;
+  border:{
+    style: solid;
+    width: 2px;
+    color: #2E282A
+  }
+  .fa-google {
+    color: white;
+    background: #d50f25;
+    padding: 5px;
+  }
+  span {
+    font:{
+      size: 35px;
+    }
+  }
+}
+
+.login-signIn-register {
+  width: 30%;
+  margin:{
+    top: 50px;
+    left: 35%;
+  }
+}
+
+.login-signIn-guestWalkBtn {
+  position: absolute;
+  bottom: 40px;
+  left: 22%;
+  color: white;
+  background: $Teal;
+  padding: 15px;
+  font:{
+    size: 70px;
+  }
+}
+
+.login-register-modalHolder {
+  border: solid 1px red;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  // display: none;
+}
+
+.login-register-modalfields {
+  width: 40%;
+  margin:{
+  top: 20%;
+  left: 30%;
+  }
+}
+
+.login-register-modal-title {
+  margin-top: 100px;
+  text-align: center;
+  color: white;
+  font:{
+    family: $Dosis;
+    size: 70px;
+  }
+}
+
+.login-register-field-modalLabel {
+  color: white;
+}
+
+#login-register-email {
+  // display: block;
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+}
+
+#login-register-password {
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+}
+
+#login-register-name {
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+}
+
+.login-register-button {
+  font:{
+    size: 35px;
+  }
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.login-register-signIn {
+  text-align: center;
+  color: white;
+  font:{
+    size: 60px;
+  }
+  margin-top: 30%;
+}

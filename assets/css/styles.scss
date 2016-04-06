@@ -13,3 +13,8 @@ $Oswald: 'Oswald', sans-serif; /*body/readable font*/
 @import 'inputDest';
 @import 'login';
 @import 'walkInfo';
+
+body {
+  background: $Grey-background;
+  font-family: $Oswald;
+}

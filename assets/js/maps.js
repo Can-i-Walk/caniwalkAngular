@@ -1,12 +1,4 @@
-//google maps!
-
-// $(function(){
-//    'use strict';
-//    var map;
-//    var infowindow;
-
    function initMap() {
-      console.log('initMap function running')
      var map = new google.maps.Map(document.getElementById('map'), {
        center: {lat: 35.994, lng: -78.898},
        zoom: 13,
