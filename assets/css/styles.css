@@ -80,18 +80,21 @@
     font-size: 3em;
     margin-top: 5%; }
   .inputDest-form a {
-    justify-content: center;
+    display: flex;
     margin-top: 5%;
     font-size: 3em;
     text-decoration: none;
     color: #2E282A; }
-  .inputDest-form button {
-    font-size: 4em;
-    border: 0.5em solid #17BEBB;
-    border-radius: 0.5em;
-    background-color: #17BEBB;
-    margin-top: 8em;
-    padding: 2em 0; }
+    .inputDest-form a button {
+      font-size: 1em;
+      border: 0.5em solid #17BEBB;
+      border-radius: 0.5em;
+      background-color: #17BEBB;
+      padding: 1em 0;
+      width: 50%;
+      margin-left: 15%;
+      position: absolute;
+      bottom: 2em; }
 
 .walkInfo-header {
   display: flex;
