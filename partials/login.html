@@ -20,8 +20,8 @@
     <div class="login-register-modalHolder" ng-show="modal">
       <div class="login-register-modal">
         <h2 class="login-register-modal-title">PROVIDE YOUR INFO</h2>
-        <div class="login-register-modalfields" ng-controller="registrationController">
-          <form ng-submit="register()">
+        <div class="login-register-modalfields">
+          <form ng-controller="registrationController" ng-submit="register()">
             <label class="login-register-field-modalLabel" for="login-register-name">Name</label>
             <input ng-model="username" id="login-register-name" type="text" placeholder="Your Name">
             <label class="login-register-field-modalLabel" for="login-register-email">Email</label>

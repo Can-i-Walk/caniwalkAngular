@@ -19,27 +19,24 @@ canIWalk.controller('walkController', ['$http', '$scope', function($http, $scope
 canIWalk.controller('gMapController', function(NgMap) {
   NgMap.getMap().then(function(map) {
     console.log('canIwalk Controller working')
-   //  console.log(map.getCenter());
-   //  initMap();
-   findTrip();
-   //  console.log('markers', map.markers);
-   //  console.log('shapes', map.shapes);
+    findTrip();
+    console.log(distance);
   });
-
 });
 
-canIWalk.controller('destinationController', function(NgMap) {
+//$scope and controller in another controller as a dependency
+canIWalk.controller('destinationController',['$scope', function($scope) {
   // console.log("we are in the destination Controller");
 
   var vm = this;
   // vm.types = "['establishment']";
   vm.placeChanged = function() {
     vm.place = this.getPlace();
-    destLat = vm.place.geometry.access_points[0].location.lat;
-    destLng = vm.place.geometry.access_points[0].location.lng;
-    console.log( destLat + " " + destLng)
+    $scope.destLat = vm.place.geometry.access_points[0].location.lat;
+    $scope.destLng = vm.place.geometry.access_points[0].location.lng;
+    console.log("scope lat " + $scope.destLat + " scope lng " + $scope.destLng);
   }
-});
+}]);
 
 canIWalk.controller('registrationController', ['$scope', '$http', function($scope) {
   console.log("we are in the registration Controller");
@@ -62,7 +59,7 @@ canIWalk.controller('registrationController', ['$scope', '$http', function($scop
       //             console.log("this item has already been deleted from cartEvents");
       //         }
       // });
-      // 
+      //
 
 
     // and here is a native angular call
