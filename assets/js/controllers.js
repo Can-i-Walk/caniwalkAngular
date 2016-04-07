@@ -18,11 +18,10 @@ canIWalk.controller('walkController', ['$http', '$scope', function($http, $scope
 
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
   // NgMap.getMap().then(function(map) {
-    // console.log('gMapController working');
-    $scope.dest = mapFactory.getDest();
-    console.log($scope.dest);
+    console.log('gMapController working');
     $scope.latLng = mapFactory.getLatLng();
     console.log($scope.latLng);
+    $scope.
     findTrip($scope.latLng);
     // console.log(distance);
   // });
@@ -40,15 +39,13 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
     $scope.destLat = vm.place.geometry.access_points[0].location.lat;
     $scope.destLng = vm.place.geometry.access_points[0].location.lng;
     $scope.destName = vm.place.name;
-    // console.log("scope lat " + $scope.destLat + " scope lng " + $scope.destLng + "scope destname"+$scope.destName);
+    console.log("scope lat " + $scope.destLat + " scope lng " + $scope.destLng + "scope destname"+$scope.destName);
     destLat = $scope.destLat;
     destLng = $scope.destLng;
     destLatLng = "{lat: "+$scope.destLat+", lng: "+$scope.destLng+"}";
     destName = $scope.destName;
     $scope.latLng = mapFactory.setLatLng(destLat, destLng);
-    // console.log($scope.latLng);
-    $scope.dest = mapFactory.setDest(destName);
-    // console.log($scope.dest);
+    console.log($scope.latLng);
   };
 }]);
 
@@ -56,28 +53,46 @@ canIWalk.factory('mapFactory', function() {
   return {
     currentLat : null,
     currentLng : null,
-    currentDest : null,
+    currentDest:
     setLatLng : function(lat, lng) {
       this.currentLat = lat;
       this.currentLng = lng;
-      // console.log(this.currentLat + " " + this.currentLng);
+
+      console.log(this.currentLat + " " + this.currentLng);
       return {"lat": lat, "lng": lng};
     },
     getLatLng : function() {
-      // console.log(this.currentLat + " " + this.currentLng);
+      console.log(this.currentLat + " " + this.currentLng);
       return {"lat": this.currentLat, "lng": this.currentLng};
-    },
-    setDest : function(dest) {
-      this.currentDest = dest;
-      // console.log(this.currentDest);
-      return this.currentDest;
-    },
-    getDest : function() {
-      // console.log(this.currentDest);
-      return this.currentDest;
     }
   }
  });
+
+// canIWalk.factory('mapFactory', function(){
+//   console.log("some garbage");
+//   var tripData = {};
+//   var _destLat = '';
+//   var _destLng = '';
+//   var _destLatLng = '';
+//   var _destName = '';
+//
+//   tripData.packageLatLng = function(lat, lng){
+//     _destLat = lat;
+//     _destLng = lng;
+//     _destLatLng = "{lat: " + lat + ", lng: " + lng +"}";
+//     console.log("packageLatLng ran!");
+//   };
+//
+//   tripData.sendLatLng = function(){
+//     return _destLatLng;
+//   }
+//
+//   var distance = '';
+//   var duration = '';
+//
+//   return tripData;
+//
+// });
 
 canIWalk.controller('registrationController', ['$scope', '$http', function($scope) {
   console.log("we are in the registration Controller");
