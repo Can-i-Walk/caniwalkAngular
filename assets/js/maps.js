@@ -13,9 +13,9 @@ function findTrip(){
   });
   directionsDisplay.setMap(map); //displays directions on the map that we've displayed already
 
+  // console.log(directionsService); //these two console.logs show what we're sending and what we're receiving from google
+  // console.log(directionsDisplay);
 
-  console.log(directionsService);
-  console.log(directionsDisplay);
   if (navigator.geolocation) {      //if we can get user's position
     navigator.geolocation.getCurrentPosition(function(position) { //put their position into a variable 'pos'
       var pos = {
@@ -56,5 +56,5 @@ function findTrip(){
 }
 //end of findTrip function
 
-console.log("this is the distance variable " + distance);
-console.log("this is the duration variable " + duration);
+// console.log("this is the distance variable " + distance); //these console logs are to try and find the distance and duration outside of the function.
+// console.log("this is the duration variable " + duration);

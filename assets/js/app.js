@@ -34,7 +34,7 @@ canIWalk.config(function($routeProvider) {
 // below are our Google OAuth functions
 
 gapi.load('auth2', function() {
-  console.log("the google function was run")
+  // console.log("the google function was run"); //this checks to see if the google oauth function is being run
   gapi.auth2.init();
 });
 
