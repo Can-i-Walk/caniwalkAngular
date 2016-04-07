@@ -21,7 +21,6 @@ canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, 
     console.log('gMapController working');
     $scope.latLng = mapFactory.getLatLng();
     console.log($scope.latLng);
-
     findTrip($scope.latLng);
     // console.log(distance);
   // });
