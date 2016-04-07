@@ -20,14 +20,16 @@
     <div class="login-register-modalHolder" ng-show="modal">
       <div class="login-register-modal">
         <h2 class="login-register-modal-title">PROVIDE YOUR INFO</h2>
-        <div class="login-register-modalfields">
-          <label class="login-register-field-modalLabel" for="login-register-name">Name</label>
-          <input id="login-register-name" type="text" placeholder="Your Name">
-          <label class="login-register-field-modalLabel" for="login-register-email">Email</label>
-          <input id="login-register-email" type="text" placeholder="can@I.walk">
-          <label class="login-register-field-modalLabel" for="login-register-password">Password</label>
-          <input id="login-register-password" type="password" placeholder="Password">
-          <a href="#"><button class="login-register-button" type="submit">Sign Up</button></a>
+        <div class="login-register-modalfields" ng-controller="registrationController">
+          <form ng-submit="register()">
+            <label class="login-register-field-modalLabel" for="login-register-name">Name</label>
+            <input ng-model="username" id="login-register-name" type="text" placeholder="Your Name">
+            <label class="login-register-field-modalLabel" for="login-register-email">Email</label>
+            <input ng-model="email" id="login-register-email" type="text" placeholder="can@I.walk">
+            <label class="login-register-field-modalLabel" for="login-register-password">Password</label>
+            <input ng-model="password" id="login-register-password" type="password" placeholder="Password">
+            <button class="login-register-button" type="submit">Sign Up</button>
+          </form>
           <h3 ng-click="modal=false" class="login-register-signIn">Already signed up? Log In!</h3>
         </div>
       </div>
