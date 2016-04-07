@@ -29,17 +29,17 @@ function findTrip(destLatLng){
 //cocoa cinn lat and long: {lat: 36.00396, lng:-78.9010705}
 //southpoint mall lat and long: {lat: 35.90472, lng: -78.941595,}
         travelMode: google.maps.TravelMode.WALKING,
-     }, function rabble(response, status) {
+     }, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
         } else {
           window.alert('Directions request failed due to ' + status);
         }
-       var distance = response.routes[0].legs[0].distance.text;
-       var duration = response.routes[0].legs[0].duration.text;
+      //  $scope.distance = response.routes[0].legs[0].distance.text;
+      //  $scope.duration = response.routes[0].legs[0].duration.text;
        //this is getting the distance (in miles) and the duration (in hours & minutes) of our trip and assigning those values to variables.
-       console.log(distance);
-       console.log(duration);
+      //  console.log($scope.distance);
+      //  console.log($scope.duration);
       });
 
       // infoWindow.setPosition(pos);
