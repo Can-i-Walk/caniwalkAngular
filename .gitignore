@@ -1,3 +1,4 @@
 .gitignore
 /assets/css/styles.css.map
 /assets/css/.sass-cache
+bower_components
