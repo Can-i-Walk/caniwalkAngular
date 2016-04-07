@@ -3,12 +3,12 @@ canIWalk.controller('walkController', ['$http', '$scope', function($http, $scope
   $scope.message = "we are talking to Angular!";
   console.log('control!');
 
-  $http.get('https://obscure-lowlands-76683.herokuapp.com/').success(function(data){
-
-    console.log("we are talking to the rails json!");
-    console.log(data);
-    $scope.stuff = data;
-  });
+  // $http.get('https://obscure-lowlands-76683.herokuapp.com/').success(function(data){
+  //
+  //   console.log("we are talking to the rails json!");
+  //   console.log(data);
+  //   $scope.stuff = data;
+  // });
 
   $scope.clickMe = function (){
 
@@ -24,4 +24,17 @@ canIWalk.controller('gMapController', function(NgMap) {
     // console.log('shapes', map.shapes);
   });
 
+});
+
+canIWalk.controller('destinationController', function(NgMap) {
+  console.log("we are in the destination Controller");
+
+  var vm = this;
+  // vm.types = "['establishment']";
+  vm.placeChanged = function() {
+    vm.place = this.getPlace();
+    destLat = vm.place.geometry.access_points[0].location.lat;
+    destLng = vm.place.geometry.access_points[0].location.lng;
+    console.log( destLat + " " + destLng)
+  }
 });

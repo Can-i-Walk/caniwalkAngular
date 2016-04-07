@@ -1,4 +1,4 @@
-<div class="inputDest-page" ng-controller="walkController">
+<div class="inputDest-page" ng-controller="destinationController as vm">
    <header class="inputDest-header">
       <a href="#/home"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
       <i class="fa fa-bars">
@@ -11,7 +11,7 @@
       </i>
    </header>
    <form class="inputDest-form">
-      <input type="text" placeholder="Where do you want to walk?">
+      <input places-auto-complete on-place-changed="vm.placeChanged()" type="text" placeholder="Where do you want to walk?">
       <label>Destination</label>
 <!-- this next little bit is to display if the user needs to give us some more information for their profile -->
       <a href="#/edit_account">Fill out your profile to help you!</a>
