@@ -230,8 +230,7 @@
   color: #2E282A; }
   .walkInfo-content .walkInfo-map {
     height: 10em;
-    width: 100%;
-    border: 1px solid red; }
+    width: 100%; }
   .walkInfo-content .walkInfo-distance {
     float: left; }
   .walkInfo-content .walkInfo-time {
