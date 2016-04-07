@@ -27,7 +27,7 @@ canIWalk.controller('gMapController', function(NgMap) {
 //$scope and controller in another controller as a dependency
 canIWalk.controller('destinationController',['$scope', function($scope) {
   // console.log("we are in the destination Controller");
-
+  
   var vm = this;
   // vm.types = "['establishment']";
   vm.placeChanged = function() {
@@ -35,7 +35,10 @@ canIWalk.controller('destinationController',['$scope', function($scope) {
     $scope.destLat = vm.place.geometry.access_points[0].location.lat;
     $scope.destLng = vm.place.geometry.access_points[0].location.lng;
     $scope.destName = vm.place.name;
-    console.log("scope lat " + $scope.destLat + " scope lng " + $scope.destLng);
+    console.log("scope lat " + $scope.destLat + " scope lng " + $scope.destLng + "scope destname"+$scope.destName);
+    destLat = $scope.destLat;
+    destLng = $scope.destLng;
+    destName = $scope.destName;
   }
 }]);
 
