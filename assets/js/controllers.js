@@ -37,8 +37,22 @@ canIWalk.controller('destinationController', function(NgMap) {
     vm.place = this.getPlace();
     destLat = vm.place.geometry.access_points[0].location.lat;
     destLng = vm.place.geometry.access_points[0].location.lng;
-    console.log( destLat + " " + destLng)
+    destName = vm.place.name;
+    // console.log( destLat + " " + destLng)
   }
+});
+
+canIWalk.factory('mapFactory', function(){
+  var tripData = {};
+  var destLat = '';
+  var destLng = '';
+  var destName = '';
+
+  var distance = '';
+  var duration = '';
+
+  return tripData;
+
 });
 
 canIWalk.controller('registrationController', ['$scope', '$http', function($scope) {
@@ -62,7 +76,7 @@ canIWalk.controller('registrationController', ['$scope', '$http', function($scop
       //             console.log("this item has already been deleted from cartEvents");
       //         }
       // });
-      // 
+      //
 
 
     // and here is a native angular call
