@@ -1,3 +1,272 @@
+/*header/big font*/
+/*body/readable font*/
+.dashboard-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2em;
+  font-size: 2em;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold; }
+  .dashboard-header a {
+    text-decoration: none; }
+    .dashboard-header a h4 {
+      color: #CD5334; }
+      .dashboard-header a h4 span {
+        color: #17BEBB; }
 
+.dashboard-profile {
+  width: 80%;
+  margin-left: 10%;
+  font-family: "Oswald", sans-serif; }
+  .dashboard-profile h3 {
+    font-size: 4em;
+    text-decoration: underline;
+    font-weight: bold; }
+  .dashboard-profile .dashboard-walk-history {
+    font-size: 4em;
+    margin-top: 5%; }
+    .dashboard-profile .dashboard-walk-history li {
+      margin-top: 5%; }
+
+.dashboard-ratings li {
+  font-size: 0.4em; }
+
+.dashboard-edit-profile {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  text-decoration: none;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 10%;
+  left: 15%;
+  width: 70%; }
+  .dashboard-edit-profile button {
+    padding: 1em;
+    font-size: 4em;
+    background-color: #17BEBB;
+    border: 0.5em solid #17BEBB;
+    border-radius: 0.5em; }
+
+.inputDest-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2em;
+  font-size: 2em;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold; }
+  .inputDest-header a {
+    text-decoration: none; }
+    .inputDest-header a h4 {
+      color: #CD5334; }
+      .inputDest-header a h4 span {
+        color: #17BEBB; }
+
+.inputDest-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: 10%;
+  color: #2E282A;
+  font-family: "Oswald", sans-serif; }
+  .inputDest-form input {
+    font-size: 4em;
+    margin-top: 5%;
+    border: 1px solid #2E282A; }
+  .inputDest-form label {
+    font-size: 3em;
+    margin-top: 5%; }
+  .inputDest-form a {
+    display: flex;
+    margin-top: 5%;
+    font-size: 3em;
+    text-decoration: none;
+    color: #2E282A; }
+    .inputDest-form a button {
+      font-size: 1em;
+      border: 0.5em solid #17BEBB;
+      border-radius: 0.5em;
+      background-color: #17BEBB;
+      padding: 1em 0;
+      width: 50%;
+      margin-left: 15%;
+      position: absolute;
+      bottom: 2em; }
+
+.login-container {
+  font-family: "Oswald", sans-serif;
+  font-color: #2E282A;
+  font-size: 35px; }
+
+.login-logo {
+  padding: 10px;
+  text-align: center;
+  color: #CD5334;
+  font-size: 45px;
+  font-weight: 700;
+  font-family: "Dosis", sans-serif; }
+  .login-logo span {
+    color: #17BEBB; }
+
+.login-signIn {
+  width: 80%;
+  margin-left: 10%; }
+
+.login-signIn-field-label {
+  display: block; }
+
+#login-signIn-email {
+  font-size: 35px;
+  margin: 10px; }
+
+#login-signIn-password {
+  font-size: 35px;
+  margin: 10px; }
+
+.login-signIn-button {
+  font-size: 35px;
+  margin-bottom: 30px;
+  display: inline-block; }
+
+.login-signIn-forgotPW {
+  float: right; }
+
+.login-signIn-google {
+  margin: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #2E282A; }
+  .login-signIn-google .fa-google {
+    color: white;
+    background: #d50f25;
+    padding: 5px; }
+  .login-signIn-google span {
+    font-size: 35px; }
+
+.login-signIn-register {
+  width: 30%;
+  margin-top: 50px;
+  margin-left: 35%; }
+
+.login-signIn-guestWalkBtn {
+  position: absolute;
+  bottom: 40px;
+  left: 22%;
+  color: white;
+  background: #17BEBB;
+  padding: 15px;
+  font-size: 70px; }
+
+.login-register-modalHolder {
+  border: solid 1px red;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: rgba(0, 0, 0, 0.7); }
+
+.login-register-modalfields {
+  width: 40%;
+  margin-top: 20%;
+  margin-left: 30%; }
+
+.login-register-modal-title {
+  margin-top: 100px;
+  text-align: center;
+  color: white;
+  font-family: "Dosis", sans-serif;
+  font-size: 70px; }
+
+.login-register-field-modalLabel {
+  color: white; }
+
+#login-register-email {
+  font-size: 35px;
+  margin: 10px; }
+
+#login-register-password {
+  font-size: 35px;
+  margin: 10px; }
+
+#login-register-name {
+  font-size: 35px;
+  margin: 10px; }
+
+.login-register-button {
+  font-size: 35px;
+  margin-bottom: 30px;
+  display: inline-block; }
+
+.login-register-signIn {
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  margin-top: 30%; }
+
+.walkInfo-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2em;
+  font-size: 2em;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold; }
+  .walkInfo-header a {
+    text-decoration: none; }
+    .walkInfo-header a h4 {
+      color: #CD5334; }
+      .walkInfo-header a h4 span {
+        color: #17BEBB; }
+
+.walkInfo-content {
+  width: 80%;
+  margin-left: 10%;
+  font-family: "Oswald", sans-serif;
+  font-size: 4em;
+  color: #2E282A; }
+  .walkInfo-content .walkInfo-map {
+    height: 10em;
+    width: 100%;
+    border: 1px solid red; }
+  .walkInfo-content .walkInfo-distance {
+    float: left; }
+  .walkInfo-content .walkInfo-time {
+    float: right; }
+  .walkInfo-content .walkInfo-reviews {
+    margin-top: 1.5em; }
+    .walkInfo-content .walkInfo-reviews h4 {
+      text-decoration: underline;
+      margin-bottom: 0.5em;
+      text-align: center; }
+
+.walkInfo-map-google {
+  height: 100%; }
+
+.walkInfo-buttons {
+  position: absolute;
+  bottom: 0.5em;
+  font-size: 4em;
+  width: 100%;
+  margin-left: 4%; }
+  .walkInfo-buttons button {
+    padding: 1em;
+    font-size: 0.5em;
+    width: 45%; }
+  .walkInfo-buttons .walkInfo-accept {
+    background-color: #17BEBB;
+    border: 1em solid #17BEBB;
+    border-radius: 0.5em; }
+  .walkInfo-buttons .walkInfo-decline {
+    background-color: #EFCFCE;
+    border: 1em solid #EFCFCE;
+    border-radius: 0.5em; }
+
+body {
+  background: #f5f5f1;
+  font-family: "Oswald", sans-serif; }
 
 /*# sourceMappingURL=styles.css.map */
