@@ -3,7 +3,7 @@ var duration;
 
 
 //find the route information
-function findTrip(){
+function findTrip(destLatLng){
    console.log('find trip function working');
    var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
    var directionsService = new google.maps.DirectionsService;     //requests information from google's direction services
@@ -24,7 +24,7 @@ function findTrip(){
       };
       directionsService.route({
         origin: {lat: pos.lat, lng: pos.lng,},  // Origin. We have this set to what the position currently is (pos.lat and pos.lng)
-        destination: {lat: 36.00396, lng:-78.9010705}, //we really are going to need lat-lng for the things we find, I can't get strings to work.
+        destination: destLatLng, //we really are going to need lat-lng for the things we find, I can't get strings to work.
 
 //cocoa cinn lat and long: {lat: 36.00396, lng:-78.9010705}
 //southpoint mall lat and long: {lat: 35.90472, lng: -78.941595,}
@@ -40,7 +40,6 @@ function findTrip(){
        //this is getting the distance (in miles) and the duration (in hours & minutes) of our trip and assigning those values to variables.
        console.log(distance);
        console.log(duration);
-// callback function or local storage
       });
 
       // infoWindow.setPosition(pos);

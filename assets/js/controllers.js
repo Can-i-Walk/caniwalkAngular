@@ -19,10 +19,11 @@ canIWalk.controller('walkController', ['$http', '$scope', function($http, $scope
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
   // NgMap.getMap().then(function(map) {
     console.log('gMapController working');
-    findTrip();
-    // console.log(distance);
     $scope.latLng = mapFactory.getLatLng();
     console.log($scope.latLng);
+
+    findTrip($scope.latLng);
+    // console.log(distance);
   // });
 }]);
 
