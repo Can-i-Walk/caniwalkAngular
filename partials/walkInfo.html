@@ -2,13 +2,13 @@
    <header class="walkInfo-header">
       <a href="#/home"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
    </header>
-   <section class="walkInfo-content">
-      <h2>Here's your walk to </h2>
-      <div class="walkInfo-map" id="map" ng-controller="gMapController">
+   <section class="walkInfo-content" ng-controller="gMapController">
+      <h2 >Here's your walk to {{ dest }}</h2>
+      <div class="walkInfo-map" id="map">
          <!-- <ng-map class="walkInfo-map-google"></ng-map> -->
       </div>
-      <label ng-model="distance" class="walkInfo-distance">{{$scope.distance}}</label>
-      <label ng-model="duration" class="walkInfo-time">{{$scope.duration}}</label>
+      <label ng-model="distance" class="walkInfo-distance">{{ distance }}</label>
+      <label ng-model="duration" class="walkInfo-time">{{ duration }}</label>
       <section class="walkInfo-reviews">
          <h4>Other User Reviews</h4>
          <ul class="walkInfo-review-list">
