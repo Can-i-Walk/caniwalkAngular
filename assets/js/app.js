@@ -26,6 +26,9 @@ canIWalk.config(function($routeProvider) {
       templateUrl: 'partials/login.html'
       // controller: 'homepageController'
     })
+    .when('/ratings', {
+      templateUrl: 'partials/ratings.html'
+   })
     .otherwise({
       redirectTo: '/home'
     });

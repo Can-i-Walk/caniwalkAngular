@@ -1,0 +1,64 @@
+.editAccount-header {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: 2em;
+   font-size: 2em;
+   font-family: $Dosis;
+   font-weight: bold;
+   a {
+      text-decoration: none;
+      h4 {
+         color: $BurntOrange;
+         span {
+            color: $Teal;
+         }
+      }
+   }
+}//close editAccount-header
+
+.editAccount-form-container {
+   display: flex;
+   width: 80%;
+   margin-left: 10%;
+   font-size: 4em;
+   form {
+      input {
+         font-size: 1em;
+      }
+      a{
+         color: $Text;
+         background-color: $Flesh;
+         border: 0.5em solid $Flesh;
+         border-radius: 0.5em;
+      }
+      // a:hover {
+      //    text-decoration: underline;
+      //    background-color: red;
+      // } hover isn't going to work on a mobile!!!
+      select {
+         font-size: 1em;
+         color: $Text;
+         // background-color: blue;
+         option {
+            font-size: 1em;
+         }
+      }
+
+      .editAccount-preference-header {
+         margin-top: 0.5em;
+         border-bottom: 1px solid $Text;
+         text-align: center;
+         width: 70%;
+         margin-left: 15%;
+         margin-bottom: 1em;
+      }
+      button {
+         font-size: 1em;
+         background-color: $Teal;
+         padding: 0.5em;
+         border: 0.5em solid $Teal;
+         border-radius: 0.5em;
+      }
+   }
+}

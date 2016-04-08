@@ -35,11 +35,12 @@ function findTrip(destLatLng){
         } else {
           window.alert('Directions request failed due to ' + status);
         }
-      //  $scope.distance = response.routes[0].legs[0].distance.text;
-      //  $scope.duration = response.routes[0].legs[0].duration.text;
-       //this is getting the distance (in miles) and the duration (in hours & minutes) of our trip and assigning those values to variables.
-      //  console.log($scope.distance);
-      //  console.log($scope.duration);
+       distance = response.routes[0].legs[0].distance.text;
+       duration = response.routes[0].legs[0].duration.text;
+      //  this is getting the distance (in miles) and the duration (in hours & minutes) of our trip and assigning those values to variables.
+       console.log(response);
+       $(".walkInfo-distance").html(distance);
+       $(".walkInfo-duration").html(duration);
       });
 
       // infoWindow.setPosition(pos);
@@ -55,5 +56,5 @@ function findTrip(destLatLng){
 }
 //end of findTrip function
 
-// console.log("this is the distance variable " + distance); //these console logs are to try and find the distance and duration outside of the function.
-// console.log("this is the duration variable " + duration);
+console.log("this is the distance variable " + window.distance); //these console logs are to try and find the distance and duration outside of the function.
+console.log("this is the duration variable " + duration);
