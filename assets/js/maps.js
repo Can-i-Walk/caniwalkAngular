@@ -22,6 +22,33 @@ function findTrip(destLatLng){
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+
+      // this stuff was brought in to get the current location's place name
+      var geocoder = new google.maps.Geocoder;
+      // var latlng = {lat: latitude, lng: longitude};
+      var originName;
+
+      geocoder.geocode({'location': pos}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          console.log(results);
+          if (results[1]){
+            originName = results[1].address_components[0].long_name;
+          } else if (results[0]){ // if there's a street address
+            originName = results[0].formatted_address; // fetch the street address
+          } else if (results[3]){
+            originName = results[3].formatted_address;
+          } else {
+            originName = "Trip Origin Unknown";
+          }
+        } else {
+          originName = "Trip Origin Unknown";
+          console.log("geocoder is not OK!");
+        }
+        console.log(originName);
+
+      });
+      // end current location placename fetch
+
       directionsService.route({
         origin: {lat: pos.lat, lng: pos.lng,},  // Origin. We have this set to what the position currently is (pos.lat and pos.lng)
         destination: destLatLng, //we really are going to need lat-lng for the things we find, I can't get strings to work.
