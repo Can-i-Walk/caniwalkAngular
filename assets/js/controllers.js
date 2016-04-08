@@ -79,52 +79,72 @@ canIWalk.factory('mapFactory', function() {
   }
  });
 
-canIWalk.controller('registrationController', ['$scope', '$http', function($scope) {
+canIWalk.controller('registrationController', ['$scope', '$http', function($scope, $http) {
   console.log("we are in the registration Controller");
-
   $scope.register = function() {
     if ($scope.username && $scope.email && $scope.password) { // check if the fields have been populated
 
-    // here is a standard jquery ajax call
-      // $.ajax({
-      //         type : 'POST',
-      //         dataType : 'json',
-      //         url: 'http://peaceful-journey-51869.herokuapp.com/users/?user[name]='+this.username+'&user[email]='+this.email+'&user[password]='+this.password,
-      //         headers: {
-      //             contentType: "application/json",
-      //           },
-      //         success : function(data) {
-      //             console.log("posting registration data to the DB was successful");
-      //
-      //         }, error: function(request,error){
-      //             console.log("this item has already been deleted from cartEvents");
-      //         }
-      // });
-      //
+        // this doesn't really work
+        // $scope.regInfo = {
+        //   "name": $scope.username,
+        //   "email": $scope.email,
+        //   "password": $scope.password
+        // }
+        //
+        // $http.post('https://peaceful-journey-51869.herokuapp.com/users', $scope.regInfo)
+        // .success(function (data) {
+        // // this callback will be called asynchronously
+        // // when the response is available
+        // console.log("successful POST");
+        // console.log(response);
+        // window.location.replace('#/home');
+        // })
+        // .error(function (data, status, headers, config) {
+        // // called asynchronously if an error occurs
+        // // or server returns response with an error status.
+        // console.log("unsuccessful POST");
+        // console.log(response);
+        // return status;
+        // });
+
+      // here is a standard jquery ajax call. it works, but it throws an error.
+        // $.ajax({
+        //         type : 'POST',
+        //         dataType : 'json',
+        //         url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[name]='+this.username+'&user[email]='+this.email+'&user[password]='+this.password,
+        //         headers: {
+        //             contentType: "application/json",
+        //           },
+        //         success : function(data) {
+        //             console.log("posting registration data to the DB was successful");
+        //             window.location.replace('#/home');
+        //
+        //         }, error: function(request,error){
+        //             console.log("error");
+        //         }
+        // });
+        //
 
 
-    // and here is a native angular call
-    // $http({
-    //   method: 'POST',
-    //   url: 'http://peaceful-journey-51869.herokuapp.com/users/?user[name]='+this.username+'&user[email]='+this.email+'&user[password]='+this.password
-    // }).then(function successCallback(response) {
-    // // this callback will be called asynchronously
-    // // when the response is available
-    // console.log("successful POST");
-    // console.log(response);
-    // }, function errorCallback(response) {
-    // // called asynchronously if an error occurs
-    // // or server returns response with an error status.
-    // console.log("unsuccessful POST");
-    // console.log(response);
-    // });
-
-    // http://peaceful-journey-51869.herokuapp.com/users/?user[name]=mason&user[email]=mason@mail.com&user[password]=password
-
-      console.log(this.username + this.email + this.password);
-      $scope.username = '';
-      $scope.email = '';
-      $scope.password = '';
+      // and here is a native angular call
+      $http({
+        method: 'POST',
+        url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[name]='+this.username+'&user[email]='+this.email+'&user[password]='+this.password
+      }).then(function successCallback(response) {
+        // this callback will be called asynchronously
+        // when the response is available
+        console.log("successful POST");
+        $('.login-register-signIn').html("Success! Please go check your email to confirm your account!");
+        $scope.username = '';
+        $scope.email = '';
+        $scope.password = '';
+      }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+        console.log("unsuccessful POST");
+        console.log(response);
+        alert("we were unable to register you as a new user. Why don't you try again?")
+      });
     } else { // if some registration fields are empty...
       alert("One or more registration fields is empty.");
     }
