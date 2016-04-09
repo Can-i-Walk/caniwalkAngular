@@ -3,13 +3,15 @@
 <div class="login-container">
   <h1 class="login-logo">CAN<span>&#60i&#62</span>WALK</h1>
   <div class="login-signIn">
-    <label class="login-signIn-field-label" for="login-signIn-email">Email</label>
-    <input id="login-signIn-email" type="text" placeholder="can@I.walk">
-    <label class="login-signIn-field-label" for="login-signIn-password">Password</label>
-    <input id="login-signIn-password" type="password" placeholder="Password">
-    <div class="login-signIn-buttonLink">
-      <a href="#"><button class="login-signIn-button" type="submit">Log In</button></a>
-      <a href="#"><span class="login-signIn-forgotPW">Forgot Password?</span></a>
+    <form ng-controller="loginController" ng-submit="login()">
+      <label class="login-signIn-field-label" for="login-signIn-email">Email</label>
+      <input ng-model="loginEmail" id="login-signIn-email" type="text" placeholder="can@I.walk">
+      <label class="login-signIn-field-label" for="login-signIn-password">Password</label>
+      <input ng-model="loginPassword" id="login-signIn-password" type="password" placeholder="Password">
+      <div class="login-signIn-buttonLink">
+        <button class="login-signIn-button" type="submit">Log In</button>
+        <a href="#"><span class="login-signIn-forgotPW">Forgot Password?</span></a>
+      </form>
     </div>
     <div class="login-signIn-google">
       <div id="g-signin2"></div>
