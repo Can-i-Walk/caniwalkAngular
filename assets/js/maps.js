@@ -1,17 +1,14 @@
 var distance;
 var duration;
 
-
 //find the route information
 function findTrip(destLatLng, destName){
   console.log('find trip function working');
   var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
   var directionsService = new google.maps.DirectionsService;     //requests information from google's direction services
   var map = new google.maps.Map(document.getElementById('map'), { //initializes the map
-  zoom: 14,
-  //  center: {lat: 36.0, lng: -78.447}
+  zoom: 14
   });
-  console.log(google.maps.Place);
   directionsDisplay.setMap(map); //displays directions on the map that we've displayed already
 
   // console.log(directionsService); //these two console.logs show what we're sending and what we're receiving from google
@@ -67,11 +64,43 @@ function findTrip(destLatLng, destName){
         $(".walkInfo-distance").html(distance);
         $(".walkInfo-duration").html(duration);
 
+        // ajax call with test data
+        $.ajax({
+          type : 'POST',
+          dataType : 'json',
+          url: 'https://peaceful-journey-51869.herokuapp.com/trips',
+          data: {"user_id": 1, "trip_name": "DBAP", "distance": .4, "origin_name": "The Parlour", "origin_lat": 35.996571, "origin_long": -78.902358, "dest_name": "DBAP", "dest_lat": 35.991785, "dest_long": -78.905056},
+          headers: {
+             contentType: "application/json",
+           },
+          success : function(data) {
+
+            console.log("this trip's info has been sent to the database");
+            //this GET will get the places of interest from other users based on the route data we send to the backend
+            $.ajax({
+              method: 'GET',
+              url: 'https://peaceful-journey-51869.herokuapp.com/places/nearby_favorite_places/?distance=.4&origin_lat=35.996571&origin_long=-78.902358&dest_lat=35.991785&dest_long=-78.905056',
+              success: function (data) {
+              console.log("successful GET");
+              console.log(data);
+              }, error: function (request,error) {
+              console.log("unsuccessful GET");
+              console.log(request);
+              }
+            });
+
+
+          }, error: function(request,error){
+            console.log(request);
+            console.log("error");
+          }
+        });
+
         // this will post info about the trip to the Rails backend
         // $.ajax({
         //   type : 'POST',
         //   dataType : 'json',
-        //   url: 'https://http://peaceful-journey-51869.herokuapp.com/places',
+        //   url: 'https://peaceful-journey-51869.herokuapp.com/trips',
         //   data: {"user_id": 1, "trip_name": destName, "distance": distance, "origin_name": originName, "origin_lat": pos.lat, "origin_long": pos.lng, "dest_name": destName, "dest_lat": destLatLng.lat, "dest_long": destLatLng.lng},
         //   headers: {
         //      contentType: "application/json",

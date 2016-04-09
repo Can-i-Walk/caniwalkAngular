@@ -42,33 +42,8 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
     $scope.destLat = vm.place.geometry.location.lat();
     $scope.destLng = vm.place.geometry.location.lng();
     $scope.destName = vm.place.name;
-    //   console.log(vm.place.geometry.location.lng());
-    // destLat = $scope.destLat;
-    // destLng = $scope.destLng;
-    // destLatLng = "{lat: "+$scope.destLat+", lng: "+$scope.destLng+"}";
-    // destName = $scope.destName;
     $scope.latLng = mapFactory.setLatLng($scope.destLat, $scope.destLng);
-    // console.log($scope.latLng);
     $scope.dest = mapFactory.setDest($scope.destName);
-    // this is where we'll need to determine if (vm.place.geometry.access_points[0]) is true - if NOT, we need to pass the google place name to the directions function instead of lat/lng
-    // if (vm.place.geometry.access_points) { // if the requested destination has a single lat/lng point we can use...
-    //   console.log(vm.place.geometry.location.lat());
-    //   console.log(vm.place.geometry.location.lng());
-    //   $scope.destLat = vm.place.geometry.access_points[0].location.lat;
-    //   $scope.destLng = vm.place.geometry.access_points[0].location.lng;
-    //   $scope.destName = vm.place.name;
-    //   destLat = $scope.destLat;
-    //   destLng = $scope.destLng;
-    //   destLatLng = "{lat: "+$scope.destLat+", lng: "+$scope.destLng+"}";
-    //   destName = $scope.destName;
-    //   $scope.latLng = mapFactory.setLatLng(destLat, destLng);
-    //   // console.log($scope.latLng);
-    //   $scope.dest = mapFactory.setDest(destName);
-    // } else { // if the requested destination has more than a single associated lat/lng point (it's a bigger place)
-    //   console.log("place does not have geography")
-    //   console.log(vm.place.geometry.location.lat());
-    //   console.log(vm.place.geometry.location.lng());
-    // }
   };
 }]);
 
