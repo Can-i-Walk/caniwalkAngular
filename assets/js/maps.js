@@ -3,7 +3,7 @@ var duration;
 
 
 //find the route information
-function findTrip(destLatLng){
+function findTrip(destLatLng, destName){
   console.log('find trip function working');
   var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
   var directionsService = new google.maps.DirectionsService;     //requests information from google's direction services
@@ -72,15 +72,16 @@ function findTrip(destLatLng){
         //   type : 'POST',
         //   dataType : 'json',
         //   url: 'https://http://peaceful-journey-51869.herokuapp.com/places',
-        //   data: {"user_id": 1, "trip_name": $scope.dest, "distance": distance, "origin_name": originName, "origin_lat": pos.lat, "origin_long": pos.lng, "dest_name": $scope.dest, "dest_lat": destLatLng.lat, "dest_long": destLatLng.lng},
+        //   data: {"user_id": 1, "trip_name": destName, "distance": distance, "origin_name": originName, "origin_lat": pos.lat, "origin_long": pos.lng, "dest_name": destName, "dest_lat": destLatLng.lat, "dest_long": destLatLng.lng},
         //   headers: {
         //      contentType: "application/json",
         //    },
         //   success : function(data) {
-        //      console.log("this trip's info has been sent to the database");
+        //     console.log("this trip's info has been sent to the database");
         //
         //   }, error: function(request,error){
-        //      console.log("error");
+        //     console.log(request);
+        //     console.log("error");
         //   }
         // });
 
