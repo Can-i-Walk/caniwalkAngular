@@ -64,12 +64,64 @@ function findTrip(destLatLng, destName){
         $(".walkInfo-distance").html(distance);
         $(".walkInfo-duration").html(duration);
 
-        // ajax call with test data
+        // ajax call with test data - shit works!
+        // $.ajax({
+        //   type : 'POST',
+        //   dataType : 'json',
+        //   url: 'https://peaceful-journey-51869.herokuapp.com/trips',
+        //   data: {
+        //     "user_id": 1,
+        //     "trip_name": "DBAP",
+        //     "distance": .4,
+        //     "origin_name": "The Parlour",
+        //     "origin_lat": 35.996571,
+        //     "origin_long": -78.902358,
+        //     "dest_name": "DBAP",
+        //     "dest_lat": 35.991785,
+        //     "dest_long": -78.905056
+        //   },
+        //   headers: {
+        //      contentType: "application/json",
+        //    },
+        //   success : function(data) {
+        //
+        //     console.log("this trip's info has been sent to the database");
+        //     //this GET will get the places of interest from other users based on the route data we send to the backend
+        //     $.ajax({
+        //       method: 'GET',
+        //       url: 'https://peaceful-journey-51869.herokuapp.com/places/nearby_favorite_places/?distance=.4&origin_lat=35.996571&origin_long=-78.902358&dest_lat=35.991785&dest_long=-78.905056',
+        //       success: function (data) {
+        //       console.log("successful GET");
+        //       console.log(data);
+        //       }, error: function (request,error) {
+        //       console.log("unsuccessful GET");
+        //       console.log(request);
+        //       }
+        //     });
+        //
+        //
+        //   }, error: function(request,error){
+        //     console.log(request);
+        //     console.log("error");
+        //   }
+        // });
+
+        // this will post info about the trip to the Rails backend and get nearby places of interest back!
         $.ajax({
           type : 'POST',
           dataType : 'json',
           url: 'https://peaceful-journey-51869.herokuapp.com/trips',
-          data: {"user_id": 1, "trip_name": "DBAP", "distance": .4, "origin_name": "The Parlour", "origin_lat": 35.996571, "origin_long": -78.902358, "dest_name": "DBAP", "dest_lat": 35.991785, "dest_long": -78.905056},
+          data: {
+            "user_id": 1,
+            "trip_name": destName,
+            "distance": distance,
+            "origin_name": originName,
+            "origin_lat": pos.lat,
+            "origin_long": pos.lng,
+            "dest_name": destName,
+            "dest_lat": destLatLng.lat,
+            "dest_long": destLatLng.lng
+          },
           headers: {
              contentType: "application/json",
            },
@@ -79,7 +131,7 @@ function findTrip(destLatLng, destName){
             //this GET will get the places of interest from other users based on the route data we send to the backend
             $.ajax({
               method: 'GET',
-              url: 'https://peaceful-journey-51869.herokuapp.com/places/nearby_favorite_places/?distance=.4&origin_lat=35.996571&origin_long=-78.902358&dest_lat=35.991785&dest_long=-78.905056',
+              url: 'https://peaceful-journey-51869.herokuapp.com/places/nearby_favorite_places/?distance='+distance+'&origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng,
               success: function (data) {
               console.log("successful GET");
               console.log(data);
@@ -96,24 +148,6 @@ function findTrip(destLatLng, destName){
           }
         });
 
-        // this will post info about the trip to the Rails backend
-        // $.ajax({
-        //   type : 'POST',
-        //   dataType : 'json',
-        //   url: 'https://peaceful-journey-51869.herokuapp.com/trips',
-        //   data: {"user_id": 1, "trip_name": destName, "distance": distance, "origin_name": originName, "origin_lat": pos.lat, "origin_long": pos.lng, "dest_name": destName, "dest_lat": destLatLng.lat, "dest_long": destLatLng.lng},
-        //   headers: {
-        //      contentType: "application/json",
-        //    },
-        //   success : function(data) {
-        //     console.log("this trip's info has been sent to the database");
-        //
-        //   }, error: function(request,error){
-        //     console.log(request);
-        //     console.log("error");
-        //   }
-        // });
-
       });
 
       // infoWindow.setPosition(pos);
@@ -128,6 +162,3 @@ function findTrip(destLatLng, destName){
   }
 }
 //end of findTrip function
-
-console.log("this is the distance variable " + window.distance); //these console logs are to try and find the distance and duration outside of the function.
-console.log("this is the duration variable " + duration);
