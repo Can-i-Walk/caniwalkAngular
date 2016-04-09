@@ -23,6 +23,7 @@ canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, 
     console.log($scope.dest);
     $scope.latLng = mapFactory.getLatLng();
     console.log($scope.latLng);
+    // findTrip($scope.latLng);
     findTrip($scope.latLng);
     // console.log(distance);
   // });
@@ -37,10 +38,11 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
   // vm.types = "['establishment']";
   vm.placeChanged = function() {
     vm.place = this.getPlace();
+    console.log(vm.place);
+    // this is where we'll need to determine if (vm.place.geometry.access_points[0]) is true - if NOT, we need to pass the google place name to the directions function instead of lat/lng 
     $scope.destLat = vm.place.geometry.access_points[0].location.lat;
     $scope.destLng = vm.place.geometry.access_points[0].location.lng;
     $scope.destName = vm.place.name;
-    // console.log("scope lat " + $scope.destLat + " scope lng " + $scope.destLng + "scope destname"+$scope.destName);
     destLat = $scope.destLat;
     destLng = $scope.destLng;
     destLatLng = "{lat: "+$scope.destLat+", lng: "+$scope.destLng+"}";
