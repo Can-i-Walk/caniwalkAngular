@@ -253,6 +253,16 @@
   font-size: 60px;
   margin-top: 30%; }
 
+.password-logo {
+  text-align: center;
+  color: #CD5334;
+  font-size: 100px;
+  font-weight: 700;
+  font-family: "Dosis", sans-serif;
+  margin-top: 30px; }
+  .password-logo span {
+    color: #17BEBB; }
+
 .walkInfo-header {
   display: flex;
   flex-direction: row;

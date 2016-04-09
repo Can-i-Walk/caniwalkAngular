@@ -29,8 +29,8 @@ function findTrip(destLatLng, destName){
       geocoder.geocode({'location': pos}, function(results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
           console.log(results);
-          if (results[1]){
-            originName = results[1].address_components[0].long_name;
+          if (results[1]){ // if there's a 'neighborhood' name...
+            originName = results[1].address_components[0].long_name; // fetch the neighborhood name
           } else if (results[0]){ // if there's a street address
             originName = results[0].formatted_address; // fetch the street address
           } else if (results[3]){
