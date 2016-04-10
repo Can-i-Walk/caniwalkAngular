@@ -115,25 +115,29 @@ canIWalk.controller('registrationController', ['$scope', '$http', function($scop
 canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $http) {
   console.log("we are in the password Controller");
   $scope.updatePassword = function() {
-    if ($scope.oldPassword && $scope.newPassword && $scope.confirmPassword) { // check if the fields have been populated
-
-      // this will be the POST we'll make when a user attempts to change their password
-      //  $http({
-      //    method: 'POST',
-      //    // not sure what this url will be for login
-      //    url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[email]='+this.loginEmail+'&user[password]='+this.loginPassword
-      //  }).then(function successCallback(response) {
-      //    console.log("successful LOGIN");
-      //    $scope.loginEmail = '';
-      //    $scope.loginPassword = '';
-      //    // here, we probably want to do a GET to fetch the login token
-      //    window.location.replace('#/home'); // redirect the user to wherever they need to go first
-      //  }, function errorCallback(response) {
-      //    console.log("unsuccessful POST");
-      //    console.log(response);
-      //    alert("we were unable to sign you in. Why don't you try again?")
-      //  });
-
+    if ($scope.newPassword && $scope.confirmPassword) { // check if the fields have been populated
+      if ($scope.newPassword === $scope.confirmPassword) { // check if the passwords input were the same
+        console.log("the passwords match");
+        // this will be the POST we'll make when a user attempts to change their password
+        //  $http({
+        //    method: 'POST',
+        //    // not sure what this url will be for login
+        //    url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[email]='+this.loginEmail+'&user[password]='+this.loginPassword
+        //  }).then(function successCallback(response) {
+        //    console.log("successful LOGIN");
+        //    $scope.loginEmail = '';
+        //    $scope.loginPassword = '';
+        //    // here, we probably want to do a GET to fetch the login token
+        //    window.location.replace('#/home'); // redirect the user to wherever they need to go first
+        //  }, function errorCallback(response) {
+        //    console.log("unsuccessful POST");
+        //    console.log(response);
+        //    alert("we were unable to sign you in. Why don't you try again?")
+        //  });
+        
+      } else { // if the passwords don't match
+        alert("Your passwords don't match. Please insert your new password in both fields");
+      }
     } else { // if some registration fields are empty...
       alert("Please fill out all fields on the page");
     }

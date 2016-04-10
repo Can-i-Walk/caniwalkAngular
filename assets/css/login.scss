@@ -11,7 +11,7 @@
   text-align: center;
   color: $BurntOrange;
   font:{
-    size: 45px;
+    size: 100px;
     weight: 700;
     family: $Dosis;
   }
@@ -35,6 +35,7 @@
     size: 35px;
   }
   margin: 10px;
+  border: solid 1px $Text;
 }
 
 #login-signIn-password {
@@ -43,6 +44,7 @@
     size: 35px;
   }
   margin: 10px;
+  border: solid 1px $Text;
 }
 
 .login-signIn-button {

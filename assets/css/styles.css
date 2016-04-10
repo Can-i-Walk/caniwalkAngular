@@ -151,7 +151,7 @@
   padding: 10px;
   text-align: center;
   color: #CD5334;
-  font-size: 45px;
+  font-size: 100px;
   font-weight: 700;
   font-family: "Dosis", sans-serif; }
   .login-logo span {
@@ -166,11 +166,13 @@
 
 #login-signIn-email {
   font-size: 35px;
-  margin: 10px; }
+  margin: 10px;
+  border: solid 1px #2E282A; }
 
 #login-signIn-password {
   font-size: 35px;
-  margin: 10px; }
+  margin: 10px;
+  border: solid 1px #2E282A; }
 
 .login-signIn-button {
   font-size: 35px;
@@ -262,6 +264,33 @@
   margin-top: 30px; }
   .password-logo span {
     color: #17BEBB; }
+
+.password-container {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 50px;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-color: #2E282A;
+  font-size: 35px; }
+
+.password-field-label {
+  display: block; }
+
+#login-password-newPassword {
+  font-size: 35px;
+  margin: 10px;
+  width: 60%;
+  border: solid 1px #2E282A; }
+
+#login-password-confirmPassword {
+  font-size: 35px;
+  margin: 10px;
+  width: 60%;
+  border: solid 1px #2E282A; }
+
+.login-signIn-button {
+  margin-top: 50px; }
 
 .walkInfo-header {
   display: flex;
