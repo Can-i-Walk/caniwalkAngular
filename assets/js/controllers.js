@@ -120,24 +120,24 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
     console.log("password change function activated");
     if ($scope.passwordResetEmail){
       // these two jquery actions should be removed once we have the GET working (they're inside the success function as well)
-      $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
-      $('.login-passwordReset-email-button').toggle();
+      // $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
+      // $('.login-passwordReset-email-button').toggle();
 
-      // $http({
-      //   method: 'GET',
-      //   url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail
-      // }).then(function successCallback(response) {
-      //   console.log("successful password reset initiation");
-      //   console.log(response);
-      //   // we need to do something with the token
-      //   $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
-      //   $('.login-passwordReset-email-button').toggle();
-      //   $scope.passwordResetEmail = '';
-      // }, function errorCallback(response) {
-      //   console.log("unsuccessful password reset initiation");
-      //   console.log(response);
-      //   alert("we were unable to initiate a password reset for you. Why don't you try again?");
-      // });
+      $http({
+        method: 'GET',
+        url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail
+        // url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email=geoffrey.s.arnold@gmail.com'
+      }).then(function successCallback(response) {
+        console.log("successful password reset initiation");
+        console.log(response);
+        // we need to do something with the token
+        $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
+        $('.login-passwordReset-email-button').toggle();
+      }, function errorCallback(response) {
+        console.log("unsuccessful password reset initiation");
+        console.log(response);
+        alert("we were unable to initiate a password reset for you. Why don't you try again?");
+      });
 
     } else {
       alert("Please provide the email address associated with your account");
@@ -150,21 +150,17 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
       if ($scope.newPassword === $scope.confirmPassword) { // check if the passwords input were the same
         console.log("the passwords match");
 
-        // this will be the POST we'll make when a user attempts to change their password
+        //this PUT is currently throwing an error
         //  $http({
-        //    method: 'POST',
-        //    // not sure what this url will be for login
-        //    url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[email]='+this.loginEmail+'&user[password]='+this.loginPassword
+        //    method: 'PUT',
+        //    url: 'https://peaceful-journey-51869.herokuapp.com/users/1?user[password]='+$scope.newPassword
         //  }).then(function successCallback(response) {
-        //    console.log("successful LOGIN");
-        //    $scope.loginEmail = '';
-        //    $scope.loginPassword = '';
-        //    // here, we probably want to do a GET to fetch the login token
+        //    console.log("successful password update");
         //    window.location.replace('#/home'); // redirect the user to wherever they need to go first
         //  }, function errorCallback(response) {
-        //    console.log("unsuccessful POST");
+        //    console.log("unsuccessful password update");
         //    console.log(response);
-        //    alert("we were unable to sign you in. Why don't you try again?")
+        //    alert("we were unable to change your password. Why don't you try again?")
         //  });
 
       } else { // if the passwords don't match
