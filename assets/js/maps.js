@@ -38,7 +38,6 @@ function findTrip(destLatLng){
        distance = response.routes[0].legs[0].distance.text;
        duration = response.routes[0].legs[0].duration.text;
       //  this is getting the distance (in miles) and the duration (in hours & minutes) of our trip and assigning those values to variables.
-       console.log(response);
        $(".walkInfo-distance").html(distance);
        $(".walkInfo-duration").html(duration);
       });

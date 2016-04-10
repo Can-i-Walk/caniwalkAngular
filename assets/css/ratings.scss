@@ -16,3 +16,57 @@
       }
    }
 }//close ratings-header
+
+.ratings-form-container {
+   font-size: 4em;
+   width: 80%;
+   margin-left: 10%;
+   form {
+      display: flex;
+      flex-direction: column;
+      h2 {
+         margin-bottom: 1em;
+         text-decoration: underline;
+         text-align: center;
+      }
+      // align-items: center;
+      input {
+         font-size: 1em;
+      }
+      .ratings-category {
+         display: flex;
+         justify-content: flex-start;
+         align-items: flex-start;
+         margin-bottom: 1em;
+         .ratings-stars {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: flex-end;
+
+         }
+      }
+      .fa-star {
+         margin-left: 0.5em;
+      }
+      .boring {
+         color: red;
+      }
+      .selected {
+         color: yellow;
+      }
+
+      textarea {
+         font-size: 1em;
+      }
+      button {
+         font-size: 1em;
+         margin-top: 1em;
+         background-color: $Teal;
+         border: 0.5em solid $Teal;
+         border-radius: 0.5em;
+         width: 70%;
+         margin-left: 15%;
+      }
+   }
+}

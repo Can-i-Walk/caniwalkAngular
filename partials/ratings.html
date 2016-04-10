@@ -1,20 +1,52 @@
-<div class="ratings-container">
+<div class="ratings-container" ng-controller="walkController">
    <header class="ratings-header">
       <a href="#/home"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
    </header>
    <div class="ratings-form-container">
       <form class="ratings-form">
-         <label>Safety</label>
-         <input type="number" placeholder="">
-         <label>Ease</label>
-         <input type="number" placeholder="">
-         <label>Enjoyability</label>
-         <input type="number" placeholder="">
-         <label>Accessibility</label>
-         <input type="number" placeholder="">
+         <h2>Rate Your Walk</h2>
+         <label class="ratings-category">Safety
+            <div class="ratings-stars">
+               <i class="fa fa-star" ng-click="change()"  ng-class="boring"></i>
+               <i class="fa fa-star" ng-click="change()" ng-class="boring"></i>
+               <i class="fa fa-star" ng-click="change()" ng-class="boring"></i>
+               <i class="fa fa-star" ng-click="change()" ng-class="boring"></i>
+               <i class="fa fa-star" ng-click="change()" ng-class="boring"></i>
+            </div>
+         </label>
+         <label class="ratings-category">
+            <h3>Ease</h3>
+            <div class="ratings-stars">
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+            </div>
+         </label>
+         <label class="ratings-category">Enjoyability
+            <div class="ratings-stars">
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+            </div>
+         </label>
+         <label class="ratings-category">Accessibility
+            <div class="ratings-stars">
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+            </div>
+         </label>
          <label>Comments</label>
-         <input type="textarea">
-         <button type="submit">Submit Ratings</button>
+         <textarea placeholder="Any Comments?"></textarea>
+         <button type="submit" ng-submit="rabble()">Submit Ratings</button>
       </form>
+      <p>{{ ease }} check</p>
+      <p>{{ message }}</p>
    </div>
 </div>

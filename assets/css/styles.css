@@ -325,6 +325,46 @@
       .ratings-header a h4 span {
         color: #17BEBB; }
 
+.ratings-form-container {
+  font-size: 4em;
+  width: 80%;
+  margin-left: 10%; }
+  .ratings-form-container form {
+    display: flex;
+    flex-direction: column; }
+    .ratings-form-container form h2 {
+      margin-bottom: 1em;
+      text-decoration: underline;
+      text-align: center; }
+    .ratings-form-container form input {
+      font-size: 1em; }
+    .ratings-form-container form .ratings-category {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 1em; }
+      .ratings-form-container form .ratings-category .ratings-stars {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-end; }
+    .ratings-form-container form .fa-star {
+      margin-left: 0.5em; }
+    .ratings-form-container form .boring {
+      color: red; }
+    .ratings-form-container form .selected {
+      color: yellow; }
+    .ratings-form-container form textarea {
+      font-size: 1em; }
+    .ratings-form-container form button {
+      font-size: 1em;
+      margin-top: 1em;
+      background-color: #17BEBB;
+      border: 0.5em solid #17BEBB;
+      border-radius: 0.5em;
+      width: 70%;
+      margin-left: 15%; }
+
 body {
   background: #f5f5f1;
   font-family: "Oswald", sans-serif; }

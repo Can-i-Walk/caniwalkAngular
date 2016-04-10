@@ -2,19 +2,30 @@ canIWalk.controller('walkController', ['$http', '$scope', function($http, $scope
 
   $scope.message = "we are talking to Angular!";
   console.log('control!');
-
+  $scope.ease = "yes";
   // $http.get('https://obscure-lowlands-76683.herokuapp.com/').success(function(data){
   //
   //   console.log("we are talking to the rails json!");
   //   console.log(data);
   //   $scope.stuff = data;
   // });
+  $scope.class = 'boring';
 
-  $scope.clickMe = function (){
+$scope.change = function(){
+   if($scope.class === "boring"){
+      $scope.class="selected";
+      console.log('change class');
+   }
+   else {
+      $scope.class = "boring";
+      console.log('second lvl');
+   }
 
-};
+}
 
-}]);
+
+
+}]); //end of walkController
 
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
   // NgMap.getMap().then(function(map) {
