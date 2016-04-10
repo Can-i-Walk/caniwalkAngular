@@ -80,6 +80,7 @@ canIWalk.factory('mapFactory', function() { // this factory allows communication
        alert("We need your email and password to log you in!");
      }
    };
+
  }]);
 
 
@@ -114,10 +115,25 @@ canIWalk.controller('registrationController', ['$scope', '$http', function($scop
 
 canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $http) {
   console.log("we are in the password Controller");
+
+  $scope.initiatePasswordChange = function(email){
+    console.log(email);
+    console.log("password change function activated");
+    if ($scope.passwordResetEmail){
+      $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
+      $('.login-passwordReset-email-button').toggle();
+      // we need to send the user's email (and an authentification token??? to the backend) for this
+    } else {
+      alert("Please provide the email address associated with your account");
+    }
+
+  }
+
   $scope.updatePassword = function() {
     if ($scope.newPassword && $scope.confirmPassword) { // check if the fields have been populated
       if ($scope.newPassword === $scope.confirmPassword) { // check if the passwords input were the same
         console.log("the passwords match");
+
         // this will be the POST we'll make when a user attempts to change their password
         //  $http({
         //    method: 'POST',
@@ -134,7 +150,7 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
         //    console.log(response);
         //    alert("we were unable to sign you in. Why don't you try again?")
         //  });
-        
+
       } else { // if the passwords don't match
         alert("Your passwords don't match. Please insert your new password in both fields");
       }
