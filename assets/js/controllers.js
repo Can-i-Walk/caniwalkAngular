@@ -59,18 +59,18 @@ canIWalk.factory('mapFactory', function() { // this factory allows communication
      if ($scope.loginEmail && $scope.loginPassword) { // check if the fields have been populated
        console.log("you're in the sign in function!");
 
-      // this will be the GET we'll make when a user attempts to log in
        $http({
-         method: 'GET',
-         url: 'https://peaceful-journey-51869.herokuapp.com/authentication/authenticate?email='+this.loginEmail+'&password='+this.loginPassword
+         method: 'POST',
+         url: 'https://peaceful-journey-51869.herokuapp.com/authentication/login?email='+this.loginEmail+'&password='+this.loginPassword
        }).then(function successCallback(response) {
          console.log("successful LOGIN");
          console.log(response);
+         // we need to do something with the token here - save it into a global variable, por ejemple
          $scope.loginEmail = '';
          $scope.loginPassword = '';
-        //  window.location.replace('#/home'); // redirect the user to wherever they need to go first
+         window.location.replace('#/home');
        }, function errorCallback(response) {
-         console.log("unsuccessful POST");
+         console.log("unsuccessful LOGIN");
          console.log(response);
          alert("we were unable to sign you in. Why don't you try again?")
        });
