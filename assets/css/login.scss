@@ -51,7 +51,7 @@
   font:{
     size: 35px;
   }
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   display: inline-block;
 }
 
@@ -60,22 +60,7 @@
 }
 
 .login-signIn-google {
-  margin: 10px;
-  border:{
-    style: solid;
-    width: 2px;
-    color: #2E282A
-  }
-  .fa-google {
-    color: white;
-    background: #d50f25;
-    padding: 5px;
-  }
-  span {
-    font:{
-      size: 35px;
-    }
-  }
+  margin-top: 50px;
 }
 
 .login-signIn-register {

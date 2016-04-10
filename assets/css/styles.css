@@ -49,6 +49,32 @@
     border: 0.5em solid #17BEBB;
     border-radius: 0.5em; }
 
+.duringWalk-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2em;
+  font-size: 2em;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold; }
+  .duringWalk-header a {
+    text-decoration: none; }
+    .duringWalk-header a h4 {
+      color: #CD5334; }
+      .duringWalk-header a h4 span {
+        color: #17BEBB; }
+
+.duringWalk-endWalk-button {
+  font-size: 1em;
+  border: 0.5em solid #17BEBB;
+  border-radius: 0.5em;
+  background-color: #17BEBB;
+  padding: 1em 0;
+  width: 50%;
+  margin-left: 15%;
+  position: absolute;
+  bottom: 2em; }
+
 .editAccount-header {
   display: flex;
   flex-direction: row;
@@ -176,20 +202,11 @@
 
 .login-signIn-button {
   font-size: 35px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   display: inline-block; }
 
 .login-signIn-google {
-  margin: 10px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #2E282A; }
-  .login-signIn-google .fa-google {
-    color: white;
-    background: #d50f25;
-    padding: 5px; }
-  .login-signIn-google span {
-    font-size: 35px; }
+  margin-top: 50px; }
 
 .login-signIn-register {
   width: 30%;

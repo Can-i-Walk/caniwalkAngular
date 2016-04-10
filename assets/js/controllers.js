@@ -59,22 +59,21 @@ canIWalk.factory('mapFactory', function() { // this factory allows communication
      if ($scope.loginEmail && $scope.loginPassword) { // check if the fields have been populated
        console.log("you're in the sign in function!");
 
-      // this will be the POST we'll make when a user attempts to log in
-      //  $http({
-      //    method: 'POST',
-      //    // not sure what this url will be for login
-      //    url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[email]='+this.loginEmail+'&user[password]='+this.loginPassword
-      //  }).then(function successCallback(response) {
-      //    console.log("successful LOGIN");
-      //    $scope.loginEmail = '';
-      //    $scope.loginPassword = '';
-      //    // here, we probably want to do a GET to fetch the login token
-      //    window.location.replace('#/home'); // redirect the user to wherever they need to go first
-      //  }, function errorCallback(response) {
-      //    console.log("unsuccessful POST");
-      //    console.log(response);
-      //    alert("we were unable to sign you in. Why don't you try again?")
-      //  });
+      // this will be the GET we'll make when a user attempts to log in
+       $http({
+         method: 'GET',
+         url: 'https://peaceful-journey-51869.herokuapp.com/authentication/authenticate?email='+this.loginEmail+'&password='+this.loginPassword
+       }).then(function successCallback(response) {
+         console.log("successful LOGIN");
+         console.log(response);
+         $scope.loginEmail = '';
+         $scope.loginPassword = '';
+        //  window.location.replace('#/home'); // redirect the user to wherever they need to go first
+       }, function errorCallback(response) {
+         console.log("unsuccessful POST");
+         console.log(response);
+         alert("we were unable to sign you in. Why don't you try again?")
+       });
 
      } else { // if one of the login fields is empty...
        alert("We need your email and password to log you in!");
@@ -103,7 +102,7 @@ canIWalk.controller('registrationController', ['$scope', '$http', function($scop
         // or server returns response with an error status.
         console.log("unsuccessful POST");
         console.log(response);
-        alert("we were unable to register you as a new user. Why don't you try again?")
+        alert("we were unable to register you as a new user. Why don't you try again?");
       });
     } else { // if some registration fields are empty...
       alert("One or more registration fields is empty.");
@@ -116,13 +115,30 @@ canIWalk.controller('registrationController', ['$scope', '$http', function($scop
 canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $http) {
   console.log("we are in the password Controller");
 
-  $scope.initiatePasswordChange = function(email){
-    console.log(email);
+  $scope.initiatePasswordChange = function(){
+    console.log($scope.passwordResetEmail)
     console.log("password change function activated");
     if ($scope.passwordResetEmail){
+      // these two jquery actions should be removed once we have the GET working (they're inside the success function as well)
       $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
       $('.login-passwordReset-email-button').toggle();
-      // we need to send the user's email (and an authentification token??? to the backend) for this
+
+      // $http({
+      //   method: 'GET',
+      //   url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail
+      // }).then(function successCallback(response) {
+      //   console.log("successful password reset initiation");
+      //   console.log(response);
+      //   // we need to do something with the token
+      //   $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
+      //   $('.login-passwordReset-email-button').toggle();
+      //   $scope.passwordResetEmail = '';
+      // }, function errorCallback(response) {
+      //   console.log("unsuccessful password reset initiation");
+      //   console.log(response);
+      //   alert("we were unable to initiate a password reset for you. Why don't you try again?");
+      // });
+
     } else {
       alert("Please provide the email address associated with your account");
     }
