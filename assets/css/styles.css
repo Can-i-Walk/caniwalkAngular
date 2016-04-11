@@ -259,18 +259,6 @@
   border-radius: 0.5em;
   color: white; }
 
-.login-signIn-guestWalkBtn {
-  position: absolute;
-  bottom: 40px;
-  left: 22%;
-  border-radius: 0.5em;
-  color: white;
-  border: none;
-  background: #17BEBB;
-  padding: 30px;
-  font-size: 70px;
-  font-family: "Oswald", sans-serif; }
-
 .login-register-modalHolder, .login-passwordReset-modalHolder {
   z-index: 1;
   position: absolute;
