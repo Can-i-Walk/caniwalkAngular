@@ -109,7 +109,7 @@ function findTrip(destLatLng, destName){
           //   }
           // });
 
-          // this will post info about the trip to the Rails backend and get nearby places of interest back!
+          // this posts info about the trip to the Rails backend and get nearby places of interest back!
           $.ajax({
             type : 'POST',
             dataType : 'json',

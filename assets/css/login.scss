@@ -75,11 +75,14 @@
   position: absolute;
   bottom: 40px;
   left: 22%;
+  border-radius: 0.5em;
   color: white;
+  border: none;
   background: $Teal;
-  padding: 15px;
+  padding: 30px;
   font:{
     size: 70px;
+    family: $Oswald;
   }
 }
 

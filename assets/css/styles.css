@@ -50,30 +50,28 @@
     border-radius: 0.5em; }
 
 .duringWalk-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 2em;
-  font-size: 2em;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 80px;
   font-family: "Dosis", sans-serif;
   font-weight: bold; }
-  .duringWalk-header a {
-    text-decoration: none; }
-    .duringWalk-header a h4 {
-      color: #CD5334; }
-      .duringWalk-header a h4 span {
-        color: #17BEBB; }
+  .duringWalk-header h4 {
+    color: #CD5334; }
+    .duringWalk-header h4 span {
+      color: #17BEBB; }
 
 .duringWalk-endWalk-button {
-  font-size: 1em;
+  color: white;
+  font-size: 50px;
+  font-family: "Oswald", sans-serif;
   border: 0.5em solid #17BEBB;
   border-radius: 0.5em;
   background-color: #17BEBB;
-  padding: 1em 0;
+  padding: 15px;
   width: 50%;
-  margin-left: 15%;
+  margin-left: 25%;
   position: absolute;
-  bottom: 2em; }
+  bottom: 40px; }
 
 .editAccount-header {
   display: flex;
@@ -158,7 +156,9 @@
     text-decoration: none;
     color: #2E282A; }
     .inputDest-form a button {
-      font-size: 1em;
+      color: white;
+      font-size: 1.2em;
+      font-family: "Oswald", sans-serif;
       border: 0.5em solid #17BEBB;
       border-radius: 0.5em;
       background-color: #17BEBB;
@@ -217,10 +217,13 @@
   position: absolute;
   bottom: 40px;
   left: 22%;
+  border-radius: 0.5em;
   color: white;
+  border: none;
   background: #17BEBB;
-  padding: 15px;
-  font-size: 70px; }
+  padding: 30px;
+  font-size: 70px;
+  font-family: "Oswald", sans-serif; }
 
 .login-register-modalHolder, .login-passwordReset-modalHolder {
   z-index: 1;
@@ -367,21 +370,23 @@
 
 .walkInfo-buttons {
   position: absolute;
-  bottom: 0.5em;
-  font-size: 4em;
+  bottom: 0.05em;
   width: 100%;
   margin-left: 4%; }
   .walkInfo-buttons button {
-    padding: 1em;
-    font-size: 0.5em;
+    padding: 20px;
+    font-size: 50px;
+    font-family: "Oswald", sans-serif;
     width: 45%; }
   .walkInfo-buttons .walkInfo-accept {
+    color: white;
     background-color: #17BEBB;
     border: 1em solid #17BEBB;
     border-radius: 0.5em; }
   .walkInfo-buttons .walkInfo-decline {
-    background-color: #EFCFCE;
-    border: 1em solid #EFCFCE;
+    color: white;
+    background-color: #CD5334;
+    border: 1em solid #CD5334;
     border-radius: 0.5em; }
 
 .walkInfo-modal {
