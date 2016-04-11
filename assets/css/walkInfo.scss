@@ -75,3 +75,40 @@
       border-radius: 0.5em;
    }
 }//end styling for the accept/decline buttons
+
+//styling for the modal!
+
+.walkInfo-modal {
+   position: absolute;
+   top: 15px;
+   bottom: 15px;
+   left: 15px;
+   right: 15px;
+   font-size: 4em;
+   background-color: black;
+   opacity: 0.7;
+   color: $Grey-background;
+   .walkInfo-modal-content {
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 30%;
+      text-align: center;
+   }
+   button {
+      font-size: 1em;
+      margin: 0.5em;
+      margin-top: 1.5em;
+   }
+   walkInfo-modal-header-main {
+      font-size: 1em;
+   }
+   .walkInfo-alternate-title {
+      text-decoration: underline;
+      margin-bottom: 0.5em;
+   }
+   a {
+      text-decoration: underline;
+      color: $Grey-background;
+      margin-bottom: 0.5em;
+   }
+}

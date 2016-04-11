@@ -43,18 +43,19 @@
             flex-direction: row;
             width: 100%;
             justify-content: flex-end;
-
+            .rating {
+               display: flex;
+               flex-direction: row;
+            }
+            .rating .filled {
+               color: #21568b;
+            }
          }
       }
       .fa-star {
          margin-left: 0.5em;
       }
-      .boring {
-         color: red;
-      }
-      .selected {
-         color: yellow;
-      }
+
 
       textarea {
          font-size: 1em;

@@ -1,4 +1,4 @@
-<div class="ratings-container" ng-controller="walkController">
+<div class="ratings-container" ng-controller="RatingController as rating">
    <header class="ratings-header">
       <a href="#/home"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
    </header>
@@ -7,46 +7,31 @@
          <h2>Rate Your Walk</h2>
          <label class="ratings-category">Safety
             <div class="ratings-stars">
-               <i class="fa fa-star" ng-click="change()"  ng-class="boring"></i>
-               <i class="fa fa-star" ng-click="change()" ng-class="boring"></i>
-               <i class="fa fa-star" ng-click="change()" ng-class="boring"></i>
-               <i class="fa fa-star" ng-click="change()" ng-class="boring"></i>
-               <i class="fa fa-star" ng-click="change()" ng-class="boring"></i>
+               <div star-rating ng-model="rating.rating1" max="5" on-rating-select="rating.rateFunction(rating)"></div>
             </div>
          </label>
          <label class="ratings-category">
             <h3>Ease</h3>
             <div class="ratings-stars">
-               <i class="fa fa-star"></i>
-               <i class="fa fa-star"></i>
-               <i class="fa fa-star"></i>
-               <i class="fa fa-star"></i>
-               <i class="fa fa-star"></i>
+               <!-- <div ng-init="rating = star.rating + 1"></div>
+               <div class="star-rating" star-rating rating-value="rating" data-max="5" on-rating-selected="rateFunction(rating)"></div> -->
             </div>
          </label>
          <label class="ratings-category">Enjoyability
             <div class="ratings-stars">
-               <i class="fa fa-star"></i>
-               <i class="fa fa-star"></i>
-               <i class="fa fa-star"></i>
-               <i class="fa fa-star"></i>
-               <i class="fa fa-star"></i>
+               <!-- <div ng-init="rating = star.rating + 1"></div>
+               <div class="star-rating" star-rating rating-value="rating" data-max="5" on-rating-selected="rateFunction(rating)"></div> -->
             </div>
          </label>
          <label class="ratings-category">Accessibility
             <div class="ratings-stars">
-               <i class="fa fa-star"></i>
-               <i class="fa fa-star"></i>
-               <i class="fa fa-star"></i>
-               <i class="fa fa-star"></i>
-               <i class="fa fa-star"></i>
+               <!-- <div ng-init="rating = star.rating + 1"></div>
+               <div class="star-rating" star-rating rating-value="rating" data-max="5" on-rating-selected="rateFunction(rating)"></div> -->
             </div>
          </label>
          <label>Comments</label>
          <textarea placeholder="Any Comments?"></textarea>
          <button type="submit" ng-submit="rabble()">Submit Ratings</button>
       </form>
-      <p>{{ ease }} check</p>
-      <p>{{ message }}</p>
    </div>
 </div>
