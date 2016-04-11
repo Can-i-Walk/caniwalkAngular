@@ -27,3 +27,55 @@
   position: absolute;
   bottom: 40px;
 }
+
+.duringWalk-endWalk-modalHolder {
+  z-index: 1;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.duringWalk-endWalk-modal {
+  text-align: center;
+  color: white;
+  width: 80%;
+  margin-left: 10%;
+  font: {
+    size: 50px;
+  }
+}
+
+.login-passwordReset-modal-actionText {
+  font-size: 70px;
+  margin-bottom: 100px;
+  padding-top: 50px;
+}
+
+.duringWalk-endWalk-confirm-button {
+  padding: 20px;
+  font:{
+    size: 50px;
+    family: $Oswald;
+  }
+  color: white;
+  background-color: $Teal;
+  border: 1em solid $Teal;
+  border-radius: 0.5em;
+  margin: 20px;
+}
+
+.duringWalk-endWalk-deny-button {
+  padding: 20px;
+  font:{
+    size: 50px;
+    family: $Oswald;
+  }
+  color: white;
+  background-color: $BurntOrange;
+  border: 1em solid $BurntOrange;
+  border-radius: 0.5em;
+  margin: 20px;
+}

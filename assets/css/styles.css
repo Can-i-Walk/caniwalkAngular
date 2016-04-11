@@ -73,6 +73,47 @@
   position: absolute;
   bottom: 40px; }
 
+.duringWalk-endWalk-modalHolder {
+  z-index: 1;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: rgba(0, 0, 0, 0.7); }
+
+.duringWalk-endWalk-modal {
+  text-align: center;
+  color: white;
+  width: 80%;
+  margin-left: 10%;
+  font-size: 50px; }
+
+.login-passwordReset-modal-actionText {
+  font-size: 70px;
+  margin-bottom: 100px;
+  padding-top: 50px; }
+
+.duringWalk-endWalk-confirm-button {
+  padding: 20px;
+  font-size: 50px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+  background-color: #17BEBB;
+  border: 1em solid #17BEBB;
+  border-radius: 0.5em;
+  margin: 20px; }
+
+.duringWalk-endWalk-deny-button {
+  padding: 20px;
+  font-size: 50px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+  background-color: #CD5334;
+  border: 1em solid #CD5334;
+  border-radius: 0.5em;
+  margin: 20px; }
+
 .editAccount-header {
   display: flex;
   flex-direction: row;
