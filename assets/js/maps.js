@@ -42,7 +42,6 @@ function findTrip(destLatLng, destName){
           originName = "Trip Origin Unknown";
           console.log("geocoder is not OK!");
         }
-<<<<<<< HEAD
         console.log(originName);
 
       });
