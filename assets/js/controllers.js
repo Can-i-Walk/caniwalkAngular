@@ -1,3 +1,104 @@
+// // codepen cut and paste from : http://www.angulartutorial.net/2014/03/rating-stars-in-angular-js-using.html
+// canIWalk.directive('starRating',
+// function() {
+// return {
+// restrict : 'A',
+// template : '<ul class="rating">'
+//    + ' <li ng-repeat="star in stars" ng-class="star" ng-click="toggle($index)">'
+//    + '  <i class="fa fa-star"></i>'
+//    + ' </li>'
+//    + '</ul>',
+// scope : {
+//  ratingValue : '=',
+//  max : '=',
+//  onRatingSelected : '&'
+// },
+// link : function(scope, elem, attrs) {
+//  var updateStars = function() {
+//   scope.stars = [];
+//   for ( var i = 0; i < scope.max; i++) {
+//    scope.stars.push({
+//     filled : i < scope.ratingValue
+//    });
+//   }
+//  };
+//
+//  scope.toggle = function(index) {
+//   scope.ratingValue = index + 1;
+//   scope.onRatingSelected({
+//    rating : index + 1,
+//   });
+//  };
+//
+//  scope.$watch('ratingValue',
+//   function(oldVal, newVal) {
+//    if (newVal) {
+//     updateStars();
+//    }
+//   });
+// }
+// };
+// });
+// //end codepen c/p
+// canIWalk.controller('RatingController', RatingController)
+//
+// canIWalk.directive('starRating', starRating);
+//
+//   function RatingController() {
+//     this.rating1 = 5;
+//     this.rating2 = 2;
+//     this.isReadonly = true;
+//     this.rateFunction = function(rating) {
+//       console.log('Rating selected: ' + rating);
+//     };
+//   }
+//
+//   function starRating() {
+//     return {
+//       restrict: 'EA',
+//       template:
+//         '<ul class="ratings-stars" ng-class="{readonly: readonly}">' +
+//         '  <li ng-repeat="star in stars" class="ratings-stars" ng-class="{filled: star.filled}" ng-click="toggle($index)">' +
+//         '    <i class="fa fa-star"></i>' + // or &#9733
+//         '  </li>' +
+//         '</ul>',
+//       scope: {
+//         ratingValue: '=ngModel',
+//         max: '=?', // optional (default is 5)
+//         onRatingSelect: '&?',
+//         readonly: '=?'
+//       },
+//       link: function(scope, element, attributes) {
+//         if (scope.max == undefined) {
+//           scope.max = 5;
+//         }
+//         function updateStars() {
+//           scope.stars = [];
+//           for (var i = 0; i < scope.max; i++) {
+//             scope.stars.push({
+//               filled: i < scope.ratingValue
+//             });
+//           }
+//         };
+//         scope.toggle = function(index) {
+//           if (scope.readonly == undefined || scope.readonly === false){
+//             scope.ratingValue = index + 1;
+//             scope.onRatingSelect({
+//               rating: index + 1
+//             });
+//           }
+//         };
+//         scope.$watch('ratingValue', function(oldValue, newValue) {
+//           if (newValue) {
+//             updateStars();
+//           }
+//         });
+//       }
+//     };
+//   }
+//
+//   //more cut and pasted
+
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
   // NgMap.getMap().then(function(map) {
     // console.log('gMapController working');

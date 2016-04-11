@@ -32,7 +32,28 @@
       </section>
    </section>
    <div class="walkInfo-buttons">
-      <a href="#/your_walk"<button class="walkInfo-accept">Take this walk</button></a>
-      <button class="walkInfo-decline">No thanks</button>
+      <a href="#/your_walk"><button class="walkInfo-accept">Take this walk</button></a>
+      <button class="walkInfo-decline" ng-click="modal=true">No thanks</button>
+   </div>
+<!-- modal for walk-Info page -->
+   <div class="walkInfo-modal" ng-show="modal">
+      <div class="walkInfo-modal-content">
+         <header class="walkInfo-modal-header">
+            <h2 class="walkInfo-modal-header-main">Are you sure you want to abandon this walk?</h2>
+            <a href="#/"><button>I do not want to take this walk</button></a><!-- back to input walk page -->
+            <a><button ng-click="modal=false">I want to take this walk</button></a> <!-- close modal -->
+         </header>
+         <ul>
+            <li class="walkInfo-alternate-title">Here's some other options</li>
+            <li><a href="http://godurhamtransit.org/">Durham Public Transit</a></li>
+            <li><a href="#">Rider</a></li>
+         </ul>
+         <!-- Modal on walk info page when we click 'no thanks'
+     * are you sure you want to quit this walk
+     * link back to walk
+     * link back to walk info page
+     * link to Rider
+     * link to public transit -->
+      </div>
    </div>
 </div>

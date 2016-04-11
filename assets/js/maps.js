@@ -42,6 +42,7 @@ function findTrip(destLatLng, destName){
           originName = "Trip Origin Unknown";
           console.log("geocoder is not OK!");
         }
+<<<<<<< HEAD
         console.log(originName);
 
       });
@@ -136,11 +137,11 @@ function findTrip(destLatLng, destName){
                 method: 'GET',
                 url: 'https://peaceful-journey-51869.herokuapp.com/places/nearby_favorite_places/?distance='+distance+'&origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng,
                 success: function (data) {
-                console.log("successful GET");
-                console.log(data);
+                  console.log("successful GET");
+                  console.log(data);
                 }, error: function (request,error) {
-                console.log("unsuccessful GET");
-                console.log(request);
+                  console.log("unsuccessful GET");
+                  console.log(request);
                 }
               });
             }, error: function(request,error){
@@ -148,7 +149,6 @@ function findTrip(destLatLng, destName){
               console.log("error");
             }
           });
-
       });
 
       // infoWindow.setPosition(pos);

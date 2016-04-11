@@ -384,6 +384,35 @@
     border: 1em solid #EFCFCE;
     border-radius: 0.5em; }
 
+.walkInfo-modal {
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  font-size: 4em;
+  background-color: black;
+  opacity: 0.7;
+  color: #f5f5f1; }
+  .walkInfo-modal .walkInfo-modal-content {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30%;
+    text-align: center; }
+  .walkInfo-modal button {
+    font-size: 1em;
+    margin: 0.5em;
+    margin-top: 1.5em; }
+  .walkInfo-modal walkInfo-modal-header-main {
+    font-size: 1em; }
+  .walkInfo-modal .walkInfo-alternate-title {
+    text-decoration: underline;
+    margin-bottom: 0.5em; }
+  .walkInfo-modal a {
+    text-decoration: underline;
+    color: #f5f5f1;
+    margin-bottom: 0.5em; }
+
 .ratings-header {
   display: flex;
   flex-direction: row;
@@ -398,6 +427,47 @@
       color: #CD5334; }
       .ratings-header a h4 span {
         color: #17BEBB; }
+
+.ratings-form-container {
+  font-size: 4em;
+  width: 80%;
+  margin-left: 10%; }
+  .ratings-form-container form {
+    display: flex;
+    flex-direction: column; }
+    .ratings-form-container form h2 {
+      margin-bottom: 1em;
+      text-decoration: underline;
+      text-align: center; }
+    .ratings-form-container form input {
+      font-size: 1em; }
+    .ratings-form-container form .ratings-category {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 1em; }
+      .ratings-form-container form .ratings-category .ratings-stars {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-end; }
+        .ratings-form-container form .ratings-category .ratings-stars .rating {
+          display: flex;
+          flex-direction: row; }
+        .ratings-form-container form .ratings-category .ratings-stars .rating .filled {
+          color: #21568b; }
+    .ratings-form-container form .fa-star {
+      margin-left: 0.5em; }
+    .ratings-form-container form textarea {
+      font-size: 1em; }
+    .ratings-form-container form button {
+      font-size: 1em;
+      margin-top: 1em;
+      background-color: #17BEBB;
+      border: 0.5em solid #17BEBB;
+      border-radius: 0.5em;
+      width: 70%;
+      margin-left: 15%; }
 
 body {
   background: #f5f5f1;
