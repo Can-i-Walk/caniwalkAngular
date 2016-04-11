@@ -151,17 +151,17 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
         console.log("the passwords match");
 
         //this PUT is currently throwing an error
-        //  $http({
-        //    method: 'PUT',
-        //    url: 'https://peaceful-journey-51869.herokuapp.com/users/1?user[password]='+$scope.newPassword
-        //  }).then(function successCallback(response) {
-        //    console.log("successful password update");
-        //    window.location.replace('#/home'); // redirect the user to wherever they need to go first
-        //  }, function errorCallback(response) {
-        //    console.log("unsuccessful password update");
-        //    console.log(response);
-        //    alert("we were unable to change your password. Why don't you try again?")
-        //  });
+         $http({
+           method: 'PUT',
+           url: 'https://peaceful-journey-51869.herokuapp.com/users/1?user[password]='+$scope.newPassword
+         }).then(function successCallback(response) {
+           console.log("successful password update");
+           window.location.replace('#/home'); // redirect the user to wherever they need to go first
+         }, function errorCallback(response) {
+           console.log("unsuccessful password update");
+           console.log(response);
+           alert("we were unable to change your password. Why don't you try again?")
+         });
 
       } else { // if the passwords don't match
         alert("Your passwords don't match. Please insert your new password in both fields");
