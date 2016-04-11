@@ -35,21 +35,28 @@
       }
       .ratings-category {
          display: flex;
-         justify-content: flex-start;
-         align-items: flex-start;
+         justify-content: space-between;
          margin-bottom: 1em;
+         width: 100%;
          .ratings-stars {
             display: flex;
             flex-direction: row;
             width: 100%;
             justify-content: flex-end;
+            text-align: right;
             .rating {
                display: flex;
                flex-direction: row;
             }
-            .rating .filled {
-               color: #21568b;
+            .star {
+               text-align: right;
+               display: flex;
+               justify-content: flex-end;
             }
+            .filled {
+               color: $BurntOrange;
+            }
+            //will need to change these classes to color the stars on rating
          }
       }
       .fa-star {

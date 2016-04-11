@@ -9,7 +9,7 @@
       </div>
       <label class="walkInfo-distance"></label>
       <label class="walkInfo-duration"></label>
-      <section class="walkInfo-reviews">
+      <section class="walkInfo-reviews" ng-hide="modal">
          <h4>Other User Reviews</h4>
          <ul class="walkInfo-review-list">
             <li>date/dest/avg rating?
@@ -40,8 +40,8 @@
       <div class="walkInfo-modal-content">
          <header class="walkInfo-modal-header">
             <h2 class="walkInfo-modal-header-main">Are you sure you want to abandon this walk?</h2>
-            <a href="#/"><button>I do not want to take this walk</button></a><!-- back to input walk page -->
-            <a><button ng-click="modal=false">I want to take this walk</button></a> <!-- close modal -->
+            <a href="#/"><button class="walkInfo-modal-nothanks">I do not want to take this walk</button></a><!-- back to input walk page -->
+            <a><button class="walkInfo-modal-takewalk" ng-click="modal=false">I want to take this walk</button></a> <!-- close modal -->
          </header>
          <ul>
             <li class="walkInfo-alternate-title">Here's some other options</li>

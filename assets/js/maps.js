@@ -55,5 +55,5 @@ function findTrip(destLatLng){
 }
 //end of findTrip function
 
-console.log("this is the distance variable " + window.distance); //these console logs are to try and find the distance and duration outside of the function.
-console.log("this is the duration variable " + duration);
+// console.log("this is the distance variable " + window.distance); //these console logs are to try and find the distance and duration outside of the function.
+// console.log("this is the duration variable " + duration);

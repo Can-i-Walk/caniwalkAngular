@@ -70,8 +70,8 @@
       border-radius: 0.5em;
    }
    .walkInfo-decline {
-      background-color: $Flesh;
-      border: 1em solid $Flesh;
+      background-color: $BurntOrange;
+      border: 1em solid $BurntOrange;
       border-radius: 0.5em;
    }
 }//end styling for the accept/decline buttons
@@ -93,22 +93,43 @@
       margin-left: 10%;
       margin-top: 30%;
       text-align: center;
+      opacity: 1;
    }
    button {
       font-size: 1em;
       margin: 0.5em;
       margin-top: 1.5em;
+      opacity: 1;
+   }
+   .walkInfo-modal-nothanks {
+      background-color: $BurntOrange;
+      border: 3px solid $BurntOrange;
+      border-radius: 3px;
+      opacity: 1;
+   }
+   .walkInfo-modal-takewalk {
+      background-color: $Teal;
+      border: 3px solid $Teal;
+      border-radius: 3px;
+      opacity: 1;
    }
    walkInfo-modal-header-main {
       font-size: 1em;
+      opacity: 1;
    }
    .walkInfo-alternate-title {
       text-decoration: underline;
       margin-bottom: 0.5em;
+      opacity: 1;
    }
    a {
       text-decoration: underline;
       color: $Grey-background;
+      opacity: 1;
+   }
+   li {
       margin-bottom: 0.5em;
+      opacity: 1;
    }
 }
+//close styling for the modal

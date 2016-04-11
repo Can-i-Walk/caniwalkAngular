@@ -306,8 +306,8 @@
     border: 1em solid #17BEBB;
     border-radius: 0.5em; }
   .walkInfo-buttons .walkInfo-decline {
-    background-color: #EFCFCE;
-    border: 1em solid #EFCFCE;
+    background-color: #CD5334;
+    border: 1em solid #CD5334;
     border-radius: 0.5em; }
 
 .walkInfo-modal {
@@ -324,20 +324,37 @@
     width: 80%;
     margin-left: 10%;
     margin-top: 30%;
-    text-align: center; }
+    text-align: center;
+    opacity: 1; }
   .walkInfo-modal button {
     font-size: 1em;
     margin: 0.5em;
-    margin-top: 1.5em; }
+    margin-top: 1.5em;
+    opacity: 1; }
+  .walkInfo-modal .walkInfo-modal-nothanks {
+    background-color: #CD5334;
+    border: 3px solid #CD5334;
+    border-radius: 3px;
+    opacity: 1; }
+  .walkInfo-modal .walkInfo-modal-takewalk {
+    background-color: #17BEBB;
+    border: 3px solid #17BEBB;
+    border-radius: 3px;
+    opacity: 1; }
   .walkInfo-modal walkInfo-modal-header-main {
-    font-size: 1em; }
+    font-size: 1em;
+    opacity: 1; }
   .walkInfo-modal .walkInfo-alternate-title {
     text-decoration: underline;
-    margin-bottom: 0.5em; }
+    margin-bottom: 0.5em;
+    opacity: 1; }
   .walkInfo-modal a {
     text-decoration: underline;
     color: #f5f5f1;
-    margin-bottom: 0.5em; }
+    opacity: 1; }
+  .walkInfo-modal li {
+    margin-bottom: 0.5em;
+    opacity: 1; }
 
 .ratings-header {
   display: flex;
@@ -369,19 +386,24 @@
       font-size: 1em; }
     .ratings-form-container form .ratings-category {
       display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      margin-bottom: 1em; }
+      justify-content: space-between;
+      margin-bottom: 1em;
+      width: 100%; }
       .ratings-form-container form .ratings-category .ratings-stars {
         display: flex;
         flex-direction: row;
         width: 100%;
-        justify-content: flex-end; }
+        justify-content: flex-end;
+        text-align: right; }
         .ratings-form-container form .ratings-category .ratings-stars .rating {
           display: flex;
           flex-direction: row; }
-        .ratings-form-container form .ratings-category .ratings-stars .rating .filled {
-          color: #21568b; }
+        .ratings-form-container form .ratings-category .ratings-stars .star {
+          text-align: right;
+          display: flex;
+          justify-content: flex-end; }
+        .ratings-form-container form .ratings-category .ratings-stars .filled {
+          color: #CD5334; }
     .ratings-form-container form .fa-star {
       margin-left: 0.5em; }
     .ratings-form-container form textarea {

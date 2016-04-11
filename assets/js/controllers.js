@@ -1,118 +1,56 @@
-canIWalk.controller('walkController', ['$http', '$scope', function($http, $scope) {
+canIWalk.controller('RatingController', function(){
+   this.rating1 = -1;
+   this.rating2 = -1;
+   this.rating3 = -1;
+   this.rating4 = -1;
+   //this initializes the ratings, but doesn't populate the star list with any. Change to 1 to have the first star populate. 0 will cause all of the stars to disappear
+   this.rateFunction = function(rating) {
+         console.log('Rating selected: ' + rating);
+       };
+});
 
-  $scope.message = "we are talking to Angular!";
-  console.log('control!');
-  $scope.ease = "yes";
-  // $http.get('https://obscure-lowlands-76683.herokuapp.com/').success(function(data){
-  //
-  //   console.log("we are talking to the rails json!");
-  //   console.log(data);
-  //   $scope.stuff = data;
-  // });
-
-
-}]); //end of walkController
-
-// // codepen cut and paste from : http://www.angulartutorial.net/2014/03/rating-stars-in-angular-js-using.html
-// canIWalk.directive('starRating',
-// function() {
-// return {
-// restrict : 'A',
-// template : '<ul class="rating">'
-//    + ' <li ng-repeat="star in stars" ng-class="star" ng-click="toggle($index)">'
-//    + '  <i class="fa fa-star"></i>'
-//    + ' </li>'
-//    + '</ul>',
-// scope : {
-//  ratingValue : '=',
-//  max : '=',
-//  onRatingSelected : '&'
-// },
-// link : function(scope, elem, attrs) {
-//  var updateStars = function() {
-//   scope.stars = [];
-//   for ( var i = 0; i < scope.max; i++) {
-//    scope.stars.push({
-//     filled : i < scope.ratingValue
-//    });
-//   }
-//  };
-//
-//  scope.toggle = function(index) {
-//   scope.ratingValue = index + 1;
-//   scope.onRatingSelected({
-//    rating : index + 1,
-//   });
-//  };
-//
-//  scope.$watch('ratingValue',
-//   function(oldVal, newVal) {
-//    if (newVal) {
-//     updateStars();
-//    }
-//   });
-// }
-// };
-// });
-// //end codepen c/p
-canIWalk.controller('RatingController', RatingController)
-
-canIWalk.directive('starRating', starRating);
-
-  function RatingController() {
-    this.rating1 = 5;
-    this.rating2 = 2;
-    this.isReadonly = true;
-    this.rateFunction = function(rating) {
-      console.log('Rating selected: ' + rating);
-    };
-  }
-
-  function starRating() {
-    return {
-      restrict: 'EA',
-      template:
-        '<ul class="ratings-stars" ng-class="{readonly: readonly}">' +
-        '  <li ng-repeat="star in stars" class="ratings-stars" ng-class="{filled: star.filled}" ng-click="toggle($index)">' +
-        '    <i class="fa fa-star"></i>' + // or &#9733
-        '  </li>' +
-        '</ul>',
+canIWalk.directive('ratingsStars', function(){
+   return {
+      restrict: 'E',
+      template: '<ul class="ratings-stars">' +
+                  '<li ng-repeat="star in stars" class="star" ng-click="toggle($index)" ng-class="{filled: star.filled}">' +
+                     '<i class="fa fa-star"></i>'+
+                  '</li>' +
+                '</ul>',
       scope: {
-        ratingValue: '=ngModel',
-        max: '=?', // optional (default is 5)
-        onRatingSelect: '&?',
-        readonly: '=?'
+         ratingValue: '=ngModel',
+         onRatingSelect: '&?',
       },
       link: function(scope, element, attributes) {
-        if (scope.max == undefined) {
-          scope.max = 5;
-        }
-        function updateStars() {
-          scope.stars = [];
-          for (var i = 0; i < scope.max; i++) {
-            scope.stars.push({
-              filled: i < scope.ratingValue
-            });
-          }
-        };
-        scope.toggle = function(index) {
-          if (scope.readonly == undefined || scope.readonly === false){
-            scope.ratingValue = index + 1;
-            scope.onRatingSelect({
-              rating: index + 1
-            });
-          }
-        };
-        scope.$watch('ratingValue', function(oldValue, newValue) {
-          if (newValue) {
-            updateStars();
-          }
-        });
-      }
-    };
-  }
+         scope.max = 5; //# of stars to populate ratings-stars
+         function updateStars(){
+            scope.stars = [];
+            for(var i = 0; i < scope.max; i++) {
+               scope.stars.push({
+                  filled: i < scope.ratingValue,
+               });
+            }
+         };
+         scope.toggle = function(index){
 
-  //more cut and pasted
+               scope.ratingValue = index + 1;
+               scope.onRatingSelect({
+                  rating: index + 1,
+               });
+
+         };
+         scope.$watch('ratingValue', function(oldValue, newValue){
+            if(newValue){
+               updateStars();
+            }
+         })
+
+      }
+   }
+}); //end of ratings-stars directive
+
+
+
 
 
 

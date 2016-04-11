@@ -5,29 +5,22 @@
    <div class="ratings-form-container">
       <form class="ratings-form">
          <h2>Rate Your Walk</h2>
-         <label class="ratings-category">Safety
-            <div class="ratings-stars">
-               <div star-rating ng-model="rating.rating1" max="5" on-rating-select="rating.rateFunction(rating)"></div>
-            </div>
+         <label class="ratings-category">
+            <h3>Safety</h3>
+            <!-- angular directives go here -->
+            <ratings-stars ng-model="rating.rating1" on-rating-select="rating.rateFunction(rating)"></ratings-stars>
          </label>
          <label class="ratings-category">
             <h3>Ease</h3>
-            <div class="ratings-stars">
-               <!-- <div ng-init="rating = star.rating + 1"></div>
-               <div class="star-rating" star-rating rating-value="rating" data-max="5" on-rating-selected="rateFunction(rating)"></div> -->
-            </div>
+            <ratings-stars ng-model="rating.rating2" on-rating-select="rating.rateFunction(rating)"></ratings-stars>
          </label>
-         <label class="ratings-category">Enjoyability
-            <div class="ratings-stars">
-               <!-- <div ng-init="rating = star.rating + 1"></div>
-               <div class="star-rating" star-rating rating-value="rating" data-max="5" on-rating-selected="rateFunction(rating)"></div> -->
-            </div>
+         <label class="ratings-category">
+            <h3>Enjoyability</h3>
+            <ratings-stars ng-model="rating.rating3" on-rating-select="rating.rateFunction(rating)"></ratings-stars>
          </label>
-         <label class="ratings-category">Accessibility
-            <div class="ratings-stars">
-               <!-- <div ng-init="rating = star.rating + 1"></div>
-               <div class="star-rating" star-rating rating-value="rating" data-max="5" on-rating-selected="rateFunction(rating)"></div> -->
-            </div>
+         <label class="ratings-category">
+            <h3>Accessibility</h3>
+            <ratings-stars ng-model="rating.rating4" on-rating-select="rating.rateFunction(rating)"></ratings-stars>
          </label>
          <label>Comments</label>
          <textarea placeholder="Any Comments?"></textarea>
