@@ -2,8 +2,9 @@ var distance;
 var duration;
 
 //find the route information
-function findTrip(destLatLng, destName){
-  console.log('find trip function working');
+function findTrip(destLatLng, destName, userID){
+  console.log(userID);
+  // console.log('find trip function working');
   var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
   var directionsService = new google.maps.DirectionsService;     //requests information from google's direction services
   var map = new google.maps.Map(document.getElementById('map'), { //initializes the map
@@ -111,7 +112,7 @@ function findTrip(destLatLng, destName){
               dataType : 'json',
               url: 'https://peaceful-journey-51869.herokuapp.com/trips',
               data: {
-                "user_id": 1,
+                "user_id": userID,
                 "trip_name": destName,
                 "distance": distance,
                 "origin_name": originName,

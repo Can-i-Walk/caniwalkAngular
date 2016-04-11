@@ -40,7 +40,7 @@
       <div class="walkInfo-modal-content">
          <header class="walkInfo-modal-header">
             <h2 class="walkInfo-modal-header-main">Are you sure you want to abandon this walk?</h2>
-            <a href="#/"><button>I do not want to take this walk</button></a><!-- back to input walk page -->
+            <a href="#/input-destination"><button ng-click="tripNotTaken()">I do not want to take this walk</button></a><!-- back to input walk page -->
             <a><button ng-click="modal=false">I want to take this walk</button></a> <!-- close modal -->
          </header>
          <ul>
@@ -48,12 +48,6 @@
             <li><a href="http://godurhamtransit.org/">Durham Public Transit</a></li>
             <li><a href="#">Rider</a></li>
          </ul>
-         <!-- Modal on walk info page when we click 'no thanks'
-     * are you sure you want to quit this walk
-     * link back to walk
-     * link back to walk info page
-     * link to Rider
-     * link to public transit -->
       </div>
    </div>
 </div>

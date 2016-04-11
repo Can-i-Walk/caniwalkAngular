@@ -100,16 +100,17 @@
 //   //more cut and pasted
 
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
-  // NgMap.getMap().then(function(map) {
-    // console.log('gMapController working');
+
     $scope.dest = mapFactory.getDest();
-    console.log($scope.dest);
     $scope.latLng = mapFactory.getLatLng();
-    console.log($scope.latLng);
-    // findTrip($scope.latLng);
-    findTrip($scope.latLng, $scope.dest);
-    // console.log(distance);
-  // });
+    var userID = localStorage.getItem('ID');
+    var token = localStorage.getItem('token');
+    console.log($scope.currentUserID);
+    findTrip($scope.latLng, $scope.dest, userID);
+
+    $scope.tripNotTaken = function(){
+      console.log("trip not taken function activated");
+    };
 }]);
 
 
@@ -154,35 +155,34 @@ canIWalk.factory('mapFactory', function() { // this factory allows communication
   }
  });
 
- canIWalk.controller('loginController', ['$scope', '$http', function($scope, $http) {
-   console.log("we are in the login Controller");
-   $scope.login = function() {
-     if ($scope.loginEmail && $scope.loginPassword) { // check if the fields have been populated
-       console.log("you're in the sign in function!");
+canIWalk.controller('loginController', ['$scope', '$http', function($scope, $http) {
+ console.log("we are in the login Controller");
+ $scope.login = function() {
+   if ($scope.loginEmail && $scope.loginPassword) { // check if the fields have been populated
+     console.log("you're in the sign in function!");
 
-       $http({
-         method: 'POST',
-         url: 'https://peaceful-journey-51869.herokuapp.com/authentication/login?email='+this.loginEmail+'&password='+this.loginPassword
-       }).then(function successCallback(response) {
-         console.log("successful LOGIN");
-         console.log(response);
-         // we need to do something with the token here - save it into a global variable, por ejemple
-         $scope.loginEmail = '';
-         $scope.loginPassword = '';
-         window.location.replace('#/home');
-       }, function errorCallback(response) {
-         console.log("unsuccessful LOGIN");
-         console.log(response);
-         alert("we were unable to sign you in. Why don't you try again?")
-       });
+     $http({
+       method: 'POST',
+       url: 'https://peaceful-journey-51869.herokuapp.com/authentication/login?email='+this.loginEmail+'&password='+this.loginPassword
+     }).then(function successCallback(response) {
+       console.log("successful LOGIN");
+       localStorage.setItem('token', response.data.token);
+       localStorage.setItem('ID', response.data.id);
+       $scope.loginEmail = '';
+       $scope.loginPassword = '';
+       window.location.replace('#/input-destination');
+     }, function errorCallback(response) {
+       console.log("unsuccessful LOGIN");
+       console.log(response);
+       alert("we were unable to sign you in. Why don't you try again?")
+     });
 
-     } else { // if one of the login fields is empty...
-       alert("We need your email and password to log you in!");
-     }
-   };
+   } else { // if one of the login fields is empty...
+     alert("We need your email and password to log you in!");
+   }
+ };
 
- }]);
-
+}]);
 
 canIWalk.controller('registrationController', ['$scope', '$http', function($scope, $http) {
   console.log("we are in the registration Controller");
