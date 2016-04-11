@@ -51,9 +51,6 @@ canIWalk.directive('ratingsStars', function(){
 
 
 
-
-
-
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
   // NgMap.getMap().then(function(map) {
     // console.log('gMapController working');
@@ -61,36 +58,28 @@ canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, 
     console.log($scope.dest);
     $scope.latLng = mapFactory.getLatLng();
     console.log($scope.latLng);
-    findTrip($scope.latLng);
+    // findTrip($scope.latLng);
+    findTrip($scope.latLng, $scope.dest);
     // console.log(distance);
   // });
 }]);
 
-//$scope and controller in another controller as a dependency
+
 canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($scope, mapFactory) {
   // console.log("we are in the destination Controller");
-  // var destLat;
-
   var vm = this;
-  // vm.types = "['establishment']";
-  vm.placeChanged = function() {
+  vm.placeChanged = function() { // when a user selects a Google Place in the destination drop down menu...
     vm.place = this.getPlace();
-    $scope.destLat = vm.place.geometry.access_points[0].location.lat;
-    $scope.destLng = vm.place.geometry.access_points[0].location.lng;
+    console.log(vm.place);
+    $scope.destLat = vm.place.geometry.location.lat();
+    $scope.destLng = vm.place.geometry.location.lng();
     $scope.destName = vm.place.name;
-    // console.log("scope lat " + $scope.destLat + " scope lng " + $scope.destLng + "scope destname"+$scope.destName);
-    destLat = $scope.destLat;
-    destLng = $scope.destLng;
-    destLatLng = "{lat: "+$scope.destLat+", lng: "+$scope.destLng+"}";
-    destName = $scope.destName;
-    $scope.latLng = mapFactory.setLatLng(destLat, destLng);
-    // console.log($scope.latLng);
-    $scope.dest = mapFactory.setDest(destName);
-    // console.log($scope.dest);
+    $scope.latLng = mapFactory.setLatLng($scope.destLat, $scope.destLng);
+    $scope.dest = mapFactory.setDest($scope.destName);
   };
 }]);
 
-canIWalk.factory('mapFactory', function() {
+canIWalk.factory('mapFactory', function() { // this factory allows communication between controllers
   return {
     currentLat : null,
     currentLng : null,
@@ -117,60 +106,45 @@ canIWalk.factory('mapFactory', function() {
   }
  });
 
+ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $http) {
+   console.log("we are in the login Controller");
+   $scope.login = function() {
+     if ($scope.loginEmail && $scope.loginPassword) { // check if the fields have been populated
+       console.log("you're in the sign in function!");
+
+       $http({
+         method: 'POST',
+         url: 'https://peaceful-journey-51869.herokuapp.com/authentication/login?email='+this.loginEmail+'&password='+this.loginPassword
+       }).then(function successCallback(response) {
+         console.log("successful LOGIN");
+         console.log(response);
+         // we need to do something with the token here - save it into a global variable, por ejemple
+         $scope.loginEmail = '';
+         $scope.loginPassword = '';
+         window.location.replace('#/home');
+       }, function errorCallback(response) {
+         console.log("unsuccessful LOGIN");
+         console.log(response);
+         alert("we were unable to sign you in. Why don't you try again?")
+       });
+
+     } else { // if one of the login fields is empty...
+       alert("We need your email and password to log you in!");
+     }
+   };
+
+ }]);
+
+
 canIWalk.controller('registrationController', ['$scope', '$http', function($scope, $http) {
   console.log("we are in the registration Controller");
   $scope.register = function() {
     if ($scope.username && $scope.email && $scope.password) { // check if the fields have been populated
 
-        // this doesn't really work
-        // $scope.regInfo = {
-        //   "name": $scope.username,
-        //   "email": $scope.email,
-        //   "password": $scope.password
-        // }
-        //
-        // $http.post('https://peaceful-journey-51869.herokuapp.com/users', $scope.regInfo)
-        // .success(function (data) {
-        // // this callback will be called asynchronously
-        // // when the response is available
-        // console.log("successful POST");
-        // console.log(response);
-        // window.location.replace('#/home');
-        // })
-        // .error(function (data, status, headers, config) {
-        // // called asynchronously if an error occurs
-        // // or server returns response with an error status.
-        // console.log("unsuccessful POST");
-        // console.log(response);
-        // return status;
-        // });
-
-      // here is a standard jquery ajax call. it works, but it throws an error.
-        // $.ajax({
-        //         type : 'POST',
-        //         dataType : 'json',
-        //         url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[name]='+this.username+'&user[email]='+this.email+'&user[password]='+this.password,
-        //         headers: {
-        //             contentType: "application/json",
-        //           },
-        //         success : function(data) {
-        //             console.log("posting registration data to the DB was successful");
-        //             window.location.replace('#/home');
-        //
-        //         }, error: function(request,error){
-        //             console.log("error");
-        //         }
-        // });
-        //
-
-
-      // and here is a native angular call
       $http({
         method: 'POST',
         url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[name]='+this.username+'&user[email]='+this.email+'&user[password]='+this.password
       }).then(function successCallback(response) {
-        // this callback will be called asynchronously
-        // when the response is available
         console.log("successful POST");
         $('.login-register-signIn').html("Success! Please go check your email to confirm your account!");
         $scope.username = '';
@@ -181,10 +155,72 @@ canIWalk.controller('registrationController', ['$scope', '$http', function($scop
         // or server returns response with an error status.
         console.log("unsuccessful POST");
         console.log(response);
-        alert("we were unable to register you as a new user. Why don't you try again?")
+        alert("we were unable to register you as a new user. Why don't you try again?");
       });
     } else { // if some registration fields are empty...
       alert("One or more registration fields is empty.");
+    }
+  };
+
+
+}]);
+
+canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $http) {
+  console.log("we are in the password Controller");
+
+  $scope.initiatePasswordChange = function(){
+    console.log($scope.passwordResetEmail)
+    console.log("password change function activated");
+    if ($scope.passwordResetEmail){
+      // these two jquery actions should be removed once we have the GET working (they're inside the success function as well)
+      // $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
+      // $('.login-passwordReset-email-button').toggle();
+
+      $http({
+        method: 'GET',
+        url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail
+        // url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email=geoffrey.s.arnold@gmail.com'
+      }).then(function successCallback(response) {
+        console.log("successful password reset initiation");
+        console.log(response);
+        // we need to do something with the token
+        $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
+        $('.login-passwordReset-email-button').toggle();
+      }, function errorCallback(response) {
+        console.log("unsuccessful password reset initiation");
+        console.log(response);
+        alert("we were unable to initiate a password reset for you. Why don't you try again?");
+      });
+
+    } else {
+      alert("Please provide the email address associated with your account");
+    }
+
+  }
+
+  $scope.updatePassword = function() {
+    if ($scope.newPassword && $scope.confirmPassword) { // check if the fields have been populated
+      if ($scope.newPassword === $scope.confirmPassword) { // check if the passwords input were the same
+        console.log("the passwords match");
+
+        //this PUT is currently throwing an error
+         $http({
+           method: 'PUT',
+           url: 'https://peaceful-journey-51869.herokuapp.com/users/1?user[password]='+$scope.newPassword
+         }).then(function successCallback(response) {
+           console.log("successful password update");
+           window.location.replace('#/home'); // redirect the user to wherever they need to go first
+         }, function errorCallback(response) {
+           console.log("unsuccessful password update");
+           console.log(response);
+           alert("we were unable to change your password. Why don't you try again?")
+         });
+
+      } else { // if the passwords don't match
+        alert("Your passwords don't match. Please insert your new password in both fields");
+      }
+    } else { // if some registration fields are empty...
+      alert("Please fill out all fields on the page");
     }
   };
 

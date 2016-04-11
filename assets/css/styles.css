@@ -49,6 +49,71 @@
     border: 0.5em solid #17BEBB;
     border-radius: 0.5em; }
 
+.duringWalk-header {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 80px;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold; }
+  .duringWalk-header h4 {
+    color: #CD5334; }
+    .duringWalk-header h4 span {
+      color: #17BEBB; }
+
+.duringWalk-endWalk-button {
+  color: white;
+  font-size: 50px;
+  font-family: "Oswald", sans-serif;
+  border: 0.5em solid #17BEBB;
+  border-radius: 0.5em;
+  background-color: #17BEBB;
+  padding: 15px;
+  width: 50%;
+  margin-left: 25%;
+  position: absolute;
+  bottom: 40px; }
+
+.duringWalk-endWalk-modalHolder {
+  z-index: 1;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: rgba(0, 0, 0, 0.7); }
+
+.duringWalk-endWalk-modal {
+  text-align: center;
+  color: white;
+  width: 80%;
+  margin-left: 10%;
+  font-size: 50px; }
+
+.login-passwordReset-modal-actionText {
+  font-size: 70px;
+  margin-bottom: 100px;
+  padding-top: 50px; }
+
+.duringWalk-endWalk-confirm-button {
+  padding: 20px;
+  font-size: 50px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+  background-color: #17BEBB;
+  border: 1em solid #17BEBB;
+  border-radius: 0.5em;
+  margin: 20px; }
+
+.duringWalk-endWalk-deny-button {
+  padding: 20px;
+  font-size: 50px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+  background-color: #CD5334;
+  border: 1em solid #CD5334;
+  border-radius: 0.5em;
+  margin: 20px; }
+
 .editAccount-header {
   display: flex;
   flex-direction: row;
@@ -132,7 +197,9 @@
     text-decoration: none;
     color: #2E282A; }
     .inputDest-form a button {
-      font-size: 1em;
+      color: white;
+      font-size: 1.2em;
+      font-family: "Oswald", sans-serif;
       border: 0.5em solid #17BEBB;
       border-radius: 0.5em;
       background-color: #17BEBB;
@@ -151,7 +218,7 @@
   padding: 10px;
   text-align: center;
   color: #CD5334;
-  font-size: 45px;
+  font-size: 100px;
   font-weight: 700;
   font-family: "Dosis", sans-serif; }
   .login-logo span {
@@ -166,31 +233,21 @@
 
 #login-signIn-email {
   font-size: 35px;
-  margin: 10px; }
+  margin: 10px;
+  border: solid 1px #2E282A; }
 
 #login-signIn-password {
   font-size: 35px;
-  margin: 10px; }
+  margin: 10px;
+  border: solid 1px #2E282A; }
 
 .login-signIn-button {
   font-size: 35px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   display: inline-block; }
 
-.login-signIn-forgotPW {
-  float: right; }
-
 .login-signIn-google {
-  margin: 10px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #2E282A; }
-  .login-signIn-google .fa-google {
-    color: white;
-    background: #d50f25;
-    padding: 5px; }
-  .login-signIn-google span {
-    font-size: 35px; }
+  margin-top: 50px; }
 
 .login-signIn-register {
   width: 30%;
@@ -201,19 +258,43 @@
   position: absolute;
   bottom: 40px;
   left: 22%;
+  border-radius: 0.5em;
   color: white;
+  border: none;
   background: #17BEBB;
-  padding: 15px;
-  font-size: 70px; }
+  padding: 30px;
+  font-size: 70px;
+  font-family: "Oswald", sans-serif; }
 
-.login-register-modalHolder {
-  border: solid 1px red;
+.login-register-modalHolder, .login-passwordReset-modalHolder {
+  z-index: 1;
   position: absolute;
   top: 15px;
   left: 15px;
   right: 15px;
   bottom: 15px;
   background: rgba(0, 0, 0, 0.7); }
+
+.login-passwordReset-modal {
+  text-align: center;
+  color: white;
+  width: 80%;
+  margin-left: 10%;
+  font-size: 50px; }
+
+#login-passwordReset-email-input {
+  font-size: 50px;
+  margin-top: 100px; }
+
+.login-passwordReset-email-button {
+  font-size: 50px;
+  margin-top: 100px; }
+
+.login-passwordReset-modal-actionText {
+  margin-top: 50px; }
+
+.login-passwordReset-closeModal {
+  margin-top: 200px; }
 
 .login-register-modalfields {
   width: 40%;
@@ -252,6 +333,43 @@
   color: white;
   font-size: 60px;
   margin-top: 30%; }
+
+.password-logo {
+  text-align: center;
+  color: #CD5334;
+  font-size: 100px;
+  font-weight: 700;
+  font-family: "Dosis", sans-serif;
+  margin-top: 30px; }
+  .password-logo span {
+    color: #17BEBB; }
+
+.password-container {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 50px;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-color: #2E282A;
+  font-size: 35px; }
+
+.password-field-label {
+  display: block; }
+
+#login-password-newPassword {
+  font-size: 35px;
+  margin: 10px;
+  width: 60%;
+  border: solid 1px #2E282A; }
+
+#login-password-confirmPassword {
+  font-size: 35px;
+  margin: 10px;
+  width: 60%;
+  border: solid 1px #2E282A; }
+
+.login-signIn-button {
+  margin-top: 50px; }
 
 .walkInfo-header {
   display: flex;
@@ -293,19 +411,21 @@
 
 .walkInfo-buttons {
   position: absolute;
-  bottom: 0.5em;
-  font-size: 4em;
+  bottom: 0.05em;
   width: 100%;
   margin-left: 4%; }
   .walkInfo-buttons button {
-    padding: 1em;
-    font-size: 0.5em;
+    padding: 20px;
+    font-size: 50px;
+    font-family: "Oswald", sans-serif;
     width: 45%; }
   .walkInfo-buttons .walkInfo-accept {
+    color: white;
     background-color: #17BEBB;
     border: 1em solid #17BEBB;
     border-radius: 0.5em; }
   .walkInfo-buttons .walkInfo-decline {
+    color: white;
     background-color: #CD5334;
     border: 1em solid #CD5334;
     border-radius: 0.5em; }
