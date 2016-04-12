@@ -232,6 +232,13 @@
   width: 80%;
   margin-left: 10%; }
 
+.login-signIn-errorContainer {
+  font-size: 40px;
+  color: #CD5334;
+  text-decoration: underline;
+  margin-top: 15px;
+  text-align: center; }
+
 .login-signIn-field-label {
   display: block; }
 
@@ -389,6 +396,8 @@
   font-family: "Oswald", sans-serif;
   font-size: 4em;
   color: #2E282A; }
+  .walkInfo-content h2 {
+    text-align: center; }
   .walkInfo-content .walkInfo-map {
     height: 10em;
     width: 100%; }
@@ -402,6 +411,12 @@
       text-decoration: underline;
       margin-bottom: 0.5em;
       text-align: center; }
+  .walkInfo-content .walkInfo-weather-intro {
+    margin-top: 65px; }
+  .walkInfo-content .walkInfo-weatherData {
+    margin-top: 25px; }
+    .walkInfo-content .walkInfo-weatherData div {
+      display: inline-block; }
 
 .walkInfo-map-google {
   height: 100%; }

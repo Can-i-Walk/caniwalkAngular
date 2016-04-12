@@ -25,6 +25,14 @@
   margin-left: 10%;
 }
 
+.login-signIn-errorContainer {
+  font-size: 40px;
+  color: $BurntOrange;
+  text-decoration: underline;
+  margin-top: 15px;
+  text-align: center;
+}
+
 .login-signIn-field-label {
   display: block;
 }
