@@ -171,16 +171,15 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
          console.log("unsuccessful LOGIN");
          console.log(response.data.errors);
          $('.login-signIn-errorContainer').html("Login failed.");
-         alert("We were unable to sign you in.")
        }
      }, function errorCallback(response) {
        console.log("unsuccessful LOGIN");
        console.log(response);
-       alert("We were unable to sign you in. Why don't you try again?")
+       $('.login-signIn-errorContainer').html("Login failed.");
      });
 
    } else { // if one of the login fields is empty...
-     alert("We need your email and password to log you in!");
+     $('.login-signIn-errorContainer').html("Please enter your email address and password.");
    }
  };
 
@@ -228,15 +227,25 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
         url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail
         // url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email=geoffrey.s.arnold@gmail.com'
       }).then(function successCallback(response) {
-        console.log("successful password reset initiation");
-        console.log(response);
-        // we need to do something with the token
-        $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
-        $('.login-passwordReset-email-button').toggle();
+
+        if (response.data.id) {
+          console.log("successful password reset initiation");
+          console.log(response);
+          // we need to do something with the token
+          $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
+          $('.login-passwordReset-email-button').toggle();
+        } else if (response.data.errors[0] === "No user found with that email."){
+          console.log(response.data.errors);
+          $('.login-passwordReset-modal-actionText').html("We couldn't find a user with that email.");
+        } else {
+          console.log("unsuccessful password reset initiation");
+          console.log(response.data.errors);
+          $('.login-passwordReset-modal-actionText').html("Sorry, but we couldn't send you a password reset email.");
+        }
       }, function errorCallback(response) {
         console.log("unsuccessful password reset initiation");
         console.log(response);
-        alert("we were unable to initiate a password reset for you. Why don't you try again?");
+        $('.login-passwordReset-modal-actionText').html("Sorry, but we couldn't send you a password reset email.");
       });
 
     } else {
