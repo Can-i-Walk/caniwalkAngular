@@ -32,13 +32,7 @@
       border: 1px solid $Text;
       // background-color: white;
    }
-   // .pac-container {
-   //    font-size: 4em;
-   //    background-color: red;
-   // }
-   .pac-item {
-      font-size: 4em;
-   }
+
    label {
       font-size: 3em;
       margin-top: 5%;
@@ -66,5 +60,14 @@
       }
    }
 
-
+}
+.pac-icon {
+   display: none;
+}
+.pac-item {
+   font-size: 3em;
+   line-height: 1.5em;
+}
+.pac-item-query {
+   font-size: 1em;
 }

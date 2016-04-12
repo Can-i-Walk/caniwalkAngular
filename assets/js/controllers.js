@@ -99,7 +99,6 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
   function placeChanged() { // when a user selects a Google Place in the destination drop down menu...
     var inputDest = document.getElementById('inputDest');
     var autocomplete = new google.maps.places.Autocomplete(inputDest);
-    console.log('placeChanged fired')
     autocomplete.addListener('place_changed', function(){
       var place = autocomplete.getPlace();
       $scope.destLat = place.geometry.access_points[0].location.lat;

@@ -206,8 +206,6 @@
     font-size: 4em;
     margin-top: 5%;
     border: 1px solid #2E282A; }
-  .inputDest-form .pac-item {
-    font-size: 4em; }
   .inputDest-form label {
     font-size: 3em;
     margin-top: 5%; }
@@ -229,6 +227,16 @@
       margin-left: 15%;
       position: absolute;
       bottom: 2em; }
+
+.pac-icon {
+  display: none; }
+
+.pac-item {
+  font-size: 3em;
+  line-height: 1.5em; }
+
+.pac-item-query {
+  font-size: 1em; }
 
 .login-container {
   font-family: "Oswald", sans-serif;
