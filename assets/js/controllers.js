@@ -107,6 +107,7 @@ canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scop
       }).then(function successCallback(response) {
         console.log("successful denial of trip");
         window.location.replace('#/input-destination');
+        localStorage.setItem('currentTripID', null);
       }, function errorCallback(response) {
         console.log("unsuccessful denial of trip");
         console.log(response);

@@ -49,11 +49,11 @@ function liveMap(destLatLng, destName, userID){
         function(response, status) {
           if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
-            distance = response.routes[0].legs[0].distance.text;
-            duration = response.routes[0].legs[0].duration.text;
-            //  this is getting the distance (in miles) and the duration (in hours & minutes) of our trip and assigning those values to variables.
-            $(".walkInfo-distance").html(distance);
-            $(".walkInfo-duration").html(duration);
+            // distance = response.routes[0].legs[0].distance.text;
+            // duration = response.routes[0].legs[0].duration.text;
+            // //  this is getting the distance (in miles) and the duration (in hours & minutes) of our trip and assigning those values to variables.
+            // $(".walkInfo-distance").html(distance);
+            // $(".walkInfo-duration").html(duration);
             // this GET will get the places of interest from other users based on the route data we send to the backend
             $.ajax({
               method: 'GET',
