@@ -1,0 +1,59 @@
+.editAccount-form-container {
+   display: flex;
+   width: 80%;
+   margin-left: 10%;
+   font-size: 4em;
+   form {
+      display: flex;
+      flex-direction: column;
+      font-size: 1em;
+      a{
+         color: $Text;
+         background-color: $BurntOrange;
+         border: 0.5em solid $BurntOrange;
+         border-radius: 0.5em;
+         margin-top: 1em;
+      }
+      label {
+         margin-top: 1em;
+      }
+      // a:hover {
+      //    text-decoration: underline;
+      //    background-color: red;
+      // } hover isn't going to work on a mobile!!!
+      select {
+         font-size: 1em;
+         color: $Text;
+         background-color: white;
+      }
+      input {
+         font-size: 1em;
+      }
+      .editAccount-preference-header {
+         margin-top: 0.5em;
+         border-bottom: 1px solid $Text;
+         text-align: center;
+         width: 70%;
+         margin-left: 15%;
+      }
+      .editAccount-distance-input {
+         width: 150px;
+      }
+      .editAccount-distance-input::-webkit-inner-spin-button,       .editAccount-distance-input::-webkit-outer-spin-button,  {
+         -webkit-appearance: none;
+      }
+      button {
+         font-size: 1em;
+         background-color: $Teal;
+         padding: 0.5em;
+         border: 0.5em solid $Teal;
+         border-radius: 0.5em;
+         margin-top: 1em;
+         color: white;
+      }
+      .editAccount-change-password {
+         text-align: center;
+         color: white;
+      }
+   }
+}

@@ -1,0 +1,203 @@
+.login-container {
+  font:{
+    family: $Oswald;
+    color: #2E282A;
+    size: 35px;
+  }
+}
+
+.login-logo {
+  padding: 10px;
+  text-align: center;
+  color: $BurntOrange;
+  font:{
+    size: 100px;
+    weight: 700;
+    family: $Dosis;
+  }
+  span {
+    color: $Teal;
+  }
+}
+
+.login-signIn {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.login-signIn-errorContainer {
+  font-size: 40px;
+  color: $BurntOrange;
+  text-decoration: underline;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.login-signIn-field-label {
+  display: block;
+}
+
+#login-signIn-email {
+  // display: block;
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+  border: solid 1px $Text;
+}
+
+#login-signIn-password {
+  // display: block;
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+  border: solid 1px $Text;
+}
+
+.login-signIn-button {
+  font:{
+    size: 35px;
+  }
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.login-signIn-forgotPW {
+  // margin-bottom: 100px;
+}
+
+.login-signIn-google {
+  margin-top: 50px;
+}
+
+.login-signIn-register {
+  width: 30%;
+  margin:{
+    top: 50px;
+    left: 35%;
+  }
+  text-align: center;
+  background-color: $Teal;
+  border: 1em solid $Teal;
+  border-radius: 0.5em;
+  color: white;
+}
+
+// .login-signIn-guestWalkBtn {
+//   position: absolute;
+//   bottom: 40px;
+//   left: 22%;
+//   border-radius: 0.5em;
+//   color: white;
+//   border: none;
+//   background: $Teal;
+//   padding: 30px;
+//   font:{
+//     size: 70px;
+//     family: $Oswald;
+//   }
+// }
+
+.login-register-modalHolder, .login-passwordReset-modalHolder{
+  z-index: 1;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.login-passwordReset-modal {
+  text-align: center;
+  color: white;
+  width: 80%;
+  margin-left: 10%;
+  font: {
+    size: 50px;
+  }
+}
+
+#login-passwordReset-email-input {
+  font: {
+    size: 50px;
+  }
+  margin-top: 100px;
+}
+
+.login-passwordReset-email-button {
+  font: {
+    size: 50px;
+  }
+  margin-top: 100px;
+}
+
+.login-passwordReset-modal-actionText {
+  margin-top: 50px;
+}
+
+.login-passwordReset-closeModal {
+  margin-top: 200px;
+}
+
+.login-register-modalfields {
+  width: 40%;
+  margin:{
+  top: 20%;
+  left: 30%;
+  }
+}
+
+.login-register-modal-title {
+  margin-top: 100px;
+  text-align: center;
+  color: white;
+  font:{
+    family: $Dosis;
+    size: 70px;
+  }
+}
+
+.login-register-field-modalLabel {
+  color: white;
+}
+
+#login-register-email {
+  // display: block;
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+}
+
+#login-register-password {
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+}
+
+#login-register-name {
+  font:{
+    size: 35px;
+  }
+  margin: 10px;
+}
+
+.login-register-button {
+  font:{
+    size: 35px;
+  }
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.login-register-signIn {
+  text-align: center;
+  color: white;
+  font:{
+    size: 60px;
+  }
+  margin-top: 30%;
+}

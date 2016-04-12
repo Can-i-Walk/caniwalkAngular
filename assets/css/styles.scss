@@ -1,0 +1,67 @@
+$Teal: #17BEBB;
+$Text: #2E282A;
+$BurntOrange: #CD5334;
+$Tan: #EDB88B;
+$Flesh: #EFCFCE;
+$Grey-background: #f5f5f1;
+$Dosis: 'Dosis', sans-serif; /*header/big font*/
+$Oswald: 'Oswald', sans-serif; /*body/readable font*/
+
+@import 'dashboard';
+@import 'duringWalk';
+@import 'editAccount';
+@import 'inputDest';
+@import 'login';
+@import 'changePassword';
+@import 'walkInfo';
+@import 'ratings';
+
+body {
+  background: $Grey-background;
+  font-family: $Oswald;
+}
+
+.caniwalk-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2.2em;
+  font-size: 30px;
+  a {
+    text-decoration: none;
+    h4 {
+      font:{
+        size: 50px;
+        family: $Dosis;
+        weight: bold;
+      };
+      color: $BurntOrange;
+      span {
+          color: $Teal;
+       }
+    }
+  }
+}
+
+.caniwalk-header-options-container {
+  position: relative;
+}
+
+.caniwalk-header-options {
+  position: absolute;
+  top: 6px;
+  left: -360px;
+  width: 500px;
+
+  div {
+    text-align: right;
+    font:{
+      size: 40px;
+    };
+    margin-right: 20px;
+    display: inline-block;
+    a {
+      text-decoration: none;
+    }
+  }
+}

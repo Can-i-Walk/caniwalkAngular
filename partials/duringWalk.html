@@ -1,0 +1,18 @@
+<div class="duringWalk-page">
+   <header class="duringWalk-header">
+      <h4>CAN<span>&#60i&#62</span>WALK</h4>
+   </header>
+   <section class="duringWalk-content" ng-controller="duringWalkController">
+      <div class="duringWalk-map" id="duringWalkMap"></div>
+   </section>
+   <div class="duringWalk-buttons">
+      <button ng-click="endWalkModal=true" class="duringWalk-endWalk-button">End this walk</button>
+   </div>
+   <div class="duringWalk-endWalk-modalHolder" ng-show="endWalkModal">
+     <div class="duringWalk-endWalk-modal">
+       <h2 class="login-passwordReset-modal-actionText">Are you sure you want to end this walk?</h2>
+       <a href="#/ratings"><button class="duringWalk-endWalk-confirm-button" type="submit">Yep, I'm done.</button></a>
+       <button ng-click="endWalkModal=false" class="duringWalk-endWalk-deny-button" type="submit">Nope, I'd like to keep walking!</button>
+     </div>
+   </div>
+</div>
