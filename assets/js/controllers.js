@@ -61,6 +61,16 @@ canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, 
 
 }]);
 
+canIWalk.controller('duringWalkController', ['$scope', 'mapFactory', function($scope, mapFactory) {
+
+    $scope.dest = mapFactory.getDest();
+    $scope.latLng = mapFactory.getLatLng();
+    var userID = localStorage.getItem('ID');
+    var token = localStorage.getItem('token');
+    liveMap($scope.latLng, $scope.dest, userID);
+
+}]);
+
 
 canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($scope, mapFactory) {
   // console.log("we are in the destination Controller");

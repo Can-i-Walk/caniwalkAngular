@@ -132,7 +132,7 @@ function findTrip(destLatLng, destName, userID){
                 //this GET will get the places of interest from other users based on the route data we send to the backend
                 $.ajax({
                   method: 'GET',
-                  url: 'https://peaceful-journey-51869.herokuapp.com/places/nearby_favorite_places/?distance='+distance+'&origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng,
+                  url: 'https://peaceful-journey-51869.herokuapp.com/places/map_info/?distance='+distance+'&origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng,
                   success: function (data) {
                     console.log("successful GET");
                     console.log(data);
