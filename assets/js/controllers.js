@@ -77,15 +77,12 @@ canIWalk.controller('duringWalkController', ['$scope', 'mapFactory', function($s
 
 canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($scope, mapFactory) {
 
-  //trying to stop submit on enter for dest controller
+  //stops submit on enter for dest controller
   $(".inputDest-input").keypress(function(e){
      if(e.which === 13){
         e.preventDefault();
      }
- });
-
-  //
-
+  });
 
   var vm = this;
   vm.placeChanged = function() { // when a user selects a Google Place in the destination drop down menu...
@@ -160,6 +157,32 @@ canIWalk.factory('mapFactory', function() { // this factory allows communication
   }
  });
 
+canIWalk.controller('headerController', ['$scope', '$http', function($scope, $http) {
+ console.log("we are in the registration Controller");
+
+  $scope.logOut = function() {
+    console.log("log out function ran");
+    var userID = localStorage.getItem('ID');
+    var token = localStorage.getItem('token');
+
+    //This PUT tell the backend that the user has logged out and sets the local token to nil as well
+    //  $http({
+    //    method: 'PUT',
+    //    url: 'https://peaceful-journey-51869.herokuapp.com/authentication/login?id='+userID+'&token='+token
+    //  }).then(function successCallback(response) {
+    //    console.log(response);
+    //    console.log("successful logout?")
+    //    // window.location.replace('#/login');
+    //    //  localStorage.setItem('token', null);
+    //  }, function errorCallback(response) {
+    //    console.log("unsuccessful logout");
+    //    console.log(response);
+    //  });
+
+  };
+
+}]);
+
 canIWalk.controller('loginController', ['$scope', '$http', function($scope, $http) {
  console.log("we are in the login Controller");
  $scope.login = function() {
@@ -167,7 +190,7 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
      console.log("you're in the sign in function!");
 
      $http({
-       method: 'POST',
+       method: 'PUT',
        url: 'https://peaceful-journey-51869.herokuapp.com/authentication/login?email='+this.loginEmail+'&password='+this.loginPassword
      }).then(function successCallback(response) {
        if (response.data.token) {
