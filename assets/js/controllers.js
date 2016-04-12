@@ -194,20 +194,35 @@ canIWalk.controller('registrationController', ['$scope', '$http', function($scop
         method: 'POST',
         url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[name]='+this.username+'&user[email]='+this.email+'&user[password]='+this.password
       }).then(function successCallback(response) {
-        console.log("successful POST");
-        $('.login-register-signIn').html("Success! Please go check your email to confirm your account!");
-        $scope.username = '';
-        $scope.email = '';
-        $scope.password = '';
+
+        if (response.data.success === true) {
+          console.log("successful POST");
+          console.log(response);
+          $('.login-register-signIn').html("Success! Please go check your email to confirm your account!");
+          $scope.username = '';
+          $scope.email = '';
+          $scope.password = '';
+        } else if (response.data.errors){
+          console.log("unsuccessful registration");
+          console.log(response.data.errors);
+          $('.login-register-signIn').html("Sorry, we weren't able to register you as a new user.");
+        } else {
+          console.log("unsuccessful registration");
+          console.log(response);
+          $('.login-register-signIn').html("We were unable to register you as a new user. Please try again.");
+        }
+
+
+
       }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
         console.log("unsuccessful POST");
         console.log(response);
-        alert("we were unable to register you as a new user. Why don't you try again?");
+        $('.login-register-signIn').html("We were unable to register you as a new user. Please try again.");
       });
     } else { // if some registration fields are empty...
-      alert("One or more registration fields is empty.");
+      $('.login-register-signIn').html("Please submit your name, email, and password.");
     }
   };
 
