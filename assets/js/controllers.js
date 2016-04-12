@@ -166,18 +166,19 @@ canIWalk.controller('headerController', ['$scope', '$http', function($scope, $ht
     var token = localStorage.getItem('token');
 
     //This PUT tell the backend that the user has logged out and sets the local token to nil as well
-    //  $http({
-    //    method: 'PUT',
-    //    url: 'https://peaceful-journey-51869.herokuapp.com/authentication/login?id='+userID+'&token='+token
-    //  }).then(function successCallback(response) {
-    //    console.log(response);
-    //    console.log("successful logout?")
-    //    // window.location.replace('#/login');
-    //    //  localStorage.setItem('token', null);
-    //  }, function errorCallback(response) {
-    //    console.log("unsuccessful logout");
-    //    console.log(response);
-    //  });
+     $http({
+       method: 'PUT',
+       url: 'https://peaceful-journey-51869.herokuapp.com/authentication/logout?id='+userID+'&token='+token
+     }).then(function successCallback(response) {
+       console.log(response);
+       console.log("successful logout")
+       window.location.replace('#/login');
+       localStorage.setItem('token', null);
+       localStorage.setItem('ID', null);
+     }, function errorCallback(response) {
+       console.log("unsuccessful logout");
+       console.log(response);
+     });
 
   };
 
