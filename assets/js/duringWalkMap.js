@@ -54,18 +54,18 @@ function liveMap(destLatLng, destName, userID){
             //  this is getting the distance (in miles) and the duration (in hours & minutes) of our trip and assigning those values to variables.
             $(".walkInfo-distance").html(distance);
             $(".walkInfo-duration").html(duration);
-            //this GET will get the places of interest from other users based on the route data we send to the backend
-            // $.ajax({
-            //   method: 'GET',
-            //   url: 'https://peaceful-journey-51869.herokuapp.com/places/places_of_interest/&origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng,
-            //   success: function (data) {
-            //     console.log("successful GET");
-            //     console.log(data);
-            //   }, error: function (request,error) {
-            //     console.log("unsuccessful GET");
-            //     console.log(request);
-            //   }
-            // });
+            // this GET will get the places of interest from other users based on the route data we send to the backend
+            $.ajax({
+              method: 'GET',
+              url: 'https://peaceful-journey-51869.herokuapp.com/places/places_of_interest/?origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng,
+              success: function (data) {
+                console.log("successful GET");
+                console.log(data);
+              }, error: function (request,error) {
+                console.log("unsuccessful GET");
+                console.log(request);
+              }
+            });
           } else {
             console.log(status);
             window.alert("Sorry, but we can't find walking directions to " + destName);
