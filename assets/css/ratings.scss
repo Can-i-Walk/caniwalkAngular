@@ -1,0 +1,61 @@
+.ratings-form-container {
+   font-size: 4em;
+   width: 80%;
+   margin-left: 10%;
+   form {
+      display: flex;
+      flex-direction: column;
+      h2 {
+         margin-bottom: 1em;
+         text-decoration: underline;
+         text-align: center;
+      }
+      // align-items: center;
+      input {
+         font-size: 1em;
+      }
+      .ratings-category {
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 1em;
+         width: 100%;
+         .ratings-stars {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: flex-end;
+            text-align: right;
+            .rating {
+               display: flex;
+               flex-direction: row;
+            }
+            .star {
+               text-align: right;
+               display: flex;
+               justify-content: flex-end;
+            }
+            .filled {
+               color: $BurntOrange;
+            }
+            //will need to change these classes to color the stars on rating
+         }
+      }
+      .fa-star {
+         margin-left: 0.5em;
+      }
+
+
+      textarea {
+         font-size: 1em;
+      }
+      button {
+         font-size: 1em;
+         margin-top: 1em;
+         background-color: $Teal;
+         border: 0.5em solid $Teal;
+         border-radius: 0.5em;
+         width: 70%;
+         margin-left: 15%;
+      }
+   }
+}

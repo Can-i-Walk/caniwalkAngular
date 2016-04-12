@@ -1,0 +1,54 @@
+.inputDest-form {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 80%;
+   margin-left: 10%;
+   color: $Text;
+   font-family: $Oswald;
+
+   input {
+      font-size: 4em;
+      margin-top: 5%;
+      border: 1px solid $Text;
+      // background-color: white;
+   }
+
+   label {
+      font-size: 3em;
+      margin-top: 5%;
+   }
+   a {
+      display: flex;
+      margin-top: 5%;
+      font-size: 3em;
+      text-decoration: none;
+      color: $Text;
+      button {
+        color: white;
+        font:{
+          size: 1.2em;
+          family: $Oswald;
+        }
+        border: 0.5em solid $Teal;
+        border-radius: 0.5em;
+        background-color: $Teal;
+        padding: 1em 0;
+        width: 50%;
+        margin-left: 15%;
+        position: absolute;
+        bottom: 2em;
+      }
+   }
+
+}
+.pac-icon {
+   display: none;
+}
+.pac-item {
+   font-size: 3em;
+   line-height: 1.5em;
+}
+.pac-item-query {
+   font-size: 1em;
+}

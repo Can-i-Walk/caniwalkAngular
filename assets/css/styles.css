@@ -1,59 +1,538 @@
-/*
-Error: File to import not found or unreadable: changePassword.
-        on line 15 of styles.scss
+/*header/big font*/
+/*body/readable font*/
+.dashboard-profile {
+  width: 80%;
+  margin-left: 10%;
+  font-family: "Oswald", sans-serif; }
+  .dashboard-profile h3 {
+    font-size: 4em;
+    text-decoration: underline;
+    font-weight: bold; }
+  .dashboard-profile .dashboard-walk-history {
+    font-size: 4em;
+    margin-top: 5%; }
+    .dashboard-profile .dashboard-walk-history li {
+      margin-top: 5%; }
 
-10: @import 'dashboard';
-11: @import 'duringWalk';
-12: @import 'editAccount';
-13: @import 'inputDest';
-14: @import 'login';
-15: @import 'changePassword';
-16: @import 'walkInfo';
-17: @import 'ratings';
-18: 
-19: body {
-20:   background: $Grey-background;
+.dashboard-ratings li {
+  font-size: 0.4em; }
 
-Backtrace:
-styles.scss:15
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/import_node.rb:67:in `rescue in import'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/import_node.rb:45:in `import'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/import_node.rb:28:in `imported_file'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/import_node.rb:37:in `css_import?'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `map'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/root_node.rb:36:in `css_tree'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/engine.rb:378:in `_render_with_sourcemap'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/engine.rb:295:in `render_with_sourcemap'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:209:in `each'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:471:in `on_file_changed'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:328:in `block in watch'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: File to import not found or unreadable: changePassword.\A         on line 15 of styles.scss\A \A 10: @import 'dashboard';\A 11: @import 'duringWalk';\A 12: @import 'editAccount';\A 13: @import 'inputDest';\A 14: @import 'login';\A 15: @import 'changePassword';\A 16: @import 'walkInfo';\A 17: @import 'ratings';\A 18: \A 19: body {\A 20:   background: $Grey-background;"; }
+.dashboard-edit-profile {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  text-decoration: none;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 10%;
+  left: 15%;
+  width: 70%; }
+  .dashboard-edit-profile button {
+    padding: 1em;
+    font-size: 4em;
+    background-color: #17BEBB;
+    border: 0.5em solid #17BEBB;
+    border-radius: 0.5em;
+    color: white; }
+
+.duringWalk-header {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 80px;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold; }
+  .duringWalk-header h4 {
+    color: #CD5334; }
+    .duringWalk-header h4 span {
+      color: #17BEBB; }
+
+.duringWalk-map {
+  height: 1000px;
+  width: 100%; }
+
+.duringWalk-endWalk-button {
+  color: white;
+  font-size: 50px;
+  font-family: "Oswald", sans-serif;
+  border: 0.5em solid #17BEBB;
+  border-radius: 0.5em;
+  background-color: #17BEBB;
+  padding: 15px;
+  width: 50%;
+  margin-left: 25%;
+  position: absolute;
+  bottom: 40px; }
+
+.duringWalk-endWalk-modalHolder {
+  z-index: 1;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: rgba(0, 0, 0, 0.7); }
+
+.duringWalk-endWalk-modal {
+  text-align: center;
+  color: white;
+  width: 80%;
+  margin-left: 10%;
+  font-size: 50px; }
+
+.login-passwordReset-modal-actionText {
+  font-size: 70px;
+  margin-bottom: 100px;
+  padding-top: 50px; }
+
+.duringWalk-endWalk-confirm-button {
+  padding: 20px;
+  font-size: 50px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+  background-color: #17BEBB;
+  border: 1em solid #17BEBB;
+  border-radius: 0.5em;
+  margin: 20px; }
+
+.duringWalk-endWalk-deny-button {
+  padding: 20px;
+  font-size: 50px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+  background-color: #CD5334;
+  border: 1em solid #CD5334;
+  border-radius: 0.5em;
+  margin: 20px; }
+
+.editAccount-form-container {
+  display: flex;
+  width: 80%;
+  margin-left: 10%;
+  font-size: 4em; }
+  .editAccount-form-container form {
+    display: flex;
+    flex-direction: column;
+    font-size: 1em; }
+    .editAccount-form-container form a {
+      color: #2E282A;
+      background-color: #CD5334;
+      border: 0.5em solid #CD5334;
+      border-radius: 0.5em;
+      margin-top: 1em; }
+    .editAccount-form-container form label {
+      margin-top: 1em; }
+    .editAccount-form-container form select {
+      font-size: 1em;
+      color: #2E282A;
+      background-color: white; }
+    .editAccount-form-container form input {
+      font-size: 1em; }
+    .editAccount-form-container form .editAccount-preference-header {
+      margin-top: 0.5em;
+      border-bottom: 1px solid #2E282A;
+      text-align: center;
+      width: 70%;
+      margin-left: 15%; }
+    .editAccount-form-container form .editAccount-distance-input {
+      width: 150px; }
+    .editAccount-form-container form .editAccount-distance-input::-webkit-inner-spin-button, .editAccount-form-container form .editAccount-distance-input::-webkit-outer-spin-button {
+      -webkit-appearance: none; }
+    .editAccount-form-container form button {
+      font-size: 1em;
+      background-color: #17BEBB;
+      padding: 0.5em;
+      border: 0.5em solid #17BEBB;
+      border-radius: 0.5em;
+      margin-top: 1em;
+      color: white; }
+    .editAccount-form-container form .editAccount-change-password {
+      text-align: center;
+      color: white; }
+
+.inputDest-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: 10%;
+  color: #2E282A;
+  font-family: "Oswald", sans-serif; }
+  .inputDest-form input {
+    font-size: 4em;
+    margin-top: 5%;
+    border: 1px solid #2E282A; }
+  .inputDest-form label {
+    font-size: 3em;
+    margin-top: 5%; }
+  .inputDest-form a {
+    display: flex;
+    margin-top: 5%;
+    font-size: 3em;
+    text-decoration: none;
+    color: #2E282A; }
+    .inputDest-form a button {
+      color: white;
+      font-size: 1.2em;
+      font-family: "Oswald", sans-serif;
+      border: 0.5em solid #17BEBB;
+      border-radius: 0.5em;
+      background-color: #17BEBB;
+      padding: 1em 0;
+      width: 50%;
+      margin-left: 15%;
+      position: absolute;
+      bottom: 2em; }
+
+.pac-icon {
+  display: none; }
+
+.pac-item {
+  font-size: 3em;
+  line-height: 1.5em; }
+
+.pac-item-query {
+  font-size: 1em; }
+
+.login-container {
+  font-family: "Oswald", sans-serif;
+  font-color: #2E282A;
+  font-size: 35px; }
+
+.login-logo {
+  padding: 10px;
+  text-align: center;
+  color: #CD5334;
+  font-size: 100px;
+  font-weight: 700;
+  font-family: "Dosis", sans-serif; }
+  .login-logo span {
+    color: #17BEBB; }
+
+.login-signIn {
+  width: 80%;
+  margin-left: 10%; }
+
+.login-signIn-errorContainer {
+  font-size: 40px;
+  color: #CD5334;
+  text-decoration: underline;
+  margin-top: 15px;
+  text-align: center; }
+
+.login-signIn-field-label {
+  display: block; }
+
+#login-signIn-email {
+  font-size: 35px;
+  margin: 10px;
+  border: solid 1px #2E282A; }
+
+#login-signIn-password {
+  font-size: 35px;
+  margin: 10px;
+  border: solid 1px #2E282A; }
+
+.login-signIn-button {
+  font-size: 35px;
+  margin-bottom: 10px;
+  display: inline-block; }
+
+.login-signIn-google {
+  margin-top: 50px; }
+
+.login-signIn-register {
+  width: 30%;
+  margin-top: 50px;
+  margin-left: 35%;
+  text-align: center;
+  background-color: #17BEBB;
+  border: 1em solid #17BEBB;
+  border-radius: 0.5em;
+  color: white; }
+
+.login-register-modalHolder, .login-passwordReset-modalHolder {
+  z-index: 1;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: rgba(0, 0, 0, 0.7); }
+
+.login-passwordReset-modal {
+  text-align: center;
+  color: white;
+  width: 80%;
+  margin-left: 10%;
+  font-size: 50px; }
+
+#login-passwordReset-email-input {
+  font-size: 50px;
+  margin-top: 100px; }
+
+.login-passwordReset-email-button {
+  font-size: 50px;
+  margin-top: 100px; }
+
+.login-passwordReset-modal-actionText {
+  margin-top: 50px; }
+
+.login-passwordReset-closeModal {
+  margin-top: 200px; }
+
+.login-register-modalfields {
+  width: 40%;
+  margin-top: 20%;
+  margin-left: 30%; }
+
+.login-register-modal-title {
+  margin-top: 100px;
+  text-align: center;
+  color: white;
+  font-family: "Dosis", sans-serif;
+  font-size: 70px; }
+
+.login-register-field-modalLabel {
+  color: white; }
+
+#login-register-email {
+  font-size: 35px;
+  margin: 10px; }
+
+#login-register-password {
+  font-size: 35px;
+  margin: 10px; }
+
+#login-register-name {
+  font-size: 35px;
+  margin: 10px; }
+
+.login-register-button {
+  font-size: 35px;
+  margin-bottom: 30px;
+  display: inline-block; }
+
+.login-register-signIn {
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  margin-top: 30%; }
+
+.password-logo {
+  text-align: center;
+  color: #CD5334;
+  font-size: 100px;
+  font-weight: 700;
+  font-family: "Dosis", sans-serif;
+  margin-top: 30px; }
+  .password-logo span {
+    color: #17BEBB; }
+
+.password-container {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 50px;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-color: #2E282A;
+  font-size: 35px; }
+
+.password-field-label {
+  display: block; }
+
+#login-password-newPassword {
+  font-size: 35px;
+  margin: 10px;
+  width: 60%;
+  border: solid 1px #2E282A; }
+
+#login-password-confirmPassword {
+  font-size: 35px;
+  margin: 10px;
+  width: 60%;
+  border: solid 1px #2E282A; }
+
+.login-signIn-button {
+  margin-top: 50px; }
+
+.walkInfo-content {
+  width: 80%;
+  margin-left: 10%;
+  font-family: "Oswald", sans-serif;
+  font-size: 4em;
+  color: #2E282A; }
+  .walkInfo-content h2 {
+    text-align: center; }
+  .walkInfo-content .walkInfo-map {
+    height: 10em;
+    width: 100%; }
+  .walkInfo-content .walkInfo-distance {
+    float: left; }
+  .walkInfo-content .walkInfo-duration {
+    float: right; }
+  .walkInfo-content .walkInfo-reviews {
+    margin-top: 1.5em; }
+    .walkInfo-content .walkInfo-reviews h4 {
+      text-decoration: underline;
+      margin-bottom: 0.5em;
+      text-align: center; }
+  .walkInfo-content .walkInfo-weather-intro {
+    margin-top: 65px; }
+  .walkInfo-content .walkInfo-weatherData {
+    margin-top: 25px; }
+    .walkInfo-content .walkInfo-weatherData div {
+      display: inline-block; }
+
+.walkInfo-map-google {
+  height: 100%; }
+
+.walkInfo-buttons {
+  position: absolute;
+  bottom: 0.05em;
+  width: 100%;
+  margin-left: 4%; }
+  .walkInfo-buttons button {
+    padding: 20px;
+    font-size: 50px;
+    font-family: "Oswald", sans-serif;
+    width: 45%; }
+  .walkInfo-buttons .walkInfo-accept {
+    color: white;
+    background-color: #17BEBB;
+    border: 1em solid #17BEBB;
+    border-radius: 0.5em; }
+  .walkInfo-buttons .walkInfo-decline {
+    color: white;
+    background-color: #CD5334;
+    border: 1em solid #CD5334;
+    border-radius: 0.5em; }
+
+.walkInfo-modal {
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  font-size: 4em;
+  background-color: black;
+  opacity: 0.7;
+  color: #f5f5f1; }
+  .walkInfo-modal .walkInfo-modal-content {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30%;
+    text-align: center;
+    opacity: 1; }
+  .walkInfo-modal button {
+    font-size: 1em;
+    margin: 0.5em;
+    margin-top: 1.5em;
+    opacity: 1; }
+  .walkInfo-modal .walkInfo-modal-nothanks {
+    background-color: #CD5334;
+    border: 3px solid #CD5334;
+    border-radius: 3px;
+    opacity: 1; }
+  .walkInfo-modal .walkInfo-modal-takewalk {
+    background-color: #17BEBB;
+    border: 3px solid #17BEBB;
+    border-radius: 3px;
+    opacity: 1; }
+  .walkInfo-modal walkInfo-modal-header-main {
+    font-size: 1em;
+    opacity: 1; }
+  .walkInfo-modal .walkInfo-alternate-title {
+    text-decoration: underline;
+    margin-bottom: 0.5em;
+    opacity: 1; }
+  .walkInfo-modal a {
+    text-decoration: underline;
+    color: #f5f5f1;
+    opacity: 1; }
+  .walkInfo-modal li {
+    margin-bottom: 0.5em;
+    opacity: 1; }
+
+.ratings-form-container {
+  font-size: 4em;
+  width: 80%;
+  margin-left: 10%; }
+  .ratings-form-container form {
+    display: flex;
+    flex-direction: column; }
+    .ratings-form-container form h2 {
+      margin-bottom: 1em;
+      text-decoration: underline;
+      text-align: center; }
+    .ratings-form-container form input {
+      font-size: 1em; }
+    .ratings-form-container form .ratings-category {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1em;
+      width: 100%; }
+      .ratings-form-container form .ratings-category .ratings-stars {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-end;
+        text-align: right; }
+        .ratings-form-container form .ratings-category .ratings-stars .rating {
+          display: flex;
+          flex-direction: row; }
+        .ratings-form-container form .ratings-category .ratings-stars .star {
+          text-align: right;
+          display: flex;
+          justify-content: flex-end; }
+        .ratings-form-container form .ratings-category .ratings-stars .filled {
+          color: #CD5334; }
+    .ratings-form-container form .fa-star {
+      margin-left: 0.5em; }
+    .ratings-form-container form textarea {
+      font-size: 1em; }
+    .ratings-form-container form button {
+      font-size: 1em;
+      margin-top: 1em;
+      background-color: #17BEBB;
+      border: 0.5em solid #17BEBB;
+      border-radius: 0.5em;
+      width: 70%;
+      margin-left: 15%; }
+
+body {
+  background: #f5f5f1;
+  font-family: "Oswald", sans-serif; }
+
+.caniwalk-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2.2em;
+  font-size: 30px; }
+  .caniwalk-header a {
+    text-decoration: none; }
+    .caniwalk-header a h4 {
+      font-size: 50px;
+      font-family: "Dosis", sans-serif;
+      font-weight: bold;
+      color: #CD5334; }
+      .caniwalk-header a h4 span {
+        color: #17BEBB; }
+
+.caniwalk-header-options-container {
+  position: relative; }
+
+.caniwalk-header-options {
+  position: absolute;
+  top: 6px;
+  left: -360px;
+  width: 500px; }
+  .caniwalk-header-options div {
+    text-align: right;
+    font-size: 40px;
+    margin-right: 20px;
+    display: inline-block; }
+    .caniwalk-header-options div a {
+      text-decoration: none; }
+
+/*# sourceMappingURL=styles.css.map */

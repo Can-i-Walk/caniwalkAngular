@@ -1,0 +1,129 @@
+.walkInfo-content {
+   width: 80%;
+   margin-left: 10%;
+   font-family: $Oswald;
+   font-size: 4em;
+   color: $Text;
+   h2 {
+    text-align: center;
+   }
+   .walkInfo-map {
+      height: 10em;
+      width: 100%;
+   }
+   .walkInfo-distance {
+      float: left;
+   }
+   .walkInfo-duration {
+      float: right;
+   }
+   .walkInfo-reviews {
+      margin-top: 1.5em;
+      h4 {
+         text-decoration: underline;
+         margin-bottom: 0.5em;
+         text-align: center;
+      }
+   }
+   .walkInfo-weather-intro {
+     margin-top: 65px;
+   }
+   .walkInfo-weatherData {
+     margin-top: 25px;
+     div {
+       display: inline-block;
+     }
+   }
+}
+
+.walkInfo-map-google {
+  height: 100%;
+}
+
+
+//styling for the accept walk and decline walk buttons
+.walkInfo-buttons {
+   position: absolute;
+   bottom: 0.05em;
+  //  font-size: 5em;
+   width: 100%;
+   margin-left: 4%;
+   button {
+      padding: 20px;
+      font:{
+        size: 50px;
+        family: $Oswald;
+      }
+      width: 45%;
+   }
+   .walkInfo-accept {
+      color: white;
+      background-color: $Teal;
+      border: 1em solid $Teal;
+      border-radius: 0.5em;
+   }
+   .walkInfo-decline {
+      color: white;
+      background-color: $BurntOrange;
+      border: 1em solid $BurntOrange;
+      border-radius: 0.5em;
+   }
+}//end styling for the accept/decline buttons
+
+//styling for the modal!
+
+.walkInfo-modal {
+   position: absolute;
+   top: 15px;
+   bottom: 15px;
+   left: 15px;
+   right: 15px;
+   font-size: 4em;
+   background-color: black;
+   opacity: 0.7;
+   color: $Grey-background;
+   .walkInfo-modal-content {
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 30%;
+      text-align: center;
+      opacity: 1;
+   }
+   button {
+      font-size: 1em;
+      margin: 0.5em;
+      margin-top: 1.5em;
+      opacity: 1;
+   }
+   .walkInfo-modal-nothanks {
+      background-color: $BurntOrange;
+      border: 3px solid $BurntOrange;
+      border-radius: 3px;
+      opacity: 1;
+   }
+   .walkInfo-modal-takewalk {
+      background-color: $Teal;
+      border: 3px solid $Teal;
+      border-radius: 3px;
+      opacity: 1;
+   }
+   walkInfo-modal-header-main {
+      font-size: 1em;
+      opacity: 1;
+   }
+   .walkInfo-alternate-title {
+      text-decoration: underline;
+      margin-bottom: 0.5em;
+      opacity: 1;
+   }
+   a {
+      text-decoration: underline;
+      color: $Grey-background;
+      opacity: 1;
+   }
+   li {
+      margin-bottom: 0.5em;
+      opacity: 1;
+   }
+}
+//close styling for the modal

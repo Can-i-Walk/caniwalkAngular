@@ -1,0 +1,37 @@
+<header class="caniwalk-header" ng-controller="headerController">
+  <a href="#/input-destination"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
+  <div class="caniwalk-header-options-container">
+   <i ng-model="headerOptions" ng-click="headerOptions=!headerOptions" class="fa fa-caret-square-o-left fa-2x" aria-hidden="true"></i>
+      <div ng-show="headerOptions" class="caniwalk-header-options">
+         <div><a href="#/account">My Account</a></div>
+         <div ng-click="logOut()">Log Out</div>
+      </div>
+  </div>
+</header>
+<div class="ratings-container" ng-controller="RatingController as rating">
+   <div class="ratings-form-container">
+      <form class="ratings-form">
+         <h2>Rate Your Walk</h2>
+         <label class="ratings-category">
+            <h3>Safety</h3>
+            <!-- angular directives go here -->
+            <ratings-stars ng-model="rating.rating1" on-rating-select="rating.rateFunction(rating)"></ratings-stars>
+         </label>
+         <label class="ratings-category">
+            <h3>Ease</h3>
+            <ratings-stars ng-model="rating.rating2" on-rating-select="rating.rateFunction(rating)"></ratings-stars>
+         </label>
+         <label class="ratings-category">
+            <h3>Enjoyability</h3>
+            <ratings-stars ng-model="rating.rating3" on-rating-select="rating.rateFunction(rating)"></ratings-stars>
+         </label>
+         <label class="ratings-category">
+            <h3>Accessibility</h3>
+            <ratings-stars ng-model="rating.rating4" on-rating-select="rating.rateFunction(rating)"></ratings-stars>
+         </label>
+         <label>Comments</label>
+         <textarea placeholder="Any Comments?"></textarea>
+         <button type="submit" ng-submit="rabble()">Submit Ratings</button>
+      </form>
+   </div>
+</div>
