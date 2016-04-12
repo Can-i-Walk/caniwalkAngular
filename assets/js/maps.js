@@ -159,13 +159,11 @@ function findTrip(destLatLng, destName, userID){
           } else {
             console.log(status);
             window.alert("Sorry, but we can't find walking directions to " + destName);
+            window.location.replace('#/input-destination');
           };
 
       });
 
-      // infoWindow.setPosition(pos);
-      // infoWindow.setContent('Location found.');
-      // map.setCenter(pos); //center map on the position we get from geolocation
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter()); //if there is a location error
     });

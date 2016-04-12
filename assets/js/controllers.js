@@ -277,7 +277,7 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
       });
 
     } else {
-      alert("Please provide the email address associated with your account");
+      $('.login-passwordReset-modal-actionText').html("Please provide the email address associated with your account");
     }
 
   }
