@@ -1,7 +1,14 @@
+<header class="caniwalk-header" ng-controller="headerController">
+  <a href="#/input-destination"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
+  <div class="caniwalk-header-options-container">
+   <i ng-model="headerOptions" ng-click="headerOptions=!headerOptions" class="fa fa-caret-square-o-left fa-2x" aria-hidden="true"></i>
+      <div ng-show="headerOptions" class="caniwalk-header-options">
+         <div><a href="#/account">My Account</a></div>
+         <div ng-click="logOut()">Log Out</div>
+      </div>
+  </div>
+</header>
 <div class="editAccount-container">
-   <header class="editAccount-header">
-      <a href="#/home"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
-   </header>
    <div class="editAccount-form-container">
       <form class="editAccount-form">
          <label>Name</label>

@@ -1,20 +1,19 @@
+<header class="caniwalk-header" ng-controller="headerController">
+  <a href="#/input-destination"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
+  <div class="caniwalk-header-options-container">
+   <i ng-model="headerOptions" ng-click="headerOptions=!headerOptions" class="fa fa-caret-square-o-left fa-2x" aria-hidden="true"></i>
+      <div ng-show="headerOptions" class="caniwalk-header-options">
+         <div><a href="#/account">My Account</a></div>
+         <div ng-click="logOut()">Log Out</div>
+      </div>
+  </div>
+</header>
 <div class="inputDest-page" ng-controller="destinationController as vm">
-   <header class="inputDest-header">
-      <a href="#/home"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
-      <i class="fa fa-bars">
-         <select class="inputDest-header-select" ng-hide="true">
-<!-- We'll need to make these options show on click, disappear on click elsewhere -->
-            <option><a href="#/edit_account">Edit Account</a></option>
-            <option><a href="#/account">My Account</a></option>
-            <option><a href="#">Log Out</a></option>
-         </select>
-      </i>
-   </header>
    <form class="inputDest-form">
       <input id="inputDest" class="inputDest-input" places-auto-complete  on-place-changed="vm.placeChanged()" type="text" placeholder="Where do you want to walk?" >
       <label>Destination</label>
 <!-- this next little bit is to display if the user needs to give us some more information for their profile -->
-      <a href="#/edit_account">Fill out your profile to help you!</a>
+      <!-- <a href="#/edit_account">Fill out your profile to help you!</a> -->
       <a href="#/walk_info"><button class="btn" type="submit">Can I walk there?</button></a>
    </form>
 </div>

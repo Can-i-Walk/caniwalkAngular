@@ -77,7 +77,7 @@ canIWalk.controller('duringWalkController', ['$scope', 'mapFactory', function($s
 
 canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($scope, mapFactory) {
 
-  //trying to stop submit on enter for dest controller
+  //stops submit on enter for dest controller
   $(".inputDest-input").keypress(function(e){
      if(e.which === 13){
         e.preventDefault();
@@ -123,6 +123,7 @@ canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scop
       }).then(function successCallback(response) {
         console.log("successful denial of trip");
         window.location.replace('#/input-destination');
+        localStorage.setItem('currentTripID', null);
       }, function errorCallback(response) {
         console.log("unsuccessful denial of trip");
         console.log(response);
@@ -173,6 +174,33 @@ canIWalk.factory('mapFactory', function() { // this factory allows communication
   }
  });
 
+canIWalk.controller('headerController', ['$scope', '$http', function($scope, $http) {
+ console.log("we are in the registration Controller");
+
+  $scope.logOut = function() {
+    console.log("log out function ran");
+    var userID = localStorage.getItem('ID');
+    var token = localStorage.getItem('token');
+
+    //This PUT tell the backend that the user has logged out and sets the local token to nil as well
+     $http({
+       method: 'PUT',
+       url: 'https://peaceful-journey-51869.herokuapp.com/authentication/logout?id='+userID+'&token='+token
+     }).then(function successCallback(response) {
+       console.log(response);
+       console.log("successful logout")
+       window.location.replace('#/login');
+       localStorage.setItem('token', null);
+       localStorage.setItem('ID', null);
+     }, function errorCallback(response) {
+       console.log("unsuccessful logout");
+       console.log(response);
+     });
+
+  };
+
+}]);
+
 canIWalk.controller('loginController', ['$scope', '$http', function($scope, $http) {
  console.log("we are in the login Controller");
  $scope.login = function() {
@@ -180,7 +208,7 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
      console.log("you're in the sign in function!");
 
      $http({
-       method: 'POST',
+       method: 'PUT',
        url: 'https://peaceful-journey-51869.herokuapp.com/authentication/login?email='+this.loginEmail+'&password='+this.loginPassword
      }).then(function successCallback(response) {
        if (response.data.token) {
@@ -197,16 +225,15 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
          console.log("unsuccessful LOGIN");
          console.log(response.data.errors);
          $('.login-signIn-errorContainer').html("Login failed.");
-         alert("We were unable to sign you in.")
        }
      }, function errorCallback(response) {
        console.log("unsuccessful LOGIN");
        console.log(response);
-       alert("We were unable to sign you in. Why don't you try again?")
+       $('.login-signIn-errorContainer').html("Login failed.");
      });
 
    } else { // if one of the login fields is empty...
-     alert("We need your email and password to log you in!");
+     $('.login-signIn-errorContainer').html("Please enter your email address and password.");
    }
  };
 
@@ -221,20 +248,35 @@ canIWalk.controller('registrationController', ['$scope', '$http', function($scop
         method: 'POST',
         url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[name]='+this.username+'&user[email]='+this.email+'&user[password]='+this.password
       }).then(function successCallback(response) {
-        console.log("successful POST");
-        $('.login-register-signIn').html("Success! Please go check your email to confirm your account!");
-        $scope.username = '';
-        $scope.email = '';
-        $scope.password = '';
+
+        if (response.data.success === true) {
+          console.log("successful POST");
+          console.log(response);
+          $('.login-register-signIn').html("Success! Please go check your email to confirm your account!");
+          $scope.username = '';
+          $scope.email = '';
+          $scope.password = '';
+        } else if (response.data.errors){
+          console.log("unsuccessful registration");
+          console.log(response.data.errors);
+          $('.login-register-signIn').html("Sorry, we weren't able to register you as a new user.");
+        } else {
+          console.log("unsuccessful registration");
+          console.log(response);
+          $('.login-register-signIn').html("We were unable to register you as a new user. Please try again.");
+        }
+
+
+
       }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
         console.log("unsuccessful POST");
         console.log(response);
-        alert("we were unable to register you as a new user. Why don't you try again?");
+        $('.login-register-signIn').html("We were unable to register you as a new user. Please try again.");
       });
     } else { // if some registration fields are empty...
-      alert("One or more registration fields is empty.");
+      $('.login-register-signIn').html("Please submit your name, email, and password.");
     }
   };
 
@@ -254,19 +296,29 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
         url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail
         // url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email=geoffrey.s.arnold@gmail.com'
       }).then(function successCallback(response) {
-        console.log("successful password reset initiation");
-        console.log(response);
-        // we need to do something with the token
-        $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
-        $('.login-passwordReset-email-button').toggle();
+
+        if (response.data.id) {
+          console.log("successful password reset initiation");
+          console.log(response);
+          // we need to do something with the token
+          $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
+          $('.login-passwordReset-email-button').toggle();
+        } else if (response.data.errors[0] === "No user found with that email."){
+          console.log(response.data.errors);
+          $('.login-passwordReset-modal-actionText').html("We couldn't find a user with that email.");
+        } else {
+          console.log("unsuccessful password reset initiation");
+          console.log(response.data.errors);
+          $('.login-passwordReset-modal-actionText').html("Sorry, but we couldn't send you a password reset email.");
+        }
       }, function errorCallback(response) {
         console.log("unsuccessful password reset initiation");
         console.log(response);
-        alert("we were unable to initiate a password reset for you. Why don't you try again?");
+        $('.login-passwordReset-modal-actionText').html("Sorry, but we couldn't send you a password reset email.");
       });
 
     } else {
-      alert("Please provide the email address associated with your account");
+      $('.login-passwordReset-modal-actionText').html("Please provide the email address associated with your account");
     }
 
   }
