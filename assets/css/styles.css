@@ -60,6 +60,10 @@
     .duringWalk-header h4 span {
       color: #17BEBB; }
 
+.duringWalk-map {
+  height: 1000px;
+  width: 100%; }
+
 .duringWalk-endWalk-button {
   color: white;
   font-size: 50px;
