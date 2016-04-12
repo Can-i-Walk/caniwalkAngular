@@ -51,7 +51,7 @@ function findTrip(destLatLng, destName, userID){
       directionsService.route(
         {
         origin: {lat: pos.lat, lng: pos.lng,},  // coords of origin point
-        destination: destLatLng, // coords of destination point - THIS CAN ALSO BE THE PLACE NAME (formatted as a string) IF NO single LAT/LNG coord is available
+        destination: destLatLng, // coords of destination point
         travelMode: google.maps.TravelMode.WALKING,
         },
         function(response, status) {
@@ -135,7 +135,17 @@ function findTrip(destLatLng, destName, userID){
                   url: 'https://peaceful-journey-51869.herokuapp.com/places/map_info/?distance='+distance+'&origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng,
                   success: function (data) {
                     console.log("successful GET");
-                    console.log(data);
+                    $('.walkInfo-weather-icon').attr('src', data.weather_icon);
+                    $('.walkInfo-weather-icon').attr('alt', data.current_weather);
+                    // console.log(data.weather_icon);
+                    $('.walkInfo-weather-conditions').html(data.current_weather);
+                    // console.log(data.current_weather);
+                    $('.walkInfo-weather-temperature').html(data.temperature + "°F");
+                    // console.log(data.temperature);
+                    $('.walkInfo-weather-sunset').html("Sunset: " + data.sunset);
+                    // console.log(data.sunset);
+
+                    // console.log(data);
                   }, error: function (request,error) {
                     console.log("unsuccessful GET");
                     console.log(request);

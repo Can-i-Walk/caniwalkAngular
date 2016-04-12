@@ -3,39 +3,41 @@
       <a href="#/home"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
    </header>
    <section class="walkInfo-content" ng-controller="gMapController">
-      <h2 >Here's your walk to:<br>{{ dest }}</h2>
+      <h2 >Walk to {{ dest }}</h2>
       <div class="walkInfo-map" id="map">
          <!-- <ng-map class="walkInfo-map-google"></ng-map> -->
       </div>
       <label class="walkInfo-distance"></label>
       <label class="walkInfo-duration"></label>
-      <!-- <div class="walkInfo-weatherData">
+      <div class="walkInfo-weather-intro">Current weather:</div>
+      <div class="walkInfo-weatherData">
+        <div class="walkInfo-weather-icon-container"><img class="walkInfo-weather-icon"/></div>
+        <div class="walkInfo-weather-conditions"></div>
         <div class="walkInfo-weather-temperature"></div>
-        <div class="walkInfo-weather-forecast"></div>
         <div class="walkInfo-weather-sunset"></div>
         <div class="walkInfo-weather-alerts"></div>
-      </div> -->
-      <section class="walkInfo-reviews" ng-hide="modal">
+      </div>
+      <!-- <section class="walkInfo-reviews" ng-hide="modal">
          <h4>Other User Reviews</h4>
          <ul class="walkInfo-review-list">
             <li>date/dest/avg rating?
-               <!-- <ul>
+              <ul>
                   <li>Safety: </li>
                   <li>Ease: </li>
                   <li>Enjoyability: </li>
                   <li>Comments: </li>
-               </ul> -->
+               </ul>
             </li>
             <li>date/dest/avg rating?
-               <!-- <ul>
+               <ul>
                   <li>Safety: </li>
                   <li>Ease: </li>
                   <li>Enjoyability: </li>
                   <li>Comments: </li>
-               </ul> -->
+               </ul>
             </li>
          </ul>
-      </section>
+      </section> -->
    </section>
    <section ng-controller="walkDecisionController">
      <div class="walkInfo-buttons">
@@ -53,7 +55,7 @@
            <ul>
               <li class="walkInfo-alternate-title">Here's some other options</li>
               <li><a href="http://godurhamtransit.org/">Durham Public Transit</a></li>
-              <li><a href="#">Rider</a></li>
+              <li><a href="https://rider-app.firebaseapp.com/#/">Rider</a></li>
            </ul>
         </div>
      </div>

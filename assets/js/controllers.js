@@ -170,16 +170,26 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
        method: 'POST',
        url: 'https://peaceful-journey-51869.herokuapp.com/authentication/login?email='+this.loginEmail+'&password='+this.loginPassword
      }).then(function successCallback(response) {
-       console.log("successful LOGIN");
-       localStorage.setItem('token', response.data.token);
-       localStorage.setItem('ID', response.data.id);
-       $scope.loginEmail = '';
-       $scope.loginPassword = '';
-       window.location.replace('#/input-destination');
+       if (response.data.token) {
+         console.log("successful LOGIN");
+         localStorage.setItem('token', response.data.token);
+         localStorage.setItem('ID', response.data.id);
+         $scope.loginEmail = '';
+         $scope.loginPassword = '';
+         window.location.replace('#/input-destination');
+       } else if (response.data.errors[0] === "Login failed."){
+         console.log(response.data.errors);
+         $('.login-signIn-errorContainer').html("Email or password is incorrect.");
+       } else {
+         console.log("unsuccessful LOGIN");
+         console.log(response.data.errors);
+         $('.login-signIn-errorContainer').html("Login failed.");
+         alert("We were unable to sign you in.")
+       }
      }, function errorCallback(response) {
        console.log("unsuccessful LOGIN");
        console.log(response);
-       alert("we were unable to sign you in. Why don't you try again?")
+       alert("We were unable to sign you in. Why don't you try again?")
      });
 
    } else { // if one of the login fields is empty...
