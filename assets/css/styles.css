@@ -205,8 +205,9 @@
   .inputDest-form input {
     font-size: 4em;
     margin-top: 5%;
-    border: 1px solid #2E282A;
-    background-color: white; }
+    border: 1px solid #2E282A; }
+  .inputDest-form .pac-item {
+    font-size: 4em; }
   .inputDest-form label {
     font-size: 3em;
     margin-top: 5%; }

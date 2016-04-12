@@ -3,7 +3,7 @@
       <a href="#/home"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
    </header>
    <section class="walkInfo-content" ng-controller="gMapController">
-      <h2 >Walk to {{ dest }}</h2>
+      <h2>Walk to {{ dest }}</h2>
       <div class="walkInfo-map" id="map">
          <!-- <ng-map class="walkInfo-map-google"></ng-map> -->
       </div>
@@ -49,8 +49,8 @@
         <div class="walkInfo-modal-content">
            <header class="walkInfo-modal-header">
               <h2 class="walkInfo-modal-header-main">Are you sure you want to abandon this walk?</h2>
-              <a href="#/input-destination"><button ng-click="tripNotTaken()">I do not want to take this walk</button></a><!-- back to input walk page -->
-              <a><button ng-click="modal=false">I want to take this walk</button></a> <!-- close modal -->
+              <a href="#/input-destination"><button class="walkInfo-modal-nothanks" ng-click="tripNotTaken()">I do not want to take this walk</button></a><!-- back to input walk page -->
+              <a><button class="walkInfo-modal-takewalk" ng-click="modal=false">I want to take this walk</button></a> <!-- close modal -->
            </header>
            <ul>
               <li class="walkInfo-alternate-title">Here's some other options</li>

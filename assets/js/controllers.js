@@ -86,17 +86,31 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
 
   //
 
+  //-GOOGLE-MAPS-AUTOCOMPLETE-------------------
+   // function init() {
+   //   var inputStart = document.getElementById('searchTextField');
+   //   var autocomplete = new google.maps.places.Autocomplete(inputStart);
+   // }
+   // google.maps.event.addDomListener(window, 'load', init);
+//this is Nicky and Alex's JS for the autocomplete drop down. We need to do more things to this to get the lat and long
 
-  var vm = this;
-  vm.placeChanged = function() { // when a user selects a Google Place in the destination drop down menu...
-    vm.place = this.getPlace();
-    console.log(vm.place);
-    $scope.destLat = vm.place.geometry.location.lat();
-    $scope.destLng = vm.place.geometry.location.lng();
-    $scope.destName = vm.place.name;
-    $scope.latLng = mapFactory.setLatLng($scope.destLat, $scope.destLng);
-    $scope.dest = mapFactory.setDest($scope.destName);
+  // var vm = this;
+
+  function placeChanged() { // when a user selects a Google Place in the destination drop down menu...
+    var inputDest = document.getElementById('inputDest');
+    var autocomplete = new google.maps.places.Autocomplete(inputDest);
+    console.log('placeChanged fired')
+    autocomplete.addListener('place_changed', function(){
+      var place = autocomplete.getPlace();
+      $scope.destLat = place.geometry.access_points[0].location.lat;
+      $scope.destLng = place.geometry.access_points[0].location.lng;
+      $scope.destName = place.name;
+      $scope.latLng = mapFactory.setLatLng($scope.destLat, $scope.destLng);
+      $scope.dest = mapFactory.setDest($scope.destName);
+   })
   };
+  google.maps.event.addDomListener(window, 'load', placeChanged);
+
 }]);
 
 canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scope, $http) {
