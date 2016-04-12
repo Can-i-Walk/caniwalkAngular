@@ -9,6 +9,12 @@
       </div>
       <label class="walkInfo-distance"></label>
       <label class="walkInfo-duration"></label>
+      <!-- <div class="walkInfo-weatherData">
+        <div class="walkInfo-weather-temperature"></div>
+        <div class="walkInfo-weather-forecast"></div>
+        <div class="walkInfo-weather-sunset"></div>
+        <div class="walkInfo-weather-alerts"></div>
+      </div> -->
       <section class="walkInfo-reviews" ng-hide="modal">
          <h4>Other User Reviews</h4>
          <ul class="walkInfo-review-list">
@@ -33,7 +39,7 @@
    </section>
    <section ng-controller="walkDecisionController">
      <div class="walkInfo-buttons">
-        <a href="#/your_walk"><button class="walkInfo-accept">Take this walk</button></a>
+        <button class="walkInfo-accept" ng-click="tripTaken()">Take this walk</button>
         <button class="walkInfo-decline" ng-click="modal=true">No thanks</button>
      </div>
   <!-- modal for walk-Info page -->

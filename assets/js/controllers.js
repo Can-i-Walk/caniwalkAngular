@@ -81,7 +81,6 @@ canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scop
     $scope.tripNotTaken = function(){
       var tripID = localStorage.getItem('currentTripID');
       console.log("trip not taken function activated");
-
       $http({
         method: 'PUT',
         url: 'https://peaceful-journey-51869.herokuapp.com/trips/'+tripID+'?trip[completion]=false'
@@ -92,10 +91,23 @@ canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scop
         console.log("unsuccessful denial of trip");
         console.log(response);
       });
-
-
-
     };
+
+    $scope.tripTaken = function(){
+      var tripID = localStorage.getItem('currentTripID');
+      console.log("trip taken function activated");
+      $http({
+        method: 'PUT',
+        url: 'https://peaceful-journey-51869.herokuapp.com/trips/'+tripID+'?trip[completion]=true'
+      }).then(function successCallback(response) {
+        console.log("successful acceptance of trip");
+        window.location.replace('#/your_walk');
+      }, function errorCallback(response) {
+        console.log("unsuccessful acceptance of trip");
+        console.log(response);
+      });
+    };
+
 }]);
 
 canIWalk.factory('mapFactory', function() { // this factory allows communication between controllers
