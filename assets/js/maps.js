@@ -126,12 +126,13 @@ function findTrip(destLatLng, destName, userID){
                  contentType: "application/json",
               },
               success : function(data) {
-
+                localStorage.setItem('currentTripID', data.trip[0].id);
                 console.log("this trip's info has been sent to the database");
+
                 //this GET will get the places of interest from other users based on the route data we send to the backend
                 $.ajax({
                   method: 'GET',
-                  url: 'https://peaceful-journey-51869.herokuapp.com/places/nearby_favorite_places/?distance='+distance+'&origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng,
+                  url: 'https://peaceful-journey-51869.herokuapp.com/places/map_info/?distance='+distance+'&origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng,
                   success: function (data) {
                     console.log("successful GET");
                     console.log(data);

@@ -57,12 +57,18 @@ canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, 
     $scope.latLng = mapFactory.getLatLng();
     var userID = localStorage.getItem('ID');
     var token = localStorage.getItem('token');
-    console.log($scope.currentUserID);
     findTrip($scope.latLng, $scope.dest, userID);
 
-    $scope.tripNotTaken = function(){
-      console.log("trip not taken function activated");
-    };
+}]);
+
+canIWalk.controller('duringWalkController', ['$scope', 'mapFactory', function($scope, mapFactory) {
+
+    $scope.dest = mapFactory.getDest();
+    $scope.latLng = mapFactory.getLatLng();
+    var userID = localStorage.getItem('ID');
+    var token = localStorage.getItem('token');
+    liveMap($scope.latLng, $scope.dest, userID);
+
 }]);
 
 
@@ -78,6 +84,40 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
     $scope.latLng = mapFactory.setLatLng($scope.destLat, $scope.destLng);
     $scope.dest = mapFactory.setDest($scope.destName);
   };
+}]);
+
+canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scope, $http) {
+
+    $scope.tripNotTaken = function(){
+      var tripID = localStorage.getItem('currentTripID');
+      console.log("trip not taken function activated");
+      $http({
+        method: 'PUT',
+        url: 'https://peaceful-journey-51869.herokuapp.com/trips/'+tripID+'?trip[completion]=false'
+      }).then(function successCallback(response) {
+        console.log("successful denial of trip");
+        window.location.replace('#/input-destination');
+      }, function errorCallback(response) {
+        console.log("unsuccessful denial of trip");
+        console.log(response);
+      });
+    };
+
+    $scope.tripTaken = function(){
+      var tripID = localStorage.getItem('currentTripID');
+      console.log("trip taken function activated");
+      $http({
+        method: 'PUT',
+        url: 'https://peaceful-journey-51869.herokuapp.com/trips/'+tripID+'?trip[completion]=true'
+      }).then(function successCallback(response) {
+        console.log("successful acceptance of trip");
+        window.location.replace('#/your_walk');
+      }, function errorCallback(response) {
+        console.log("unsuccessful acceptance of trip");
+        console.log(response);
+      });
+    };
+
 }]);
 
 canIWalk.factory('mapFactory', function() { // this factory allows communication between controllers
@@ -172,9 +212,6 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
     console.log($scope.passwordResetEmail)
     console.log("password change function activated");
     if ($scope.passwordResetEmail){
-      // these two jquery actions should be removed once we have the GET working (they're inside the success function as well)
-      // $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
-      // $('.login-passwordReset-email-button').toggle();
 
       $http({
         method: 'GET',
@@ -203,7 +240,6 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
       if ($scope.newPassword === $scope.confirmPassword) { // check if the passwords input were the same
         console.log("the passwords match");
 
-        //this PUT is currently throwing an error
          $http({
            method: 'PUT',
            url: 'https://peaceful-journey-51869.herokuapp.com/users/1?user[password]='+$scope.newPassword
