@@ -1,3 +1,4 @@
+//controller for rating page
 canIWalk.controller('RatingController', function(){
    this.rating1 = -1;
    this.rating2 = -1;
@@ -8,7 +9,9 @@ canIWalk.controller('RatingController', function(){
          console.log('Rating selected: ' + rating);
        };
 });
+//end controller for rating page
 
+//directive for rating page, populates stars and adds select to color functionality
 canIWalk.directive('ratingsStars', function(){
    return {
       restrict: 'E',
@@ -47,8 +50,8 @@ canIWalk.directive('ratingsStars', function(){
 
       }
    }
-}); //end of ratings-stars directive
-
+});
+//end of ratings-stars directive
 
 
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
@@ -73,7 +76,17 @@ canIWalk.controller('duringWalkController', ['$scope', 'mapFactory', function($s
 
 
 canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($scope, mapFactory) {
-  // console.log("we are in the destination Controller");
+
+  //trying to stop submit on enter for dest controller
+  $(".inputDest-input").keypress(function(e){
+     if(e.which === 13){
+        e.preventDefault();
+     }
+ });
+
+  //
+
+
   var vm = this;
   vm.placeChanged = function() { // when a user selects a Google Place in the destination drop down menu...
     vm.place = this.getPlace();
@@ -293,6 +306,5 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
       alert("Please fill out all fields on the page");
     }
   };
-
 
 }]);

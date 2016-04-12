@@ -23,14 +23,18 @@
    margin-left: 10%;
    font-size: 4em;
    form {
-      input {
-         font-size: 1em;
-      }
+      display: flex;
+      flex-direction: column;
+      font-size: 1em;
       a{
          color: $Text;
-         background-color: $Flesh;
-         border: 0.5em solid $Flesh;
+         background-color: $BurntOrange;
+         border: 0.5em solid $BurntOrange;
          border-radius: 0.5em;
+         margin-top: 1em;
+      }
+      label {
+         margin-top: 1em;
       }
       // a:hover {
       //    text-decoration: underline;
@@ -39,19 +43,23 @@
       select {
          font-size: 1em;
          color: $Text;
-         // background-color: blue;
-         option {
-            font-size: 1em;
-         }
+         background-color: white;
       }
-
+      input {
+         font-size: 1em;
+      }
       .editAccount-preference-header {
          margin-top: 0.5em;
          border-bottom: 1px solid $Text;
          text-align: center;
          width: 70%;
          margin-left: 15%;
-         margin-bottom: 1em;
+      }
+      .editAccount-distance-input {
+         width: 150px;
+      }
+      .editAccount-distance-input::-webkit-inner-spin-button,       .editAccount-distance-input::-webkit-outer-spin-button,  {
+         -webkit-appearance: none;
       }
       button {
          font-size: 1em;
@@ -59,6 +67,12 @@
          padding: 0.5em;
          border: 0.5em solid $Teal;
          border-radius: 0.5em;
+         margin-top: 1em;
+         color: white;
+      }
+      .editAccount-change-password {
+         text-align: center;
+         color: white;
       }
    }
 }

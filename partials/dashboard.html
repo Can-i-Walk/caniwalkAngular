@@ -1,4 +1,4 @@
-<div class="dashboard-page" ng-controller="walkController">
+<div class="dashboard-page">
    <header class="dashboard-header">
       <a href="#/home"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
    </header>
@@ -8,32 +8,32 @@
          <li>
             <!-- {{walk date | date }} {{ walk destination }}-->
          </li>
-         <li ng-click="clicked1=!clicked1">4/2/16 Cocoa Cinnamon
-            <ul class="dashboard-ratings" ng-show="clicked1">
+         <li ng-click="open=1" ng-init="open=1">4/2/16 Cocoa Cinnamon
+            <ul class="dashboard-ratings" ng-show="open === 1">
                <li>Safety: </li>
                <li>Ease: </li>
                <li>Enjoyability: </li>
                <li>Comments: </li>
             </ul>
          </li>
-         <li ng-click="clicked2=!clicked2">3/22/16 The Iron Yard
-            <ul class="dashboard-ratings" ng-show="clicked2">
+         <li ng-click="open=2">3/22/16 The Iron Yard
+            <ul class="dashboard-ratings" ng-show="open === 2">
                <li>Safety: </li>
                <li>Ease: </li>
                <li>Enjoyability: </li>
                <li>Comments: </li>
             </ul>
          </li>
-         <li ng-click="clicked3=!clicked3">3/12/16 The Corner Store
-            <ul class="dashboard-ratings" ng-show="clicked3">
+         <li ng-click="open = 3">3/12/16 The Corner Store
+            <ul class="dashboard-ratings" ng-show="open === 3">
                <li>Safety: </li>
                <li>Ease: </li>
                <li>Enjoyability: </li>
                <li>Comments: </li>
             </ul>
          </li>
-         <li ng-click="clicked4=!clicked4">2/12/16 ABC store
-            <ul class="dashboard-ratings" ng-show="clicked4">
+         <li ng-click="open=4">2/12/16 ABC store
+            <ul class="dashboard-ratings" ng-show="open === 4">
                <li>Safety: </li>
                <li>Ease: </li>
                <li>Enjoyability: </li>
