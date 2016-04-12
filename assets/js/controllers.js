@@ -224,5 +224,4 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
     }
   };
 
-
 }]);
