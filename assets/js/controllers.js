@@ -221,6 +221,9 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
        } else if (response.data.errors[0] === "Login failed."){
          console.log(response.data.errors);
          $('.login-signIn-errorContainer').html("Email or password is incorrect.");
+       } else if (response.data.errors[0] === "Please confirm your email to login."){
+         console.log(response.data.errors);
+         $('.login-signIn-errorContainer').html("You haven't confirmed your account. You should receive a confirmation email shortly.");
        } else {
          console.log("unsuccessful LOGIN");
          console.log(response.data.errors);
