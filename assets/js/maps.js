@@ -126,8 +126,9 @@ function findTrip(destLatLng, destName, userID){
                  contentType: "application/json",
               },
               success : function(data) {
-
+                localStorage.setItem('currentTripID', data.trip[0].id);
                 console.log("this trip's info has been sent to the database");
+
                 //this GET will get the places of interest from other users based on the route data we send to the backend
                 $.ajax({
                   method: 'GET',
