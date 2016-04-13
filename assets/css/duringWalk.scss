@@ -12,9 +12,40 @@
     }
 }
 .duringWalk-map {
-     height: 1000px;
+     height: 1300px;
      width: 100%;
   }
+
+.duringWalk-map-createPOI-container {
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 20px;
+  font: {
+    size: 50px;
+  }
+}
+
+.duringWalk-map-createPOI-fields-input {
+  font: {
+    size: 50px;
+    family: $Oswald;
+  }
+  width: 70%;
+  border: solid 1px black;
+}
+
+.duringWalk-map-createPOI-fields-button {
+  color: white;
+  background: $BurntOrange;
+  border:{
+    radius: 2px;
+    style: none;
+  };
+  font: {
+    size: 50px;
+    family: $Oswald;
+  }
+}
 
 .duringWalk-endWalk-button {
   color: white;

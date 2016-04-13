@@ -4,6 +4,13 @@
    </header>
    <section class="duringWalk-content" ng-controller="duringWalkController">
       <div class="duringWalk-map" id="duringWalkMap"></div>
+      <div class="duringWalk-map-createPOI-container">
+        <div class="duringWalk-map-createPOI" ng-click="favPlaceInput=true">Save a Favorite Place!</div>
+        <form ng-show="favPlaceInput" class="duringWalk-map-createPOI-fields" ng-submit="submitPOI()">
+          <input class="duringWalk-map-createPOI-fields-input" type="text" placeholder="Name of new Favorite Place">
+          <button ng-click="favPlaceInput=false" class="duringWalk-map-createPOI-fields-button" type="submit">Save</button>
+        </form>
+      </div>
    </section>
    <div class="duringWalk-buttons">
       <button ng-click="endWalkModal=true" class="duringWalk-endWalk-button">End this walk</button>
