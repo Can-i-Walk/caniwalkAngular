@@ -144,7 +144,33 @@ function findTrip(destLatLng, destName, userID){
                     $('.walkInfo-weather-sunset').html("Sunset: " + data.sunset);
                     // console.log(data.sunset);
 
-                    // console.log(data);
+                    // var image = {
+                    //   // url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+                    //   url: 'assets/images/CIW_Logo.jpg',
+                    //   // This marker is 20 pixels wide by 32 pixels high.
+                    //   size: new google.maps.Size(20, 32),
+                    //   // The origin for this image is (0, 0).
+                    //   origin: new google.maps.Point(0, 0),
+                    //   // The anchor for this image is the base of the flagpole at (0, 32).
+                    //   anchor: new google.maps.Point(0, 32)
+                    // };
+
+                    if (data.favorite_places.length > 0){ // if there are favorite places associated with the current route
+                      for (var i=0; i < data.favorite_places.length; i++){
+                        // var marker = new MarkerWithLabel({
+                        var marker = new google.maps.Marker({
+                          position: new google.maps.LatLng(data.favorite_places[i].latitude, data.favorite_places[i].longitude),
+                          map: map,
+                          // icon: image,
+                          // icon: 'assets/images/CIW_Logo.jpg',
+                          title: data.favorite_places[i].place_name,
+                          label: data.favorite_places[i].place_name
+                        });
+                      };
+                    } else {
+                      // do nothing
+                    }
+
                   }, error: function (request,error) {
                     console.log("unsuccessful GET");
                     console.log(request);
