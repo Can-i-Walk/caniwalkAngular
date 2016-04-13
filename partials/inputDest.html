@@ -10,10 +10,13 @@
 </header>
 <div class="inputDest-page" ng-controller="destinationController as vm">
    <form class="inputDest-form">
-      <input id="inputDest" class="inputDest-input" places-auto-complete  on-place-changed="vm.placeChanged()" type="text" placeholder="Where do you want to walk?" >
+      <input id="inputDest" class="inputDest-input" type="text" placeholder="Where do you want to walk?" >
       <label>Destination</label>
 <!-- this next little bit is to display if the user needs to give us some more information for their profile -->
       <!-- <a href="#/edit_account">Fill out your profile to help you!</a> -->
       <a href="#/walk_info"><button class="btn" type="submit">Can I walk there?</button></a>
    </form>
 </div>
+
+<!-- on-place-changed="vm.placeChanged()" these were the NGmap autocomplete in input destination feild. They don't really need to be around, but I'm not ready to delete them just yet, just in case. -->
+<!-- places-auto-complete   -->

@@ -146,6 +146,12 @@
     .editAccount-form-container form .editAccount-accessibility:checked + .editAccount-accessibility-checkbox {
       background-color: #17BEBB;
       border: 0.2em solid #2E282A; }
+    .editAccount-form-container form .editAccount-accessibility-select {
+      margin-left: 2em; }
+    .editAccount-form-container form .editAccount-maxdistance-info {
+      font-size: 0.5em; }
+    .editAccount-form-container form .editAccount-accessibility-info {
+      font-size: 0.5em; }
     .editAccount-form-container form button {
       font-size: 1em;
       background-color: #17BEBB;
