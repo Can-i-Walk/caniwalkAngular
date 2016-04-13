@@ -137,6 +137,15 @@
       width: 150px; }
     .editAccount-form-container form .editAccount-distance-input::-webkit-inner-spin-button, .editAccount-form-container form .editAccount-distance-input::-webkit-outer-spin-button {
       -webkit-appearance: none; }
+    .editAccount-form-container form .editAccount-accessibility {
+      display: none; }
+    .editAccount-form-container form .editAccount-accessibility + .editAccount-accessibility-checkbox {
+      width: 50px;
+      height: 50px;
+      border: 0.2em solid #2E282A; }
+    .editAccount-form-container form .editAccount-accessibility:checked + .editAccount-accessibility-checkbox {
+      background-color: #17BEBB;
+      border: 0.2em solid #2E282A; }
     .editAccount-form-container form button {
       font-size: 1em;
       background-color: #17BEBB;

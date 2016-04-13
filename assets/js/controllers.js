@@ -237,7 +237,25 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
    }
  };
 
-}]);
+}]);  //end edit account controller
+
+//start edit account controller
+canIWalk.controller('editAccountController', ['$scope', '$http', function($scope, $http) {
+   $http({
+      method: 'GET',
+      url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[name]='+this.username}).then(function(response){
+
+         $(".editAccount-name").val(response.data.users[5].name);
+         $(".editAccount-email").val(response.data.users[5].email)
+         //we'll need to target the other params as well, but woo! first level works!
+         //we'll also need to target which user we're talking about. $scope.username?
+      })
+
+   $http({
+      method: 'POST',
+      url: '',
+   })
+}]); //end of edit account controller
 
 canIWalk.controller('registrationController', ['$scope', '$http', function($scope, $http) {
   console.log("we are in the registration Controller");

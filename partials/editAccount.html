@@ -8,23 +8,19 @@
       </div>
   </div>
 </header>
-<div class="editAccount-container">
+<div class="editAccount-container" ng-controller="editAccountController">
    <div class="editAccount-form-container">
       <form class="editAccount-form">
          <label>Name</label>
-         <input type="text" placeholder="Username">
+         <input class="editAccount-name"type="text" placeholder="Username">
          <label>Email</label>
-         <input type="text" placeholder="E-mail">
+         <input class="editAccount-email" type="text" placeholder="E-mail">
          <h3 class="editAccount-preference-header">Walking Preferences</h3>
          <label>Max Walking Distance</label>
          <input class="editAccount-distance-input" type="number" placeholder="miles">
          <label>Accessibility Options</label>
-         <select class="editAccount-accessibility">
-            <option class="editAccount-accessibility-options">Cane</option>
-            <option class="editAccount-accessibility-options">Walker</option>
-            <option class="editAccount-accessibility-options">Wheelchair</option>
-            <option class="editAccount-accessibility-options">Scooter</option>
-         </select>
+         <input id="checkbox" class="editAccount-accessibility"type="checkbox">
+         <label class="editAccount-accessibility-checkbox" for="checkbox"></label>
          <button class="editAccount-saveEdits" type="submit">Save Your Edits</button>
          <a href="#/password" class="editAccount-change-password">Change Password</a>
       </form>

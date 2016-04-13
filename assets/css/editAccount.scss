@@ -42,6 +42,18 @@
       .editAccount-distance-input::-webkit-inner-spin-button,       .editAccount-distance-input::-webkit-outer-spin-button,  {
          -webkit-appearance: none;
       }
+      .editAccount-accessibility {
+         display: none;
+      }
+      .editAccount-accessibility + .editAccount-accessibility-checkbox {
+         width: 50px;
+         height: 50px;
+         border: 0.2em solid $Text;
+      }
+      .editAccount-accessibility:checked + .editAccount-accessibility-checkbox{
+         background-color: $Teal;
+         border: 0.2em solid $Text;
+      }
       button {
          font-size: 1em;
          background-color: $Teal;
