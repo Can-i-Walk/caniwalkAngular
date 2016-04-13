@@ -61,6 +61,23 @@ function liveMap(destLatLng, destName, userID){
               success: function (data) {
                 console.log("successful GET");
                 console.log(data);
+
+                if (data.favorite_places.length > 0){ // if there are favorite places associated with the current route
+                  for (var i=0; i < data.favorite_places.length; i++){
+                    // var marker = new MarkerWithLabel({
+                    var marker = new google.maps.Marker({
+                      position: new google.maps.LatLng(data.favorite_places[i].latitude, data.favorite_places[i].longitude),
+                      map: map,
+                      // icon: image,
+                      // icon: 'assets/images/CIW_Logo.jpg',
+                      title: data.favorite_places[i].place_name,
+                      label: data.favorite_places[i].place_name
+                    });
+                  };
+                } else {
+                  // do nothing
+                }
+
               }, error: function (request,error) {
                 console.log("unsuccessful GET");
                 console.log(request);
