@@ -1,5 +1,5 @@
 //find the route information
-function findTrip(destLatLng, destName, userID){
+function findTrip(destLatLng, destName, userID, token){
   console.log(userID);
   // console.log('find trip function working');
   var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
@@ -104,7 +104,7 @@ function findTrip(destLatLng, destName, userID){
             //     console.log("error");
             //   }
             // });
-
+            localStorage.getItem('token');
             // this posts info about the trip to the Rails backend and get nearby places of interest back!
             $.ajax({
               type : 'POST',
@@ -112,6 +112,7 @@ function findTrip(destLatLng, destName, userID){
               url: 'https://peaceful-journey-51869.herokuapp.com/trips',
               data: {
                 "user_id": userID,
+                "token": token,
                 "trip_name": destName,
                 "distance": distance,
                 "origin_name": originName,
@@ -125,13 +126,14 @@ function findTrip(destLatLng, destName, userID){
                  contentType: "application/json",
               },
               success : function(data) {
+                 console.log(data);
                 localStorage.setItem('currentTripID', data.trip[0].id);
                 console.log("this trip's info has been sent to the database");
 
                 //this GET will get the places of interest from other users based on the route data we send to the backend
                 $.ajax({
                   method: 'GET',
-                  url: 'https://peaceful-journey-51869.herokuapp.com/places/map_info/?distance='+distance+'&origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng,
+                  url: 'https://peaceful-journey-51869.herokuapp.com/places/map_info/?distance='+distance+'&origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng+'&token='+token,
                   success: function (data) {
                     console.log("successful GET");
                     $('.walkInfo-weather-icon').attr('src', data.weather_icon);

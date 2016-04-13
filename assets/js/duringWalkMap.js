@@ -2,7 +2,7 @@ var distance;
 var duration;
 
 //find the route information
-function liveMap(destLatLng, destName, userID){
+function liveMap(destLatLng, destName, userID, token){
   console.log(userID);
   var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
   var directionsService = new google.maps.DirectionsService;     //requests information from google's direction services
@@ -57,7 +57,7 @@ function liveMap(destLatLng, destName, userID){
             // this GET will get the places of interest from other users based on the route data we send to the backend
             $.ajax({
               method: 'GET',
-              url: 'https://peaceful-journey-51869.herokuapp.com/places/places_of_interest/?origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng,
+              url: 'https://peaceful-journey-51869.herokuapp.com/places/places_of_interest/?origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng+'&token='+token,
               success: function (data) {
                 console.log("successful GET");
                 console.log(data);

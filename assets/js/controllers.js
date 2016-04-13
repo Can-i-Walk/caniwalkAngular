@@ -60,7 +60,7 @@ canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, 
     $scope.latLng = mapFactory.getLatLng();
     var userID = localStorage.getItem('ID');
     var token = localStorage.getItem('token');
-    findTrip($scope.latLng, $scope.dest, userID);
+    findTrip($scope.latLng, $scope.dest, userID, token);
 
 }]);
 
@@ -70,7 +70,7 @@ canIWalk.controller('duringWalkController', ['$scope', 'mapFactory', function($s
     $scope.latLng = mapFactory.getLatLng();
     var userID = localStorage.getItem('ID');
     var token = localStorage.getItem('token');
-    liveMap($scope.latLng, $scope.dest, userID);
+    liveMap($scope.latLng, $scope.dest, userID, token);
 
 }]);
 
@@ -113,15 +113,19 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
 
 }]);//end select destination controller
 
+
 canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scope, $http) {
+
+   var token = localStorage.getItem('token');
 
     $scope.tripNotTaken = function(){
       var tripID = localStorage.getItem('currentTripID');
       console.log("trip not taken function activated");
       $http({
         method: 'PUT',
-        url: 'https://peaceful-journey-51869.herokuapp.com/trips/'+tripID+'?trip[completion]=false'
+        url: 'https://peaceful-journey-51869.herokuapp.com/trips/'+tripID+'?trip[completion]=false'+'&token='+token
       }).then(function successCallback(response) {
+         console.log(response);
         console.log("successful denial of trip");
         window.location.replace('#/input-destination');
         localStorage.setItem('currentTripID', null);
@@ -136,8 +140,9 @@ canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scop
       console.log("trip taken function activated");
       $http({
         method: 'PUT',
-        url: 'https://peaceful-journey-51869.herokuapp.com/trips/'+tripID+'?trip[completion]=true'
+        url: 'https://peaceful-journey-51869.herokuapp.com/trips/'+tripID+'?trip[completion]=true'+'&token='+token
       }).then(function successCallback(response) {
+         console.log(response);
         console.log("successful acceptance of trip");
         window.location.replace('#/your_walk');
       }, function errorCallback(response) {
@@ -247,8 +252,8 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
 //start edit account controller
 canIWalk.controller('editAccountController', ['$scope', '$http', function($scope, $http) {
 
-   $scope.token = localStorage.getItem('token');
-   $scope.id = localStorage.getItem('ID');
+   var token = localStorage.getItem('token');
+   var id = localStorage.getItem('ID');
    console.log($scope.token);
    console.log($scope.id);
 
@@ -256,7 +261,8 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
 
    $http({
       method: 'GET',
-      url: 'https://peaceful-journey-51869.herokuapp.com/users/'+$scope.id+'?user[token]='+$scope.token}).then(function(response){
+      url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?user[token]='+token
+   }).then(function(response){
 
          $(".editAccount-name").val(response.data.name);//
          $(".editAccount-email").val(response.data.email);//
@@ -272,7 +278,7 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
       //get the name, email, miles, accessibiliyt, and password stuff.
       $http({
          method: 'PUT',
-         url: 'http://peaceful-journey-51869.herokuapp.com/users/'+$scope.id+'/?token='+$scope.token}).then(function(){
+         url: 'http://peaceful-journey-51869.herokuapp.com/users/'+id+'/?token='+token}).then(function(){
             // var check = $(".editAccount-name").val();
             //
             // console.log('we are clicking and stuff');
