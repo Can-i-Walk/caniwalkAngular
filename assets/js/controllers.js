@@ -101,14 +101,15 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
     var autocomplete = new google.maps.places.Autocomplete(inputDest);
     autocomplete.addListener('place_changed', function(){
       var place = autocomplete.getPlace();
-      $scope.destLat = place.geometry.access_points[0].location.lat;
-      $scope.destLng = place.geometry.access_points[0].location.lng;
+      $scope.destLat = place.geometry.location.lat();
+      $scope.destLng = place.geometry.location.lng();
       $scope.destName = place.name;
       $scope.latLng = mapFactory.setLatLng($scope.destLat, $scope.destLng);
       $scope.dest = mapFactory.setDest($scope.destName);
    })
   };
-  google.maps.event.addDomListener(window, 'load', placeChanged);
+  var destInput = document.getElementById('inputDest');
+  google.maps.event.addDomListener(destInput, 'click', placeChanged);
 
 }]);
 

@@ -144,7 +144,18 @@ function findTrip(destLatLng, destName, userID){
                     $('.walkInfo-weather-sunset').html("Sunset: " + data.sunset);
                     // console.log(data.sunset);
 
-                    // console.log(data);
+                    console.log(data.favorite_places[0].latitude);
+                    console.log(data.favorite_places[0].longitude);
+                    console.log(data.favorite_places[0].place_name);
+
+                    var marker = new google.maps.Marker({
+                      position: new google.maps.LatLng(data.favorite_places[0].latitude, data.favorite_places[0].longitude),
+                      map: map,
+                      title: data.favorite_places[0].place_name
+                    });
+
+                    marker.setMap(map);
+
                   }, error: function (request,error) {
                     console.log("unsuccessful GET");
                     console.log(request);
