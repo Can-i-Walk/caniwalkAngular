@@ -254,35 +254,46 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
 
    var token = localStorage.getItem('token');
    var id = localStorage.getItem('ID');
-   console.log($scope.token);
-   console.log($scope.id);
+   console.log(token);
+   console.log(id);
 
 
 
    $http({
       method: 'GET',
-      url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?user[token]='+token
+      url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token
    }).then(function(response){
-
+      console.log(response);
          $(".editAccount-name").val(response.data.name);//
          $(".editAccount-email").val(response.data.email);//
          $(".editAccount-distance-input").val(response.data.max_distance);
          // $(".editAccount-accessibility-select").val(response.data//this is where accessibility goes);
 
-         //we'll also need to target which user we're talking about. $scope.username?
          //also need accessibility info and
          //max distance info.
       });
 
    $scope.updateUser = function (){
       //get the name, email, miles, accessibiliyt, and password stuff.
+      var name = $('.editAccount-name').val();
+      var email = $('.editAccount-email').val();
+      var maxDist = $('.editAccount-distance-input').val();
+      var accessibility = $('.editAccount-accessibility-select').val();
+
       $http({
          method: 'PUT',
-         url: 'http://peaceful-journey-51869.herokuapp.com/users/'+id+'/?token='+token}).then(function(){
-            // var check = $(".editAccount-name").val();
-            //
-            // console.log('we are clicking and stuff');
-            // console.log(check);
+         url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
+         data: {
+            'name': name,
+            'email': email,
+            'max_distance': maxDist,
+            'accessibility_type': accessibility,
+         }
+
+      }).then(function(response){
+         console.log(response);
+         
+
          })
       }
 
