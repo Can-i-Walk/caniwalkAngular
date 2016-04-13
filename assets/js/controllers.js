@@ -111,7 +111,7 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
   var destInput = document.getElementById('inputDest');
   google.maps.event.addDomListener(destInput, 'click', placeChanged);
 
-}]);
+}]);//end select destination controller
 
 canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scope, $http) {
 
@@ -241,7 +241,42 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
    }
  };
 
-}]);
+}]);  //end edit account controller
+
+//start edit account controller
+canIWalk.controller('editAccountController', ['$scope', '$http', function($scope, $http) {
+
+   $scope.token = localStorage.getItem('token');
+   $scope.id = localStorage.getItem('ID');
+   console.log($scope.token);
+   console.log($scope.id);
+
+
+
+   $http({
+      method: 'GET',
+      url: 'https://peaceful-journey-51869.herokuapp.com/users/'+$scope.id+'?user[token]='+$scope.token}).then(function(response){
+
+         $(".editAccount-name").val(response.data.name);//
+         $(".editAccount-email").val(response.data.email);//
+         $(".editAccount-distance-input").val(response.data.max_distance);
+
+
+         //we'll also need to target which user we're talking about. $scope.username?
+         //also need accessibility info and
+         //max distance info.
+      });
+
+   function updateUser(){
+      // $http({
+      //    method: 'PATCH',
+      //    url: '',
+      // })
+      //patch = update for rails, and let them know what I'm updating as well.
+      console.log('we are clicking and stuff');
+      }
+
+}]); //end of edit account controller
 
 canIWalk.controller('registrationController', ['$scope', '$http', function($scope, $http) {
   console.log("we are in the registration Controller");
