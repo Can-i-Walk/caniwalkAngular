@@ -184,7 +184,7 @@ canIWalk.controller('headerController', ['$scope', '$http', function($scope, $ht
 
     //This PUT tell the backend that the user has logged out and sets the local token to nil as well
      $http({
-       method: 'PUT',
+       method: 'DELETE',
        url: 'https://peaceful-journey-51869.herokuapp.com/authentication/logout?id='+userID+'&token='+token
      }).then(function successCallback(response) {
        console.log(response);
@@ -199,7 +199,7 @@ canIWalk.controller('headerController', ['$scope', '$http', function($scope, $ht
 
   };
 
-}]);
+}]);//end header controller
 
 canIWalk.controller('loginController', ['$scope', '$http', function($scope, $http) {
  console.log("we are in the login Controller");
@@ -208,13 +208,14 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
      console.log("you're in the sign in function!");
 
      $http({
-       method: 'PUT',
+       method: 'POST',
        url: 'https://peaceful-journey-51869.herokuapp.com/authentication/login?email='+this.loginEmail+'&password='+this.loginPassword
      }).then(function successCallback(response) {
-       if (response.data.token) {
+        console.log(response.data);
+        if (response.data.user) {
          console.log("successful LOGIN");
-         localStorage.setItem('token', response.data.token);
-         localStorage.setItem('ID', response.data.id);
+         localStorage.setItem('token', response.data.user[0].session_token.token);
+         localStorage.setItem('ID', response.data.user[0].id);
          $scope.loginEmail = '';
          $scope.loginPassword = '';
          window.location.replace('#/input-destination');
@@ -224,7 +225,7 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
        } else if (response.data.errors[0] === "Please confirm your email to login."){
          console.log(response.data.errors);
          $('.login-signIn-errorContainer').html("You haven't confirmed your account. You should receive a confirmation email shortly.");
-       } else {
+      } else {
          console.log("unsuccessful LOGIN");
          console.log(response.data.errors);
          $('.login-signIn-errorContainer').html("Login failed.");
@@ -259,20 +260,23 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
          $(".editAccount-name").val(response.data.name);//
          $(".editAccount-email").val(response.data.email);//
          $(".editAccount-distance-input").val(response.data.max_distance);
-
+         // $(".editAccount-accessibility-select").val(response.data//this is where accessibility goes);
 
          //we'll also need to target which user we're talking about. $scope.username?
          //also need accessibility info and
          //max distance info.
       });
 
-   function updateUser(){
-      // $http({
-      //    method: 'PATCH',
-      //    url: '',
-      // })
-      //patch = update for rails, and let them know what I'm updating as well.
-      console.log('we are clicking and stuff');
+   $scope.updateUser = function (){
+      //get the name, email, miles, accessibiliyt, and password stuff.
+      $http({
+         method: 'PUT',
+         url: 'http://peaceful-journey-51869.herokuapp.com/users/'+$scope.id+'/?token='+$scope.token}).then(function(){
+            // var check = $(".editAccount-name").val();
+            //
+            // console.log('we are clicking and stuff');
+            // console.log(check);
+         })
       }
 
 }]); //end of edit account controller

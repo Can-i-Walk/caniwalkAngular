@@ -10,9 +10,9 @@
 </header>
 <div class="editAccount-container" ng-controller="editAccountController">
    <div class="editAccount-form-container">
-      <form class="editAccount-form">
+      <form class="editAccount-form" ng-submit="updateUser()">
          <label>Name</label>
-         <input class="editAccount-name"type="text" placeholder="Username">
+         <input class="editAccount-name"type="text" placeholder="Username" ng-model="username">
          <label>Email</label>
          <input class="editAccount-email" type="text" placeholder="E-mail">
          <h3 class="editAccount-preference-header">Walking Preferences</h3>
@@ -29,7 +29,7 @@
             <option>Scooter</option>
          </select>
          <span class="editAccount-accessibility-info" ng-show="accessibility">Please enter your accessibility considerations.</span>
-         <button class="editAccount-saveEdits" type="submit" ng-click="updateUser()">Save Your Edits</button>
+         <button class="editAccount-saveEdits" type="submit">Save Your Edits</button>
          <a href="#/password" class="editAccount-change-password">Change Password</a>
       </form>
    </div>
