@@ -209,6 +209,8 @@ console.log("we are in the POI Controller");
         var lng = position.coords.longitude;
         console.log( lat +" "+ lng);
 
+        plotNewPOI(placename, lat, lng);//this function plots the new POI on the duringWalk map
+
         // function newMarker(){ // add the new POI to the map
         //   console.log("marker function working");
         //   var marker = new google.maps.Marker({
@@ -430,7 +432,8 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
         if (response.data.id) {
           console.log("successful password reset initiation");
           console.log(response);
-          // we need to do something with the token
+          $scope.userID = response.data.id;
+          console.log($scope.userID);
           $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
           $('.login-passwordReset-email-button').toggle();
         } else if (response.data.errors[0] === "No user found with that email."){
@@ -460,8 +463,9 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
 
          $http({
            method: 'PUT',
-           url: 'https://peaceful-journey-51869.herokuapp.com/users/1?user[password]='+$scope.newPassword
+           url: 'https://peaceful-journey-51869.herokuapp.com/users/'+$scope.userID+'?user[password]='+$scope.newPassword
          }).then(function successCallback(response) {
+           console.log(response);
            console.log("successful password update");
            window.location.replace('#/home'); // redirect the user to wherever they need to go first
          }, function errorCallback(response) {

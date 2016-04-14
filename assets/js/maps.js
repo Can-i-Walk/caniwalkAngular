@@ -5,7 +5,9 @@ function findTrip(destLatLng, destName, userID, token){
   var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
   var directionsService = new google.maps.DirectionsService;     //requests information from google's direction services
   var map = new google.maps.Map(document.getElementById('map'), { //initializes the map
-  zoom: 14
+  // zoom: 8,
+  scaleControl: true,
+  streetViewControl: false
   });
   directionsDisplay.setMap(map); //displays directions on the map that we've displayed already
 
@@ -126,7 +128,7 @@ function findTrip(destLatLng, destName, userID, token){
                  contentType: "application/json",
               },
               success : function(data) {
-                 console.log(data);
+                console.log(data);
                 localStorage.setItem('currentTripID', data.trip[0].id);
                 console.log("this trip's info has been sent to the database");
 

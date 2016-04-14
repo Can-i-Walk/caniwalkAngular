@@ -47,6 +47,7 @@
       color: #17BEBB; }
 
 .duringWalk-map {
+  font-size: 30px;
   height: 1300px;
   width: 100%; }
 
@@ -399,7 +400,8 @@
   .walkInfo-content h2 {
     text-align: center; }
   .walkInfo-content .walkInfo-map {
-    height: 10em;
+    font-size: 300px;
+    height: 800px;
     width: 100%; }
   .walkInfo-content .walkInfo-distance {
     float: left; }
