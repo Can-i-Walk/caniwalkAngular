@@ -336,34 +336,36 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
          $(".editAccount-distance-input").val(response.data.max_distance);
          // $(".editAccount-accessibility-select").val(response.data//this is where accessibility goes);
 
-         //also need accessibility info and
-         //max distance info.
       });
 
-   $scope.updateUser = function (){
-      //get the name, email, miles, accessibiliyt, and password stuff.
+    $scope.updateUser = function (){
       var name = $('.editAccount-name').val();
       var email = $('.editAccount-email').val();
       var maxDist = $('.editAccount-distance-input').val();
       var accessibility = $('.editAccount-accessibility-select').val();
-      //add if name and email are have a value, continue to run. else, throw an error.
-      $http({
-         method: 'PUT',
-         url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
-         data: {
-            'name': name,
-            'email': email,
-            'max_distance': maxDist,
-            'accessibility_type': accessibility,
-         }
 
-      }).then(function(response){
-         console.log(response);
-
-
-         })
-      }
-
+      if (!name || !email) { // if name or email field are left blank
+        alert("Please enter a name and email for your account");
+      } else {
+        $http({
+           method: 'PUT',
+           url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
+           data: {
+              'name': name,
+              'email': email,
+              'max_distance': maxDist,
+              'accessibility_type': accessibility
+           }
+        }).then(function(response){
+          console.log("successful account update");
+           console.log(response);
+           window.location.replace('#/account');
+        }, function errorCallback(response) {
+           console.log("unsuccessful account update");
+           console.log(response);
+        });
+      };
+    };
 }]); //end edit account controller
 
 
