@@ -30,8 +30,11 @@
             <ratings-stars ng-model="rating.rating4" on-rating-select="rating.rateFunction(rating)"></ratings-stars>
          </label>
          <label>Comments</label>
-         <textarea placeholder="Any Comments?"></textarea>
-         <button type="submit" ng-submit="rabble()">Submit Ratings</button>
+         <textarea class="ratings-comments" placeholder="Any Comments?"></textarea>
+         <button class="ratings-rate" type="submit">Submit Ratings</button>
+         <a href="#/input-destination">
+            <button ng-click="noThanks()" class="ratings-no-rate">No Thanks</button>
+         </a>
       </form>
    </div>
 </div>

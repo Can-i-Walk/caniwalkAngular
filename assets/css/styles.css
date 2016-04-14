@@ -525,14 +525,24 @@
       margin-left: 0.5em; }
     .ratings-form-container form textarea {
       font-size: 1em; }
-    .ratings-form-container form button {
+    .ratings-form-container form .ratings-rate {
       font-size: 1em;
       margin-top: 1em;
       background-color: #17BEBB;
       border: 0.5em solid #17BEBB;
       border-radius: 0.5em;
       width: 70%;
-      margin-left: 15%; }
+      margin-left: 15%;
+      color: white; }
+    .ratings-form-container form a .ratings-no-rate {
+      font-size: 1em;
+      margin-top: 1em;
+      background-color: #CD5334;
+      border: 0.5em solid #CD5334;
+      border-radius: 0.5em;
+      width: 70%;
+      margin-left: 15%;
+      color: white; }
 
 body {
   background: #f5f5f1;
