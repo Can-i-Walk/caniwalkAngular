@@ -43,13 +43,13 @@
 
 //styling for the accept walk and decline walk buttons
 .walkInfo-buttons {
-   position: absolute;
+   position: fixed;
    bottom: 0.05em;
   //  font-size: 5em;
    width: 100%;
-   margin-left: 4%;
+   margin-left: 5%;
    button {
-      padding: 20px;
+      padding: 0.5em;
       font:{
         size: 50px;
         family: $Oswald;
@@ -59,13 +59,13 @@
    .walkInfo-accept {
       color: white;
       background-color: $Teal;
-      border: 1em solid $Teal;
+      border: 0.5em solid $Teal;
       border-radius: 0.5em;
    }
    .walkInfo-decline {
       color: white;
       background-color: $BurntOrange;
-      border: 1em solid $BurntOrange;
+      border: 0.5em solid $BurntOrange;
       border-radius: 0.5em;
    }
 }//end styling for the accept/decline buttons

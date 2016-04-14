@@ -422,24 +422,24 @@
   height: 100%; }
 
 .walkInfo-buttons {
-  position: absolute;
+  position: fixed;
   bottom: 0.05em;
   width: 100%;
-  margin-left: 4%; }
+  margin-left: 5%; }
   .walkInfo-buttons button {
-    padding: 20px;
+    padding: 0.5em;
     font-size: 50px;
     font-family: "Oswald", sans-serif;
     width: 45%; }
   .walkInfo-buttons .walkInfo-accept {
     color: white;
     background-color: #17BEBB;
-    border: 1em solid #17BEBB;
+    border: 0.5em solid #17BEBB;
     border-radius: 0.5em; }
   .walkInfo-buttons .walkInfo-decline {
     color: white;
     background-color: #CD5334;
-    border: 1em solid #CD5334;
+    border: 0.5em solid #CD5334;
     border-radius: 0.5em; }
 
 .walkInfo-modal {
