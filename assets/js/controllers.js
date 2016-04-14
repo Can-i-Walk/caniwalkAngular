@@ -1,5 +1,5 @@
 //controller for rating page
-canIWalk.controller('RatingController', function(){
+canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $http){
    this.rating1 = -1;
    this.rating2 = -1;
    this.rating3 = -1;
@@ -8,7 +8,15 @@ canIWalk.controller('RatingController', function(){
    this.rateFunction = function(rating) {
          console.log('Rating selected: ' + rating);
        };
-});
+
+   $('.ratings-stars').on('click', function(){
+      console.log($scope.rating); //gets rating 1 2 3 and 4 that correspond to corresponding fields.
+      var rate = $scope.rating;
+      if(rate.rating1 > 0 && rate.rating2 > 0 && rate.rating3 > 0 && rate.rating4 > 0){
+         //ok, time for bed, but I can get to the ratings, and I can tie them to their fields.
+      }
+   });
+}]);
 //end controller for rating page
 
 //directive for rating page, populates stars and adds select to color functionality
@@ -16,7 +24,7 @@ canIWalk.directive('ratingsStars', function(){
    return {
       restrict: 'E',
       template: '<ul class="ratings-stars">' +
-                  '<li ng-repeat="star in stars" class="star" ng-click="toggle($index)" ng-class="{filled: star.filled}">' +
+                  '<li ng-repeat="star in stars track by $index" class="star" ng-click="toggle($index)" ng-class="{filled: star.filled}">' +
                      '<i class="fa fa-star"></i>'+
                   '</li>' +
                 '</ul>',
@@ -32,28 +40,44 @@ canIWalk.directive('ratingsStars', function(){
                scope.stars.push({
                   filled: i < scope.ratingValue,
                });
-            }
+            };
+
          };
          scope.toggle = function(index){
-
                scope.ratingValue = index + 1;
                scope.onRatingSelect({
                   rating: index + 1,
                });
-
          };
          scope.$watch('ratingValue', function(oldValue, newValue){
             if(newValue){
                updateStars();
+
+               // if(oldValue > 0){
+               //    if(scope.$id === 5){
+               //       console.log('safe on sandy beaches');
+               //       console.log(scope.ratingValue);
+               //    } else if (scope.$id === 6){
+               //       console.log('pick up sticks');
+               //       console.log(scope.ratingValue);
+               //    } else if (scope.$id === 7 ){
+               //       console.log('seven eight nine');
+               //       console.log(scope.ratingValue);
+               //    } else {
+               //       console.log('eight is grate')
+               //       console.log(scope.ratingValue);
+               //    }
+               //    console.log('check1 '+ scope.ratingValue)
+
+               // };
             }
          })
-
+         }
       }
-   }
-});
+   });
 //end of ratings-stars directive
 
-
+//start map controller, it finds the map.
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
 
     $scope.dest = mapFactory.getDest();
@@ -62,8 +86,9 @@ canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, 
     var token = localStorage.getItem('token');
     findTrip($scope.latLng, $scope.dest, userID, token);
 
-}]);
+}]); //end gmap controller, finds map
 
+//during walk controller, starts the map for 'during walk in duringWalkMap.js
 canIWalk.controller('duringWalkController', ['$scope', 'mapFactory', function($scope, mapFactory) {
 
     $scope.dest = mapFactory.getDest();
@@ -71,10 +96,9 @@ canIWalk.controller('duringWalkController', ['$scope', 'mapFactory', function($s
     var userID = localStorage.getItem('ID');
     var token = localStorage.getItem('token');
     liveMap($scope.latLng, $scope.dest, userID, token);
+}]); //end during walk controller, starts the map for 'during walk in duringWalkMap.js'
 
-}]);
-
-
+//destination controller - deals with the google drop down, and passes info to the factory
 canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($scope, mapFactory) {
 
   //stops submit on enter for dest controller
@@ -83,18 +107,6 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
         e.preventDefault();
      }
  });
-
-  //
-
-  //-GOOGLE-MAPS-AUTOCOMPLETE-------------------
-   // function init() {
-   //   var inputStart = document.getElementById('searchTextField');
-   //   var autocomplete = new google.maps.places.Autocomplete(inputStart);
-   // }
-   // google.maps.event.addDomListener(window, 'load', init);
-//this is Nicky and Alex's JS for the autocomplete drop down. We need to do more things to this to get the lat and long
-
-  // var vm = this;
 
   function placeChanged() { // when a user selects a Google Place in the destination drop down menu...
     var inputDest = document.getElementById('inputDest');
@@ -113,7 +125,7 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
 
 }]);//end select destination controller
 
-
+//start walk decision controller
 canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scope, $http) {
 
    var token = localStorage.getItem('token');
@@ -151,8 +163,9 @@ canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scop
       });
     };
 
-}]);
+}]);//end of trip decision controller
 
+//start factory for lat and long
 canIWalk.factory('mapFactory', function() { // this factory allows communication between controllers
   return {
     currentLat : null,
@@ -178,7 +191,7 @@ canIWalk.factory('mapFactory', function() { // this factory allows communication
       return this.currentDest;
     }
   }
- });
+ });//end factory for moving lat and long around b/t partials
 
 canIWalk.controller('POIController', ['$scope', '$http', function($scope, $http) {
 console.log("we are in the POI Controller");
@@ -233,7 +246,7 @@ console.log("we are in the POI Controller");
 
  };
 
-}]);//end of POI controller
+}]);//end POI controller
 
 canIWalk.controller('headerController', ['$scope', '$http', function($scope, $http) {
  console.log("we are in the registration Controller");
@@ -257,11 +270,10 @@ canIWalk.controller('headerController', ['$scope', '$http', function($scope, $ht
        console.log("unsuccessful logout");
        console.log(response);
      });
-
   };
-
 }]);//end header controller
 
+//start login controller
 canIWalk.controller('loginController', ['$scope', '$http', function($scope, $http) {
  console.log("we are in the login Controller");
  $scope.login = function() {
@@ -302,47 +314,60 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
    }
  };
 
-}]);  //end edit account controller
+}]);  //end login controller
 
 //start edit account controller
 canIWalk.controller('editAccountController', ['$scope', '$http', function($scope, $http) {
 
    var token = localStorage.getItem('token');
    var id = localStorage.getItem('ID');
-   console.log($scope.token);
-   console.log($scope.id);
+   console.log(token);
+   console.log(id);
 
 
 
    $http({
       method: 'GET',
-      url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?user[token]='+token
+      url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token
    }).then(function(response){
-
+      console.log(response);
          $(".editAccount-name").val(response.data.name);//
          $(".editAccount-email").val(response.data.email);//
          $(".editAccount-distance-input").val(response.data.max_distance);
          // $(".editAccount-accessibility-select").val(response.data//this is where accessibility goes);
 
-         //we'll also need to target which user we're talking about. $scope.username?
          //also need accessibility info and
          //max distance info.
       });
 
    $scope.updateUser = function (){
       //get the name, email, miles, accessibiliyt, and password stuff.
+      var name = $('.editAccount-name').val();
+      var email = $('.editAccount-email').val();
+      var maxDist = $('.editAccount-distance-input').val();
+      var accessibility = $('.editAccount-accessibility-select').val();
+      //add if name and email are have a value, continue to run. else, throw an error.
       $http({
          method: 'PUT',
-         url: 'http://peaceful-journey-51869.herokuapp.com/users/'+id+'/?token='+token}).then(function(){
-            // var check = $(".editAccount-name").val();
-            //
-            // console.log('we are clicking and stuff');
-            // console.log(check);
+         url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
+         data: {
+            'name': name,
+            'email': email,
+            'max_distance': maxDist,
+            'accessibility_type': accessibility,
+         }
+
+      }).then(function(response){
+         console.log(response);
+
+
          })
       }
 
-}]); //end of edit account controller
+}]); //end edit account controller
 
+
+//registration controller
 canIWalk.controller('registrationController', ['$scope', '$http', function($scope, $http) {
   console.log("we are in the registration Controller");
   $scope.register = function() {
@@ -383,10 +408,9 @@ canIWalk.controller('registrationController', ['$scope', '$http', function($scop
       $('.login-register-signIn').html("Please submit your name, email, and password.");
     }
   };
+}]); // end registration controller
 
-
-}]);
-
+//password controller
 canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $http) {
   console.log("we are in the password Controller");
 
@@ -452,4 +476,4 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
     }
   };
 
-}]);
+}]);//end of password controller
