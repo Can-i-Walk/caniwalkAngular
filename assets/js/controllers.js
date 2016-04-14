@@ -119,6 +119,7 @@ canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, 
     var token = localStorage.getItem('token');
     findTrip($scope.latLng, $scope.dest, userID, token);
 
+   
 }]); //end gmap controller, finds map
 
 //during walk controller, starts the map for 'during walk in duringWalkMap.js
