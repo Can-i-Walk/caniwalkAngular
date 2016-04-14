@@ -129,7 +129,8 @@
   display: flex;
   width: 80%;
   margin-left: 10%;
-  font-size: 4em; }
+  font-size: 4em;
+  padding-bottom: 30%; }
   .editAccount-form-container form {
     display: flex;
     flex-direction: column;
@@ -148,6 +149,12 @@
       background-color: white; }
     .editAccount-form-container form input {
       font-size: 1em; }
+    .editAccount-form-container form .editAccount-password-prompt {
+      margin-top: 1em;
+      font-size: .8em;
+      text-align: center; }
+    .editAccount-form-container form .editAccount-password-container input {
+      margin-bottom: .8em; }
     .editAccount-form-container form .editAccount-preference-header {
       margin-top: 0.5em;
       border-bottom: 1px solid #2E282A;
@@ -174,15 +181,14 @@
     .editAccount-form-container form .editAccount-accessibility-info {
       font-size: 0.5em; }
     .editAccount-form-container form button {
+      position: fixed;
+      bottom: 15px;
+      left: 21%;
       font-size: 1em;
       background-color: #17BEBB;
       padding: 0.5em;
       border: 0.5em solid #17BEBB;
       border-radius: 0.5em;
-      margin-top: 1em;
-      color: white; }
-    .editAccount-form-container form .editAccount-change-password {
-      text-align: center;
       color: white; }
 
 .inputDest-form {

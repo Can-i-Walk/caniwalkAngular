@@ -328,27 +328,65 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
 
 
 
-   $http({
+    $http({
       method: 'GET',
       url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token
-   }).then(function(response){
+    }).then(function(response){
       console.log(response);
          $(".editAccount-name").val(response.data.name);//
          $(".editAccount-email").val(response.data.email);//
          $(".editAccount-distance-input").val(response.data.max_distance);
          // $(".editAccount-accessibility-select").val(response.data//this is where accessibility goes);
+    });
 
-      });
 
     $scope.updateUser = function (){
       var name = $('.editAccount-name').val();
       var email = $('.editAccount-email').val();
       var maxDist = $('.editAccount-distance-input').val();
       var accessibility = $('.editAccount-accessibility-select').val();
+      var password = $('.editAccount-newPassword').val();
+      var confPassword = $('.editAccount-confirmPassword').val();
 
-      if (!name || !email) { // if name or email field are left blank
-        alert("Please enter a name and email for your account");
-      } else {
+
+      if (!password && !confPassword) { // if neither password field is filled out
+        if (!name || !email) { // if name or email field are left blank
+          alert("Please enter a name and email for your account");
+        } else {
+
+          $http({
+             method: 'PUT',
+             url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
+             data: {
+                'name': name,
+                'email': email,
+                'max_distance': maxDist,
+                'accessibility_type': accessibility
+             }
+          }).then(function(response){
+            console.log("successful account update");
+             console.log(response);
+             window.location.replace('#/account');
+          }, function errorCallback(response) {
+             console.log("unsuccessful account update");
+             console.log(response);
+          });
+
+        };
+      } else if (!password || !confPassword) {
+        $('.editAccount-password-errorMsg').html("Please insert your new password twice if you'd like to update it");
+      } else if (password !== confPassword) {
+        $('.editAccount-password-errorMsg').html("Passwords do not match");
+      } else if (password === confPassword) {
+        console.log(id);
+        console.log(token);
+        console.log(name);
+        console.log(email);
+        console.log(maxDist);
+        console.log(accessibility);
+        console.log(password);
+
+
         $http({
            method: 'PUT',
            url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
@@ -356,7 +394,8 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
               'name': name,
               'email': email,
               'max_distance': maxDist,
-              'accessibility_type': accessibility
+              'accessibility_type': accessibility,
+              'password' : password
            }
         }).then(function(response){
           console.log("successful account update");
@@ -366,6 +405,9 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
            console.log("unsuccessful account update");
            console.log(response);
         });
+
+      } else {
+        // do nothing
       };
     };
 }]); //end edit account controller
@@ -426,14 +468,11 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
       $http({
         method: 'GET',
         url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail
-        // url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email=geoffrey.s.arnold@gmail.com'
       }).then(function successCallback(response) {
-
-        if (response.data.id) {
+        console.log(response.data.success);
+        console.log(response);
+        if (response.data.success === true) {
           console.log("successful password reset initiation");
-          console.log(response);
-          $scope.userID = response.data.id;
-          console.log($scope.userID);
           $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
           $('.login-passwordReset-email-button').toggle();
         } else if (response.data.errors[0] === "No user found with that email."){
@@ -461,9 +500,30 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
       if ($scope.newPassword === $scope.confirmPassword) { // check if the passwords input were the same
         console.log("the passwords match");
 
+        // crediting this stackoverflow for the function below: http://stackoverflow.com/questions/2907482/how-to-get-the-query-string-by-javascript
+
+        // function getQueryStrings() { // this grabs the necessary token from the URL
+        //   var assoc  = {};
+        //   var decode = function (s) { return decodeURIComponent(s.replace(/\+/g, " ")); };
+        //   var queryString = location.search.substring(1);
+        //   var keyValues = queryString.split('&');
+        //
+        //   for(var i in keyValues) {
+        //     var key = keyValues[i].split('=');
+        //     if (key.length > 1) {
+        //       assoc[decode(key[0])] = decode(key[1]);
+        //     }
+        //   }
+        //   console.log(assoc);
+        //   return assoc;
+        // }
+        //
+        // var qs = getQueryStrings();
+        // var myParam = qs["token"];
+
          $http({
            method: 'PUT',
-           url: 'https://peaceful-journey-51869.herokuapp.com/users/'+$scope.userID+'?user[password]='+$scope.newPassword
+           url: 'https://peaceful-journey-51869.herokuapp.com/users/'+myParam+'?user[password]='+$scope.newPassword
          }).then(function successCallback(response) {
            console.log(response);
            console.log("successful password update");
