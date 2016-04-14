@@ -57,6 +57,7 @@ canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $ht
             localStorage.setItem('currentTripID', 'null');
          }, function errorCallback(response){
             console.log(response);
+            console.log('it failed :-(');
          })
 
       } else {
@@ -119,7 +120,7 @@ canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, 
     var token = localStorage.getItem('token');
     findTrip($scope.latLng, $scope.dest, userID, token);
 
-   
+
 }]); //end gmap controller, finds map
 
 //during walk controller, starts the map for 'during walk in duringWalkMap.js
@@ -350,6 +351,16 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
 
 }]);  //end login controller
 
+//start of account dashboard controller
+canIWalk.controller('accountDashboardController', ['$scope', '$http', function($scope, $http){
+   $http({
+      method: 'GET',
+      url: ,
+      data: ,
+   })
+
+}])//end of account dashboard controller
+
 //start edit account controller
 canIWalk.controller('editAccountController', ['$scope', '$http', function($scope, $http) {
 
@@ -511,5 +522,4 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
       alert("Please fill out all fields on the page");
     }
   };
-
 }]);//end of password controller

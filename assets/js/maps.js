@@ -136,6 +136,44 @@ function findTrip(destLatLng, destName, userID, token){
                   url: 'https://peaceful-journey-51869.herokuapp.com/places/map_info/?distance='+distance+'&origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng+'&token='+token,
                   success: function (data) {
                     console.log("successful GET");
+                    console.log(data);
+                    //this bit of logic is going to populate the user reviews section:
+                    var avgRate = data.average_ratings;
+
+//average safety rating
+                  if(avgRate.safety_average === null){
+                       $('.walkInfo-rating-safety').text("Sorry, there's no rating available");
+                  } else {
+                     $('.walkInfo-rating-safety').text("Safety Rating: " + avgRate.safety_average);
+                  }
+//average ease rating
+                 if(avgRate.ease_average === null){
+                    $('.walkInfo-rating-ease').text("Sorry, there's no rating available");
+                  } else {
+                  $('.walkInfo-rating-ease').text("Ease Rating: " + avgRate.ease_average);
+                  }
+//average enjoyability rating
+                  if(avgRate.enjoyability_average === null){
+                    $('.walkInfo-rating-enjoyability').text("Sorry, there's no rating available");
+                  } else {
+                  $('.walkInfo-rating-enjoyability').text("Enjoyability Rating: " + avgRate.enjoyability_average);
+                  }
+
+//average accessibility ratings
+                  if(avgRate.accessibility_average === null){
+                    $('.walkInfo-rating-accessibility').text("Sorry, there's no rating available");
+                  } else {
+                  $('.walkInfo-rating-accessibility').text("Accessibility Rating: " + avgRate.accessibility_average);
+                  }
+
+//this is one place I can get the information about the walk. Is there another place I can do so? That's better suited to getting the reveiws and ratings?
+
+                     console.log('test fxn');
+                     console.log(data);
+                     console.log(data.trip_ratings);
+                     console.log(data.average_ratings.safety_average);
+
+
                     $('.walkInfo-weather-icon').attr('src', data.weather_icon);
                     $('.walkInfo-weather-icon').attr('alt', data.current_weather);
                     // console.log(data.weather_icon);

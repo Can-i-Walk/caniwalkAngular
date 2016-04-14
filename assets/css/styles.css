@@ -395,7 +395,8 @@
   margin-left: 10%;
   font-family: "Oswald", sans-serif;
   font-size: 4em;
-  color: #2E282A; }
+  color: #2E282A;
+  padding-bottom: 4em; }
   .walkInfo-content h2 {
     text-align: center; }
   .walkInfo-content .walkInfo-map {
