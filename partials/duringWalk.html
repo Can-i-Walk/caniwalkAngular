@@ -4,11 +4,11 @@
    </header>
    <section class="duringWalk-content" ng-controller="duringWalkController">
       <div class="duringWalk-map" id="duringWalkMap"></div>
-      <div class="duringWalk-map-createPOI-container">
+      <div class="duringWalk-map-createPOI-container" ng-controller="POIController">
         <div class="duringWalk-map-createPOI" ng-click="favPlaceInput=true">Save a Favorite Place!</div>
         <form ng-show="favPlaceInput" class="duringWalk-map-createPOI-fields" ng-submit="submitPOI()">
-          <input class="duringWalk-map-createPOI-fields-input" type="text" placeholder="Name of new Favorite Place">
-          <button ng-click="favPlaceInput=false" class="duringWalk-map-createPOI-fields-button" type="submit">Save</button>
+          <input class="duringWalk-map-createPOI-fields-input" type="text" ng-model="POIname" placeholder="Name of new Favorite Place"/>
+          <input ng-click="favPlaceInput=false" class="duringWalk-map-createPOI-fields-button" type="submit" value="Save"/> <!-- ng-click="favPlaceInput=false" -->
         </form>
       </div>
    </section>

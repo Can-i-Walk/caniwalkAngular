@@ -180,6 +180,61 @@ canIWalk.factory('mapFactory', function() { // this factory allows communication
   }
  });
 
+canIWalk.controller('POIController', ['$scope', '$http', function($scope, $http) {
+console.log("we are in the POI Controller");
+
+ $scope.submitPOI = function() {
+   console.log("new POI function ran");
+   if ($scope.POIname){ // if the user has submitted text in the place name field
+      var userID = localStorage.getItem('ID');
+      var token = localStorage.getItem('token');
+      var tripID = localStorage.getItem('currentTripID');
+      var placename = $scope.POIname; // this works
+
+      navigator.geolocation.getCurrentPosition(function(position) { // get the current latlng so we know where to put the POI
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+        console.log( lat +" "+ lng);
+
+        // function newMarker(){ // add the new POI to the map
+        //   console.log("marker function working");
+        //   var marker = new google.maps.Marker({
+        //   position: new google.maps.LatLng(lat, lng),
+        //   map: duringWalkMap, // this is where it's breaking. I need to grab the duringWalk map
+        //   title: $scope.POIname,
+        //   label: $scope.POIname
+        //   });
+        // };
+        //
+        // newMarker();
+
+        //This POST sends user-created places of interest to the back end
+        $http({
+          method: 'POST',
+          url: 'https://peaceful-journey-51869.herokuapp.com/places/?token='+token,
+          data: {
+            'user_id' : userID,
+            'trip_id' : tripID,
+            'place_name': $scope.POIname,
+            'latitude' : lat,
+            'longitude' : lng
+          }
+        }).then(function successCallback(response) {
+          console.log(response);
+          console.log("successful POI creation")
+        }, function errorCallback(response) {
+          console.log("unsuccessful POI creation");
+          console.log(response);
+        });
+      });
+    } else {
+      // do nothing
+    }
+
+ };
+
+}]);//end of POI controller
+
 canIWalk.controller('headerController', ['$scope', '$http', function($scope, $http) {
  console.log("we are in the registration Controller");
 
