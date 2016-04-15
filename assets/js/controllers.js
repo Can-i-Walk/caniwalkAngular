@@ -141,7 +141,7 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
      if(e.which === 13){
         e.preventDefault();
      }
- });
+  });
 
   function placeChanged() { // when a user selects a Google Place in the destination drop down menu...
     var inputDest = document.getElementById('inputDest');
@@ -157,6 +157,34 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
   };
   var destInput = document.getElementById('inputDest');
   google.maps.event.addDomListener(destInput, 'click', placeChanged);
+
+  //this section handles the suggested destinations functionality
+
+  // fetch the user's max distance
+  var usrMaxDistance = localStorage.getItem('maxDistance');
+
+  // get the user's current location
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) { //put their position into a variable 'pos'
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+
+      // $http({ // fetch the suggested destinations from the back end
+      //   method: 'GET',
+      //   url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail
+      // }).then(function successCallback(response) {
+      //   console.log(response);
+      //   // do some angular with the returned dataType
+      //   $scope.destinations = response.data;
+      // }, function errorCallback(response) {
+      //   console.log(response);
+      //   $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to Suggest. Search for one above!")
+      // });
+    });
+
+  } else { // Browser doesn't support Geolocation
+    $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to Suggest. Search for one above!")
+  }
 
 }]);//end select destination controller
 
@@ -293,6 +321,8 @@ canIWalk.controller('headerController', ['$scope', '$http', function($scope, $ht
        window.location.replace('#/login');
        localStorage.setItem('token', null);
        localStorage.setItem('ID', null);
+       localStorage.setItem('accessibility_type', null);
+       localStorage.setItem('maxDistance', null);
      }, function errorCallback(response) {
        console.log("unsuccessful logout");
        console.log(response);
@@ -316,6 +346,8 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
          console.log("successful LOGIN");
          localStorage.setItem('token', response.data.user[0].session_token.token);
          localStorage.setItem('ID', response.data.user[0].id);
+         localStorage.setItem('maxDistance', response.data.user[0].max_distance);
+         localStorage.setItem('accessibility_type', response.data.user[0].accessibility_type);
          $scope.loginEmail = '';
          $scope.loginPassword = '';
          window.location.replace('#/input-destination');
