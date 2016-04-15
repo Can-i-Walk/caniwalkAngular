@@ -65,6 +65,19 @@ function findTrip(destLatLng, destName, userID, token){
             $(".walkInfo-distance").html(distance);
             $(".walkInfo-duration").html(duration);
 
+            // this provides some dynamic behavior on the page comparing the user's max distance to the distance of the current trip
+            var usrMaxDistance = localStorage.getItem('maxDistance');
+            if (usrMaxDistance = null) { // if usrMaxDistance = null
+              $('.walkInfo-maxDistance-text').html("<a href='#/edit_account'>Update your profile</a> to get personalized walk data!")
+            } else if ((distance > (usrMaxDistance + .5)) && ((usrMaxDistance + 1.5) > distance)){ // if distance > (usrMaxDistance + .5) && (usrMaxDistance + 1.5) > distance
+              $('.walkInfo-maxDistance-text').html("This walk is slightly longer than your stated maximum walk distance")
+            } else if (distance >== (usrMaxDistance + 1.5)){ // if distance >== (usrMaxDistance + 1.5)
+              $('.walkInfo-maxDistance-text').html("This walk is significantly longer than your stated maximum walk distance.")
+            } else {
+              // don't put anything in that element
+            }
+
+
             localStorage.getItem('token');
             // this posts info about the trip to the Rails backend and get nearby places of interest back!
             $.ajax({
@@ -127,8 +140,6 @@ function findTrip(destLatLng, destName, userID, token){
                   $('.walkInfo-rating-accessibility').text("Accessibility Rating: " + avgRate.accessibility_average);
                   }
 
-//this is one place I can get the information about the walk. Is there another place I can do so? That's better suited to getting the reveiws and ratings?
-
                      console.log('test fxn');
                      console.log(data);
                      console.log(data.trip_ratings);
@@ -145,7 +156,7 @@ function findTrip(destLatLng, destName, userID, token){
                     $('.walkInfo-weather-sunset').html("Sunset: " + data.sunset);
                     // console.log(data.sunset);
 
-                    // var image = {
+                    // var image = { // this will be potentially useful for bringing in the blue man as the marker
                     //   // url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
                     //   url: 'assets/images/CIW_Logo.jpg',
                     //   // This marker is 20 pixels wide by 32 pixels high.

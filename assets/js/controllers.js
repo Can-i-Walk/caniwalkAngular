@@ -433,6 +433,8 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
           }).then(function(response){
             console.log("successful account update");
              console.log(response);
+             localStorage.setItem('accessibility_type', accessibility);
+             localStorage.setItem('maxDistance', maxDist);
              window.location.replace('#/account');
           }, function errorCallback(response) {
              console.log("unsuccessful account update");
