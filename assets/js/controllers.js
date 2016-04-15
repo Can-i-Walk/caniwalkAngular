@@ -134,7 +134,7 @@ canIWalk.controller('duringWalkController', ['$scope', 'mapFactory', function($s
 }]); //end during walk controller, starts the map for 'during walk in duringWalkMap.js'
 
 //destination controller - deals with the google drop down, and passes info to the factory
-canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($scope, mapFactory) {
+canIWalk.controller('destinationController', ['$scope', '$http', 'mapFactory', function($scope, $http, mapFactory) {
 
   //stops submit on enter for dest controller
   $(".inputDest-input").keypress(function(e){
@@ -159,9 +159,10 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
   google.maps.event.addDomListener(destInput, 'click', placeChanged);
 
   //this section handles the suggested destinations functionality
-
   // fetch the user's max distance
   var usrMaxDistance = localStorage.getItem('maxDistance');
+  var token = localStorage.getItem('token');
+  var userID = localStorage.getItem('ID');
 
   // get the user's current location
   if (navigator.geolocation) {
@@ -171,19 +172,26 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
 
       // $http({ // fetch the suggested destinations from the back end
       //   method: 'GET',
-      //   url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail
+      //   url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail,
+      //   data: {
+      //     "user_id": userID,
+      //     "token": token,
+      //     "latitude": lat,
+      //     "longitude": lng,
+      //     "max_distance": usrMaxDistance
+      //   }
       // }).then(function successCallback(response) {
       //   console.log(response);
       //   // do some angular with the returned dataType
       //   $scope.destinations = response.data;
       // }, function errorCallback(response) {
       //   console.log(response);
-      //   $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to Suggest. Search for one above!")
+      //   $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to suggest. Search for one above!");
       // });
     });
 
   } else { // Browser doesn't support Geolocation
-    $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to Suggest. Search for one above!")
+    $('.inputDest-form-suggested-destinations-prompt').html("Hmm. Something went wrong. Please refresh the page.");
   }
 
 }]);//end select destination controller

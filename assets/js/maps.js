@@ -65,16 +65,20 @@ function findTrip(destLatLng, destName, userID, token){
             $(".walkInfo-distance").html(distance);
             $(".walkInfo-duration").html(duration);
 
+            // this doesn't quite work exactly how I want it to yet
             // this provides some dynamic behavior on the page comparing the user's max distance to the distance of the current trip
             var usrMaxDistance = localStorage.getItem('maxDistance');
-            if (usrMaxDistance = null) { // if usrMaxDistance = null
+            var distNum = distance.split(" ")[0];
+            console.log(distNum);
+            console.log(usrMaxDistance);
+            if (usrMaxDistance === null) { // if usrMaxDistance = null
               $('.walkInfo-maxDistance-text').html("<a href='#/edit_account'>Update your profile</a> to get personalized walk data!")
             } else if ((distance > (usrMaxDistance + .5)) && ((usrMaxDistance + 1.5) > distance)){ // if distance > (usrMaxDistance + .5) && (usrMaxDistance + 1.5) > distance
               $('.walkInfo-maxDistance-text').html("This walk is slightly longer than your stated maximum walk distance")
-            } else if (distance >== (usrMaxDistance + 1.5)){ // if distance >== (usrMaxDistance + 1.5)
+            } else if (distance >= (usrMaxDistance + 1.5)){ // if distance >== (usrMaxDistance + 1.5)
               $('.walkInfo-maxDistance-text').html("This walk is significantly longer than your stated maximum walk distance.")
             } else {
-              // don't put anything in that element
+              console.log("no MaxDist info to show");// don't put anything in that element
             }
 
 
