@@ -31,11 +31,6 @@ canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $ht
 
 
       if(rate.rating1 > 0 && rate.rating2 > 0 && rate.rating3 > 0 && rate.rating4 > 0 && comments){
-         console.log(safety);
-         console.log(ease);
-         console.log(enjoyability);
-         console.log(accessibility);
-         console.log(comments);
 
          console.log('all values accounted for');
          $http({
@@ -93,7 +88,6 @@ canIWalk.directive('ratingsStars', function(){
                   filled: i < scope.ratingValue,
                });
             };
-
          };
          scope.toggle = function(index){
                scope.ratingValue = index + 1;
@@ -353,13 +347,55 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
 
 //start of account dashboard controller
 canIWalk.controller('accountDashboardController', ['$scope', '$http', function($scope, $http){
+
+   var token = localStorage.getItem('token');
+   var id = localStorage.getItem('ID');
+   console.log(token);
+   console.log(id);
+
    $http({
       method: 'GET',
-      url: ,
-      data: ,
-   })
+      url: 'https://peaceful-journey-51869.herokuapp.com/users/dashboard?id='+id+'&token='+token,
+      data: {
+         'token': token,
+         'user_ID':  id,
 
+      },
+   }).then(function successCallback(response, data){
+      console.log(response);
+      console.log('successful GET');
+      console.log(response.data.trips[0]);
+      $scope.response = response.data;
+      console.log($scope.response);
+      console.log($scope.response.trips)
+      $scope.ratings = response.data.trips[0];
+   })
 }])//end of account dashboard controller
+
+// start of account dashboard directive
+canIWalk.directive('accountDashboard', function(){
+   return {
+      restrict: 'E',
+      template: '<li ng-repeat= "trip in response.trips track by $index" ng-click="open=$index" ng-init="open=1">{{response.trips[$index].walked_at | date:shortDate}} {{ response.trips[$index].trip_name }} {{response.trips[$index].distance}} miles'+
+                   '<ul class="dashboard-ratings" ng-show="open === $index">'+
+                      '<li>Safety: {{response.trips[$index].ratings[0].safety_rating}} </li>'+
+                      '<li>Ease: {{response.trips[$index].ratings[0].ease_rating}}</li>' +
+                      '<li>Enjoyability: {{response.trips[$index].ratings[0].enjoyability_rating}}</li>' +
+                      '<li>Comments: {{response.trips[$index].ratings[0].comment}}</li>'+
+                   '</ul>'+
+                '</li>',
+      /*
+      ng-repeat - trip in trips
+      going to have to find a way to track tabs. Back to code school!  Can use trip id to track click and show logic
+
+
+      date / destination -top accordion, on click, opens to see the other stuff
+      other stuff: ratings, comments user entered for walks
+
+      */
+   }
+});
+// end of account dashboard directive
 
 //start edit account controller
 canIWalk.controller('editAccountController', ['$scope', '$http', function($scope, $http) {
@@ -368,8 +404,6 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
    var id = localStorage.getItem('ID');
    console.log(token);
    console.log(id);
-
-
 
    $http({
       method: 'GET',
