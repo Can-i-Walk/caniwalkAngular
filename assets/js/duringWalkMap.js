@@ -63,6 +63,8 @@ function liveMap(destLatLng, destName, userID, token){
                 console.log("successful GET");
                 console.log(data);
 
+                // code credit for code below: http://stackoverflow.com/questions/12355249/how-to-create-infowindows-for-multiple-markers-in-a-for-loop
+
                 var infoWindow = new google.maps.InfoWindow();
 
                 if (data.favorite_places.length > 0){ // if there are favorite places associated with the current route
