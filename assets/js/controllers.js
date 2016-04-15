@@ -5,17 +5,69 @@ canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $ht
    this.rating3 = -1;
    this.rating4 = -1;
    //this initializes the ratings, but doesn't populate the star list with any. Change to 1 to have the first star populate. 0 will cause all of the stars to disappear
+   var token = localStorage.getItem('token');
+   var userID = localStorage.getItem('ID');
+   var tripID = localStorage.getItem('currentTripID');
+
    this.rateFunction = function(rating) {
          console.log('Rating selected: ' + rating);
        };
 
-   $('.ratings-stars').on('click', function(){
-      console.log($scope.rating); //gets rating 1 2 3 and 4 that correspond to corresponding fields.
+   // $('.ratings-stars').on('click', function(){
+   //    console.log($scope.rating.rating1); //gets rating 1 2 3 and 4 that correspond to corresponding fields.
+   //    var rate = $scope.rating;
+   //    if(rate.rating1 > 0 && rate.rating2 > 0 && rate.rating3 > 0 && rate.rating4 > 0){
+   //       console.log('ratings made');
+   //    }
+   // }); this function is purely for seeing what we get on clicks, not needed for functionality
+   $scope.sendRatings = function(){
+      console.log('submitted');
       var rate = $scope.rating;
-      if(rate.rating1 > 0 && rate.rating2 > 0 && rate.rating3 > 0 && rate.rating4 > 0){
-         //ok, time for bed, but I can get to the ratings, and I can tie them to their fields.
+      var safety = rate.rating1;
+      var ease = rate.rating2;
+      var enjoyability = rate.rating3;
+      var accessibility = rate.rating4;
+      var comments = $('.ratings-comments').val();
+
+
+      if(rate.rating1 > 0 && rate.rating2 > 0 && rate.rating3 > 0 && rate.rating4 > 0 && comments){
+         console.log(safety);
+         console.log(ease);
+         console.log(enjoyability);
+         console.log(accessibility);
+         console.log(comments);
+
+         console.log('all values accounted for');
+         $http({
+            method: 'POST',
+            url: 'http://peaceful-journey-51869.herokuapp.com/ratings/',
+            data: {
+               "user_id": userID,
+               "trip_id": tripID,
+               "ease_rating": ease,
+               "safety_rating": safety,
+               "enjoyability_rating": enjoyability,
+               "accessibility_rating": accessibility,
+               "comment": comments,
+               "token": token,
+            },
+         }).then(function successCallback(response){
+            window.location.replace('#/input-destination');
+            console.log(response);
+            localStorage.setItem('currentTripID', 'null');
+         }, function errorCallback(response){
+            console.log(response);
+            console.log('it failed :-(');
+         })
+
+      } else {
+         alert('you got mo fields sucka');
       }
-   });
+   };
+   $scope.noThanks = function(){
+      localStorage.setItem('currentTripID', 'null');
+      console.log('cleared');
+   }
 }]);
 //end controller for rating page
 
@@ -52,24 +104,6 @@ canIWalk.directive('ratingsStars', function(){
          scope.$watch('ratingValue', function(oldValue, newValue){
             if(newValue){
                updateStars();
-
-               // if(oldValue > 0){
-               //    if(scope.$id === 5){
-               //       console.log('safe on sandy beaches');
-               //       console.log(scope.ratingValue);
-               //    } else if (scope.$id === 6){
-               //       console.log('pick up sticks');
-               //       console.log(scope.ratingValue);
-               //    } else if (scope.$id === 7 ){
-               //       console.log('seven eight nine');
-               //       console.log(scope.ratingValue);
-               //    } else {
-               //       console.log('eight is grate')
-               //       console.log(scope.ratingValue);
-               //    }
-               //    console.log('check1 '+ scope.ratingValue)
-
-               // };
             }
          })
          }
@@ -85,6 +119,7 @@ canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, 
     var userID = localStorage.getItem('ID');
     var token = localStorage.getItem('token');
     findTrip($scope.latLng, $scope.dest, userID, token);
+
 
 }]); //end gmap controller, finds map
 
@@ -308,6 +343,16 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
 
 }]);  //end login controller
 
+//start of account dashboard controller
+canIWalk.controller('accountDashboardController', ['$scope', '$http', function($scope, $http){
+   $http({
+      method: 'GET',
+      url: ,
+      data: ,
+   })
+
+}])//end of account dashboard controller
+
 //start edit account controller
 canIWalk.controller('editAccountController', ['$scope', '$http', function($scope, $http) {
 
@@ -516,5 +561,4 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
       alert("Please fill out all fields on the page");
     }
   };
-
 }]);//end of password controller
