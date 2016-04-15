@@ -170,24 +170,24 @@ canIWalk.controller('destinationController', ['$scope', '$http', 'mapFactory', f
       var lat = position.coords.latitude;
       var lng = position.coords.longitude;
 
-      // $http({ // fetch the suggested destinations from the back end
-      //   method: 'GET',
-      //   url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail,
-      //   data: {
-      //     "user_id": userID,
-      //     "token": token,
-      //     "latitude": lat,
-      //     "longitude": lng,
-      //     "max_distance": usrMaxDistance
-      //   }
-      // }).then(function successCallback(response) {
-      //   console.log(response);
-      //   // do some angular with the returned dataType
-      //   $scope.destinations = response.data;
-      // }, function errorCallback(response) {
-      //   console.log(response);
-      //   $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to suggest. Search for one above!");
-      // });
+      $http({ // fetch the suggested destinations from the back end
+        method: 'GET',
+        url: 'http://peaceful-journey-51869.herokuapp.com/trips/destination_generator/?token='+token+'&user_id='+userID,
+        data: {
+          // "user_id": userID,
+          // "token": token,
+          "latitude": lat,
+          "longitude": lng,
+          "max_distance": usrMaxDistance
+        }
+      }).then(function successCallback(response) {
+        console.log(response);
+        // do some angular with the returned dataType
+        $scope.destinations = response.data;
+      }, function errorCallback(response) {
+        console.log(response);
+        $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to suggest. Search for one above!");
+      });
     });
 
   } else { // Browser doesn't support Geolocation
