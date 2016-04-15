@@ -500,13 +500,18 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
       if ($scope.newPassword === $scope.confirmPassword) { // check if the passwords input were the same
         console.log("the passwords match");
 
+
+        // USE window.location.hash to get url component and then jquery that shit
+
         // crediting this stackoverflow for the function below: http://stackoverflow.com/questions/2907482/how-to-get-the-query-string-by-javascript
 
         // function getQueryStrings() { // this grabs the necessary token from the URL
         //   var assoc  = {};
-        //   var decode = function (s) { return decodeURIComponent(s.replace(/\+/g, " ")); };
+        //   var decode = function (s) { return decodeURIComponent(s); };
+        //   var match = /phrase=.*/;
+        //
         //   var queryString = location.search.substring(1);
-        //   var keyValues = queryString.split('&');
+        //   var keyValues = queryString.split('?');
         //
         //   for(var i in keyValues) {
         //     var key = keyValues[i].split('=');
@@ -521,18 +526,18 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
         // var qs = getQueryStrings();
         // var myParam = qs["token"];
 
-         $http({
-           method: 'PUT',
-           url: 'https://peaceful-journey-51869.herokuapp.com/users/'+myParam+'?user[password]='+$scope.newPassword
-         }).then(function successCallback(response) {
-           console.log(response);
-           console.log("successful password update");
-           window.location.replace('#/home'); // redirect the user to wherever they need to go first
-         }, function errorCallback(response) {
-           console.log("unsuccessful password update");
-           console.log(response);
-           alert("we were unable to change your password. Why don't you try again?")
-         });
+        //  $http({
+        //    method: 'PUT',
+        //    url: 'https://peaceful-journey-51869.herokuapp.com/users/'+myParam+'?user[password]='+$scope.newPassword
+        //  }).then(function successCallback(response) {
+        //    console.log(response);
+        //    console.log("successful password update");
+        //    window.location.replace('#/home'); // redirect the user to wherever they need to go first
+        //  }, function errorCallback(response) {
+        //    console.log("unsuccessful password update");
+        //    console.log(response);
+        //    alert("we were unable to change your password. Why don't you try again?")
+        //  });
 
       } else { // if the passwords don't match
         alert("Your passwords don't match. Please insert your new password in both fields");

@@ -159,16 +159,26 @@ function findTrip(destLatLng, destName, userID, token){
                     //   anchor: new google.maps.Point(0, 32)
                     // };
 
+                    var infoWindow = new google.maps.InfoWindow();
+
                     if (data.favorite_places.length > 0){ // if there are favorite places associated with the current route
                       for (var i=0; i < data.favorite_places.length; i++){
-                        // var marker = new MarkerWithLabel({
+                        var markerLatlng = new google.maps.LatLng(data.favorite_places[i].latitude, data.favorite_places[i].longitude);
+                        var title = data.favorite_places[i].place_name
+                        var iwContent = data.favorite_places[i].place_name
+                        createMarker(markerLatlng ,title,iwContent);
+                      }
+
+                      function createMarker(latlon,title,iwContent) {
                         var marker = new google.maps.Marker({
-                          position: new google.maps.LatLng(data.favorite_places[i].latitude, data.favorite_places[i].longitude),
-                          map: map,
-                          // icon: image,
-                          // icon: 'assets/images/CIW_Logo.jpg',
-                          title: data.favorite_places[i].place_name,
-                          label: data.favorite_places[i].place_name
+                          position: latlon,
+                          title: title,
+                          label: title,
+                          map: map
+                        });
+                        google.maps.event.addListener(marker,'click', function() {
+                          infoWindow.setContent(iwContent);
+                          infoWindow.open(map, marker);
                         });
                       };
                     } else {
