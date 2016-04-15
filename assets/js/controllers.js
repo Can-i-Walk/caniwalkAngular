@@ -344,14 +344,14 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
 }]);  //end login controller
 
 //start of account dashboard controller
-canIWalk.controller('accountDashboardController', ['$scope', '$http', function($scope, $http){
-   $http({
-      method: 'GET',
-      url: ,
-      data: ,
-   })
-
-}])//end of account dashboard controller
+// canIWalk.controller('accountDashboardController', ['$scope', '$http', function($scope, $http){
+//    $http({
+//       method: 'GET',
+//       url: ,
+//       data: ,
+//    })
+//
+// }])//end of account dashboard controller
 
 //start edit account controller
 canIWalk.controller('editAccountController', ['$scope', '$http', function($scope, $http) {
