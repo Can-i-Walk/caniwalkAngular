@@ -209,19 +209,9 @@ console.log("we are in the POI Controller");
         var lng = position.coords.longitude;
         console.log( lat +" "+ lng);
 
-        plotNewPOI(placename, lat, lng);//this function plots the new POI on the duringWalk map
+        //this function plots the new POI on the duringWalk map
+        //plotNewPOI(placename, lat, lng); 
 
-        // function newMarker(){ // add the new POI to the map
-        //   console.log("marker function working");
-        //   var marker = new google.maps.Marker({
-        //   position: new google.maps.LatLng(lat, lng),
-        //   map: duringWalkMap, // this is where it's breaking. I need to grab the duringWalk map
-        //   title: $scope.POIname,
-        //   label: $scope.POIname
-        //   });
-        // };
-        //
-        // newMarker();
 
         //This POST sends user-created places of interest to the back end
         $http({
