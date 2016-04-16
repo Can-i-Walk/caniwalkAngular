@@ -165,6 +165,16 @@ function findTrip(destLatLng, destName, userID, token){
                   } else {
                   $('.walkInfo-rating-accessibility').text("Accessibility Rating: " + avgRate.accessibility_average);
                   }
+// getting comments for the walk
+//the dream
+//for(var i=0; i <= data.trip_ratings[1].ratings.length; i++){
+// $('.walkInfo-rating-comments').append('<p>'+data.trip_ratings[1].ratings[i].comment+'</p>')
+// };
+                  if(data.trip_ratings[1].ratings[0].comment === null){
+                    $('.walkInfo-rating-comments').text("Sorry, there's no comments available");
+                  } else {
+                  $('.walkInfo-rating-comments').text("Comments: " + data.trip_ratings[1].ratings[0].comment);
+                  }
 
 //this is one place I can get the information about the walk. Is there another place I can do so? That's better suited to getting the reveiws and ratings?
 
