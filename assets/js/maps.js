@@ -117,39 +117,17 @@ function findTrip(destLatLng, destName, userID, token){
 
 //average safety rating
                   if(avgRate.safety_average === null){
-                       $('.walkInfo-rating-safety').text("Sorry, there's no rating available");
+                       $('.walkInfo-rating-safety').text("No ratings available");
                   } else {
                      $('.walkInfo-rating-safety').text("Safety Rating: " + avgRate.safety_average);
+                     $('.walkInfo-rating-ease').text("Ease Rating: " + avgRate.ease_average);
+                     $('.walkInfo-rating-enjoyability').text("Enjoyability Rating: " + avgRate.enjoyability_average);
+                     $('.walkInfo-rating-accessibility').text("Accessibility Rating: " + avgRate.accessibility_average);
+                     $('.walkInfo-rating-comments').text('Comments: ');
+                     for(var i=0; i < avgRate.comments.length; i++){
+                        $('.walkInfo-rating-comments').append('<p>- '+avgRate.comments[i]+'</p>')
+                     };
                   }
-//average ease rating
-                 if(avgRate.ease_average === null){
-                    $('.walkInfo-rating-ease').text("Sorry, there's no rating available");
-                  } else {
-                  $('.walkInfo-rating-ease').text("Ease Rating: " + avgRate.ease_average);
-                  }
-//average enjoyability rating
-                  if(avgRate.enjoyability_average === null){
-                    $('.walkInfo-rating-enjoyability').text("Sorry, there's no rating available");
-                  } else {
-                  $('.walkInfo-rating-enjoyability').text("Enjoyability Rating: " + avgRate.enjoyability_average);
-                  }
-
-//average accessibility ratings
-                  if(avgRate.accessibility_average === null){
-                    $('.walkInfo-rating-accessibility').text("Sorry, there's no rating available");
-                  } else {
-                  $('.walkInfo-rating-accessibility').text("Accessibility Rating: " + avgRate.accessibility_average);
-                  }
-// getting comments for the walk
-//the dream
-//for(var i=0; i <= data.trip_ratings[1].ratings.length; i++){
-// $('.walkInfo-rating-comments').append('<p>'+data.trip_ratings[1].ratings[i].comment+'</p>')
-// };
-                  // if(data.trip_ratings[1].ratings[0].comment === null){
-                  //   $('.walkInfo-rating-comments').text("Sorry, there's no comments available");
-                  // } else {
-                  // $('.walkInfo-rating-comments').text("Comments: " + data.trip_ratings[1].ratings[0].comment);
-                  // }
 
                      console.log('test fxn');
                      console.log(data);
