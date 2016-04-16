@@ -145,11 +145,11 @@ function findTrip(destLatLng, destName, userID, token){
 //for(var i=0; i <= data.trip_ratings[1].ratings.length; i++){
 // $('.walkInfo-rating-comments').append('<p>'+data.trip_ratings[1].ratings[i].comment+'</p>')
 // };
-                  if(data.trip_ratings[1].ratings[0].comment === null){
-                    $('.walkInfo-rating-comments').text("Sorry, there's no comments available");
-                  } else {
-                  $('.walkInfo-rating-comments').text("Comments: " + data.trip_ratings[1].ratings[0].comment);
-                  }
+                  // if(data.trip_ratings[1].ratings[0].comment === null){
+                  //   $('.walkInfo-rating-comments').text("Sorry, there's no comments available");
+                  // } else {
+                  // $('.walkInfo-rating-comments').text("Comments: " + data.trip_ratings[1].ratings[0].comment);
+                  // }
 
                      console.log('test fxn');
                      console.log(data);
