@@ -182,8 +182,9 @@ canIWalk.controller('destinationController', ['$scope', '$http', 'mapFactory', f
         url: 'https://peaceful-journey-51869.herokuapp.com/trips/destination_generator?max_distance='+usrMaxDistance+'&latitude='+lat+'&longitude='+lng+'&token='+token
       }).then(function successCallback(response) {
         console.log(response);
+        console.log(response.data.suggestions);
         // do some angular with the returned dataType
-        $scope.destinations = response.data;
+        $scope.destinations = response.data.suggestions;
       }, function errorCallback(response) {
         console.log(response);
         $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to suggest. Search for one above!");
@@ -408,10 +409,10 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
       url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token
     }).then(function(response){
       console.log(response);
-         $(".editAccount-name").val(response.data.name);//
-         $(".editAccount-email").val(response.data.email);//
+         $(".editAccount-name").val(response.data.name);
+         $(".editAccount-email").val(response.data.email);
          $(".editAccount-distance-input").val(response.data.max_distance);
-         // $(".editAccount-accessibility-select").val(response.data//this is where accessibility goes);
+         $(".editAccount-accessibility-select").val(response.data.accessibility_type);
     });
 
 
@@ -433,6 +434,7 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
              method: 'PUT',
              url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
              data: {
+                'id': id,
                 'name': name,
                 'email': email,
                 'max_distance': maxDist,
@@ -440,13 +442,14 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
              }
           }).then(function(response){
             console.log("successful account update");
-             console.log(response);
-             localStorage.setItem('accessibility_type', accessibility);
-             localStorage.setItem('maxDistance', maxDist);
-             window.location.replace('#/account');
+            console.log(response.data);
+            console.log(response.data.errors);
+            localStorage.setItem('accessibility_type', accessibility);
+            localStorage.setItem('maxDistance', maxDist);
+            window.location.replace('#/account');
           }, function errorCallback(response) {
-             console.log("unsuccessful account update");
-             console.log(response);
+            console.log("unsuccessful account update");
+            console.log(response);
           });
 
         };

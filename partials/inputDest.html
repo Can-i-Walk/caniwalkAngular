@@ -12,10 +12,9 @@
    <form class="inputDest-form">
       <input id="inputDest" class="inputDest-input" type="text" placeholder="Where do you want to walk?" >
       <div class="inputDest-form-suggested-destinations">
-        <div ng-click="suggDestList=!suggDestList"class="inputDest-form-suggested-destinations-prompt">Suggested Walk Destinations</div>
-          <ul ng-show="suggDestList" class="inputDest-form-suggested-destinations-list">
-            <li>List Item</li>
-            <li>List Item</li>
+        <div class="inputDest-form-suggested-destinations-prompt">Suggested Walk Destinations</div>
+          <ul class="inputDest-form-suggested-destinations-list">
+            <li ng-repeat="name in destinations">{{name.destinations}}</li>
           </ul>
       </div>
 <!-- this next little bit is to display if the user needs to give us some more information for their profile -->
