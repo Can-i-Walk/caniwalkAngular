@@ -160,7 +160,14 @@ canIWalk.controller('destinationController', ['$scope', '$http', 'mapFactory', f
 
   //this section handles the suggested destinations functionality
   // fetch the user's max distance
+
   var usrMaxDistance = localStorage.getItem('maxDistance');
+  if (usrMaxDistance === ""){
+    usrMaxDistance = 1.5; // send a default user max distance if the user hasn't provided that information
+  } else {
+    // use the current value of usrMaxDistance
+  }
+  console.log(usrMaxDistance);
   var token = localStorage.getItem('token');
   var userID = localStorage.getItem('ID');
 
@@ -172,14 +179,7 @@ canIWalk.controller('destinationController', ['$scope', '$http', 'mapFactory', f
 
       $http({ // fetch the suggested destinations from the back end
         method: 'GET',
-        url: 'http://peaceful-journey-51869.herokuapp.com/trips/destination_generator/?token='+token+'&user_id='+userID,
-        data: {
-          // "user_id": userID,
-          // "token": token,
-          "latitude": lat,
-          "longitude": lng,
-          "max_distance": usrMaxDistance
-        }
+        url: 'https://peaceful-journey-51869.herokuapp.com/trips/destination_generator?max_distance='+usrMaxDistance+'&latitude='+lat+'&longitude='+lng+'&token='+token
       }).then(function successCallback(response) {
         console.log(response);
         // do some angular with the returned dataType
