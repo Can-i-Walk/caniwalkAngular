@@ -335,6 +335,7 @@ canIWalk.controller('headerController', ['$scope', '$http', function($scope, $ht
        localStorage.setItem('ID', null);
        localStorage.setItem('accessibility_type', null);
        localStorage.setItem('maxDistance', null);
+       localStorage.setItem('currentTripID', null);
      }, function errorCallback(response) {
        console.log("unsuccessful logout");
        console.log(response);
@@ -438,15 +439,14 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
              url: 'http://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
              data: {
                 // 'token': token,
-                'user[name]': name,
-                'user[email]': email,
-                'user[max_distance]': maxDist,
-                'user[accessibility_type]': accessibility
+                'name': name,
+                'email': email,
+                'max_distance': maxDist,
+                'accessibility_type': accessibility
              }
           }).then(function(response){
             console.log("successful account update");
-            console.log(response.data);
-            console.log(response.data.errors);
+            console.log(response);
             localStorage.setItem('accessibility_type', accessibility);
             localStorage.setItem('maxDistance', maxDist);
             window.location.replace('#/account');
@@ -464,14 +464,13 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
 
         $http({
            method: 'PUT',
-           url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id,
+           url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
            data: {
-              'token': token,
-              'user[name]': name,
-              'user[email]': email,
-              'user[max_distance]': maxDist,
-              'user[accessibility_type]': accessibility,
-              'user[password]' : password
+              'name': name,
+              'email': email,
+              'max_distance': maxDist,
+              'accessibility_type': accessibility,
+              'password' : password
            }
         }).then(function(response){
           console.log("successful account update");
@@ -497,7 +496,7 @@ canIWalk.controller('registrationController', ['$scope', '$http', function($scop
 
       $http({
         method: 'POST',
-        url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[name]='+this.username+'&user[email]='+this.email+'&user[password]='+this.password
+        url: 'https://peaceful-journey-51869.herokuapp.com/users/?name='+this.username+'&email='+this.email+'&password='+this.password
       }).then(function successCallback(response) {
 
         if (response.data.success === true) {

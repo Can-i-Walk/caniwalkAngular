@@ -5,7 +5,6 @@ function findTrip(destLatLng, destName, userID, token){
   var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
   var directionsService = new google.maps.DirectionsService;     //requests information from google's direction services
   var map = new google.maps.Map(document.getElementById('map'), { //initializes the map
-  // zoom: 8,
   scaleControl: true,
   streetViewControl: false
   });
