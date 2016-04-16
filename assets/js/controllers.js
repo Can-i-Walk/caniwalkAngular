@@ -183,8 +183,11 @@ canIWalk.controller('destinationController', ['$scope', '$http', 'mapFactory', f
       }).then(function successCallback(response) {
         console.log(response);
         console.log(response.data.suggestions);
-        // do some angular with the returned dataType
-        $scope.destinations = response.data.suggestions;
+        if (response.data.suggestions.length > 0){
+          $scope.destinations = response.data.suggestions;
+        } else {
+          $scope.destinations = [{"destinations" : "Sorry, no destinations to suggest."}];
+        }
       }, function errorCallback(response) {
         console.log(response);
         $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to suggest. Search for one above!");
@@ -432,13 +435,13 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
 
           $http({
              method: 'PUT',
-             url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
+             url: 'http://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
              data: {
-                'id': id,
-                'name': name,
-                'email': email,
-                'max_distance': maxDist,
-                'accessibility_type': accessibility
+                // 'token': token,
+                'user[name]': name,
+                'user[email]': email,
+                'user[max_distance]': maxDist,
+                'user[accessibility_type]': accessibility
              }
           }).then(function(response){
             console.log("successful account update");
@@ -458,24 +461,17 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
       } else if (password !== confPassword) {
         $('.editAccount-password-errorMsg').html("Passwords do not match");
       } else if (password === confPassword) {
-        console.log(id);
-        console.log(token);
-        console.log(name);
-        console.log(email);
-        console.log(maxDist);
-        console.log(accessibility);
-        console.log(password);
-
 
         $http({
            method: 'PUT',
-           url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
+           url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id,
            data: {
-              'name': name,
-              'email': email,
-              'max_distance': maxDist,
-              'accessibility_type': accessibility,
-              'password' : password
+              'token': token,
+              'user[name]': name,
+              'user[email]': email,
+              'user[max_distance]': maxDist,
+              'user[accessibility_type]': accessibility,
+              'user[password]' : password
            }
         }).then(function(response){
           console.log("successful account update");
