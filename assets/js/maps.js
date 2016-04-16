@@ -5,7 +5,6 @@ function findTrip(destLatLng, destName, userID, token){
   var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
   var directionsService = new google.maps.DirectionsService;     //requests information from google's direction services
   var map = new google.maps.Map(document.getElementById('map'), { //initializes the map
-  // zoom: 8,
   scaleControl: true,
   streetViewControl: false
   });
@@ -64,6 +63,21 @@ function findTrip(destLatLng, destName, userID, token){
             console.log(response);
             $(".walkInfo-distance").html(distance);
             $(".walkInfo-duration").html(duration);
+
+            // this provides some dynamic behavior on the page comparing the user's max distance to the distance of the current trip
+            var usrMaxDistance = Number(localStorage.getItem('maxDistance'));
+            var distNum = Number(distance.split(" ")[0]);
+
+            if (usrMaxDistance === 0) { // if user hasn't provided max distance for their account
+              $('.walkInfo-maxDistance-text').html("<a href='#/edit_account'>Update your Walking Preferences</a> to get personalized walk info")
+            } else if ((distNum > (usrMaxDistance + .5)) && ((usrMaxDistance + 1.5) > distNum)){
+              $('.walkInfo-maxDistance-text').html("This walk is slightly longer than your stated maximum walk distance")
+            } else if (distNum >= (usrMaxDistance + 1.5)){
+              $('.walkInfo-maxDistance-text').html("This walk is significantly longer than your stated maximum walk distance.")
+            } else {
+              console.log("no MaxDist info to show");// don't put anything in that element
+            }
+
 
             localStorage.getItem('token');
             // this posts info about the trip to the Rails backend and get nearby places of interest back!
@@ -137,8 +151,6 @@ function findTrip(destLatLng, destName, userID, token){
                   $('.walkInfo-rating-comments').text("Comments: " + data.trip_ratings[1].ratings[0].comment);
                   }
 
-//this is one place I can get the information about the walk. Is there another place I can do so? That's better suited to getting the reveiws and ratings?
-
                      console.log('test fxn');
                      console.log(data);
                      console.log(data.trip_ratings);
@@ -155,7 +167,7 @@ function findTrip(destLatLng, destName, userID, token){
                     $('.walkInfo-weather-sunset').html("Sunset: " + data.sunset);
                     // console.log(data.sunset);
 
-                    // var image = {
+                    // var image = { // this will be potentially useful for bringing in the blue man as the marker
                     //   // url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
                     //   url: 'assets/images/CIW_Logo.jpg',
                     //   // This marker is 20 pixels wide by 32 pixels high.

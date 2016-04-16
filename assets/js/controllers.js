@@ -128,7 +128,7 @@ canIWalk.controller('duringWalkController', ['$scope', 'mapFactory', function($s
 }]); //end during walk controller, starts the map for 'during walk in duringWalkMap.js'
 
 //destination controller - deals with the google drop down, and passes info to the factory
-canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($scope, mapFactory) {
+canIWalk.controller('destinationController', ['$scope', '$http', 'mapFactory', function($scope, $http, mapFactory) {
 
   //stops submit on enter for dest controller
   $(".inputDest-input").keypress(function(e){
@@ -153,9 +153,17 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
   google.maps.event.addDomListener(destInput, 'click', placeChanged);
 
   //this section handles the suggested destinations functionality
-
   // fetch the user's max distance
+
   var usrMaxDistance = localStorage.getItem('maxDistance');
+  if (usrMaxDistance === ""){
+    usrMaxDistance = 1.5; // send a default user max distance if the user hasn't provided that information
+  } else {
+    // use the current value of usrMaxDistance
+  }
+  console.log(usrMaxDistance);
+  var token = localStorage.getItem('token');
+  var userID = localStorage.getItem('ID');
 
   // get the user's current location
   if (navigator.geolocation) {
@@ -163,21 +171,25 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
       var lat = position.coords.latitude;
       var lng = position.coords.longitude;
 
-      // $http({ // fetch the suggested destinations from the back end
-      //   method: 'GET',
-      //   url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail
-      // }).then(function successCallback(response) {
-      //   console.log(response);
-      //   // do some angular with the returned dataType
-      //   $scope.destinations = response.data;
-      // }, function errorCallback(response) {
-      //   console.log(response);
-      //   $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to Suggest. Search for one above!")
-      // });
+      $http({ // fetch the suggested destinations from the back end
+        method: 'GET',
+        url: 'https://peaceful-journey-51869.herokuapp.com/trips/destination_generator?max_distance='+usrMaxDistance+'&latitude='+lat+'&longitude='+lng+'&token='+token
+      }).then(function successCallback(response) {
+        console.log(response);
+        console.log(response.data.suggestions);
+        if (response.data.suggestions.length > 0){
+          $scope.destinations = response.data.suggestions;
+        } else {
+          $scope.destinations = [{"destinations" : "Sorry, no destinations to suggest."}];
+        }
+      }, function errorCallback(response) {
+        console.log(response);
+        $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to suggest. Search for one above!");
+      });
     });
 
   } else { // Browser doesn't support Geolocation
-    $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to Suggest. Search for one above!")
+    $('.inputDest-form-suggested-destinations-prompt').html("Hmm. Something went wrong. Please refresh the page.");
   }
 
 }]);//end select destination controller
@@ -317,6 +329,7 @@ canIWalk.controller('headerController', ['$scope', '$http', function($scope, $ht
        localStorage.setItem('ID', null);
        localStorage.setItem('accessibility_type', null);
        localStorage.setItem('maxDistance', null);
+       localStorage.setItem('currentTripID', null);
      }, function errorCallback(response) {
        console.log("unsuccessful logout");
        console.log(response);
@@ -458,10 +471,10 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
       url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token
     }).then(function(response){
       console.log(response);
-         $(".editAccount-name").val(response.data.name);//
-         $(".editAccount-email").val(response.data.email);//
+         $(".editAccount-name").val(response.data.name);
+         $(".editAccount-email").val(response.data.email);
          $(".editAccount-distance-input").val(response.data.max_distance);
-         // $(".editAccount-accessibility-select").val(response.data//this is where accessibility goes);
+         $(".editAccount-accessibility-select").val(response.data.accessibility_type);
     });
 
 
@@ -481,8 +494,9 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
 
           $http({
              method: 'PUT',
-             url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
+             url: 'http://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
              data: {
+                // 'token': token,
                 'name': name,
                 'email': email,
                 'max_distance': maxDist,
@@ -490,11 +504,13 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
              }
           }).then(function(response){
             console.log("successful account update");
-             console.log(response);
-             window.location.replace('#/account');
+            console.log(response);
+            localStorage.setItem('accessibility_type', accessibility);
+            localStorage.setItem('maxDistance', maxDist);
+            window.location.replace('#/account');
           }, function errorCallback(response) {
-             console.log("unsuccessful account update");
-             console.log(response);
+            console.log("unsuccessful account update");
+            console.log(response);
           });
 
         };
@@ -503,14 +519,6 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
       } else if (password !== confPassword) {
         $('.editAccount-password-errorMsg').html("Passwords do not match");
       } else if (password === confPassword) {
-        console.log(id);
-        console.log(token);
-        console.log(name);
-        console.log(email);
-        console.log(maxDist);
-        console.log(accessibility);
-        console.log(password);
-
 
         $http({
            method: 'PUT',
@@ -546,7 +554,7 @@ canIWalk.controller('registrationController', ['$scope', '$http', function($scop
 
       $http({
         method: 'POST',
-        url: 'https://peaceful-journey-51869.herokuapp.com/users/?user[name]='+this.username+'&user[email]='+this.email+'&user[password]='+this.password
+        url: 'https://peaceful-journey-51869.herokuapp.com/users/?name='+this.username+'&email='+this.email+'&password='+this.password
       }).then(function successCallback(response) {
 
         if (response.data.success === true) {

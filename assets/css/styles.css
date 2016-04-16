@@ -421,8 +421,13 @@
     float: left; }
   .walkInfo-content .walkInfo-duration {
     float: right; }
+  .walkInfo-content .walkInfo-maxDistance-text {
+    margin-top: 75px;
+    text-align: center;
+    color: #CD5334;
+    font-size: .5em; }
   .walkInfo-content .walkInfo-reviews {
-    margin-top: 1.5em; }
+    margin-top: 1.2em; }
     .walkInfo-content .walkInfo-reviews h4 {
       text-decoration: underline;
       margin-bottom: 0.5em;

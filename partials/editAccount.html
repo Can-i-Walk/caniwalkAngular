@@ -25,7 +25,7 @@
          </div>
          <h3 class="editAccount-preference-header">Walking Preferences</h3>
          <label class="editAccountFieldLabel">Max Walking Distance<span> <i class="fa fa-question-circle" ng-click="maxdistance = !maxdistance"></i></span></label>
-         <input class="editAccount-distance-input" type="number" placeholder="miles"><span class="editAccount-maxdistance-info" ng-show="maxdistance">Please enter the maximum distance in miles that you feel comfortable walking</span>
+         <input class="editAccount-distance-input" type="number" placeholder="miles"><span class="editAccount-maxdistance-info" ng-show="maxdistance">Please enter the maximum distance that you feel comfortable walking (in miles)</span>
          <label class="editAccountFieldLabel">Accessibility Options  <i class="fa fa-question-circle" ng-click="accessibility = !accessibility"></i></label>
          <input id="checkbox" class="editAccount-accessibility"type="checkbox">
          <label ng-click="checked=!checked" class="editAccount-accessibility-checkbox" for="checkbox"></label>
@@ -36,8 +36,8 @@
             <option>Walker</option>
             <option>Scooter</option>
          </select>
-         <span class="editAccount-accessibility-info" ng-show="accessibility">Please enter your accessibility considerations.</span>
-         <button class="editAccount-saveEdits" type="submit">Save Your Edits</button>
+         <span class="editAccount-accessibility-info" ng-show="accessibility">If you have walking accessibility needs, check the box and make the appropriate selection.</span>
+         <button class="editAccount-saveEdits" type="submit">Save Changes</button>
       </form>
    </div>
 </div>
