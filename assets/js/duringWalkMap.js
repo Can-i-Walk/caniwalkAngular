@@ -1,15 +1,20 @@
 var distance;
 var duration;
+var dwMap;
+var placeButton = $('.duringWalk-map-createPOI-fields-button');
 
 //find the route information
 function liveMap(destLatLng, destName, userID, token){
   console.log(userID);
   var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
   var directionsService = new google.maps.DirectionsService;     //requests information from google's direction services
-  var map = new google.maps.Map(document.getElementById('duringWalkMap'), { //initializes the map
-  zoom: 14
+  var dwMap = new google.maps.Map(document.getElementById('duringWalkMap'), { //initializes the map
+  // zoom: 8,
+  scaleControl: true
   });
-  directionsDisplay.setMap(map); //displays directions on the map that we've displayed already
+
+
+  directionsDisplay.setMap(dwMap); //displays directions on the map that we've displayed already
 
   if (navigator.geolocation) {      //if we can get user's position
     navigator.geolocation.getCurrentPosition(function(position) { //put their position into a variable 'pos'
@@ -49,11 +54,7 @@ function liveMap(destLatLng, destName, userID, token){
         function(response, status) {
           if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
-            // distance = response.routes[0].legs[0].distance.text;
-            // duration = response.routes[0].legs[0].duration.text;
-            // //  this is getting the distance (in miles) and the duration (in hours & minutes) of our trip and assigning those values to variables.
-            // $(".walkInfo-distance").html(distance);
-            // $(".walkInfo-duration").html(duration);
+
             // this GET will get the places of interest from other users based on the route data we send to the backend
             $.ajax({
               method: 'GET',
@@ -62,18 +63,31 @@ function liveMap(destLatLng, destName, userID, token){
                 console.log("successful GET");
                 console.log(data);
 
+                // code credit for code below: http://stackoverflow.com/questions/12355249/how-to-create-infowindows-for-multiple-markers-in-a-for-loop
+
+                var infoWindow = new google.maps.InfoWindow();
+
                 if (data.favorite_places.length > 0){ // if there are favorite places associated with the current route
                   for (var i=0; i < data.favorite_places.length; i++){
-                    // var marker = new MarkerWithLabel({
+                    var markerLatlng = new google.maps.LatLng(data.favorite_places[i].latitude, data.favorite_places[i].longitude);
+                    var title = data.favorite_places[i].place_name
+                    var iwContent = data.favorite_places[i].place_name
+                    createMarker(markerLatlng ,title,iwContent);
+                  }
+
+                  function createMarker(latlon,title,iwContent) {
                     var marker = new google.maps.Marker({
-                      position: new google.maps.LatLng(data.favorite_places[i].latitude, data.favorite_places[i].longitude),
-                      map: map,
-                      // icon: image,
-                      // icon: 'assets/images/CIW_Logo.jpg',
-                      title: data.favorite_places[i].place_name,
-                      label: data.favorite_places[i].place_name
+                      position: latlon,
+                      title: title,
+                      label: title,
+                      map: dwMap
+                    });
+                    google.maps.event.addListener(marker,'click', function() {
+                      infoWindow.setContent(iwContent);
+                      infoWindow.open(dwMap, marker);
                     });
                   };
+
                 } else {
                   // do nothing
                 }
@@ -97,3 +111,20 @@ function liveMap(destLatLng, destName, userID, token){
     handleLocationError(false, infoWindow, map.getCenter());
   }
 };
+
+// I need to add an event listener to these guys so they are added dynamically
+// also check this out: https://developers.google.com/maps/documentation/javascript/examples/marker-remove
+// function plotNewPOI(POIname, lat, lng){ // this function is called when the user makes a new POI (called in the POI controller in controllers.js)
+//   console.log("plotnewpoi ran");
+//   var infowindow = new google.maps.InfoWindow({
+//     content: POIname
+//   });
+//   var marker = new google.maps.Marker({
+//     position: new google.maps.LatLng(lat, lng),
+//     map: dwMap,
+//     title: POIname,
+//     label: POIname
+//   }).addListener('click', function() {
+//     infowindow.open(dwMap, marker);
+//   });
+// };

@@ -135,7 +135,7 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
      if(e.which === 13){
         e.preventDefault();
      }
- });
+  });
 
   function placeChanged() { // when a user selects a Google Place in the destination drop down menu...
     var inputDest = document.getElementById('inputDest');
@@ -151,6 +151,34 @@ canIWalk.controller('destinationController', ['$scope', 'mapFactory', function($
   };
   var destInput = document.getElementById('inputDest');
   google.maps.event.addDomListener(destInput, 'click', placeChanged);
+
+  //this section handles the suggested destinations functionality
+
+  // fetch the user's max distance
+  var usrMaxDistance = localStorage.getItem('maxDistance');
+
+  // get the user's current location
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) { //put their position into a variable 'pos'
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+
+      // $http({ // fetch the suggested destinations from the back end
+      //   method: 'GET',
+      //   url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail
+      // }).then(function successCallback(response) {
+      //   console.log(response);
+      //   // do some angular with the returned dataType
+      //   $scope.destinations = response.data;
+      // }, function errorCallback(response) {
+      //   console.log(response);
+      //   $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to Suggest. Search for one above!")
+      // });
+    });
+
+  } else { // Browser doesn't support Geolocation
+    $('.inputDest-form-suggested-destinations-prompt').html("No Destinations to Suggest. Search for one above!")
+  }
 
 }]);//end select destination controller
 
@@ -238,17 +266,9 @@ console.log("we are in the POI Controller");
         var lng = position.coords.longitude;
         console.log( lat +" "+ lng);
 
-        // function newMarker(){ // add the new POI to the map
-        //   console.log("marker function working");
-        //   var marker = new google.maps.Marker({
-        //   position: new google.maps.LatLng(lat, lng),
-        //   map: duringWalkMap, // this is where it's breaking. I need to grab the duringWalk map
-        //   title: $scope.POIname,
-        //   label: $scope.POIname
-        //   });
-        // };
-        //
-        // newMarker();
+        //this function plots the new POI on the duringWalk map
+        //plotNewPOI(placename, lat, lng);
+
 
         //This POST sends user-created places of interest to the back end
         $http({
@@ -295,6 +315,8 @@ canIWalk.controller('headerController', ['$scope', '$http', function($scope, $ht
        window.location.replace('#/login');
        localStorage.setItem('token', null);
        localStorage.setItem('ID', null);
+       localStorage.setItem('accessibility_type', null);
+       localStorage.setItem('maxDistance', null);
      }, function errorCallback(response) {
        console.log("unsuccessful logout");
        console.log(response);
@@ -318,6 +340,8 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
          console.log("successful LOGIN");
          localStorage.setItem('token', response.data.user[0].session_token.token);
          localStorage.setItem('ID', response.data.user[0].id);
+         localStorage.setItem('maxDistance', response.data.user[0].max_distance);
+         localStorage.setItem('accessibility_type', response.data.user[0].accessibility_type);
          $scope.loginEmail = '';
          $scope.loginPassword = '';
          window.location.replace('#/input-destination');
@@ -404,6 +428,7 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
 
 }])//end of account dashboard controller
 
+
 // start of account dashboard directive
 canIWalk.directive('accountDashboard', function(){
    return {
@@ -428,27 +453,65 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
    console.log(token);
    console.log(id);
 
-   $http({
+    $http({
       method: 'GET',
       url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token
-   }).then(function(response){
+    }).then(function(response){
       console.log(response);
          $(".editAccount-name").val(response.data.name);//
          $(".editAccount-email").val(response.data.email);//
          $(".editAccount-distance-input").val(response.data.max_distance);
          // $(".editAccount-accessibility-select").val(response.data//this is where accessibility goes);
+    });
 
-      });
 
     $scope.updateUser = function (){
       var name = $('.editAccount-name').val();
       var email = $('.editAccount-email').val();
       var maxDist = $('.editAccount-distance-input').val();
       var accessibility = $('.editAccount-accessibility-select').val();
+      var password = $('.editAccount-newPassword').val();
+      var confPassword = $('.editAccount-confirmPassword').val();
 
-      if (!name || !email) { // if name or email field are left blank
-        alert("Please enter a name and email for your account");
-      } else {
+
+      if (!password && !confPassword) { // if neither password field is filled out
+        if (!name || !email) { // if name or email field are left blank
+          alert("Please enter a name and email for your account");
+        } else {
+
+          $http({
+             method: 'PUT',
+             url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
+             data: {
+                'name': name,
+                'email': email,
+                'max_distance': maxDist,
+                'accessibility_type': accessibility
+             }
+          }).then(function(response){
+            console.log("successful account update");
+             console.log(response);
+             window.location.replace('#/account');
+          }, function errorCallback(response) {
+             console.log("unsuccessful account update");
+             console.log(response);
+          });
+
+        };
+      } else if (!password || !confPassword) {
+        $('.editAccount-password-errorMsg').html("Please insert your new password twice if you'd like to update it");
+      } else if (password !== confPassword) {
+        $('.editAccount-password-errorMsg').html("Passwords do not match");
+      } else if (password === confPassword) {
+        console.log(id);
+        console.log(token);
+        console.log(name);
+        console.log(email);
+        console.log(maxDist);
+        console.log(accessibility);
+        console.log(password);
+
+
         $http({
            method: 'PUT',
            url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
@@ -456,7 +519,8 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
               'name': name,
               'email': email,
               'max_distance': maxDist,
-              'accessibility_type': accessibility
+              'accessibility_type': accessibility,
+              'password' : password
            }
         }).then(function(response){
           console.log("successful account update");
@@ -466,6 +530,9 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
            console.log("unsuccessful account update");
            console.log(response);
         });
+
+      } else {
+        // do nothing
       };
     };
 }]); //end edit account controller
@@ -526,13 +593,11 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
       $http({
         method: 'GET',
         url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email='+this.passwordResetEmail
-        // url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_reset?email=geoffrey.s.arnold@gmail.com'
       }).then(function successCallback(response) {
-
-        if (response.data.id) {
+        console.log(response.data.success);
+        console.log(response);
+        if (response.data.success === true) {
           console.log("successful password reset initiation");
-          console.log(response);
-          // we need to do something with the token
           $('.login-passwordReset-modal-actionText').html("We've sent you an email with a link to update your password!");
           $('.login-passwordReset-email-button').toggle();
         } else if (response.data.errors[0] === "No user found with that email."){
@@ -560,12 +625,19 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
       if ($scope.newPassword === $scope.confirmPassword) { // check if the passwords input were the same
         console.log("the passwords match");
 
+        var passwordToken = window.location.hash.split('?')[1]; // grab the token from the change password page
+
          $http({
            method: 'PUT',
-           url: 'https://peaceful-journey-51869.herokuapp.com/users/1?user[password]='+$scope.newPassword
+           url: 'https://peaceful-journey-51869.herokuapp.com/authentication/password_update',
+           data : {
+             "password" : $scope.newPassword,
+             "token" : passwordToken
+           }
          }).then(function successCallback(response) {
+           console.log(response);
            console.log("successful password update");
-           window.location.replace('#/home'); // redirect the user to wherever they need to go first
+           window.location.replace('#/home'); // send user to log in after updating their password
          }, function errorCallback(response) {
            console.log("unsuccessful password update");
            console.log(response);

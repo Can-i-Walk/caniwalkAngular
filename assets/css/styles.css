@@ -47,6 +47,7 @@
       color: #17BEBB; }
 
 .duringWalk-map {
+  font-size: 30px;
   height: 1300px;
   width: 100%; }
 
@@ -128,7 +129,8 @@
   display: flex;
   width: 80%;
   margin-left: 10%;
-  font-size: 4em; }
+  font-size: 4em;
+  padding-bottom: 30%; }
   .editAccount-form-container form {
     display: flex;
     flex-direction: column;
@@ -147,6 +149,12 @@
       background-color: white; }
     .editAccount-form-container form input {
       font-size: 1em; }
+    .editAccount-form-container form .editAccount-password-prompt {
+      margin-top: 1em;
+      font-size: .8em;
+      text-align: center; }
+    .editAccount-form-container form .editAccount-password-container input {
+      margin-bottom: .8em; }
     .editAccount-form-container form .editAccount-preference-header {
       margin-top: 0.5em;
       border-bottom: 1px solid #2E282A;
@@ -173,15 +181,14 @@
     .editAccount-form-container form .editAccount-accessibility-info {
       font-size: 0.5em; }
     .editAccount-form-container form button {
+      position: fixed;
+      bottom: 15px;
+      left: 21%;
       font-size: 1em;
       background-color: #17BEBB;
       padding: 0.5em;
       border: 0.5em solid #17BEBB;
       border-radius: 0.5em;
-      margin-top: 1em;
-      color: white; }
-    .editAccount-form-container form .editAccount-change-password {
-      text-align: center;
       color: white; }
 
 .inputDest-form {
@@ -196,9 +203,6 @@
     font-size: 4em;
     margin-top: 5%;
     border: 1px solid #2E282A; }
-  .inputDest-form label {
-    font-size: 3em;
-    margin-top: 5%; }
   .inputDest-form a {
     display: flex;
     margin-top: 5%;
@@ -213,10 +217,20 @@
       border-radius: 0.5em;
       background-color: #17BEBB;
       padding: 1em 0;
-      width: 50%;
-      margin-left: 15%;
-      position: absolute;
-      bottom: 2em; }
+      width: 70%;
+      margin-left: 5%;
+      position: fixed;
+      bottom: 1em; }
+  .inputDest-form .inputDest-form-suggested-destinations .inputDest-form-suggested-destinations-prompt {
+    text-align: center;
+    font-size: 3em;
+    text-decoration: underline;
+    margin-top: 1em; }
+  .inputDest-form .inputDest-form-suggested-destinations .inputDest-form-suggested-destinations-list {
+    font-size: 2.5em; }
+    .inputDest-form .inputDest-form-suggested-destinations .inputDest-form-suggested-destinations-list li {
+      margin-top: .5em;
+      margin-bottom: .5em; }
 
 .pac-icon {
   display: none; }
@@ -400,7 +414,8 @@
   .walkInfo-content h2 {
     text-align: center; }
   .walkInfo-content .walkInfo-map {
-    height: 10em;
+    font-size: 300px;
+    height: 800px;
     width: 100%; }
   .walkInfo-content .walkInfo-distance {
     float: left; }

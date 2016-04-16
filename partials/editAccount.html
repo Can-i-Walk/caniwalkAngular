@@ -11,16 +11,24 @@
 <div class="editAccount-container" ng-controller="editAccountController">
    <div class="editAccount-form-container">
       <form class="editAccount-form" ng-submit="updateUser()">
-         <label>Name</label>
+         <label class="editAccountFieldLabel">Name</label>
          <input class="editAccount-name"type="text" placeholder="Name" ng-model="username">
-         <label>Email</label>
+         <label class="editAccountFieldLabel">Email</label>
          <input class="editAccount-email" type="text" placeholder="E-mail">
+         <div class="editAccount-password-prompt" ng-click="passwordFields=!passwordFields">Change your password?</div>
+         <div class="editAccount-password-container" ng-show="passwordFields">
+           <label class="editAccountFieldLabel">New Password</label>
+           <input class="editAccount-newPassword" type="password" placeholder="Enter New Password">
+           <label class="editAccountFieldLabel">Confirm Password</label>
+           <input class="editAccount-confirmPassword" type="password" placeholder="Re-enter New Password">
+           <div class="editAccount-password-errorMsg"></div>
+         </div>
          <h3 class="editAccount-preference-header">Walking Preferences</h3>
-         <label>Max Walking Distance<span> <i class="fa fa-question-circle" ng-click="maxdistance = !maxdistance"></i></span></label>
+         <label class="editAccountFieldLabel">Max Walking Distance<span> <i class="fa fa-question-circle" ng-click="maxdistance = !maxdistance"></i></span></label>
          <input class="editAccount-distance-input" type="number" placeholder="miles"><span class="editAccount-maxdistance-info" ng-show="maxdistance">Please enter the maximum distance in miles that you feel comfortable walking</span>
-         <label>Accessibility Options  <i class="fa fa-question-circle" ng-click="accessibility = !accessibility"></i></label>
+         <label class="editAccountFieldLabel">Accessibility Options  <i class="fa fa-question-circle" ng-click="accessibility = !accessibility"></i></label>
          <input id="checkbox" class="editAccount-accessibility"type="checkbox">
-         <label ng-click="checked=!checked"class="editAccount-accessibility-checkbox" for="checkbox"></label>
+         <label ng-click="checked=!checked" class="editAccount-accessibility-checkbox" for="checkbox"></label>
          <select class="editAccount-accessibility-select" ng-show="checked">
             <option>None</option>
             <option>Cane</option>
@@ -30,7 +38,6 @@
          </select>
          <span class="editAccount-accessibility-info" ng-show="accessibility">Please enter your accessibility considerations.</span>
          <button class="editAccount-saveEdits" type="submit">Save Your Edits</button>
-         <a href="#/password" class="editAccount-change-password">Change Password</a>
       </form>
    </div>
 </div>

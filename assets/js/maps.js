@@ -5,7 +5,9 @@ function findTrip(destLatLng, destName, userID, token){
   var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
   var directionsService = new google.maps.DirectionsService;     //requests information from google's direction services
   var map = new google.maps.Map(document.getElementById('map'), { //initializes the map
-  zoom: 14
+  // zoom: 8,
+  scaleControl: true,
+  streetViewControl: false
   });
   directionsDisplay.setMap(map); //displays directions on the map that we've displayed already
 
@@ -63,47 +65,6 @@ function findTrip(destLatLng, destName, userID, token){
             $(".walkInfo-distance").html(distance);
             $(".walkInfo-duration").html(duration);
 
-            // ajax call with test data - shit works!
-            // $.ajax({
-            //   type : 'POST',
-            //   dataType : 'json',
-            //   url: 'https://peaceful-journey-51869.herokuapp.com/trips',
-            //   data: {
-            //     "user_id": 1,
-            //     "trip_name": "DBAP",
-            //     "distance": .4,
-            //     "origin_name": "The Parlour",
-            //     "origin_lat": 35.996571,
-            //     "origin_long": -78.902358,
-            //     "dest_name": "DBAP",
-            //     "dest_lat": 35.991785,
-            //     "dest_long": -78.905056
-            //   },
-            //   headers: {
-            //      contentType: "application/json",
-            //    },
-            //   success : function(data) {
-            //
-            //     console.log("this trip's info has been sent to the database");
-            //     //this GET will get the places of interest from other users based on the route data we send to the backend
-            //     $.ajax({
-            //       method: 'GET',
-            //       url: 'https://peaceful-journey-51869.herokuapp.com/places/nearby_favorite_places/?distance=.4&origin_lat=35.996571&origin_long=-78.902358&dest_lat=35.991785&dest_long=-78.905056',
-            //       success: function (data) {
-            //       console.log("successful GET");
-            //       console.log(data);
-            //       }, error: function (request,error) {
-            //       console.log("unsuccessful GET");
-            //       console.log(request);
-            //       }
-            //     });
-            //
-            //
-            //   }, error: function(request,error){
-            //     console.log(request);
-            //     console.log("error");
-            //   }
-            // });
             localStorage.getItem('token');
             // this posts info about the trip to the Rails backend and get nearby places of interest back!
             $.ajax({
@@ -126,7 +87,7 @@ function findTrip(destLatLng, destName, userID, token){
                  contentType: "application/json",
               },
               success : function(data) {
-                 console.log(data);
+                console.log(data);
                 localStorage.setItem('currentTripID', data.trip[0].id);
                 console.log("this trip's info has been sent to the database");
 
@@ -205,16 +166,26 @@ function findTrip(destLatLng, destName, userID, token){
                     //   anchor: new google.maps.Point(0, 32)
                     // };
 
+                    var infoWindow = new google.maps.InfoWindow();
+
                     if (data.favorite_places.length > 0){ // if there are favorite places associated with the current route
                       for (var i=0; i < data.favorite_places.length; i++){
-                        // var marker = new MarkerWithLabel({
+                        var markerLatlng = new google.maps.LatLng(data.favorite_places[i].latitude, data.favorite_places[i].longitude);
+                        var title = data.favorite_places[i].place_name
+                        var iwContent = data.favorite_places[i].place_name
+                        createMarker(markerLatlng ,title,iwContent);
+                      }
+
+                      function createMarker(latlon,title,iwContent) {
                         var marker = new google.maps.Marker({
-                          position: new google.maps.LatLng(data.favorite_places[i].latitude, data.favorite_places[i].longitude),
-                          map: map,
-                          // icon: image,
-                          // icon: 'assets/images/CIW_Logo.jpg',
-                          title: data.favorite_places[i].place_name,
-                          label: data.favorite_places[i].place_name
+                          position: latlon,
+                          title: title,
+                          label: title,
+                          map: map
+                        });
+                        google.maps.event.addListener(marker,'click', function() {
+                          infoWindow.setContent(iwContent);
+                          infoWindow.open(map, marker);
                         });
                       };
                     } else {
