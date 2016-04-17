@@ -6,8 +6,8 @@ var placeButton = $('.duringWalk-map-createPOI-fields-button');
 //find the route information
 function liveMap(destLatLng, destName, userID, token){
   console.log(userID);
-  var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
-  var directionsService = new google.maps.DirectionsService;     //requests information from google's direction services
+  var directionsDisplay = new google.maps.DirectionsRenderer; //gets information from google that is an answer to the service
+  var directionsService = new google.maps.DirectionsService;  //requests information from google's direction services
   var dwMap = new google.maps.Map(document.getElementById('duringWalkMap'), { //initializes the map
   // zoom: 8,
   scaleControl: true
@@ -23,7 +23,7 @@ function liveMap(destLatLng, destName, userID, token){
         lng: position.coords.longitude
       };
 
-      // this stuff was brought in to get the current location's place name
+      // this stuff was brought in to get the starting location's place name
       var geocoder = new google.maps.Geocoder;
       // var latlng = {lat: latitude, lng: longitude};
       var originName;
@@ -43,10 +43,44 @@ function liveMap(destLatLng, destName, userID, token){
           originName = "Trip Origin Unknown";
         }
       });
-      // end current location placename fetch
+      // end triporigin location placename fetch
 
-      directionsService.route(
-        {
+      // create a marker to live track the user's location
+      var myLatLng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      var liveInfoWindow = new google.maps.InfoWindow();
+      var liveIWContent = "You are here";
+      var liveMarker = new google.maps.Marker({
+        position: myLatLng,
+        label: "J",
+        map: dwMap,
+        zIndex:1
+      });
+
+      google.maps.event.addListener(liveMarker,'click', function() {
+        liveInfoWindow.setContent(liveIWContent);
+        liveInfoWindow.open(dwMap, liveMarker);
+      });
+
+      $(document).ready(function() {
+        navigator.geolocation.watchPosition(reCenterMap, reCenterError, {maximumAge: 1000, timeout: 300000, enableHighAccuacy: true}); // maximumAge tells the watchPosition how often to look for a new location, timeout tells the method when to quit if it can't find new location information after x amount of time
+      });
+
+      function reCenterError(err) {
+        console.warn('ERROR(' + err.code + '): ' + err.message);
+      }
+
+      function reCenterMap(location){
+        console.log("reCenterMap called")
+        myLatLng = new google.maps.LatLng(location.coords.latitude,location.coords.longitude);
+        dwMap.setCenter(myLatLng);
+        liveMarker.setPosition(myLatLng);
+
+        //navigator.geolocation.clearWatch(watchId); not sure how we'd need this
+
+      }; // end live tracking of user's location section
+
+      // start route generator
+      directionsService.route({
         origin: {lat: pos.lat, lng: pos.lng,},  // coords of origin point
         destination: destLatLng, // coords of destination point - THIS CAN ALSO BE THE PLACE NAME (formatted as a string) IF NO single LAT/LNG coord is available
         travelMode: google.maps.TravelMode.WALKING,
