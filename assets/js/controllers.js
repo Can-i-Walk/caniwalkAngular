@@ -30,7 +30,7 @@ canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $ht
       var comments = $('.ratings-comments').val();
 
 
-      if(rate.rating1 > 0 && rate.rating2 > 0 && rate.rating3 > 0 && rate.rating4 > 0 && comments){
+      if(rate.rating1 > 0 && rate.rating2 > 0 && rate.rating3 > 0 && rate.rating4 > 0){
 
          console.log('all values accounted for');
          $http({
@@ -56,7 +56,7 @@ canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $ht
          })
 
       } else {
-         alert('you got mo fields sucka');
+         alert('Please fill in all the categories!');
       }
    };
    $scope.noThanks = function(){
@@ -396,22 +396,22 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
       data: {
          'token': token,
          'user_ID':  id,
-
       },
    }).then(function successCallback(response, data){
       console.log(response);
+      $scope.completedTrips = [];
+      for(var tripNum=0; tripNum < response.data.trips.length; tripNum++){
+         if(response.data.trips[tripNum].completion === true){
+            $scope.completedTrips.push(response.data.trips[tripNum]);
+         }
+      };
+      console.log($scope.completedTrips);
       console.log('successful GET');
-      console.log(response.data.trips[0]);
-      $scope.response = response.data;
-      console.log($scope.response);
-      console.log($scope.response.trips)
-      $scope.ratings = response.data.trips[0];
-
       var total = 0;
       var walkDist = [];
 
-      for(var i = 0; i < $scope.response.trips.length; i++){
-         var tripDistance = Number($scope.response.trips[i].distance);
+      for(var i = 0; i < $scope.completedTrips.length; i++){
+         var tripDistance = Number($scope.completedTrips[i].distance);
          total = total + tripDistance;
          walkDist.push(tripDistance);
       };
@@ -446,12 +446,12 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
 canIWalk.directive('accountDashboard', function(){
    return {
       restrict: 'E',
-      template: '<li ng-repeat= "trip in response.trips track by $index" ng-click="findIndex($index)">{{response.trips[$index].walked_at | date:shortDate}} {{ response.trips[$index].trip_name }} {{response.trips[$index].distance}} miles'+
+      template: '<li ng-repeat= "trip in completedTrips track by $index" ng-click="findIndex($index)">{{completedTrips[$index].walked_at | date:shortDate}} {{ completedTrips[$index].trip_name }} {{completedTrips[$index].distance}} miles'+
                    '<ul class="dashboard-ratings" ng-show="openRating($index)">'+
-                      '<li>Safety: {{response.trips[$index].ratings[0].safety_rating}} </li>'+
-                      '<li>Ease: {{response.trips[$index].ratings[0].ease_rating}}</li>' +
-                      '<li>Enjoyability: {{response.trips[$index].ratings[0].enjoyability_rating}}</li>' +
-                      '<li>Comments: {{response.trips[$index].ratings[0].comment}}</li>'+
+                      '<li>Safety: {{completedTrips[$index].ratings[0].safety_rating}} </li>'+
+                      '<li>Ease: {{completedTrips[$index].ratings[0].ease_rating}}</li>' +
+                      '<li>Enjoyability: {{completedTrips[$index].ratings[0].enjoyability_rating}}</li>' +
+                      '<li>Comments: {{completedTrips[$index].ratings[0].comment}}</li>'+
                    '</ul>'+
                 '</li>',
    }

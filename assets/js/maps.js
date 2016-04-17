@@ -124,7 +124,10 @@ function findTrip(destLatLng, destName, userID, token){
                      $('.walkInfo-rating-enjoyability').text("Enjoyability Rating: " + avgRate.enjoyability_average);
                      $('.walkInfo-rating-accessibility').text("Accessibility Rating: " + avgRate.accessibility_average);
                      $('.walkInfo-rating-comments').text('Comments: ');
-                     for(var i=0; i < avgRate.comments.length; i++){
+                     for(var i = 0; i < avgRate.comments.length; i++)
+//this is where we'll insert the logic to gate the most recent comments
+
+                     {
                         $('.walkInfo-rating-comments').append('<p>- '+avgRate.comments[i]+'</p>')
                      };
                   }
