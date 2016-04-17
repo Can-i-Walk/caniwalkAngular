@@ -67,6 +67,8 @@ function findTrip(destLatLng, destName, userID, token){
             // this provides some dynamic behavior on the page comparing the user's max distance to the distance of the current trip
             var usrMaxDistance = Number(localStorage.getItem('maxDistance'));
             var distNum = Number(distance.split(" ")[0]);
+            console.log(usrMaxDistance);
+            console.log(distNum);
 
             if (usrMaxDistance === 0) { // if user hasn't provided max distance for their account
               $('.walkInfo-maxDistance-text').html("<a href='#/edit_account'>Update your Walking Preferences</a> to get personalized walk info")
