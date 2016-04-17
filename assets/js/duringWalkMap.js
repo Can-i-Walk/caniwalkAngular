@@ -49,9 +49,13 @@ function liveMap(destLatLng, destName, userID, token){
       var myLatLng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
       var liveInfoWindow = new google.maps.InfoWindow();
       var liveIWContent = "You are here";
+      var littleBlueDude = {
+        url: 'assets/images/CIW_Logo_Transparent1.png',
+        scaledSize: new google.maps.Size(35, 50)
+      };
       var liveMarker = new google.maps.Marker({
         position: myLatLng,
-        label: "J",
+        icon: littleBlueDude,
         map: dwMap,
         zIndex:1
       });
@@ -74,9 +78,7 @@ function liveMap(destLatLng, destName, userID, token){
         myLatLng = new google.maps.LatLng(location.coords.latitude,location.coords.longitude);
         dwMap.setCenter(myLatLng);
         liveMarker.setPosition(myLatLng);
-
         //navigator.geolocation.clearWatch(watchId); not sure how we'd need this
-
       }; // end live tracking of user's location section
 
       // start route generator
@@ -98,6 +100,10 @@ function liveMap(destLatLng, destName, userID, token){
                 console.log(data);
 
                 // code credit for code below: http://stackoverflow.com/questions/12355249/how-to-create-infowindows-for-multiple-markers-in-a-for-loop
+                var littleOrangeDude = {
+                  url: 'assets/images/CIW_Logo_Transparent2.png',
+                  scaledSize: new google.maps.Size(35, 50)
+                };
 
                 var infoWindow = new google.maps.InfoWindow();
 
@@ -112,8 +118,7 @@ function liveMap(destLatLng, destName, userID, token){
                   function createMarker(latlon,title,iwContent) {
                     var marker = new google.maps.Marker({
                       position: latlon,
-                      title: title,
-                      label: title,
+                      icon: littleOrangeDude,
                       map: dwMap
                     });
                     google.maps.event.addListener(marker,'click', function() {

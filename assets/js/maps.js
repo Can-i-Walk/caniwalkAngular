@@ -150,16 +150,10 @@ function findTrip(destLatLng, destName, userID, token){
                     $('.walkInfo-weather-sunset').html("Sunset: " + data.sunset);
                     // console.log(data.sunset);
 
-                    // var image = { // this will be potentially useful for bringing in the blue man as the marker
-                    //   // url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-                    //   url: 'assets/images/CIW_Logo.jpg',
-                    //   // This marker is 20 pixels wide by 32 pixels high.
-                    //   size: new google.maps.Size(20, 32),
-                    //   // The origin for this image is (0, 0).
-                    //   origin: new google.maps.Point(0, 0),
-                    //   // The anchor for this image is the base of the flagpole at (0, 32).
-                    //   anchor: new google.maps.Point(0, 32)
-                    // };
+                    var littleOrangeDude = {
+                      url: 'assets/images/CIW_Logo_Transparent2.png',
+                      scaledSize: new google.maps.Size(35, 50)
+                    };
 
                     var infoWindow = new google.maps.InfoWindow();
 
@@ -174,8 +168,7 @@ function findTrip(destLatLng, destName, userID, token){
                       function createMarker(latlon,title,iwContent) {
                         var marker = new google.maps.Marker({
                           position: latlon,
-                          title: title,
-                          label: title,
+                          icon: littleOrangeDude,
                           map: map
                         });
                         google.maps.event.addListener(marker,'click', function() {
