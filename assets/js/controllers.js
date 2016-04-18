@@ -486,7 +486,7 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
 
           $http({
              method: 'PUT',
-             url: 'http://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
+             url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
              data: {
                 // 'token': token,
                 'name': name,
