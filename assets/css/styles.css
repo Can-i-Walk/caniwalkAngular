@@ -472,8 +472,7 @@
   width: 100%;
   margin-left: 5%; }
   .walkInfo-buttons button {
-    padding: 0.5em;
-    font-size: 50px;
+    font-size: 1em;
     font-family: "Oswald", sans-serif;
     width: 45%; }
   .walkInfo-buttons .walkInfo-accept {
