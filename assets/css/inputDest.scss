@@ -8,14 +8,14 @@
    font-family: $Oswald;
 
    input {
-      font-size: 4em;
+      font-size: 2em;
       margin-top: 5%;
       border: 1px solid $Text;
    }
    a {
       display: flex;
       margin-top: 5%;
-      font-size: 3em;
+      // font-size: 3em;
       text-decoration: none;
       color: $Text;
       button {
@@ -27,7 +27,7 @@
         border: 0.5em solid $Teal;
         border-radius: 0.5em;
         background-color: $Teal;
-        padding: 1em 0;
+      //   padding: 1em 0;
         width: 70%;
         margin-left: 5%;
         position: fixed;
@@ -38,14 +38,14 @@
      .inputDest-form-suggested-destinations-prompt{
        text-align: center;
        font:{
-         size: 3em;
+         size: 2em;
        }
        text-decoration: underline;
        margin-top: 1em;
      }
      .inputDest-form-suggested-destinations-list{
        font:{
-         size: 2.5em;
+         size: 2em;
        }
        li {
          margin-top: .5em;

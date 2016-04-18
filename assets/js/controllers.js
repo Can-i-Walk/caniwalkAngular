@@ -487,7 +487,7 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
 
       if (!password && !confPassword) { // if neither password field is filled out
         if (!name || !email) { // if name or email field are left blank
-          alert("Please enter a name and email for your account");
+          $(".editAccount-error").html("Name and Email are required");
         } else {
 
           $http({

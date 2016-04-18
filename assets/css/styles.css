@@ -5,11 +5,9 @@
   margin-left: 10%;
   font-family: "Oswald", sans-serif; }
   .dashboard-profile h3 {
-    font-size: 4em;
     text-decoration: underline;
     font-weight: bold; }
   .dashboard-profile .dashboard-walk-history {
-    font-size: 4em;
     margin-top: 5%; }
     .dashboard-profile .dashboard-walk-history li {
       margin-top: 5%; }
@@ -28,8 +26,7 @@
   left: 15%;
   width: 70%; }
   .dashboard-edit-profile button {
-    padding: 1em;
-    font-size: 4em;
+    font-size: 2em;
     background-color: #17BEBB;
     border: 0.5em solid #17BEBB;
     border-radius: 0.5em;
@@ -129,7 +126,6 @@
   display: flex;
   width: 80%;
   margin-left: 10%;
-  font-size: 4em;
   padding-bottom: 30%; }
   .editAccount-form-container form {
     display: flex;
@@ -168,8 +164,8 @@
     .editAccount-form-container form .editAccount-accessibility {
       display: none; }
     .editAccount-form-container form .editAccount-accessibility + .editAccount-accessibility-checkbox {
-      width: 50px;
-      height: 50px;
+      width: 10px;
+      height: 10px;
       border: 0.2em solid #2E282A; }
     .editAccount-form-container form .editAccount-accessibility:checked + .editAccount-accessibility-checkbox {
       background-color: #17BEBB;
@@ -186,10 +182,20 @@
       left: 21%;
       font-size: 1em;
       background-color: #17BEBB;
-      padding: 0.5em;
       border: 0.5em solid #17BEBB;
       border-radius: 0.5em;
       color: white; }
+
+.editAccount-error {
+  color: #CD5334;
+  text-decoration: underline;
+  text-align: center;
+  margin-top: 1em; }
+
+.editAccount-password-errorMsg {
+  color: #CD5334;
+  text-decoration: underline;
+  text-align: center; }
 
 .inputDest-form {
   display: flex;
@@ -200,13 +206,12 @@
   color: #2E282A;
   font-family: "Oswald", sans-serif; }
   .inputDest-form input {
-    font-size: 4em;
+    font-size: 2em;
     margin-top: 5%;
     border: 1px solid #2E282A; }
   .inputDest-form a {
     display: flex;
     margin-top: 5%;
-    font-size: 3em;
     text-decoration: none;
     color: #2E282A; }
     .inputDest-form a button {
@@ -216,18 +221,17 @@
       border: 0.5em solid #17BEBB;
       border-radius: 0.5em;
       background-color: #17BEBB;
-      padding: 1em 0;
       width: 70%;
       margin-left: 5%;
       position: fixed;
       bottom: 1em; }
   .inputDest-form .inputDest-form-suggested-destinations .inputDest-form-suggested-destinations-prompt {
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     text-decoration: underline;
     margin-top: 1em; }
   .inputDest-form .inputDest-form-suggested-destinations .inputDest-form-suggested-destinations-list {
-    font-size: 2.5em; }
+    font-size: 2em; }
     .inputDest-form .inputDest-form-suggested-destinations .inputDest-form-suggested-destinations-list li {
       margin-top: .5em;
       margin-bottom: .5em; }
@@ -245,13 +249,13 @@
 .login-container {
   font-family: "Oswald", sans-serif;
   font-color: #2E282A;
-  font-size: 35px; }
+  font-size: 2em; }
 
 .login-logo {
   padding: 10px;
   text-align: center;
   color: #CD5334;
-  font-size: 100px;
+  font-size: 2em;
   font-weight: 700;
   font-family: "Dosis", sans-serif; }
   .login-logo span {
@@ -262,29 +266,40 @@
   margin-left: 10%; }
 
 .login-signIn-errorContainer {
-  font-size: 40px;
+  font-size: 1em;
   color: #CD5334;
   text-decoration: underline;
-  margin-top: 15px;
+  margin-top: 0.2em;
   text-align: center; }
 
 .login-signIn-field-label {
   display: block; }
 
 #login-signIn-email {
-  font-size: 35px;
+  font-size: 1em;
   margin: 10px;
   border: solid 1px #2E282A; }
 
 #login-signIn-password {
-  font-size: 35px;
+  font-size: 1em;
   margin: 10px;
   border: solid 1px #2E282A; }
 
+.login-signIn-buttonLink {
+  margin-left: 40%; }
+
 .login-signIn-button {
-  font-size: 35px;
+  font-size: 1em;
   margin-bottom: 10px;
-  display: inline-block; }
+  display: inline-block;
+  color: white;
+  background-color: #17BEBB;
+  border: 0.5em solid #17BEBB;
+  border-radius: 0.5em; }
+
+.login-signIn-forgotPW {
+  font-size: 0.75em;
+  color: #574c4f; }
 
 .login-signIn-google {
   margin-top: 50px; }
@@ -311,61 +326,69 @@
 .login-passwordReset-modal {
   text-align: center;
   color: white;
-  width: 80%;
-  margin-left: 10%;
-  font-size: 50px; }
+  width: 100%; }
 
 #login-passwordReset-email-input {
-  font-size: 50px;
+  font-size: 1em;
   margin-top: 100px; }
 
 .login-passwordReset-email-button {
-  font-size: 50px;
+  font-size: 1em;
+  background-color: #17BEBB;
+  border: 0.5em solid #17BEBB;
+  border-radius: 0.5em;
+  color: white;
   margin-top: 100px; }
 
 .login-passwordReset-modal-actionText {
-  margin-top: 50px; }
+  font-size: 1em; }
 
 .login-passwordReset-closeModal {
   margin-top: 200px; }
 
+.login-register-modal {
+  display: flex;
+  flex-direction: column; }
+
 .login-register-modalfields {
-  width: 40%;
-  margin-top: 20%;
-  margin-left: 30%; }
+  margin-left: 5%; }
 
 .login-register-modal-title {
   margin-top: 100px;
   text-align: center;
   color: white;
   font-family: "Dosis", sans-serif;
-  font-size: 70px; }
+  font-size: 2em; }
 
 .login-register-field-modalLabel {
   color: white; }
 
 #login-register-email {
-  font-size: 35px;
+  font-size: 1em;
   margin: 10px; }
 
 #login-register-password {
-  font-size: 35px;
+  font-size: 1em;
   margin: 10px; }
 
 #login-register-name {
-  font-size: 35px;
+  font-size: 1em;
   margin: 10px; }
 
 .login-register-button {
-  font-size: 35px;
+  font-size: 1em;
   margin-bottom: 30px;
-  display: inline-block; }
+  display: inline-block;
+  color: white;
+  background-color: #17BEBB;
+  border: 0.5em solid #17BEBB;
+  border-radius: 0.5em; }
 
 .login-register-signIn {
   text-align: center;
   color: white;
-  font-size: 60px;
-  margin-top: 30%; }
+  font-size: 1em;
+  margin-top: 10%; }
 
 .password-logo {
   text-align: center;
@@ -408,7 +431,6 @@
   width: 80%;
   margin-left: 10%;
   font-family: "Oswald", sans-serif;
-  font-size: 4em;
   color: #2E282A;
   padding-bottom: 4em; }
   .walkInfo-content h2 {
@@ -581,11 +603,11 @@ body {
   flex-direction: row;
   justify-content: space-between;
   padding: 2.2em;
-  font-size: 30px; }
+  font-size: 1em; }
   .caniwalk-header a {
     text-decoration: none; }
     .caniwalk-header a h4 {
-      font-size: 50px;
+      font-size: 2em;
       font-family: "Dosis", sans-serif;
       font-weight: bold;
       color: #CD5334; }
@@ -602,7 +624,7 @@ body {
   width: 500px; }
   .caniwalk-header-options div {
     text-align: right;
-    font-size: 40px;
+    font-size: 1.5em;
     margin-right: 20px;
     display: inline-block; }
     .caniwalk-header-options div a {
