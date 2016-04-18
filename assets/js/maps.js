@@ -101,10 +101,10 @@ function findTrip(destLatLng, destName, userID, token){
                  contentType: "application/json",
               },
               success : function(data) {
-                console.log(data);
+               //  console.log(data);
                 localStorage.setItem('currentTripID', data.trip[0].id);
                 console.log("this trip's info has been sent to the database");
-
+                var userAccessibility = localStorage.getItem('accessibility_type');
                 //this GET will get the places of interest from other users based on the route data we send to the backend
                 $.ajax({
                   method: 'GET',
@@ -117,25 +117,35 @@ function findTrip(destLatLng, destName, userID, token){
 
 //average safety rating
                   if(avgRate.safety_average === null){
-                       $('.walkInfo-rating-safety').text("No ratings available");
+                       $('.walkInfo-rating-safety').html("No ratings available");
                   } else {
-                     $('.walkInfo-rating-safety').text("Safety Rating: " + avgRate.safety_average);
-                     $('.walkInfo-rating-ease').text("Ease Rating: " + avgRate.ease_average);
-                     $('.walkInfo-rating-enjoyability').text("Enjoyability Rating: " + avgRate.enjoyability_average);
-                     $('.walkInfo-rating-accessibility').text("Accessibility Rating: " + avgRate.accessibility_average);
-                     $('.walkInfo-rating-comments').text('Comments: ');
-                     for(var i = 0; i < avgRate.comments.length; i++)
-//this is where we'll insert the logic to gate the most recent comments
-
-                     {
+                     console.log(userAccessibility);
+                     $('.walkInfo-rating-safety').html("Safety: <span class='walkInfo-rating-number'>" + avgRate.safety_average + ' / 5</span>');
+                     $('.walkInfo-rating-ease').html("Ease: <span class='walkInfo-rating-number'>" + avgRate.ease_average + ' / 5</span>');
+                     $('.walkInfo-rating-enjoyability').html("Enjoyability: <span class='walkInfo-rating-number'>" + avgRate.enjoyability_average + ' / 5</span>');
+                     $('.walkInfo-rating-comments').html('Comments: ');
+                     for(var i = 0; i < avgRate.comments.length; i++){
                         $('.walkInfo-rating-comments').append('<p>- '+avgRate.comments[i]+'</p>')
                      };
+// gates the accessibility rating. Checks to see if user has an accessibility, type of, and then shows that specific rating for accessibility.
+                     if(userAccessibility === 'Cane'){
+                        $('.walkInfo-rating-accessibility').html("Cane Accessibility: <span class='walkInfo-rating-number'>" + avgRate.cane_accessibility + ' / 5</span>');
+                     } else if (userAccessibility === 'Walker'){
+                        $('.walkInfo-rating-accessibility').html("Walker Accessibility: <span class='walkInfo-rating-number'>" + avgRate.walker_accessibility + ' / 5</span>');
+                     } else if (userAccessibility === 'Wheelchair'){
+                        $('.walkInfo-rating-accessibility').html("Wheelchair Accessibility: <span class='walkInfo-rating-number'>" + avgRate.wheelchair_accessibility + ' / 5</span>');
+                     } else if (userAccessibility === 'Scooter'){
+                        $('.walkInfo-rating-accessibility').html("Scooter Accessibility: <span class='walkInfo-rating-number'>" + avgRate.scooter_accessibility + ' / 5</span>');
+                     } else {
+                        $('.walkInfo-rating-accessibility').html("Accessibility: <span class='walkInfo-rating-number'>" + avgRate.accessibility_average + ' / 5</span>');
+                     }
+
                   }
 
                      console.log('test fxn');
-                     console.log(data);
-                     console.log(data.trip_ratings);
-                     console.log(data.average_ratings.safety_average);
+                     // console.log(data);
+                     // console.log(data.trip_ratings);
+                     // console.log(data.average_ratings.safety_average);
 
 
                     $('.walkInfo-weather-icon').attr('src', data.weather_icon);

@@ -432,6 +432,8 @@
       text-decoration: underline;
       margin-bottom: 0.5em;
       text-align: center; }
+    .walkInfo-content .walkInfo-reviews .walkInfo-rating-number {
+      float: right; }
   .walkInfo-content .walkInfo-weather-intro {
     margin-top: 65px; }
   .walkInfo-content .walkInfo-weatherData {
