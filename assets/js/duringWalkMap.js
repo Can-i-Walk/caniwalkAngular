@@ -66,17 +66,17 @@ function liveMap(destLatLng, destName, userID, token){
       });
 
       $(document).ready(function() {
-        navigator.geolocation.watchPosition(reCenterMap, reCenterError, {maximumAge: 1000, timeout: 300000, enableHighAccuacy: true}); // maximumAge tells the watchPosition how often to look for a new location, timeout tells the method when to quit if it can't find new location information after x amount of time
+        navigator.geolocation.watchPosition(moveLiveMarker, reCenterError, {maximumAge: 1000, timeout: 300000, enableHighAccuacy: true}); // maximumAge tells the watchPosition how often to look for a new location, timeout tells the method when to quit if it can't find new location information after x amount of time
       });
 
       function reCenterError(err) {
         console.warn('ERROR(' + err.code + '): ' + err.message);
       }
 
-      function reCenterMap(location){
-        console.log("reCenterMap called")
+      function moveLiveMarker(location){
+        console.log("moveLiveMarker function called");
         myLatLng = new google.maps.LatLng(location.coords.latitude,location.coords.longitude);
-        dwMap.setCenter(myLatLng);
+        //dwMap.setCenter(myLatLng);
         liveMarker.setPosition(myLatLng);
         //navigator.geolocation.clearWatch(watchId); not sure how we'd need this
       }; // end live tracking of user's location section
@@ -90,11 +90,12 @@ function liveMap(destLatLng, destName, userID, token){
         function(response, status) {
           if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
+            var distance = response.routes[0].legs[0].distance.text;
 
             // this GET will get the places of interest from other users based on the route data we send to the backend
             $.ajax({
               method: 'GET',
-              url: 'https://peaceful-journey-51869.herokuapp.com/places/places_of_interest/?origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng+'&token='+token,
+              url: 'https://peaceful-journey-51869.herokuapp.com/places/places_of_interest/?origin_lat='+pos.lat+'&origin_long='+pos.lng+'&dest_lat='+destLatLng.lat+'&dest_long='+destLatLng.lng+'&token='+token+'&distance='+distance,
               success: function (data) {
                 console.log("successful GET");
                 console.log(data);
@@ -151,6 +152,10 @@ function liveMap(destLatLng, destName, userID, token){
   }
 };
 
+// google maps domlistener to put new point on map when user creates it
+// var POIInput = $('.duringWalk-map-createPOI-fields-button');
+// google.maps.event.addDomListener(POIInput, 'click', plotNewPOI($scope.POIname, $scope.lat, $scope.lng));
+
 // I need to add an event listener to these guys so they are added dynamically
 // also check this out: https://developers.google.com/maps/documentation/javascript/examples/marker-remove
 // function plotNewPOI(POIname, lat, lng){ // this function is called when the user makes a new POI (called in the POI controller in controllers.js)
@@ -158,12 +163,11 @@ function liveMap(destLatLng, destName, userID, token){
 //   var infowindow = new google.maps.InfoWindow({
 //     content: POIname
 //   });
-//   var marker = new google.maps.Marker({
+//   var newMarker = new google.maps.Marker({
 //     position: new google.maps.LatLng(lat, lng),
 //     map: dwMap,
-//     title: POIname,
-//     label: POIname
+//     animation: google.maps.Animation.DROP
 //   }).addListener('click', function() {
-//     infowindow.open(dwMap, marker);
+//     infowindow.open(dwMap, newMarker);
 //   });
 // };
