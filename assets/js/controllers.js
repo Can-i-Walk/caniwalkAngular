@@ -56,7 +56,7 @@ canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $ht
          })
 
       } else {
-         alert('Please fill in all the categories!');
+         $('.ratings-error-message').html('Please provide ratings for all categories.');
       }
    };
    $scope.noThanks = function(){
