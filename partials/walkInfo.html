@@ -1,11 +1,11 @@
 <header class="caniwalk-header" ng-controller="headerController">
   <a href="#/input-destination"><h4>CAN<span>&#60i&#62</span>WALK</h4></a>
   <div class="caniwalk-header-options-container">
-   <i ng-model="headerOptions" ng-click="headerOptions=!headerOptions" class="fa fa-caret-square-o-left fa-2x" aria-hidden="true"></i>
-      <div ng-show="headerOptions" class="caniwalk-header-options">
-         <div><a href="#/account">My Account</a></div>
+   <!-- <i ng-model="headerOptions" ng-click="headerOptions=!headerOptions" class="fa fa-caret-square-o-left fa-2x" aria-hidden="true"></i> -->
+      <!-- <div ng-show="headerOptions" class="caniwalk-header-options"> -->
+         <div class="caniwalk-header-myAccount"><a href="#/account">My Account</a></div>
          <div ng-click="logOut()">Log Out</div>
-      </div>
+      <!-- </div> -->
   </div>
 </header>
 <div class="walkInfo-page">
@@ -15,7 +15,7 @@
       <label class="walkInfo-distance"></label>
       <label class="walkInfo-duration"></label>
       <div class="walkInfo-maxDistance-text"></div>
-      <div class="walkInfo-weather-intro">Current weather:</div>
+      <div class="walkInfo-weather-intro">Current weather</div>
       <div class="walkInfo-weatherData">
         <div class="walkInfo-weather-icon-container"><img class="walkInfo-weather-icon"/></div>
         <div class="walkInfo-weather-conditions"></div>
@@ -47,9 +47,9 @@
      <div class="walkInfo-modal" ng-show="modal">
         <div class="walkInfo-modal-content">
            <header class="walkInfo-modal-header">
-              <h2 class="walkInfo-modal-header-main">Are you sure you want to abandon this walk?</h2>
-              <a href="#/input-destination"><button class="walkInfo-modal-nothanks" ng-click="tripNotTaken()">I do not want to take this walk</button></a><!-- back to input walk page -->
-              <a><button class="walkInfo-modal-takewalk" ng-click="modal=false">I want to take this walk</button></a> <!-- close modal -->
+              <h2 class="walkInfo-modal-header-main">Do you want to take this walk?</h2>
+              <a href="#/input-destination"><button class="walkInfo-modal-nothanks" ng-click="tripNotTaken()">No</button></a><!-- back to input walk page -->
+              <a><button class="walkInfo-modal-takewalk" ng-click="modal=false">Yes</button></a> <!-- close modal -->
            </header>
            <ul>
               <li class="walkInfo-alternate-title">Here's some other options</li>
