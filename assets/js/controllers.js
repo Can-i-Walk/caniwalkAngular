@@ -647,13 +647,12 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
          }, function errorCallback(response) {
            console.log("unsuccessful password update");
            console.log(response);
-           alert("we were unable to change your password. Why don't you try again?")
          });
 
       } else { // if the passwords don't match
         alert("Your passwords don't match. Please insert your new password in both fields");
       }
-    } else { // if some registration fields are empty...
+    } else { // if either password field is left blank
       alert("Please fill out all fields on the page");
     }
   };
