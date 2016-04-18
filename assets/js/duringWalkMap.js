@@ -1,7 +1,12 @@
 var distance;
 var duration;
 var dwMap;
+var myLatLng;
 var placeButton = $('.duringWalk-map-createPOI-fields-button');
+var littleBlueDude;
+var liveMarker;
+var moveLiveMarker;
+
 
 //find the route information
 function liveMap(destLatLng, destName, userID, token){
@@ -65,13 +70,14 @@ function liveMap(destLatLng, destName, userID, token){
         liveInfoWindow.open(dwMap, liveMarker);
       });
 
-      $(document).ready(function() {
-        navigator.geolocation.watchPosition(moveLiveMarker, reCenterError, {maximumAge: 1000, timeout: 300000, enableHighAccuacy: true}); // maximumAge tells the watchPosition how often to look for a new location, timeout tells the method when to quit if it can't find new location information after x amount of time
-      });
+      // this is the method that checks the user's location periodically. It breaks some stuff
+      // $(document).ready(function() {
+      //   navigator.geolocation.watchPosition(moveLiveMarker, reCenterError, {maximumAge: 1000, timeout: 300000, enableHighAccuacy: false}); // maximumAge tells the watchPosition how often to look for a new location, timeout tells the method when to quit if it can't find new location information after x amount of time
+      // });
 
       function reCenterError(err) {
         console.warn('ERROR(' + err.code + '): ' + err.message);
-      }
+      };
 
       function moveLiveMarker(location){
         console.log("moveLiveMarker function called");
