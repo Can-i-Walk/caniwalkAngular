@@ -144,12 +144,6 @@ function findTrip(destLatLng, destName, userID, token){
 
                   }
 
-                     console.log('test fxn');
-                     // console.log(data);
-                     // console.log(data.trip_ratings);
-                     // console.log(data.average_ratings.safety_average);
-
-
                     $('.walkInfo-weather-icon').attr('src', data.weather_icon);
                     $('.walkInfo-weather-icon').attr('alt', data.current_weather);
                     // console.log(data.weather_icon);

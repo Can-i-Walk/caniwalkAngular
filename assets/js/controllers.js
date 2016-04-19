@@ -35,7 +35,7 @@ canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $ht
          console.log('all values accounted for');
          $http({
             method: 'POST',
-            url: 'http://peaceful-journey-51869.herokuapp.com/ratings/',
+            url: 'https://peaceful-journey-51869.herokuapp.com/ratings/',
             data: {
                "user_id": userID,
                "trip_id": tripID,
@@ -199,7 +199,6 @@ canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scop
 
     $scope.tripNotTaken = function(){
       var tripID = localStorage.getItem('currentTripID');
-      console.log("trip not taken function activated");
       $http({
         method: 'PUT',
         url: 'https://peaceful-journey-51869.herokuapp.com/trips/'+tripID+'?trip[completion]=false'+'&token='+token
@@ -216,7 +215,6 @@ canIWalk.controller('walkDecisionController', ['$scope', '$http', function($scop
 
     $scope.tripTaken = function(){
       var tripID = localStorage.getItem('currentTripID');
-      console.log("trip taken function activated");
       $http({
         method: 'PUT',
         url: 'https://peaceful-journey-51869.herokuapp.com/trips/'+tripID+'?trip[completion]=true'+'&token='+token
@@ -261,10 +259,8 @@ canIWalk.factory('mapFactory', function() { // this factory allows communication
  });//end factory for moving lat and long around b/t partials
 
 canIWalk.controller('POIController', ['$scope', '$http', function($scope, $http) {
-console.log("we are in the POI Controller");
 
  $scope.submitPOI = function() {
-   console.log("new POI function ran");
    if ($scope.POIname){ // if the user has submitted text in the place name field
       var userID = localStorage.getItem('ID');
       var token = localStorage.getItem('token');
@@ -272,13 +268,11 @@ console.log("we are in the POI Controller");
       var placename = $scope.POIname; // this works
 
       navigator.geolocation.getCurrentPosition(function(position) { // get the current latlng so we know where to put the POI
-        var lat = position.coords.latitude;
-        var lng = position.coords.longitude;
-        console.log( lat +" "+ lng);
+        lat = position.coords.latitude;
+        lng = position.coords.longitude;
 
-        //this function plots the new POI on the duringWalk map
+        //this function plots the new POI on the duringWalk map - we aren't going to use this
         //plotNewPOI(placename, lat, lng);
-
 
         //This POST sends user-created places of interest to the back end
         $http({
@@ -287,13 +281,15 @@ console.log("we are in the POI Controller");
           data: {
             'user_id' : userID,
             'trip_id' : tripID,
-            'place_name': $scope.POIname,
+            'place_name': placename,
             'latitude' : lat,
             'longitude' : lng
           }
         }).then(function successCallback(response) {
           console.log(response);
           console.log("successful POI creation")
+          $('.duringWalk-map-createPOI-fields-input').val("");
+          $('.duringWalk-map-createPOI').html("New Favorite place saved! Add another?");
         }, function errorCallback(response) {
           console.log("unsuccessful POI creation");
           console.log(response);
@@ -308,10 +304,8 @@ console.log("we are in the POI Controller");
 }]);//end POI controller
 
 canIWalk.controller('headerController', ['$scope', '$http', function($scope, $http) {
- console.log("we are in the registration Controller");
 
   $scope.logOut = function() {
-    console.log("log out function ran");
     var userID = localStorage.getItem('ID');
     var token = localStorage.getItem('token');
 
@@ -393,7 +387,7 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
       url: 'https://peaceful-journey-51869.herokuapp.com/users/dashboard?id='+id+'&token='+token,
       data: {
          'token': token,
-         'user_ID':  id,
+         'user_ID':  id
       },
    }).then(function successCallback(response, data){
       console.log(response);
@@ -497,7 +491,7 @@ canIWalk.controller('editAccountController', ['$scope', '$http', function($scope
 
           $http({
              method: 'PUT',
-             url: 'http://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
+             url: 'https://peaceful-journey-51869.herokuapp.com/users/'+id+'?token='+token,
              data: {
                 // 'token': token,
                 'name': name,
