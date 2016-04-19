@@ -352,23 +352,23 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
          window.location.replace('#/input-destination');
        } else if (response.data.errors[0] === "Login failed."){
          console.log(response.data.errors);
-         $('.login-signIn-errorContainer').html("Email or password is incorrect.");
+         $('.login-signIn-errorContainer').html("Email or password is incorrect");
        } else if (response.data.errors[0] === "Please confirm your email to login."){
          console.log(response.data.errors);
          $('.login-signIn-errorContainer').html("You haven't confirmed your account. You should receive a confirmation email shortly.");
       } else {
          console.log("unsuccessful LOGIN");
          console.log(response.data.errors);
-         $('.login-signIn-errorContainer').html("Login failed.");
+         $('.login-signIn-errorContainer').html("Login failed");
        }
      }, function errorCallback(response) {
        console.log("unsuccessful LOGIN");
        console.log(response);
-       $('.login-signIn-errorContainer').html("Login failed.");
+       $('.login-signIn-errorContainer').html("Login failed");
      });
 
    } else { // if one of the login fields is empty...
-     $('.login-signIn-errorContainer').html("Please enter your email address and password.");
+     $('.login-signIn-errorContainer').html("Please enter your email address and password");
    }
  };
 
@@ -605,7 +605,7 @@ canIWalk.controller('passwordController', ['$scope', '$http', function($scope, $
           $('.login-passwordReset-email-button').toggle();
         } else if (response.data.errors[0] === "No user found with that email."){
           console.log(response.data.errors);
-          $('.login-passwordReset-modal-actionText').html("We couldn't find a user with that email.");
+          $('.login-passwordReset-modal-actionText').html("We couldn't find a user with that email");
         } else {
           console.log("unsuccessful password reset initiation");
           console.log(response.data.errors);
