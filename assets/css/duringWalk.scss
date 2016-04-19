@@ -1,7 +1,7 @@
 .duringWalk-header {
   margin-top: 20px;
-   text-align: center;
-   font-size: 80px;
+   // text-align: center;
+   font-size: 2em;
    font-family: $Dosis;
    font-weight: bold;
     h4 {
@@ -12,23 +12,22 @@
     }
 }
 .duringWalk-map {
-     font-size: 30px;
-     height: 1300px;
+     font-size: 1em;
+     height: 35em;
      width: 100%;
   }
 
 .duringWalk-map-createPOI-container {
   text-align: center;
-  text-decoration: underline;
   margin-top: 20px;
   font: {
-    size: 50px;
+    size: 2em;
   }
 }
 
 .duringWalk-map-createPOI-fields-input {
   font: {
-    size: 50px;
+    size: 1em;
     family: $Oswald;
   }
   width: 70%;
@@ -43,7 +42,7 @@
     style: none;
   };
   font: {
-    size: 50px;
+    size: 1em;
     family: $Oswald;
   }
 }
@@ -51,17 +50,16 @@
 .duringWalk-endWalk-button {
   color: white;
   font: {
-    size: 50px;
+    size: 2em;
     family: $Oswald;
   }
   border: 0.5em solid $Teal;
-  border-radius: 0.5em;
+  // border-radius: 0.5em;
   background-color: $Teal;
-  padding: 15px;
-  width: 50%;
-  margin-left: 25%;
-  position: absolute;
-  bottom: 40px;
+  width: 100%;
+  // margin-left: 25%;
+  position: fixed;
+  // bottom: 40px;
 }
 
 .duringWalk-endWalk-modalHolder {
@@ -80,38 +78,36 @@
   width: 80%;
   margin-left: 10%;
   font: {
-    size: 50px;
+    size: 2em;
   }
 }
 
 .login-passwordReset-modal-actionText {
-  font-size: 70px;
+  font-size: 2em;
   margin-bottom: 100px;
   padding-top: 50px;
 }
 
 .duringWalk-endWalk-confirm-button {
-  padding: 20px;
   font:{
-    size: 50px;
+    size: 1em;
     family: $Oswald;
   }
   color: white;
   background-color: $Teal;
-  border: 1em solid $Teal;
+  border: 0.5em solid $Teal;
   border-radius: 0.5em;
   margin: 20px;
 }
 
 .duringWalk-endWalk-deny-button {
-  padding: 20px;
   font:{
-    size: 50px;
+    size: 1em;
     family: $Oswald;
   }
   color: white;
   background-color: $BurntOrange;
-  border: 1em solid $BurntOrange;
+  border: 0.5em solid $BurntOrange;
   border-radius: 0.5em;
   margin: 20px;
 }

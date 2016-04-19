@@ -5,8 +5,7 @@
    font-family: $Oswald;
 
    h3 {
-      // font-size: 4em;
-      text-decoration: underline;
+      font-size: 2em;
       font-weight: bold;
 
    }
@@ -24,28 +23,31 @@
 //this is the styling for the ratings drop-down when you click on a walk in the dashboard
 .dashboard-ratings {
    li {
-      font-size: 0.4em;
+      font-size: 1.5em;
    }
 }
 
 //styling for 'Edit Profile' Button
 .dashboard-edit-profile {
    display: flex;
-   justify-content: center;
+   // justify-content: center;
    margin-top: 10%;
    text-decoration: none;
    align-items: flex-end;
    position: fixed;
-   bottom: 10%;
-   left: 15%;
-   width: 70%;
+   // bottom: 10%;
+   // left: 15%;
+   width: 100%;
 
    button {
       // padding: 1em;
       font-size: 2em;
       background-color: $Teal;
       border: 0.5em solid $Teal;
-      border-radius: 0.5em;
+      // border-radius: 0.5em;
       color: white;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
    }
 }

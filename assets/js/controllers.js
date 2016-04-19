@@ -438,7 +438,10 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
 canIWalk.directive('accountDashboard', function(){
    return {
       restrict: 'E',
-      template: '<li ng-repeat= "trip in completedTrips track by $index" ng-click="findIndex($index)">{{completedTrips[$index].walked_at | date:shortDate}} {{ completedTrips[$index].trip_name }} {{completedTrips[$index].distance}} miles'+
+      template: '<li ng-repeat= "trip in completedTrips track by $index" ng-click="findIndex($index)">' +
+      '<div>{{ completedTrips[$index].trip_name }}</div>'+
+      '<div>{{completedTrips[$index].walked_at | date:shortDate}}</div>'+
+      '<div>{{completedTrips[$index].distance}} miles</div>'+
                    '<ul class="dashboard-ratings" ng-show="openRating($index)">'+
                       '<li>Safety: {{completedTrips[$index].ratings[0].safety_rating}} </li>'+
                       '<li>Ease: {{completedTrips[$index].ratings[0].ease_rating}}</li>' +

@@ -45,6 +45,15 @@ body {
 
 .caniwalk-header-options-container {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.caniwalk-header-myAccount {
+   margin-right: 1em;
+   a {
+      color: $Text;
+   }
 }
 
 .caniwalk-header-options {
