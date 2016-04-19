@@ -42,7 +42,7 @@
   font:{
     size: 1em;
   }
-  margin: 10px;
+  margin: 10px 0 20px;
   border: solid 1px $Text;
 }
 
@@ -51,12 +51,14 @@
   font:{
     size: 1em;
   }
-  margin: 10px;
+  margin: 10px 0 20px;
   border: solid 1px $Text;
 }
 .login-signIn-buttonLink {
-   margin-left: 40%;
+   display: flex;
+   justify-content: center;
 }
+
 .login-signIn-button {
   font:{
     size: 1em;
@@ -79,16 +81,12 @@
 }
 
 .login-signIn-register {
-  width: 30%;
-  margin:{
+   font-size: 0.75em;
+   margin:{
     top: 50px;
-    left: 35%;
-  }
-  text-align: center;
-  background-color: $Teal;
-  border: 1em solid $Teal;
-  border-radius: 0.5em;
-  color: white;
+    bottom: 0.5em;
+   }
+  color: lighten($Text, 15%);
 }
 
 // .login-signIn-guestWalkBtn {
@@ -168,12 +166,12 @@
 
 
 .login-register-modal-title {
-  margin-top: 100px;
+  margin: 1em 0;
   text-align: center;
   color: white;
   font:{
     family: $Dosis;
-    size: 2em;
+    size: 1.5em;
   }
 }
 
@@ -186,21 +184,21 @@
   font:{
     size: 1em;
   }
-  margin: 10px;
+  margin: 10px 0px;
 }
 
 #login-register-password {
   font:{
     size: 1em;
   }
-  margin: 10px;
+  margin: 10px 0px;
 }
 
 #login-register-name {
   font:{
     size: 1em;
   }
-  margin: 10px;
+  margin: 10px 0px;
 }
 
 .login-register-button {
