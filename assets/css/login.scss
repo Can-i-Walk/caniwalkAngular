@@ -1,6 +1,6 @@
 .login-container {
   font:{
-    family: $Oswald;
+    family: $DroidSans;
     color: #2E282A;
     size: 2em;
   }
@@ -18,6 +18,7 @@
   span {
     color: $Teal;
   }
+  margin-bottom: .5em;
 }
 
 .login-signIn {
@@ -28,13 +29,13 @@
 .login-signIn-errorContainer {
   font-size: 1em;
   color: $BurntOrange;
-  text-decoration: underline;
   margin-top: 0.2em;
   text-align: center;
 }
 
 .login-signIn-field-label {
   display: block;
+  font-family: $Oswald
 }
 
 #login-signIn-email {
@@ -42,20 +43,23 @@
   font:{
     size: 1em;
   }
+  padding-left: 5px;
   margin: 10px 0 20px;
   border: solid 1px $Text;
+  width: 100%;
 }
 
 #login-signIn-password {
-  // display: block;
   font:{
     size: 1em;
   }
+  padding-left: 5px;
   margin: 10px 0 20px;
   border: solid 1px $Text;
+  width: 100%;
 }
+
 .login-signIn-buttonLink {
-   display: flex;
    justify-content: center;
 }
 
@@ -63,6 +67,7 @@
   font:{
     size: 1em;
   }
+  width: 100%;
   margin-bottom: 10px;
   display: inline-block;
   color: white;
@@ -72,37 +77,22 @@
 }
 
 .login-signIn-forgotPW {
-   font-size: 0.75em;
+   font-size: .8em;
    color: lighten($Text, 15%);
 }
 
-.login-signIn-google {
-  margin-top: 50px;
-}
+// .login-signIn-google {
+//   margin-top: 50px;
+// }
 
 .login-signIn-register {
-   font-size: 0.75em;
+   font-size: .8em;
    margin:{
-    top: 50px;
+    top: 4em;
     bottom: 0.5em;
    }
   color: lighten($Text, 15%);
 }
-
-// .login-signIn-guestWalkBtn {
-//   position: absolute;
-//   bottom: 40px;
-//   left: 22%;
-//   border-radius: 0.5em;
-//   color: white;
-//   border: none;
-//   background: $Teal;
-//   padding: 30px;
-//   font:{
-//     size: 70px;
-//     family: $Oswald;
-//   }
-// }
 
 .login-register-modalHolder, .login-passwordReset-modalHolder{
   z-index: 1;
@@ -115,12 +105,11 @@
 }
 
 .login-passwordReset-modal {
-  text-align: center;
   color: white;
-  width: 100%;
-  // margin-left: 10%;
-  font: {
-   //  size: 1.5em;
+  width: 85%;
+  margin:{
+  top: 8%;
+  left: 7.5%;
   }
 }
 
@@ -128,7 +117,9 @@
   font: {
     size: 1em;
   }
-  margin-top: 100px;
+  padding-left: 5px;
+  margin-top: .3em;
+  width: 100%;
 }
 
 .login-passwordReset-email-button {
@@ -139,52 +130,38 @@
   border: 0.5em solid $Teal;
   border-radius: 0.5em;
   color: white;
-
-  margin-top: 100px;
+  margin-top: 1em;
 }
 
 .login-passwordReset-modal-actionText {
    font-size: 1em;
-  // margin-top: 50px;
 }
 
 .login-passwordReset-closeModal {
-  margin-top: 200px;
-}
-.login-register-modal {
-   display: flex;
-   flex-direction: column;
+  margin-top: 2em;
+  text-align: center;
 }
 
 .login-register-modalfields {
-  // width: 40%;
+  width: 85%;
   margin:{
-  // top: 20%;
-  left: 5%;
-  }
-}
-
-
-.login-register-modal-title {
-  margin: 1em 0;
-  text-align: center;
-  color: white;
-  font:{
-    family: $Dosis;
-    size: 1.5em;
+  top: 8%;
+  left: 7.5%;
   }
 }
 
 .login-register-field-modalLabel {
   color: white;
+  font-family: $Oswald;
 }
 
 #login-register-email {
-  // display: block;
   font:{
     size: 1em;
   }
   margin: 10px 0px;
+  width: 95%;
+  padding-left: 5px;
 }
 
 #login-register-password {
@@ -192,6 +169,8 @@
     size: 1em;
   }
   margin: 10px 0px;
+  width: 95%;
+  padding-left: 5px;
 }
 
 #login-register-name {
@@ -199,12 +178,16 @@
     size: 1em;
   }
   margin: 10px 0px;
+  width: 95%;
+  padding-left: 5px;
 }
 
 .login-register-button {
   font:{
     size: 1em;
   }
+  width: 100%;
+  margin-top: 30px;
   margin-bottom: 30px;
   display: inline-block;
   color: white;
@@ -219,5 +202,6 @@
   font:{
     size: 1em;
   }
+  // width: 85%;
   margin-top: 10%;
 }

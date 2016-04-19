@@ -12,12 +12,18 @@
     }
 }
 .duringWalk-map {
-     font-size: 1em;
-     height: 35em;
-     width: 100%;
+    //  font-size: 1em;
+     height: 33em;
+     width: 90%;
+     margin-left: 5%;
   }
 
+.duringWalk-content {
+  margin-bottom: 100px;
+}
+
 .duringWalk-map-createPOI-container {
+  position: relative;
   text-align: center;
   margin-top: 20px;
   font: {
@@ -25,10 +31,18 @@
   }
 }
 
+.duringWalk-map-createPOI-fields {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 90%;
+  margin-left: 5%;
+}
+
 .duringWalk-map-createPOI-fields-input {
   font: {
     size: 1em;
-    family: $Oswald;
+    family: $DroidSans;
   }
   width: 70%;
   border: solid 1px black;
@@ -39,27 +53,26 @@
   background: $BurntOrange;
   border:{
     radius: 2px;
-    style: none;
+    style: solid 1px $BurntOrange;
   };
   font: {
     size: 1em;
-    family: $Oswald;
+    family: $DroidSans;
   }
+  margin-left: -10px;
 }
 
 .duringWalk-endWalk-button {
   color: white;
   font: {
     size: 2em;
-    family: $Oswald;
+    family: $DroidSans;
   }
   border: 0.5em solid $Teal;
-  // border-radius: 0.5em;
   background-color: $Teal;
   width: 100%;
-  // margin-left: 25%;
   position: fixed;
-  // bottom: 40px;
+  bottom: 0px;
 }
 
 .duringWalk-endWalk-modalHolder {

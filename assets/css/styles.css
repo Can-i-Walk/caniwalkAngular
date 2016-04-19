@@ -57,18 +57,29 @@
       color: #17BEBB; }
 
 .duringWalk-map {
-  font-size: 1em;
-  height: 35em;
-  width: 100%; }
+  height: 33em;
+  width: 90%;
+  margin-left: 5%; }
+
+.duringWalk-content {
+  margin-bottom: 100px; }
 
 .duringWalk-map-createPOI-container {
+  position: relative;
   text-align: center;
   margin-top: 20px;
   font-size: 2em; }
 
+.duringWalk-map-createPOI-fields {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 90%;
+  margin-left: 5%; }
+
 .duringWalk-map-createPOI-fields-input {
   font-size: 1em;
-  font-family: "Oswald", sans-serif;
+  font-family: "Droid Sans", sans-serif;
   width: 70%;
   border: solid 1px black; }
 
@@ -76,18 +87,20 @@
   color: white;
   background: #CD5334;
   border-radius: 2px;
-  border-style: none;
+  border-style: solid 1px #CD5334;
   font-size: 1em;
-  font-family: "Oswald", sans-serif; }
+  font-family: "Droid Sans", sans-serif;
+  margin-left: -10px; }
 
 .duringWalk-endWalk-button {
   color: white;
   font-size: 2em;
-  font-family: "Oswald", sans-serif;
+  font-family: "Droid Sans", sans-serif;
   border: 0.5em solid #17BEBB;
   background-color: #17BEBB;
   width: 100%;
-  position: fixed; }
+  position: fixed;
+  bottom: 0px; }
 
 .duringWalk-endWalk-modalHolder {
   z-index: 1;
@@ -256,7 +269,7 @@
   font-size: 1em; }
 
 .login-container {
-  font-family: "Oswald", sans-serif;
+  font-family: "Droid Sans", sans-serif;
   font-color: #2E282A;
   font-size: 2em; }
 
@@ -266,7 +279,8 @@
   color: #CD5334;
   font-size: 2em;
   font-weight: 700;
-  font-family: "Dosis", sans-serif; }
+  font-family: "Dosis", sans-serif;
+  margin-bottom: .5em; }
   .login-logo span {
     color: #17BEBB; }
 
@@ -277,29 +291,33 @@
 .login-signIn-errorContainer {
   font-size: 1em;
   color: #CD5334;
-  text-decoration: underline;
   margin-top: 0.2em;
   text-align: center; }
 
 .login-signIn-field-label {
-  display: block; }
+  display: block;
+  font-family: "Oswald", sans-serif; }
 
 #login-signIn-email {
   font-size: 1em;
+  padding-left: 5px;
   margin: 10px 0 20px;
-  border: solid 1px #2E282A; }
+  border: solid 1px #2E282A;
+  width: 100%; }
 
 #login-signIn-password {
   font-size: 1em;
+  padding-left: 5px;
   margin: 10px 0 20px;
-  border: solid 1px #2E282A; }
+  border: solid 1px #2E282A;
+  width: 100%; }
 
 .login-signIn-buttonLink {
-  display: flex;
   justify-content: center; }
 
 .login-signIn-button {
   font-size: 1em;
+  width: 100%;
   margin-bottom: 10px;
   display: inline-block;
   color: white;
@@ -308,15 +326,12 @@
   border-radius: 0.5em; }
 
 .login-signIn-forgotPW {
-  font-size: 0.75em;
+  font-size: .8em;
   color: #574c4f; }
 
-.login-signIn-google {
-  margin-top: 50px; }
-
 .login-signIn-register {
-  font-size: 0.75em;
-  margin-top: 50px;
+  font-size: .8em;
+  margin-top: 4em;
   margin-bottom: 0.5em;
   color: #574c4f; }
 
@@ -330,13 +345,16 @@
   background: rgba(0, 0, 0, 0.7); }
 
 .login-passwordReset-modal {
-  text-align: center;
   color: white;
-  width: 100%; }
+  width: 85%;
+  margin-top: 8%;
+  margin-left: 7.5%; }
 
 #login-passwordReset-email-input {
   font-size: 1em;
-  margin-top: 100px; }
+  padding-left: 5px;
+  margin-top: .3em;
+  width: 100%; }
 
 .login-passwordReset-email-button {
   font-size: 1em;
@@ -344,45 +362,46 @@
   border: 0.5em solid #17BEBB;
   border-radius: 0.5em;
   color: white;
-  margin-top: 100px; }
+  margin-top: 1em; }
 
 .login-passwordReset-modal-actionText {
   font-size: 1em; }
 
 .login-passwordReset-closeModal {
-  margin-top: 200px; }
-
-.login-register-modal {
-  display: flex;
-  flex-direction: column; }
+  margin-top: 2em;
+  text-align: center; }
 
 .login-register-modalfields {
-  margin-left: 5%; }
-
-.login-register-modal-title {
-  margin: 1em 0;
-  text-align: center;
-  color: white;
-  font-family: "Dosis", sans-serif;
-  font-size: 1.5em; }
+  width: 85%;
+  margin-top: 8%;
+  margin-left: 7.5%; }
 
 .login-register-field-modalLabel {
-  color: white; }
+  color: white;
+  font-family: "Oswald", sans-serif; }
 
 #login-register-email {
   font-size: 1em;
-  margin: 10px 0px; }
+  margin: 10px 0px;
+  width: 95%;
+  padding-left: 5px; }
 
 #login-register-password {
   font-size: 1em;
-  margin: 10px 0px; }
+  margin: 10px 0px;
+  width: 95%;
+  padding-left: 5px; }
 
 #login-register-name {
   font-size: 1em;
-  margin: 10px 0px; }
+  margin: 10px 0px;
+  width: 95%;
+  padding-left: 5px; }
 
 .login-register-button {
   font-size: 1em;
+  width: 100%;
+  margin-top: 30px;
   margin-bottom: 30px;
   display: inline-block;
   color: white;
@@ -434,17 +453,22 @@
   margin-top: 50px; }
 
 .walkInfo-content {
+<<<<<<< HEAD
   width: 80%;
   margin-left: 10%;
   font-family: "Droid Sans", sans-serif;
+=======
+  width: 90%;
+  margin-left: 5%;
+  font-family: "Oswald", sans-serif;
+>>>>>>> development
   font-size: 2em;
   color: #2E282A;
   padding-bottom: 4em; }
   .walkInfo-content h2 {
     text-align: center; }
   .walkInfo-content .walkInfo-map {
-    font-size: 300px;
-    height: 800px;
+    height: 15em;
     width: 100%; }
   .walkInfo-content .walkInfo-distance {
     float: left; }
