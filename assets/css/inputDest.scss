@@ -36,16 +36,15 @@
    }
    .inputDest-form-suggested-destinations{
      .inputDest-form-suggested-destinations-prompt{
-       text-align: center;
        font:{
          size: 2em;
+         weight: bold;
        }
-       text-decoration: underline;
        margin-top: 1em;
      }
      .inputDest-form-suggested-destinations-list{
        font:{
-         size: 2em;
+         size: 1.5em;
        }
        li {
          margin-top: .5em;
@@ -58,7 +57,7 @@
    display: none;
 }
 .pac-item {
-   font-size: 3em;
+   font-size: 2em;
    line-height: 1.5em;
 }
 .pac-item-query {

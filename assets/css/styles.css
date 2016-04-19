@@ -5,7 +5,7 @@
   margin-left: 10%;
   font-family: "Oswald", sans-serif; }
   .dashboard-profile h3 {
-    text-decoration: underline;
+    font-size: 2em;
     font-weight: bold; }
   .dashboard-profile .dashboard-walk-history {
     margin-top: 5%; }
@@ -13,29 +13,27 @@
       margin-top: 5%; }
 
 .dashboard-ratings li {
-  font-size: 0.4em; }
+  font-size: 1.5em; }
 
 .dashboard-edit-profile {
   display: flex;
-  justify-content: center;
   margin-top: 10%;
   text-decoration: none;
   align-items: flex-end;
   position: fixed;
-  bottom: 10%;
-  left: 15%;
-  width: 70%; }
+  width: 100%; }
   .dashboard-edit-profile button {
     font-size: 2em;
     background-color: #17BEBB;
     border: 0.5em solid #17BEBB;
-    border-radius: 0.5em;
-    color: white; }
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%; }
 
 .duringWalk-header {
   margin-top: 20px;
-  text-align: center;
-  font-size: 80px;
+  font-size: 2em;
   font-family: "Dosis", sans-serif;
   font-weight: bold; }
   .duringWalk-header h4 {
@@ -44,18 +42,17 @@
       color: #17BEBB; }
 
 .duringWalk-map {
-  font-size: 30px;
-  height: 1300px;
+  font-size: 1em;
+  height: 35em;
   width: 100%; }
 
 .duringWalk-map-createPOI-container {
   text-align: center;
-  text-decoration: underline;
   margin-top: 20px;
-  font-size: 50px; }
+  font-size: 2em; }
 
 .duringWalk-map-createPOI-fields-input {
-  font-size: 50px;
+  font-size: 1em;
   font-family: "Oswald", sans-serif;
   width: 70%;
   border: solid 1px black; }
@@ -65,21 +62,17 @@
   background: #CD5334;
   border-radius: 2px;
   border-style: none;
-  font-size: 50px;
+  font-size: 1em;
   font-family: "Oswald", sans-serif; }
 
 .duringWalk-endWalk-button {
   color: white;
-  font-size: 50px;
+  font-size: 2em;
   font-family: "Oswald", sans-serif;
   border: 0.5em solid #17BEBB;
-  border-radius: 0.5em;
   background-color: #17BEBB;
-  padding: 15px;
-  width: 50%;
-  margin-left: 25%;
-  position: absolute;
-  bottom: 40px; }
+  width: 100%;
+  position: fixed; }
 
 .duringWalk-endWalk-modalHolder {
   z-index: 1;
@@ -95,30 +88,28 @@
   color: white;
   width: 80%;
   margin-left: 10%;
-  font-size: 50px; }
+  font-size: 2em; }
 
 .login-passwordReset-modal-actionText {
-  font-size: 70px;
+  font-size: 2em;
   margin-bottom: 100px;
   padding-top: 50px; }
 
 .duringWalk-endWalk-confirm-button {
-  padding: 20px;
-  font-size: 50px;
+  font-size: 1em;
   font-family: "Oswald", sans-serif;
   color: white;
   background-color: #17BEBB;
-  border: 1em solid #17BEBB;
+  border: 0.5em solid #17BEBB;
   border-radius: 0.5em;
   margin: 20px; }
 
 .duringWalk-endWalk-deny-button {
-  padding: 20px;
-  font-size: 50px;
+  font-size: 1em;
   font-family: "Oswald", sans-serif;
   color: white;
   background-color: #CD5334;
-  border: 1em solid #CD5334;
+  border: 0.5em solid #CD5334;
   border-radius: 0.5em;
   margin: 20px; }
 
@@ -226,12 +217,11 @@
       position: fixed;
       bottom: 1em; }
   .inputDest-form .inputDest-form-suggested-destinations .inputDest-form-suggested-destinations-prompt {
-    text-align: center;
     font-size: 2em;
-    text-decoration: underline;
+    font-weight: bold;
     margin-top: 1em; }
   .inputDest-form .inputDest-form-suggested-destinations .inputDest-form-suggested-destinations-list {
-    font-size: 2em; }
+    font-size: 1.5em; }
     .inputDest-form .inputDest-form-suggested-destinations .inputDest-form-suggested-destinations-list li {
       margin-top: .5em;
       margin-bottom: .5em; }
@@ -240,7 +230,7 @@
   display: none; }
 
 .pac-item {
-  font-size: 3em;
+  font-size: 2em;
   line-height: 1.5em; }
 
 .pac-item-query {
@@ -277,16 +267,17 @@
 
 #login-signIn-email {
   font-size: 1em;
-  margin: 10px;
+  margin: 10px 0 20px;
   border: solid 1px #2E282A; }
 
 #login-signIn-password {
   font-size: 1em;
-  margin: 10px;
+  margin: 10px 0 20px;
   border: solid 1px #2E282A; }
 
 .login-signIn-buttonLink {
-  margin-left: 40%; }
+  display: flex;
+  justify-content: center; }
 
 .login-signIn-button {
   font-size: 1em;
@@ -305,14 +296,10 @@
   margin-top: 50px; }
 
 .login-signIn-register {
-  width: 30%;
+  font-size: 0.75em;
   margin-top: 50px;
-  margin-left: 35%;
-  text-align: center;
-  background-color: #17BEBB;
-  border: 1em solid #17BEBB;
-  border-radius: 0.5em;
-  color: white; }
+  margin-bottom: 0.5em;
+  color: #574c4f; }
 
 .login-register-modalHolder, .login-passwordReset-modalHolder {
   z-index: 1;
@@ -354,26 +341,26 @@
   margin-left: 5%; }
 
 .login-register-modal-title {
-  margin-top: 100px;
+  margin: 1em 0;
   text-align: center;
   color: white;
   font-family: "Dosis", sans-serif;
-  font-size: 2em; }
+  font-size: 1.5em; }
 
 .login-register-field-modalLabel {
   color: white; }
 
 #login-register-email {
   font-size: 1em;
-  margin: 10px; }
+  margin: 10px 0px; }
 
 #login-register-password {
   font-size: 1em;
-  margin: 10px; }
+  margin: 10px 0px; }
 
 #login-register-name {
   font-size: 1em;
-  margin: 10px; }
+  margin: 10px 0px; }
 
 .login-register-button {
   font-size: 1em;
@@ -431,6 +418,7 @@
   width: 80%;
   margin-left: 10%;
   font-family: "Oswald", sans-serif;
+  font-size: 2em;
   color: #2E282A;
   padding-bottom: 4em; }
   .walkInfo-content h2 {
@@ -443,6 +431,10 @@
     float: left; }
   .walkInfo-content .walkInfo-duration {
     float: right; }
+  .walkInfo-content .walkInfo-test {
+    font-weight: bold; }
+  .walkInfo-content .walkInfo-weather-intro {
+    font-weight: bold; }
   .walkInfo-content .walkInfo-maxDistance-text {
     margin-top: 75px;
     text-align: center;
@@ -451,9 +443,7 @@
   .walkInfo-content .walkInfo-reviews {
     margin-top: 1.2em; }
     .walkInfo-content .walkInfo-reviews h4 {
-      text-decoration: underline;
-      margin-bottom: 0.5em;
-      text-align: center; }
+      margin-bottom: 0.5em; }
     .walkInfo-content .walkInfo-reviews .walkInfo-rating-number {
       float: right; }
   .walkInfo-content .walkInfo-weather-intro {
@@ -469,6 +459,7 @@
 .walkInfo-buttons {
   position: fixed;
   bottom: 0.05em;
+  font-size: 1em;
   width: 100%;
   margin-left: 5%; }
   .walkInfo-buttons button {
@@ -476,11 +467,13 @@
     font-family: "Oswald", sans-serif;
     width: 45%; }
   .walkInfo-buttons .walkInfo-accept {
+    font-size: 1.5em;
     color: white;
     background-color: #17BEBB;
     border: 0.5em solid #17BEBB;
     border-radius: 0.5em; }
   .walkInfo-buttons .walkInfo-decline {
+    font-size: 1.5em;
     color: white;
     background-color: #CD5334;
     border: 0.5em solid #CD5334;
@@ -492,9 +485,8 @@
   bottom: 15px;
   left: 15px;
   right: 15px;
-  font-size: 4em;
-  background-color: black;
-  opacity: 0.7;
+  font-size: 2em;
+  background-color: rgba(0, 0, 0, 0.7);
   color: #f5f5f1; }
   .walkInfo-modal .walkInfo-modal-content {
     width: 80%;
@@ -508,24 +500,24 @@
     margin-top: 1.5em;
     opacity: 1; }
   .walkInfo-modal .walkInfo-modal-nothanks {
+    color: white;
     background-color: #CD5334;
-    border: 3px solid #CD5334;
-    border-radius: 3px;
+    border: 0.5em solid #CD5334;
+    border-radius: 0.5em;
     opacity: 1; }
   .walkInfo-modal .walkInfo-modal-takewalk {
+    color: white;
     background-color: #17BEBB;
-    border: 3px solid #17BEBB;
-    border-radius: 3px;
+    border: 0.5em solid #17BEBB;
+    border-radius: 0.5em;
     opacity: 1; }
   .walkInfo-modal walkInfo-modal-header-main {
     font-size: 1em;
     opacity: 1; }
   .walkInfo-modal .walkInfo-alternate-title {
-    text-decoration: underline;
     margin-bottom: 0.5em;
     opacity: 1; }
   .walkInfo-modal a {
-    text-decoration: underline;
     color: #f5f5f1;
     opacity: 1; }
   .walkInfo-modal li {
@@ -533,15 +525,14 @@
     opacity: 1; }
 
 .ratings-form-container {
-  width: 80%;
-  margin-left: 10%; }
+  font-size: 2em;
+  width: 90%;
+  margin-left: 5%; }
   .ratings-form-container form {
     display: flex;
     flex-direction: column; }
     .ratings-form-container form h2 {
-      margin-bottom: 1em;
-      text-decoration: underline;
-      text-align: center; }
+      margin-bottom: 1em; }
     .ratings-form-container form input {
       font-size: 1em; }
     .ratings-form-container form .ratings-category {
@@ -556,16 +547,11 @@
         justify-content: flex-end;
         text-align: right; }
         .ratings-form-container form .ratings-category .ratings-stars .rating {
-          display: flex;
-          flex-direction: row; }
-        .ratings-form-container form .ratings-category .ratings-stars .star {
-          text-align: right;
-          display: flex;
-          justify-content: flex-end; }
+          display: flex; }
         .ratings-form-container form .ratings-category .ratings-stars .filled {
           color: #CD5334; }
     .ratings-form-container form .fa-star {
-      margin-left: 0.5em; }
+      margin-left: 0.3em; }
     .ratings-form-container form textarea {
       font-size: 1em; }
     .ratings-form-container form .ratings-rate {
@@ -593,6 +579,10 @@
   color: #CD5334;
   text-align: center; }
 
+.ratings-comments {
+  border: none;
+  margin-top: 0.5em; }
+
 body {
   background: #f5f5f1;
   font-family: "Oswald", sans-serif; }
@@ -614,7 +604,15 @@ body {
         color: #17BEBB; }
 
 .caniwalk-header-options-container {
-  position: relative; }
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.caniwalk-header-myAccount {
+  margin-right: 1em; }
+  .caniwalk-header-myAccount a {
+    color: #2E282A; }
 
 .caniwalk-header-options {
   position: absolute;
