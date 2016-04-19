@@ -398,7 +398,8 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
    }).then(function successCallback(response, data){
       console.log(response);
       $scope.completedTrips = [];
-      for(var tripNum=0; tripNum < response.data.trips.length; tripNum++){
+      for(var tripNum = 0; tripNum < response.data.trips.length; tripNum++){
+//this is gating the trips so that we only get trips that are completed
          if(response.data.trips[tripNum].completion === true){
             $scope.completedTrips.push(response.data.trips[tripNum]);
          }
@@ -420,8 +421,8 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
       var longestWalk = walkDist.pop();
       console.log(longestWalk);
 
-      $('.dashboard-total-distance').text('Total Distance Walked: '+ totalDistance + ' miles');
-      $('.dashboard-longest-walk').text('Longest Walk: '+longestWalk+' miles');
+      $('.dashboard-total-distance-value').html(totalDistance + ' miles');
+      $('.dashboard-longest-walk-value').html(longestWalk +' miles');
    })
 
    // the below code controls the accordion function
@@ -446,12 +447,13 @@ canIWalk.directive('accountDashboard', function(){
       restrict: 'E',
       template: '<li ng-repeat= "trip in completedTrips track by $index" ng-click="findIndex($index)">' +
       '<div>{{ completedTrips[$index].trip_name }}</div>'+
-      '<div>{{completedTrips[$index].walked_at | date:shortDate}}</div>'+
-      '<div>{{completedTrips[$index].distance}} miles</div>'+
+      '<div class="dashboard-trip-numbers">{{completedTrips[$index].walked_at | date:shortDate}}</div>'+
+      '<div class="dashboard-trip-numbers">{{completedTrips[$index].distance}} miles</div>'+
                    '<ul class="dashboard-ratings" ng-show="openRating($index)">'+
                       '<li>Safety: {{completedTrips[$index].ratings[0].safety_rating}} </li>'+
                       '<li>Ease: {{completedTrips[$index].ratings[0].ease_rating}}</li>' +
                       '<li>Enjoyability: {{completedTrips[$index].ratings[0].enjoyability_rating}}</li>' +
+                      '<li>Accessibility: {{completedTrips[$index].ratings[0].accessibility_rating}}' +
                       '<li>Comments: {{completedTrips[$index].ratings[0].comment}}</li>'+
                    '</ul>'+
                 '</li>',

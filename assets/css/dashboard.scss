@@ -10,7 +10,7 @@
 
    }
    .dashboard-walk-history {
-      // font-size: 4em;
+      font-size: 1.5em;
       margin-top: 5%;
       li {
          margin-top: 5%;
@@ -23,7 +23,7 @@
 //this is the styling for the ratings drop-down when you click on a walk in the dashboard
 .dashboard-ratings {
    li {
-      font-size: 1.5em;
+      font-size: 0.8em;
    }
 }
 
@@ -50,4 +50,20 @@
       bottom: 0;
       width: 100%;
    }
+}
+.dashboard-total-distance {
+   font-weight: bold;
+   span {
+      font-weight: normal;
+   }
+}
+.dashboard-longest-walk {
+   font-weight: bold;
+   span {
+      font-weight: normal;
+   }
+}
+
+.dashboard-trip-numbers {
+   color: lighten($Text, 40%);
 }

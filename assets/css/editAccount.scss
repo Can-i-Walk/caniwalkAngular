@@ -3,7 +3,7 @@
    display: flex;
    width: 80%;
    margin-left: 10%;
-   // font-size: 4em;
+   font-size: 2em;
    padding-bottom: 30%;
    form {
       display: flex;
@@ -26,13 +26,15 @@
       }
       input {
          font-size: 1em;
+         // width: 100%;
       }
       .editAccount-password-prompt {
         margin-top: 1em;
-        font-size: .8em;
+        font-size: 0.8em;
         text-align: center;
       }
       .editAccount-password-container {
+         margin-top: 1em;
         input {
           margin-bottom: .8em;
         }
@@ -45,7 +47,7 @@
          margin-left: 15%;
       }
       .editAccount-distance-input {
-         width: 150px;
+         width: 125px;
       }
       .editAccount-distance-input::-webkit-inner-spin-button,       .editAccount-distance-input::-webkit-outer-spin-button,  {
          -webkit-appearance: none;
@@ -54,13 +56,13 @@
          display: none;
       }
       .editAccount-accessibility + .editAccount-accessibility-checkbox {
-         width: 10px;
-         height: 10px;
-         border: 0.2em solid $Text;
+         width: 0.75em;
+         height: 0.75em;
+         border: 0.1em solid $Text;
       }
       .editAccount-accessibility:checked + .editAccount-accessibility-checkbox{
          background-color: $Teal;
-         border: 0.2em solid $Text;
+         border: 0.1em solid $Text;
       }
       .editAccount-accessibility-select {
          margin-left: 2em;
@@ -74,13 +76,15 @@
       }
       button {
          position: fixed;
-         bottom: 15px;
-         left: 21%;
+         // font-size: 1em;
+         bottom: 0;
+         left: 0;
          font-size: 1em;
          background-color: $Teal;
          border: 0.5em solid $Teal;
-         border-radius: 0.5em;
+         // border-radius: 0.5em;
          color: white;
+         width: 100%;
       }
    }
 }
