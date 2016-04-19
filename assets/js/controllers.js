@@ -289,7 +289,7 @@ canIWalk.controller('POIController', ['$scope', '$http', function($scope, $http)
           console.log(response);
           console.log("successful POI creation")
           $('.duringWalk-map-createPOI-fields-input').val("");
-          $('.duringWalk-map-createPOI').html("New Favorite place saved! Add another?");
+          $('.duringWalk-map-createPOI').html("Place saved! Add another!");
         }, function errorCallback(response) {
           console.log("unsuccessful POI creation");
           console.log(response);

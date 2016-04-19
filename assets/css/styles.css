@@ -43,18 +43,29 @@
       color: #17BEBB; }
 
 .duringWalk-map {
-  font-size: 1em;
-  height: 35em;
-  width: 100%; }
+  height: 33em;
+  width: 90%;
+  margin-left: 5%; }
+
+.duringWalk-content {
+  margin-bottom: 100px; }
 
 .duringWalk-map-createPOI-container {
+  position: relative;
   text-align: center;
   margin-top: 20px;
   font-size: 2em; }
 
+.duringWalk-map-createPOI-fields {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 90%;
+  margin-left: 5%; }
+
 .duringWalk-map-createPOI-fields-input {
   font-size: 1em;
-  font-family: "Oswald", sans-serif;
+  font-family: "Droid Sans", sans-serif;
   width: 70%;
   border: solid 1px black; }
 
@@ -62,18 +73,20 @@
   color: white;
   background: #CD5334;
   border-radius: 2px;
-  border-style: none;
+  border-style: solid 1px #CD5334;
   font-size: 1em;
-  font-family: "Oswald", sans-serif; }
+  font-family: "Droid Sans", sans-serif;
+  margin-left: -10px; }
 
 .duringWalk-endWalk-button {
   color: white;
   font-size: 2em;
-  font-family: "Oswald", sans-serif;
+  font-family: "Droid Sans", sans-serif;
   border: 0.5em solid #17BEBB;
   background-color: #17BEBB;
   width: 100%;
-  position: fixed; }
+  position: fixed;
+  bottom: 0px; }
 
 .duringWalk-endWalk-modalHolder {
   z-index: 1;
@@ -422,8 +435,8 @@
   margin-top: 50px; }
 
 .walkInfo-content {
-  width: 80%;
-  margin-left: 10%;
+  width: 90%;
+  margin-left: 5%;
   font-family: "Oswald", sans-serif;
   font-size: 2em;
   color: #2E282A;
@@ -431,8 +444,7 @@
   .walkInfo-content h2 {
     text-align: center; }
   .walkInfo-content .walkInfo-map {
-    font-size: 300px;
-    height: 800px;
+    height: 15em;
     width: 100%; }
   .walkInfo-content .walkInfo-distance {
     float: left; }
