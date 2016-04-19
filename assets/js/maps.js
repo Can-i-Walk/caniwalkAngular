@@ -1,5 +1,5 @@
 //find the route information
-function findTrip(destLatLng, destName, userID, token){
+function findTrip(destLatLng, destName, userID, token, $scope){
   console.log(userID);
   // console.log('find trip function working');
   var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
@@ -122,6 +122,7 @@ function findTrip(destLatLng, destName, userID, token){
                        $('.walkInfo-rating-safety').html("No ratings available");
                   } else {
                      console.log(userAccessibility);
+
                      $('.walkInfo-rating-safety').html("Safety: <span class='walkInfo-rating-number'>" + avgRate.safety_average + ' / 5</span>');
                      $('.walkInfo-rating-ease').html("Ease: <span class='walkInfo-rating-number'>" + avgRate.ease_average + ' / 5</span>');
                      $('.walkInfo-rating-enjoyability').html("Enjoyability: <span class='walkInfo-rating-number'>" + avgRate.enjoyability_average + ' / 5</span>');

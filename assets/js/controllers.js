@@ -13,13 +13,6 @@ canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $ht
          console.log('Rating selected: ' + rating);
        };
 
-   // $('.ratings-stars').on('click', function(){
-   //    console.log($scope.rating.rating1); //gets rating 1 2 3 and 4 that correspond to corresponding fields.
-   //    var rate = $scope.rating;
-   //    if(rate.rating1 > 0 && rate.rating2 > 0 && rate.rating3 > 0 && rate.rating4 > 0){
-   //       console.log('ratings made');
-   //    }
-   // }); this function is purely for seeing what we get on clicks, not needed for functionality
    $scope.sendRatings = function(){
       console.log('submitted');
       var rate = $scope.rating;
@@ -108,11 +101,13 @@ canIWalk.directive('ratingsStars', function(){
 //start map controller, it finds the map.
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
 
+
     $scope.dest = mapFactory.getDest();
     $scope.latLng = mapFactory.getLatLng();
     var userID = localStorage.getItem('ID');
     var token = localStorage.getItem('token');
-    findTrip($scope.latLng, $scope.dest, userID, token);
+    findTrip($scope.latLng, $scope.dest, userID, token)
+
 }]); //end gmap controller, finds map
 
 //during walk controller, starts the map for 'during walk in duringWalkMap.js
@@ -376,6 +371,8 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
 
 //start of account dashboard controller
 canIWalk.controller('accountDashboardController', ['$scope', '$http', function($scope, $http){
+   this.rating1 = -1;
+
 
    var token = localStorage.getItem('token');
    var id = localStorage.getItem('ID');
@@ -434,7 +431,6 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
 
 }])//end of account dashboard controller
 
-
 // start of account dashboard directive
 canIWalk.directive('accountDashboard', function(){
    return {
@@ -444,7 +440,7 @@ canIWalk.directive('accountDashboard', function(){
       '<div class="dashboard-trip-numbers">{{completedTrips[$index].walked_at | date:shortDate}}</div>'+
       '<div class="dashboard-trip-numbers">{{completedTrips[$index].distance}} miles</div>'+
                    '<ul class="dashboard-ratings" ng-show="openRating($index)">'+
-                      '<li>Safety: {{completedTrips[$index].ratings[0].safety_rating}} </li>'+
+                      '<li>Safety: {{completedTrips[$index].ratings[0].safety_rating}}</li>'+
                       '<li>Ease: {{completedTrips[$index].ratings[0].ease_rating}}</li>' +
                       '<li>Enjoyability: {{completedTrips[$index].ratings[0].enjoyability_rating}}</li>' +
                       '<li>Accessibility: {{completedTrips[$index].ratings[0].accessibility_rating}}' +

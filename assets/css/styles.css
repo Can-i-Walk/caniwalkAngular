@@ -4,7 +4,7 @@
 .dashboard-profile {
   width: 80%;
   margin-left: 10%;
-  font-family: "Oswald", sans-serif; }
+  font-family: "Droid Sans", sans-serif; }
   .dashboard-profile h3 {
     font-size: 2em;
     font-weight: bold; }
@@ -133,7 +133,8 @@
   width: 80%;
   margin-left: 10%;
   font-size: 2em;
-  padding-bottom: 30%; }
+  padding-bottom: 30%;
+  font-family: "Droid Sans", sans-serif; }
   .editAccount-form-container form {
     display: flex;
     flex-direction: column;
@@ -435,7 +436,7 @@
 .walkInfo-content {
   width: 80%;
   margin-left: 10%;
-  font-family: "Oswald", sans-serif;
+  font-family: "Droid Sans", sans-serif;
   font-size: 2em;
   color: #2E282A;
   padding-bottom: 4em; }
@@ -545,7 +546,8 @@
 .ratings-form-container {
   font-size: 2em;
   width: 90%;
-  margin-left: 5%; }
+  margin-left: 5%;
+  font-family: "Droid Sans", sans-serif; }
   .ratings-form-container form {
     display: flex;
     flex-direction: column; }
