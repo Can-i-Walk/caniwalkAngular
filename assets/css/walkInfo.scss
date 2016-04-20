@@ -90,7 +90,7 @@
 //styling for the accept walk and decline walk buttons
 .walkInfo-buttons {
    position: fixed;
-   bottom: 0;
+   bottom: -1px;
    font-size: 1em;
    width: 100%;
    button {
@@ -108,13 +108,13 @@
       float: left;
       color: white;
       background-color: $Teal;
-      border: none;
+      border: 2px solid $Teal;
    }
    .walkInfo-decline {
      float: right;
      color: white;
      background-color: $BurntOrange;
-     border: none;
+     border: 2px solid $BurntOrange;
    }
 }//end styling for the accept/decline buttons
 
@@ -135,6 +135,10 @@
       margin-top: 30%;
       text-align: center;
       opacity: 1;
+   }
+   .rider-logo {
+     width: 125px;
+     height: 43px;
    }
    button {
       font-size: 1em;

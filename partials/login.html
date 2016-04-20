@@ -5,7 +5,7 @@
   <div class="login-signIn">
     <form ng-controller="loginController" ng-submit="login()">
       <label class="login-signIn-field-label" for="login-signIn-email">Email</label>
-      <input ng-model="loginEmail" id="login-signIn-email" type="text" placeholder="canI@walk.com">
+      <input ng-model="loginEmail" id="login-signIn-email" type="text" placeholder="cani@walk.com">
       <label class="login-signIn-field-label" for="login-signIn-password">Password</label>
       <input ng-model="loginPassword" id="login-signIn-password" type="password" placeholder="password">
       <div class="login-signIn-errorContainer"></div>
@@ -22,14 +22,14 @@
       <div class="login-passwordReset-modalHolder" ng-show="passwordModal">
         <div class="login-passwordReset-modal">
           <label class="login-register-field-modalLabel" for="login-passwordReset-email-input">Email</label>
-          <input ng-model="passwordResetEmail" id="login-passwordReset-email-input" type="text" placeholder="canI@walk.com"><br>
+          <input ng-model="passwordResetEmail" id="login-passwordReset-email-input" type="text" placeholder="cani@walk.com"><br>
           <button class="login-passwordReset-email-button" type="submit" ng-click="initiatePasswordChange()">Create New Password</button>
           <h2 class="login-passwordReset-modal-actionText"></h2>
           <h3 ng-click="passwordModal=false" class="login-passwordReset-closeModal">Back to Login</h3>
         </div>
       </div>
     </div>
-    <h3 ng-click="modal=true" class="login-signIn-register">Ready to start walking? Register!</h3>
+    <h3 ng-click="modal=true" class="login-signIn-register">Register to start walking!</h3>
 
 
     <div class="login-register-modalHolder" ng-show="modal">
@@ -37,14 +37,14 @@
         <div class="login-register-modalfields">
           <form class="login-register-modalfields-form" ng-controller="registrationController" ng-submit="register()">
             <label class="login-register-field-modalLabel" for="login-register-name">Name</label>
-            <input ng-model="username" id="login-register-name" type="text" placeholder="Your Name"><br>
+            <input ng-model="username" id="login-register-name" type="text" placeholder="name"><br>
             <label class="login-register-field-modalLabel" for="login-register-email">Email</label>
-            <input ng-model="email" id="login-register-email" type="text" placeholder="canI@walk.com"><br>
+            <input ng-model="email" id="login-register-email" type="text" placeholder="cani@walk.com"><br>
             <label class="login-register-field-modalLabel" for="login-register-password">Password</label>
             <input ng-model="password" id="login-register-password" type="password" placeholder="password"><br>
             <button class="login-register-button" type="submit">Sign Up</button>
           </form>
-          <h3 ng-click="modal=false" class="login-register-signIn">Already registered?<br>Log In!</h3>
+          <h3 ng-click="modal=false" class="login-register-signIn">Already registered?<br>Back to Login</h3>
         </div>
       </div>
     </div>
