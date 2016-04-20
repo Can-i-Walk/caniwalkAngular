@@ -42,10 +42,37 @@
       }
    }
    .walkInfo-weatherData {
-     margin-top: 25px;
-     div {
-       display: inline-block;
-     }
+     margin-top: 20px;
+    //  div {
+    //    display: inline-block;
+    //  }
+    .walkInfo-weather-icon-container {
+      display: inline-block;
+      // height: 40px;
+      // width: 40px;
+      // float: left;
+    }
+    .walkInfo-weather-icon{
+      height: 35px;
+      width: 35px;
+    }
+    .walkInfo-weather-conditions {
+      display: inline-block;
+      // margin-bottom: 10px;
+      // line-height: 1.2em;
+      // float: right;
+    }
+    .walkInfo-weather-temperature {
+      display: inline-block;
+      // margin-bottom: 10px;
+      // line-height: 1.2em;
+      // float: right;
+    }
+    .walkInfo-weather-sunset {
+      display: inline-block;
+      // display: block;
+      // float: right;
+    }
    }
 }
 
