@@ -94,7 +94,7 @@
 
 .duringWalk-map-createPOI-fields {
   position: absolute;
-  top: 5px;
+  top: 8px;
   left: 0;
   width: 90%;
   margin-left: 5%; }
@@ -506,8 +506,17 @@
     .walkInfo-content .walkInfo-reviews .walkInfo-rating-number {
       float: right; }
   .walkInfo-content .walkInfo-weatherData {
-    margin-top: 25px; }
-    .walkInfo-content .walkInfo-weatherData div {
+    margin-top: 20px; }
+    .walkInfo-content .walkInfo-weatherData .walkInfo-weather-icon-container {
+      display: inline-block; }
+    .walkInfo-content .walkInfo-weatherData .walkInfo-weather-icon {
+      height: 35px;
+      width: 35px; }
+    .walkInfo-content .walkInfo-weatherData .walkInfo-weather-conditions {
+      display: inline-block; }
+    .walkInfo-content .walkInfo-weatherData .walkInfo-weather-temperature {
+      display: inline-block; }
+    .walkInfo-content .walkInfo-weatherData .walkInfo-weather-sunset {
       display: inline-block; }
 
 .walkInfo-map-google {
