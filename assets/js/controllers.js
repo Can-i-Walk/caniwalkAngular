@@ -445,7 +445,7 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
       for(var tripNum = 0; tripNum < response.data.trips.length; tripNum++){
 //this is gating the trips so that we only get trips that are completed
          if(response.data.trips[tripNum].completion === true){
-            $scope.completedTrips.push(response.data.trips[tripNum]);
+            $scope.completedTrips.unshift(response.data.trips[tripNum]);
          }
       };
       console.log($scope.completedTrips);
