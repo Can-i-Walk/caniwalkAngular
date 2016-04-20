@@ -104,7 +104,10 @@ canIWalk.directive('ratingsStars', function(){
 //start map controller, it finds the map.
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
 
-   this.postStars1 = 1;
+   this.postStars1 = -1;
+   this.postStars2 = -1;
+   this.postStars3 = -1;
+   this.postStars4 = -1;
    this.isReadonly = true;
 
     $scope.dest = mapFactory.getDest();
@@ -112,7 +115,6 @@ canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, 
     var userID = localStorage.getItem('ID');
     var token = localStorage.getItem('token');
     findTrip($scope.latLng, $scope.dest, userID, token);
-
 
 }]); //end gmap controller, finds map
 
@@ -237,6 +239,14 @@ canIWalk.factory('mapFactory', function() { // this factory allows communication
     currentLat : null,
     currentLng : null,
     currentDest : null,
+    safetyAverage : null,
+    easeAverage : null,
+    enjoyabilityAverage : null,
+    caneAverage : null,
+    wheelchairAverage: null,
+    walkerAverage : null,
+    scooterAverage : null,
+    accessibilityAverage : null,
     setLatLng : function(lat, lng) {
       this.currentLat = lat;
       this.currentLng = lng;
@@ -255,7 +265,40 @@ canIWalk.factory('mapFactory', function() { // this factory allows communication
     getDest : function() {
       // console.log(this.currentDest);
       return this.currentDest;
-    }
+   },
+   //  //
+   //  setRatings : function(safety, ease, enjoyability, cane, wheelchair, walker, scooter, accessibility){
+   //    this.safetyAverage = safety;
+   //    this.easeAverage = ease
+   //    this.enjoyabilityAverage = enjoyability;
+   //    this.caneAverage = cane;
+   //    this.wheelchairAverage= wheelchair;
+   //    this.walkerAverage = walker;
+   //    this.scooterAverage = scooter;
+   //    this.accessibilityAverage = accessibility;
+   //    return {
+   //       "safety":safety,
+   //       "ease": ease,
+   //       "enjoyability": enjoyability,
+   //       "cane": cane,
+   //       "wheelchair": wheelchair,
+   //       "walker": walker,
+   //       "scooter": scooter,
+   //       "accessibility": accessibility
+   //    }
+   // },
+   //  getRatings : function (){
+   //    return {
+   //       "safety":this.safetyAverage,
+   //       "ease": this.easeAverage,
+   //       "enjoyability": this.enjoyabilityAverage,
+   //       "cane": this.caneAverage,
+   //       "wheelchair": this.wheelchairAverage,
+   //       "walker": this.walkerAverage,
+   //       "scooter": this.scooterAverage,
+   //       "accessibility": this.accessibilityAverage
+   //    }
+   // }
   }
  });//end factory for moving lat and long around b/t partials
 
@@ -377,8 +420,12 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
 
 //start of account dashboard controller
 canIWalk.controller('accountDashboardController', ['$scope', '$http', function($scope, $http){
-   this.rating1 = -1;
 
+   this.postStars1 = 4;
+   this.postStars2 = 5;
+   this.postStars3 = 5;
+   this.postStars4 = 4;
+   this.isReadonly = true;
 
    var token = localStorage.getItem('token');
    var id = localStorage.getItem('ID');
@@ -402,6 +449,10 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
          }
       };
       console.log($scope.completedTrips);
+
+
+// "li:nth-child("+i+")"
+
       console.log('successful GET');
       var total = 0;
       var walkDist = [];
@@ -420,6 +471,21 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
 
       $('.dashboard-total-distance-value').html(totalDistance + ' miles');
       $('.dashboard-longest-walk-value').html(longestWalk +' miles');
+
+      //this is where we'll need to put the ratings color function.
+            // for(var num = 0; num < $scope.completedTrips.length; num ++){
+            //    if($scope.completedTrips[num].ratings.length === 1){
+            //       // for(var i = 0; i <= $scope.completedTrips[num].ratings[0].safety_rating; i++){
+            //          // console.log($scope.completedTrips[num].ratings[0].safety_rating);
+            //          // $scope.postStars1 = $scope.completedTrips[num].ratings[0].safety_rating;
+            //          // $('.target').addClass('filled');
+            //          $('.fa-star').addClass('filled');
+            //          // console.log(postStars1);
+            //          // console.log('check ' + i);
+            //       // }
+            //    }
+            // }
+
    })
 
    // the below code controls the accordion function
@@ -446,10 +512,10 @@ canIWalk.directive('accountDashboard', function(){
       '<div class="dashboard-trip-numbers">{{completedTrips[$index].walked_at | date:shortDate}}</div>'+
       '<div class="dashboard-trip-numbers">{{completedTrips[$index].distance}} miles</div>'+
                    '<ul class="dashboard-ratings" ng-show="openRating($index)">'+
-                      '<li>Safety: {{completedTrips[$index].ratings[0].safety_rating}}</li>'+
-                      '<li>Ease: {{completedTrips[$index].ratings[0].ease_rating}}</li>' +
-                      '<li>Enjoyability: {{completedTrips[$index].ratings[0].enjoyability_rating}}</li>' +
-                      '<li>Accessibility: {{completedTrips[$index].ratings[0].accessibility_rating}}' +
+                      '<li>Safety: <ratings-stars ng-model="account.postStars1" readonly="account.isReadonly" id="safety"></ratings-stars></li>'+
+                      '<li>Ease: <ratings-stars ng-model="account.postStars2" readonly="account.isReadonly"></ratings-stars></li>' +
+                      '<li>Enjoyability: <ratings-stars ng-model="account.postStars3" readonly="account.isReadonly"></ratings-stars></li>' +
+                      '<li>Accessibility: <ratings-stars ng-model="account.postStars4" readonly="account.isReadonly"></ratings-stars>' +
                       '<li>Comments: {{completedTrips[$index].ratings[0].comment}}</li>'+
                    '</ul>'+
                 '</li>',

@@ -67,3 +67,29 @@
 .dashboard-trip-numbers {
    color: lighten($Text, 40%);
 }
+
+//stars styling
+.dashboard-ratings {
+   // display: flex;
+   // justify-content: space-between;
+   margin-bottom: 1em;
+   width: 100%;
+   li {
+      display: flex;
+      justify-content: space-between;
+   }
+   .ratings-stars {
+      display: flex;
+
+      .rating {
+      }
+
+
+      .fa-star {
+         margin-left: 0.3em;
+      }
+   }
+}
+.filled {
+   color: $BurntOrange;
+}

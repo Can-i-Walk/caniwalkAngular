@@ -46,6 +46,20 @@
 .dashboard-trip-numbers {
   color: #99898e; }
 
+.dashboard-ratings {
+  margin-bottom: 1em;
+  width: 100%; }
+  .dashboard-ratings li {
+    display: flex;
+    justify-content: space-between; }
+  .dashboard-ratings .ratings-stars {
+    display: flex; }
+    .dashboard-ratings .ratings-stars .fa-star {
+      margin-left: 0.3em; }
+
+.filled {
+  color: #CD5334; }
+
 .duringWalk-header {
   padding: .5em;
   font-size: 2em;
@@ -505,10 +519,11 @@
     text-align: right; }
     .ratings-category .ratings-stars .rating {
       display: flex; }
-    .ratings-category .ratings-stars .filled {
-      color: #CD5334; }
     .ratings-category .ratings-stars .fa-star {
       margin-left: 0.3em; }
+
+.filled {
+  color: #CD5334; }
 
 .walkInfo-buttons {
   position: fixed;

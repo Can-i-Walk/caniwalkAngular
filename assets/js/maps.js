@@ -1,5 +1,7 @@
 //find the route information
-function findTrip(destLatLng, destName, userID, token, $scope){
+var postStars1 = 0;
+
+function findTrip(destLatLng, destName, userID, token, setRatings){
   console.log(userID);
   // console.log('find trip function working');
   var directionsDisplay = new google.maps.DirectionsRenderer;    //gets information from google that is an answer to the service
@@ -122,30 +124,50 @@ function findTrip(destLatLng, destName, userID, token, $scope){
                        $('.walkInfo-rating-safety').html("No ratings available");
                   } else {
                      console.log(userAccessibility);
+                     // setRatings(avgRate.safety_average, avgRate.ease_average, avgRate.enjoyability_average, avgRate.cane_accessibility, avgRate.wheelchair_accessibility, avgRate.walker_accessibility, avgRate.scooter_accessibility, avgRate.accessibility_average);
 
-                     // console.log(avgRate.safety_average);
-                     // rating1 = avgRate.safety_average;
-                     // console.log(rating1);
-                     postStars1 = avgRate.safety_average;
-                     console.log(postStars1);
+                     for (var num = 0; num <= avgRate.safety_average; num ++){
+                        $('#safety').children().children().children("li:nth-child("+num+")").addClass('filled');
+                     };
+                     for (var num = 0; num <= avgRate.ease_average; num ++){
+                        $('#ease').children().children().children("li:nth-child("+num+")").addClass('filled');
+                     };
+                     for (var num = 0; num <= avgRate.enjoyability_average; num ++){
+                        $('#enjoyability').children().children().children("li:nth-child("+num+")").addClass('filled');
+                     };
                      // $('.walkInfo-rating-safety').html('Safety: <ratings-stars ng-model="'+avgRate.safety_average+'">'+avgRate.safety_average+ ' /5</ratings-stars>')
-                     $('.walkInfo-rating-ease').html("Ease: <span class='walkInfo-rating-number'>" + avgRate.ease_average + ' / 5</span>');
-                     $('.walkInfo-rating-enjoyability').html("Enjoyability: <span class='walkInfo-rating-number'>" + avgRate.enjoyability_average + ' / 5</span>');
+                     // $('.walkInfo-rating-ease').html("Ease: <span class='walkInfo-rating-number'>" + avgRate.ease_average + ' / 5</span>');
+                     // $('.walkInfo-rating-enjoyability').html("Enjoyability: <span class='walkInfo-rating-number'>" + avgRate.enjoyability_average + ' / 5</span>');
                      $('.walkInfo-rating-comments').html('Comments: ');
                      for(var i = 0; i < avgRate.comments.length; i++){
                         $('.walkInfo-rating-comments').append('<p>- '+avgRate.comments[i]+'</p>')
                      };
 // gates the accessibility rating. Checks to see if user has an accessibility, type of, and then shows that specific rating for accessibility.
                      if(userAccessibility === 'Cane'){
-                        $('.walkInfo-rating-accessibility').html("Cane Accessibility: <span class='walkInfo-rating-number'>" + avgRate.cane_accessibility + ' / 5</span>');
+                        for (var num = 0; num <= avgRate.cane_accessibility; num ++){
+                           $('#accessibility').children().children().children("li:nth-child("+num+")").addClass('filled');
+                        };
+                        // $('.walkInfo-rating-accessibility').html("Cane Accessibility: <span class='walkInfo-rating-number'>" + avgRate.cane_accessibility + ' / 5</span>');
                      } else if (userAccessibility === 'Walker'){
-                        $('.walkInfo-rating-accessibility').html("Walker Accessibility: <span class='walkInfo-rating-number'>" + avgRate.walker_accessibility + ' / 5</span>');
+                        for (var num = 0; num <= avgRate.walker_accessibility; num ++){
+                           $('#accessibility').children().children().children("li:nth-child("+num+")").addClass('filled');
+                        };
+                        // $('.walkInfo-rating-accessibility').html("Walker Accessibility: <span class='walkInfo-rating-number'>" + avgRate.walker_accessibility + ' / 5</span>');
                      } else if (userAccessibility === 'Wheelchair'){
-                        $('.walkInfo-rating-accessibility').html("Wheelchair Accessibility: <span class='walkInfo-rating-number'>" + avgRate.wheelchair_accessibility + ' / 5</span>');
+                        for (var num = 0; num <= avgRate.wheelchair_accessibility; num ++){
+                           $('#accessibility').children().children().children("li:nth-child("+num+")").addClass('filled');
+                        };
+                        // $('.walkInfo-rating-accessibility').html("Wheelchair Accessibility: <span class='walkInfo-rating-number'>" + avgRate.wheelchair_accessibility + ' / 5</span>');
                      } else if (userAccessibility === 'Scooter'){
-                        $('.walkInfo-rating-accessibility').html("Scooter Accessibility: <span class='walkInfo-rating-number'>" + avgRate.scooter_accessibility + ' / 5</span>');
+                        for (var num = 0; num <= avgRate.scooter_accessibility; num ++){
+                           $('#accessibility').children().children().children("li:nth-child("+num+")").addClass('filled');
+                        };
+                        // $('.walkInfo-rating-accessibility').html("Scooter Accessibility: <span class='walkInfo-rating-number'>" + avgRate.scooter_accessibility + ' / 5</span>');
                      } else {
-                        $('.walkInfo-rating-accessibility').html("Accessibility: <span class='walkInfo-rating-number'>" + avgRate.accessibility_average + ' / 5</span>');
+                        for (var num = 0; num <= avgRate.accessibility_average; num ++){
+                           $('#accessibility').children().children().children("li:nth-child("+num+")").addClass('filled');
+                        };
+                        // $('.walkInfo-rating-accessibility').html("Accessibility: <span class='walkInfo-rating-number'>" + avgRate.accessibility_average + ' / 5</span>');
                      }
 
                   }

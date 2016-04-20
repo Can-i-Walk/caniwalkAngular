@@ -26,12 +26,18 @@
       <section class="walkInfo-reviews">
          <h4 class="walkInfo-test">Average User Ratings</h4>
          <ul class="walkInfo-review-list">
-            <li class="ratings-category">Safety:
+            <li class="ratings-category" id="safety">Safety:
                <ratings-stars ng-model="map.postStars1" readonly="map.isReadonly"></ratings-stars>
             </li>
-            <li class="walkInfo-rating-ease"></li>
-            <li class="walkInfo-rating-enjoyability"></li>
-            <li class="walkInfo-rating-accessibility"></li>
+            <li class="ratings-category" id="ease">Ease:
+               <ratings-stars ng-model="map.postStars2" readonly="map.isReadonly"></ratings-stars>
+            </li>
+            <li class="ratings-category" id="enjoyability">Enjoyability:
+               <ratings-stars ng-model="map.postStars3" readonly="map.isReadonly"></ratings-stars>
+            </li>
+            <li class="ratings-category" id="accessibility">Accessibility:
+               <ratings-stars ng-model="map.postStars4" readonly="map.isReadonly"></ratings-stars>
+            </li>
             <li class="walkInfo-rating-comments"></li>
          </ul>
       </section>

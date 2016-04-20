@@ -70,16 +70,16 @@
          display: flex;
       }
 
-      .filled {
-      color: $BurntOrange;
-      }
+
       .fa-star {
          margin-left: 0.3em;
       }
    }
 }
 
-
+.filled {
+color: $BurntOrange;
+}
 // .fa-star {
 //    display: flex;
 //    flex-direction: row;
