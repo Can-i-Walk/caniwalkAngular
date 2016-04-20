@@ -1,6 +1,5 @@
 .duringWalk-header {
-  margin-top: 20px;
-   // text-align: center;
+   padding: .5em;
    font-size: 2em;
    font-family: $Dosis;
    font-weight: bold;
@@ -103,7 +102,7 @@
 .duringWalk-endWalk-confirm-button {
   font:{
     size: 1em;
-    family: $Oswald;
+    family: $DroidSans;
   }
   color: white;
   background-color: $Teal;
@@ -115,7 +114,7 @@
 .duringWalk-endWalk-deny-button {
   font:{
     size: 1em;
-    family: $Oswald;
+    family: $DroidSans;
   }
   color: white;
   background-color: $BurntOrange;
