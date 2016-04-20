@@ -4,17 +4,18 @@
 .dashboard-profile {
   width: 80%;
   margin-left: 10%;
-  font-family: "Oswald", sans-serif; }
+  font-family: "Droid Sans", sans-serif; }
   .dashboard-profile h3 {
     font-size: 2em;
     font-weight: bold; }
   .dashboard-profile .dashboard-walk-history {
+    font-size: 1.5em;
     margin-top: 5%; }
     .dashboard-profile .dashboard-walk-history li {
       margin-top: 5%; }
 
 .dashboard-ratings li {
-  font-size: 1.5em; }
+  font-size: 0.8em; }
 
 .dashboard-edit-profile {
   display: flex;
@@ -31,6 +32,19 @@
     position: fixed;
     bottom: 0;
     width: 100%; }
+
+.dashboard-total-distance {
+  font-weight: bold; }
+  .dashboard-total-distance span {
+    font-weight: normal; }
+
+.dashboard-longest-walk {
+  font-weight: bold; }
+  .dashboard-longest-walk span {
+    font-weight: normal; }
+
+.dashboard-trip-numbers {
+  color: #99898e; }
 
 .duringWalk-header {
   padding: .5em;
@@ -131,7 +145,9 @@
   display: flex;
   width: 80%;
   margin-left: 10%;
-  padding-bottom: 30%; }
+  font-size: 2em;
+  padding-bottom: 30%;
+  font-family: "Droid Sans", sans-serif; }
   .editAccount-form-container form {
     display: flex;
     flex-direction: column;
@@ -152,10 +168,12 @@
       font-size: 1em; }
     .editAccount-form-container form .editAccount-password-prompt {
       margin-top: 1em;
-      font-size: .8em;
+      font-size: 0.8em;
       text-align: center; }
-    .editAccount-form-container form .editAccount-password-container input {
-      margin-bottom: .8em; }
+    .editAccount-form-container form .editAccount-password-container {
+      margin-top: 1em; }
+      .editAccount-form-container form .editAccount-password-container input {
+        margin-bottom: .8em; }
     .editAccount-form-container form .editAccount-preference-header {
       margin-top: 0.5em;
       border-bottom: 1px solid #2E282A;
@@ -163,18 +181,18 @@
       width: 70%;
       margin-left: 15%; }
     .editAccount-form-container form .editAccount-distance-input {
-      width: 150px; }
+      width: 125px; }
     .editAccount-form-container form .editAccount-distance-input::-webkit-inner-spin-button, .editAccount-form-container form .editAccount-distance-input::-webkit-outer-spin-button {
       -webkit-appearance: none; }
     .editAccount-form-container form .editAccount-accessibility {
       display: none; }
     .editAccount-form-container form .editAccount-accessibility + .editAccount-accessibility-checkbox {
-      width: 10px;
-      height: 10px;
-      border: 0.2em solid #2E282A; }
+      width: 0.75em;
+      height: 0.75em;
+      border: 0.1em solid #2E282A; }
     .editAccount-form-container form .editAccount-accessibility:checked + .editAccount-accessibility-checkbox {
       background-color: #17BEBB;
-      border: 0.2em solid #2E282A; }
+      border: 0.1em solid #2E282A; }
     .editAccount-form-container form .editAccount-accessibility-select {
       margin-left: 2em; }
     .editAccount-form-container form .editAccount-maxdistance-info {
@@ -183,13 +201,13 @@
       font-size: 0.5em; }
     .editAccount-form-container form button {
       position: fixed;
-      bottom: 15px;
-      left: 21%;
+      bottom: 0;
+      left: 0;
       font-size: 1em;
       background-color: #17BEBB;
       border: 0.5em solid #17BEBB;
-      border-radius: 0.5em;
-      color: white; }
+      color: white;
+      width: 100%; }
 
 .editAccount-error {
   color: #CD5334;
@@ -471,6 +489,30 @@
     .walkInfo-content .walkInfo-weatherData div {
       display: inline-block; }
 
+.walkInfo-map-google {
+  height: 100%; }
+
+.ratings-category {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  width: 100%; }
+  .ratings-category .ratings-stars {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    text-align: right; }
+    .ratings-category .ratings-stars .rating {
+      display: flex; }
+    .ratings-category .ratings-stars .filled {
+      color: #CD5334; }
+
+.fa-star {
+  display: flex;
+  flex-direction: row;
+  color: #2E282A; }
+
 .walkInfo-buttons {
   position: fixed;
   bottom: 0;
@@ -541,7 +583,8 @@
 .ratings-form-container {
   font-size: 2em;
   width: 90%;
-  margin-left: 5%; }
+  margin-left: 5%;
+  font-family: "Droid Sans", sans-serif; }
   .ratings-form-container form {
     display: flex;
     flex-direction: column; }

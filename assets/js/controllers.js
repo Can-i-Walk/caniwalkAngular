@@ -13,13 +13,6 @@ canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $ht
          console.log('Rating selected: ' + rating);
        };
 
-   // $('.ratings-stars').on('click', function(){
-   //    console.log($scope.rating.rating1); //gets rating 1 2 3 and 4 that correspond to corresponding fields.
-   //    var rate = $scope.rating;
-   //    if(rate.rating1 > 0 && rate.rating2 > 0 && rate.rating3 > 0 && rate.rating4 > 0){
-   //       console.log('ratings made');
-   //    }
-   // }); this function is purely for seeing what we get on clicks, not needed for functionality
    $scope.sendRatings = function(){
       console.log('submitted');
       var rate = $scope.rating;
@@ -68,6 +61,9 @@ canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $ht
 
 //directive for rating page, populates stars and adds select to color functionality
 canIWalk.directive('ratingsStars', function(){
+   function postStars (){
+      this.postStars1 = 2;
+   }
    return {
       restrict: 'E',
       template: '<ul class="ratings-stars">' +
@@ -108,11 +104,15 @@ canIWalk.directive('ratingsStars', function(){
 //start map controller, it finds the map.
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
 
+   this.postStars1 = 1;
+
     $scope.dest = mapFactory.getDest();
     $scope.latLng = mapFactory.getLatLng();
     var userID = localStorage.getItem('ID');
     var token = localStorage.getItem('token');
     findTrip($scope.latLng, $scope.dest, userID, token);
+    
+
 }]); //end gmap controller, finds map
 
 //during walk controller, starts the map for 'during walk in duringWalkMap.js
@@ -174,7 +174,7 @@ canIWalk.controller('destinationController', ['$scope', '$http', 'mapFactory', f
         url: 'https://peaceful-journey-51869.herokuapp.com/trips/destination_generator?max_distance='+usrMaxDistance+'&latitude='+lat+'&longitude='+lng+'&token='+token
       }).then(function successCallback(response) {
         console.log(response);
-        console.log(response.data.suggestions);
+        console.log(response.data);
         if (response.data.suggestions.length > 0){
           $scope.destinations = response.data.suggestions;
         } else {
@@ -376,6 +376,8 @@ canIWalk.controller('loginController', ['$scope', '$http', function($scope, $htt
 
 //start of account dashboard controller
 canIWalk.controller('accountDashboardController', ['$scope', '$http', function($scope, $http){
+   this.rating1 = -1;
+
 
    var token = localStorage.getItem('token');
    var id = localStorage.getItem('ID');
@@ -392,7 +394,8 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
    }).then(function successCallback(response, data){
       console.log(response);
       $scope.completedTrips = [];
-      for(var tripNum=0; tripNum < response.data.trips.length; tripNum++){
+      for(var tripNum = 0; tripNum < response.data.trips.length; tripNum++){
+//this is gating the trips so that we only get trips that are completed
          if(response.data.trips[tripNum].completion === true){
             $scope.completedTrips.push(response.data.trips[tripNum]);
          }
@@ -414,8 +417,8 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
       var longestWalk = walkDist.pop();
       console.log(longestWalk);
 
-      $('.dashboard-total-distance').text('Total Distance Walked: '+ totalDistance + ' miles');
-      $('.dashboard-longest-walk').text('Longest Walk: '+longestWalk+' miles');
+      $('.dashboard-total-distance-value').html(totalDistance + ' miles');
+      $('.dashboard-longest-walk-value').html(longestWalk +' miles');
    })
 
    // the below code controls the accordion function
@@ -433,19 +436,19 @@ canIWalk.controller('accountDashboardController', ['$scope', '$http', function($
 
 }])//end of account dashboard controller
 
-
 // start of account dashboard directive
 canIWalk.directive('accountDashboard', function(){
    return {
       restrict: 'E',
       template: '<li ng-repeat= "trip in completedTrips track by $index" ng-click="findIndex($index)">' +
       '<div>{{ completedTrips[$index].trip_name }}</div>'+
-      '<div>{{completedTrips[$index].walked_at | date:shortDate}}</div>'+
-      '<div>{{completedTrips[$index].distance}} miles</div>'+
+      '<div class="dashboard-trip-numbers">{{completedTrips[$index].walked_at | date:shortDate}}</div>'+
+      '<div class="dashboard-trip-numbers">{{completedTrips[$index].distance}} miles</div>'+
                    '<ul class="dashboard-ratings" ng-show="openRating($index)">'+
-                      '<li>Safety: {{completedTrips[$index].ratings[0].safety_rating}} </li>'+
+                      '<li>Safety: {{completedTrips[$index].ratings[0].safety_rating}}</li>'+
                       '<li>Ease: {{completedTrips[$index].ratings[0].ease_rating}}</li>' +
                       '<li>Enjoyability: {{completedTrips[$index].ratings[0].enjoyability_rating}}</li>' +
+                      '<li>Accessibility: {{completedTrips[$index].ratings[0].accessibility_rating}}' +
                       '<li>Comments: {{completedTrips[$index].ratings[0].comment}}</li>'+
                    '</ul>'+
                 '</li>',
