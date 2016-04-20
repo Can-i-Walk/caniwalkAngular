@@ -11,7 +11,7 @@
 <div class="ratings-container" ng-controller="RatingController as rating">
    <div class="ratings-form-container">
       <form class="ratings-form" ng-submit="sendRatings()">
-         <h2 class="ratings-form-header">Rate Your Walk</h2>
+         <h2 class="ratings-form-header">Rate your walk</h2>
          <p class="ratings-error-message"></p>
          <label class="ratings-category">
             <h3>Safety</h3>
@@ -30,12 +30,14 @@
             <h3>Accessibility</h3>
             <ratings-stars ng-model="rating.rating4" on-rating-select="rating.rateFunction(rating)"></ratings-stars>
          </label>
-         <label>Comments</label>
-         <textarea class="ratings-comments" placeholder="Any Comments?"></textarea>
-         <button class="ratings-rate" type="submit">Submit Ratings</button>
-         <a href="#/input-destination">
-            <button ng-click="noThanks()" class="ratings-no-rate">No Thanks</button>
-         </a>
+         <label>Walk comments</label>
+         <textarea class="ratings-comments"></textarea>
+         <div class="ratings-buttons">
+           <button class="ratings-rate" type="submit">Submit</button>
+           <a href="#/input-destination">
+              <button ng-click="noThanks()" class="ratings-no-rate">No thanks</button>
+           </a>
+         </div>
       </form>
    </div>
 </div>

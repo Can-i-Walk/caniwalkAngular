@@ -45,7 +45,7 @@
 </div>
 <section ng-controller="walkDecisionController">
   <div class="walkInfo-buttons">
-     <button class="walkInfo-accept" ng-click="tripTaken()">Take this walk</button>
+     <button class="walkInfo-accept" ng-click="tripTaken()">Start walk</button>
      <button class="walkInfo-decline" ng-click="modal=true">No thanks</button>
   </div>
   <div class="walkInfo-modal" ng-show="modal">
@@ -56,9 +56,9 @@
            <a><button class="walkInfo-modal-takewalk" ng-click="modal=false">No</button></a>
         </header>
         <ul>
-           <li class="walkInfo-alternate-title">Other transport options:</li>
-           <li><a href="http://godurhamtransit.org/">Durham Public Transit</a></li>
-           <li><a href="https://rider-app.firebaseapp.com/#/">Rider</a></li>
+           <li class="walkInfo-alternate-title">Other options:</li>
+           <li><a href="http://godurhamtransit.org/"><img src="http://godurhamtransit.org/assets/godurham-logo-8dce751c27c1b06871a7b20fccd5746a460b8829d380fe533f4485a4fbb5a9af.jpg" alt="Durham Public Transit"/></a></li>
+           <li><a href="https://rider-app.firebaseapp.com/#/"><img class="rider-logo" src="assets/images/Rider_Logo_White.png" alt="Rider"/></a></li>
         </ul>
      </div>
   </div>

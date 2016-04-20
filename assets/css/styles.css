@@ -76,7 +76,7 @@
   margin-left: 5%; }
 
 .duringWalk-content {
-  margin-bottom: 75px; }
+  margin-bottom: 58px; }
 
 .duringWalk-map-createPOI-container {
   position: relative;
@@ -84,25 +84,32 @@
   margin-top: 20px;
   font-size: 2em; }
 
+.duringWalk-map-createPOI-prompt {
+  color: white;
+  background: #CD5334;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  font-size: .8em;
+  font-family: "Droid Sans", sans-serif; }
+
 .duringWalk-map-createPOI-fields {
   position: absolute;
-  top: -5px;
+  top: 5px;
   left: 0;
   width: 90%;
   margin-left: 5%; }
 
 .duringWalk-map-createPOI-fields-input {
-  font-size: 1em;
+  font-size: .8em;
   font-family: "Droid Sans", sans-serif;
-  width: 70%;
-  border: solid 1px black; }
+  width: 70%; }
 
 .duringWalk-map-createPOI-fields-button {
   color: white;
-  background: #CD5334;
+  background: #17BEBB;
   border-radius: 2px;
-  border-style: solid 1px #CD5334;
-  font-size: 1em;
+  border-style: solid 1px #17BEBB;
+  font-size: .8em;
   font-family: "Droid Sans", sans-serif;
   margin-left: -10px; }
 
@@ -527,7 +534,7 @@
 
 .walkInfo-buttons {
   position: fixed;
-  bottom: 0;
+  bottom: -1px;
   font-size: 1em;
   width: 100%; }
   .walkInfo-buttons button {
@@ -540,12 +547,12 @@
     float: left;
     color: white;
     background-color: #17BEBB;
-    border: none; }
+    border: 2px solid #17BEBB; }
   .walkInfo-buttons .walkInfo-decline {
     float: right;
     color: white;
     background-color: #CD5334;
-    border: none; }
+    border: 2px solid #CD5334; }
 
 .walkInfo-modal {
   position: absolute;
@@ -562,6 +569,9 @@
     margin-top: 30%;
     text-align: center;
     opacity: 1; }
+  .walkInfo-modal .rider-logo {
+    width: 125px;
+    height: 43px; }
   .walkInfo-modal button {
     font-size: 1em;
     margin: 0.5em;
@@ -596,12 +606,13 @@
   font-size: 2em;
   width: 90%;
   margin-left: 5%;
-  font-family: "Droid Sans", sans-serif; }
+  font-family: "Oswald", sans-serif; }
   .ratings-form-container form {
     display: flex;
     flex-direction: column; }
     .ratings-form-container form h2 {
-      margin-bottom: 1em; }
+      margin-bottom: .5em;
+      font-weight: bold; }
     .ratings-form-container form input {
       font-size: 1em; }
     .ratings-form-container form .ratings-category {
@@ -622,28 +633,12 @@
     .ratings-form-container form .fa-star {
       margin-left: 0.3em; }
     .ratings-form-container form textarea {
-      font-size: 1em; }
-    .ratings-form-container form .ratings-rate {
       font-size: 1em;
-      margin-top: 1em;
-      background-color: #17BEBB;
-      border: 0.5em solid #17BEBB;
-      border-radius: 0.5em;
-      width: 70%;
-      margin-left: 15%;
-      color: white; }
-    .ratings-form-container form a .ratings-no-rate {
-      font-size: 1em;
-      margin-top: 1em;
-      background-color: #CD5334;
-      border: 0.5em solid #CD5334;
-      border-radius: 0.5em;
-      width: 70%;
-      margin-left: 15%;
-      color: white; }
+      resize: none;
+      padding-left: 5px; }
 
 .ratings-error-message {
-  text-decoration: underline;
+  font-size: .5em;
   margin-bottom: 1em;
   color: #CD5334;
   text-align: center; }
@@ -651,6 +646,30 @@
 .ratings-comments {
   border: none;
   margin-top: 0.5em; }
+
+.ratings-buttons {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  font-size: 1em;
+  width: 100%; }
+  .ratings-buttons button {
+    font-size: 1em;
+    font-family: "Droid Sans", sans-serif;
+    width: 50%;
+    padding-top: 15px;
+    padding-bottom: 15px; }
+  .ratings-buttons .ratings-rate {
+    float: left;
+    color: white;
+    background-color: #17BEBB;
+    border: 2px solid #17BEBB; }
+  .ratings-buttons .ratings-no-rate {
+    float: right;
+    color: white;
+    background-color: #CD5334;
+    border: 2px solid #CD5334; }
 
 body {
   background: #f5f5f1;
