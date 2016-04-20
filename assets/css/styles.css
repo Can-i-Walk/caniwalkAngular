@@ -508,11 +508,8 @@
       display: flex; }
     .ratings-category .ratings-stars .filled {
       color: #CD5334; }
-
-.fa-star {
-  display: flex;
-  flex-direction: row;
-  color: #2E282A; }
+    .ratings-category .ratings-stars .fa-star {
+      margin-left: 0.3em; }
 
 .walkInfo-buttons {
   position: fixed;
