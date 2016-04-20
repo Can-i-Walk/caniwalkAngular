@@ -223,6 +223,7 @@
     font-weight: bold;
     margin-top: 1em; }
   .inputDest-form .inputDest-form-suggested-destinations .inputDest-form-suggested-destinations-list {
+    margin-bottom: 1em;
     font-size: 1.5em; }
     .inputDest-form .inputDest-form-suggested-destinations .inputDest-form-suggested-destinations-list li {
       margin-top: .5em;
