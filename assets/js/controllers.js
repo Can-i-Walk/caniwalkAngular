@@ -61,9 +61,6 @@ canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $ht
 
 //directive for rating page, populates stars and adds select to color functionality
 canIWalk.directive('ratingsStars', function(){
-   function postStars (){
-      this.postStars1 = 2;
-   }
    return {
       restrict: 'E',
       template: '<ul class="ratings-stars">' +
@@ -74,6 +71,7 @@ canIWalk.directive('ratingsStars', function(){
       scope: {
          ratingValue: '=ngModel',
          onRatingSelect: '&?',
+         readonly: '=?'
       },
       link: function(scope, element, attributes) {
          scope.max = 5; //# of stars to populate ratings-stars
@@ -86,10 +84,12 @@ canIWalk.directive('ratingsStars', function(){
             };
          };
          scope.toggle = function(index){
+            if (scope.readonly == undefined || scope.readonly === false){
                scope.ratingValue = index + 1;
                scope.onRatingSelect({
                   rating: index + 1,
                });
+            }
          };
          scope.$watch('ratingValue', function(oldValue, newValue){
             if(newValue){
@@ -105,13 +105,14 @@ canIWalk.directive('ratingsStars', function(){
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
 
    this.postStars1 = 1;
+   this.isReadonly = true;
 
     $scope.dest = mapFactory.getDest();
     $scope.latLng = mapFactory.getLatLng();
     var userID = localStorage.getItem('ID');
     var token = localStorage.getItem('token');
     findTrip($scope.latLng, $scope.dest, userID, token);
-    
+
 
 }]); //end gmap controller, finds map
 

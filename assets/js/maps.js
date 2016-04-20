@@ -126,7 +126,9 @@ function findTrip(destLatLng, destName, userID, token, $scope){
                      // console.log(avgRate.safety_average);
                      // rating1 = avgRate.safety_average;
                      // console.log(rating1);
-                     $('.walkInfo-rating-safety').html('Safety: <ratings-stars ng-model="'+avgRate.safety_average+'">'+avgRate.safety_average+ ' /5</ratings-stars>')
+                     postStars1 = avgRate.safety_average;
+                     console.log(postStars1);
+                     // $('.walkInfo-rating-safety').html('Safety: <ratings-stars ng-model="'+avgRate.safety_average+'">'+avgRate.safety_average+ ' /5</ratings-stars>')
                      $('.walkInfo-rating-ease').html("Ease: <span class='walkInfo-rating-number'>" + avgRate.ease_average + ' / 5</span>');
                      $('.walkInfo-rating-enjoyability').html("Enjoyability: <span class='walkInfo-rating-number'>" + avgRate.enjoyability_average + ' / 5</span>');
                      $('.walkInfo-rating-comments').html('Comments: ');

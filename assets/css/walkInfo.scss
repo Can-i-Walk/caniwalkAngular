@@ -73,15 +73,18 @@
       .filled {
       color: $BurntOrange;
       }
+      .fa-star {
+         margin-left: 0.3em;
+      }
    }
 }
 
 
-.fa-star {
-   display: flex;
-   flex-direction: row;
-   color: $Text;
-}
+// .fa-star {
+//    display: flex;
+//    flex-direction: row;
+//    color: $Text;
+// }
 
 
 //styling for the accept walk and decline walk buttons
