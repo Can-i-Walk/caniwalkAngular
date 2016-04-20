@@ -61,6 +61,9 @@ canIWalk.controller('RatingController', ['$scope', '$http', function($scope, $ht
 
 //directive for rating page, populates stars and adds select to color functionality
 canIWalk.directive('ratingsStars', function(){
+   function postStars (){
+      this.postStars1 = 2;
+   }
    return {
       restrict: 'E',
       template: '<ul class="ratings-stars">' +
@@ -101,12 +104,14 @@ canIWalk.directive('ratingsStars', function(){
 //start map controller, it finds the map.
 canIWalk.controller('gMapController', ['$scope', 'mapFactory', function($scope, mapFactory) {
 
+   this.postStars1 = 1;
 
     $scope.dest = mapFactory.getDest();
     $scope.latLng = mapFactory.getLatLng();
     var userID = localStorage.getItem('ID');
     var token = localStorage.getItem('token');
-    findTrip($scope.latLng, $scope.dest, userID, token)
+    findTrip($scope.latLng, $scope.dest, userID, token);
+    
 
 }]); //end gmap controller, finds map
 
@@ -169,7 +174,7 @@ canIWalk.controller('destinationController', ['$scope', '$http', 'mapFactory', f
         url: 'https://peaceful-journey-51869.herokuapp.com/trips/destination_generator?max_distance='+usrMaxDistance+'&latitude='+lat+'&longitude='+lng+'&token='+token
       }).then(function successCallback(response) {
         console.log(response);
-        console.log(response.data.suggestions);
+        console.log(response.data);
         if (response.data.suggestions.length > 0){
           $scope.destinations = response.data.suggestions;
         } else {

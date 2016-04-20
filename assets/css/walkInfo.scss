@@ -55,6 +55,35 @@
   height: 100%;
 }
 
+//star styling
+.ratings-category {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 1em;
+   width: 100%;
+   .ratings-stars {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: flex-end;
+      text-align: right;
+      .rating {
+         display: flex;
+      }
+
+      .filled {
+      color: $BurntOrange;
+      }
+   }
+}
+
+
+.fa-star {
+   display: flex;
+   flex-direction: row;
+   color: $Text;
+}
+
 
 //styling for the accept walk and decline walk buttons
 .walkInfo-buttons {

@@ -453,15 +453,9 @@
   margin-top: 50px; }
 
 .walkInfo-content {
-<<<<<<< HEAD
-  width: 80%;
-  margin-left: 10%;
-  font-family: "Droid Sans", sans-serif;
-=======
   width: 90%;
   margin-left: 5%;
   font-family: "Oswald", sans-serif;
->>>>>>> development
   font-size: 2em;
   color: #2E282A;
   padding-bottom: 4em; }
@@ -498,6 +492,27 @@
 
 .walkInfo-map-google {
   height: 100%; }
+
+.ratings-category {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  width: 100%; }
+  .ratings-category .ratings-stars {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    text-align: right; }
+    .ratings-category .ratings-stars .rating {
+      display: flex; }
+    .ratings-category .ratings-stars .filled {
+      color: #CD5334; }
+
+.fa-star {
+  display: flex;
+  flex-direction: row;
+  color: #2E282A; }
 
 .walkInfo-buttons {
   position: fixed;
