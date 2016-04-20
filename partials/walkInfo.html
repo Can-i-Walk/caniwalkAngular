@@ -38,25 +38,24 @@
          </ul>
       </section>
    </section>
-   <section ng-controller="walkDecisionController">
-     <div class="walkInfo-buttons">
-        <button class="walkInfo-accept" ng-click="tripTaken()">Take this walk</button>
-        <button class="walkInfo-decline" ng-click="modal=true">No thanks</button>
-     </div>
-  <!-- modal for walk-Info page -->
-     <div class="walkInfo-modal" ng-show="modal">
-        <div class="walkInfo-modal-content">
-           <header class="walkInfo-modal-header">
-              <h2 class="walkInfo-modal-header-main">Do you want to take this walk?</h2>
-              <a href="#/input-destination"><button class="walkInfo-modal-nothanks" ng-click="tripNotTaken()">No</button></a><!-- back to input walk page -->
-              <a><button class="walkInfo-modal-takewalk" ng-click="modal=false">Yes</button></a> <!-- close modal -->
-           </header>
-           <ul>
-              <li class="walkInfo-alternate-title">Here's some other options</li>
-              <li><a href="http://godurhamtransit.org/">Durham Public Transit</a></li>
-              <li><a href="https://rider-app.firebaseapp.com/#/">Rider</a></li>
-           </ul>
-        </div>
-     </div>
-   </section>
 </div>
+<section ng-controller="walkDecisionController">
+  <div class="walkInfo-buttons">
+     <button class="walkInfo-accept" ng-click="tripTaken()">Take this walk</button>
+     <button class="walkInfo-decline" ng-click="modal=true">No thanks</button>
+  </div>
+  <div class="walkInfo-modal" ng-show="modal">
+     <div class="walkInfo-modal-content">
+        <header class="walkInfo-modal-header">
+           <h2 class="walkInfo-modal-header-main">Decline this walk?</h2>
+           <a href="#/input-destination"><button class="walkInfo-modal-nothanks" ng-click="tripNotTaken()">Yes</button></a>
+           <a><button class="walkInfo-modal-takewalk" ng-click="modal=false">No</button></a>
+        </header>
+        <ul>
+           <li class="walkInfo-alternate-title">Other transport options:</li>
+           <li><a href="http://godurhamtransit.org/">Durham Public Transit</a></li>
+           <li><a href="https://rider-app.firebaseapp.com/#/">Rider</a></li>
+        </ul>
+     </div>
+  </div>
+</section>

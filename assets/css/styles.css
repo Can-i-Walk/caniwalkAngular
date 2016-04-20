@@ -48,7 +48,7 @@
   margin-left: 5%; }
 
 .duringWalk-content {
-  margin-bottom: 100px; }
+  margin-bottom: 75px; }
 
 .duringWalk-map-createPOI-container {
   position: relative;
@@ -80,7 +80,7 @@
 
 .duringWalk-endWalk-button {
   color: white;
-  font-size: 2em;
+  font-size: 1.6em;
   font-family: "Droid Sans", sans-serif;
   border: 0.5em solid #17BEBB;
   background-color: #17BEBB;
@@ -215,21 +215,9 @@
     margin-top: 5%;
     border: 1px solid #2E282A; }
   .inputDest-form a {
-    display: flex;
     margin-top: 5%;
     text-decoration: none;
     color: #2E282A; }
-    .inputDest-form a button {
-      color: white;
-      font-size: 1.2em;
-      font-family: "Oswald", sans-serif;
-      border: 0.5em solid #17BEBB;
-      border-radius: 0.5em;
-      background-color: #17BEBB;
-      width: 70%;
-      margin-left: 5%;
-      position: fixed;
-      bottom: 1em; }
   .inputDest-form .inputDest-form-suggested-destinations .inputDest-form-suggested-destinations-prompt {
     font-size: 2em;
     font-weight: bold;
@@ -249,6 +237,16 @@
 
 .pac-item-query {
   font-size: 1em; }
+
+.inputDest-walkInfo-btn {
+  color: white;
+  font-size: 1.5em;
+  font-family: "Droid Sans", sans-serif;
+  border: 0.5em solid #17BEBB;
+  background-color: #17BEBB;
+  width: 100%;
+  position: fixed;
+  bottom: 0; }
 
 .login-container {
   font-family: "Droid Sans", sans-serif;
@@ -442,7 +440,8 @@
   color: #2E282A;
   padding-bottom: 4em; }
   .walkInfo-content h2 {
-    text-align: center; }
+    text-align: center;
+    margin-bottom: 10px; }
   .walkInfo-content .walkInfo-map {
     height: 15em;
     width: 100%; }
@@ -453,9 +452,10 @@
   .walkInfo-content .walkInfo-test {
     font-weight: bold; }
   .walkInfo-content .walkInfo-weather-intro {
-    font-weight: bold; }
+    font-weight: bold;
+    margin-top: 10px; }
   .walkInfo-content .walkInfo-maxDistance-text {
-    margin-top: 75px;
+    margin-top: 40px;
     text-align: center;
     color: #CD5334;
     font-size: .5em; }
@@ -465,38 +465,32 @@
       margin-bottom: 0.5em; }
     .walkInfo-content .walkInfo-reviews .walkInfo-rating-number {
       float: right; }
-  .walkInfo-content .walkInfo-weather-intro {
-    margin-top: 65px; }
   .walkInfo-content .walkInfo-weatherData {
     margin-top: 25px; }
     .walkInfo-content .walkInfo-weatherData div {
       display: inline-block; }
 
-.walkInfo-map-google {
-  height: 100%; }
-
 .walkInfo-buttons {
   position: fixed;
-  bottom: 0.05em;
+  bottom: 0;
   font-size: 1em;
-  width: 100%;
-  margin-left: 5%; }
+  width: 100%; }
   .walkInfo-buttons button {
-    font-size: 1em;
-    font-family: "Oswald", sans-serif;
-    width: 45%; }
-  .walkInfo-buttons .walkInfo-accept {
     font-size: 1.5em;
+    font-family: "Droid Sans", sans-serif;
+    width: 50%;
+    padding-top: 15px;
+    padding-bottom: 15px; }
+  .walkInfo-buttons .walkInfo-accept {
+    float: left;
     color: white;
     background-color: #17BEBB;
-    border: 0.5em solid #17BEBB;
-    border-radius: 0.5em; }
+    border: none; }
   .walkInfo-buttons .walkInfo-decline {
-    font-size: 1.5em;
+    float: right;
     color: white;
     background-color: #CD5334;
-    border: 0.5em solid #CD5334;
-    border-radius: 0.5em; }
+    border: none; }
 
 .walkInfo-modal {
   position: absolute;

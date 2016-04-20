@@ -13,27 +13,11 @@
       border: 1px solid $Text;
    }
    a {
-      display: flex;
       margin-top: 5%;
-      // font-size: 3em;
       text-decoration: none;
       color: $Text;
-      button {
-        color: white;
-        font:{
-          size: 1.2em;
-          family: $Oswald;
-        }
-        border: 0.5em solid $Teal;
-        border-radius: 0.5em;
-        background-color: $Teal;
-      //   padding: 1em 0;
-        width: 70%;
-        margin-left: 5%;
-        position: fixed;
-        bottom: 1em;
-      }
    }
+
    .inputDest-form-suggested-destinations{
      .inputDest-form-suggested-destinations-prompt{
        font:{
@@ -63,3 +47,16 @@
 .pac-item-query {
    font-size: 1em;
 }
+
+.inputDest-walkInfo-btn {
+   color: white;
+   font:{
+     size: 1.5em;
+     family: $DroidSans;
+   }
+   border: 0.5em solid $Teal;
+   background-color: $Teal;
+   width: 100%;
+   position: fixed;
+   bottom: 0;
+ }

@@ -12,14 +12,13 @@
     }
 }
 .duringWalk-map {
-    //  font-size: 1em;
      height: 33em;
      width: 90%;
      margin-left: 5%;
   }
 
 .duringWalk-content {
-  margin-bottom: 100px;
+  margin-bottom: 75px;
 }
 
 .duringWalk-map-createPOI-container {
@@ -65,7 +64,7 @@
 .duringWalk-endWalk-button {
   color: white;
   font: {
-    size: 2em;
+    size: 1.6em;
     family: $DroidSans;
   }
   border: 0.5em solid $Teal;

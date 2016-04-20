@@ -7,9 +7,9 @@
    padding-bottom: 4em;
    h2 {
     text-align: center;
+    margin-bottom: 10px;
    }
    .walkInfo-map {
-      // font-size: 300px;
       height: 15em;
       width: 100%;
    }
@@ -24,9 +24,10 @@
    }
    .walkInfo-weather-intro {
       font-weight: bold;
+      margin-top: 10px;
    }
    .walkInfo-maxDistance-text{
-     margin-top: 75px;
+     margin-top: 40px;
      text-align: center;
      color: $BurntOrange;
      font-size: .5em;
@@ -40,9 +41,6 @@
          float: right;
       }
    }
-   .walkInfo-weather-intro {
-     margin-top: 65px;
-   }
    .walkInfo-weatherData {
      margin-top: 25px;
      div {
@@ -51,39 +49,35 @@
    }
 }
 
-.walkInfo-map-google {
-  height: 100%;
-}
-
-
 //styling for the accept walk and decline walk buttons
 .walkInfo-buttons {
    position: fixed;
-   bottom: 0.05em;
+   bottom: 0;
    font-size: 1em;
    width: 100%;
-   margin-left: 5%;
+  //  margin-left: 5%;
    button {
-      // padding: 0.5em;
       font:{
-        size: 1em;
-        family: $Oswald;
+        size: 1.5em;
+        family: $DroidSans;
       }
-      width: 45%;
+      width: 50%;
+      padding:{
+        top: 15px;
+        bottom: 15px;
+      }
    }
    .walkInfo-accept {
-      font-size: 1.5em;
+      float: left;
       color: white;
       background-color: $Teal;
-      border: 0.5em solid $Teal;
-      border-radius: 0.5em;
+      border: none;
    }
    .walkInfo-decline {
-      font-size: 1.5em;
-      color: white;
-      background-color: $BurntOrange;
-      border: 0.5em solid $BurntOrange;
-      border-radius: 0.5em;
+     float: right;
+     color: white;
+     background-color: $BurntOrange;
+     border: none;
    }
 }//end styling for the accept/decline buttons
 
